@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "ChatServer.h"
 #include "ChatSession.h"
+#include "Network/Handlers/ChatPacketHandler.h"
 
 ChatServer::ChatServer(asio::io_context& io_context, int port)
 	: _acceptor(io_context, tcp::endpoint(tcp::v4(), port)),
@@ -38,6 +39,8 @@ void ChatServer::OnAccept(SessionPtr session, boost::system::error_code ec)
 
 int main()
 {
+	ChatPacketHandler::Init();
+
 	try
 	{
 		int port = 4242;
@@ -50,7 +53,6 @@ int main()
 	catch (std::exception& e)
 	{
 		spdlog::info("Exception {}", e.what());
-		//std::cerr << "Exception: " << e.what() << "\n";
 	}
 
 	return 0;
