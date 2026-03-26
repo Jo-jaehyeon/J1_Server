@@ -42,14 +42,14 @@ public:
 	{
 		if (buffer.size() <= offset)
 		{
-			spdlog::error("Buffer size is smaller than offset..");
+			spdlog::error("Header size is smaller than offset..");
 			return false;
 		}
 
 		const size_t remainedSize = buffer.size() - offset;
 		if (remainedSize < sizeof(PacketHeader))
 		{
-			spdlog::error("remainedSize of Packet is smaller than PacketHeader' size");
+			spdlog::error("remainedSize of Header is smaller than PacketHeader' size");
 			return false;
 		}
 
@@ -62,14 +62,7 @@ public:
 
 	static bool Parse(google::protobuf::Message& msg, const asio::mutable_buffer& buffer, const int payloadSize, int& offset)
 	{
-		if (buffer.size() <= sizeof(PacketHeader))
-		{
-			spdlog::error("Buffer size is smaller than offset..");
-			return false;
-		}
-
-		const char* payloadPtr = static_cast<char*>(buffer.data()) + offset;
-		const size_t remaiedSize = buffer.size() - offset;
+		const char* payloadPtr = static_cast<char*>(buffer.data());
 		const bool parseResult = msg.ParseFromArray(payloadPtr, payloadSize);
 
 		if (parseResult)

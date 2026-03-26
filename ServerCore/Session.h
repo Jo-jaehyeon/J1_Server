@@ -17,10 +17,13 @@ public:
 
 protected:
 	virtual void AsyncRead();
+	virtual void AsyncHeaderRead();
+	virtual void AsyncBodyRead();
 	virtual void AsyncWrite(const BufferPooledVector& data, size_t size);
 
 
-	void OnRead(const boost::system::error_code& err, size_t bytes_transferred);
+	void OnHeaderRead(const boost::system::error_code& err, size_t bytes_transferred);
+	void OnBodyRead(const boost::system::error_code& err, size_t bytes_transferred);
 	void OnWrite(const boost::system::error_code& err, size_t bytes_transferred);
 
 	virtual void HandlePacket() = 0;
