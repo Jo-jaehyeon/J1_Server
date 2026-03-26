@@ -1,8 +1,8 @@
 #pragma once
-//#include "pch.h"
 #include "../Protocol/ChatProtocol.pb.h"
+#include "Packet.h"
 
-using PacketHandlerFunc = std::function<bool(SessionPtr&, boost::asio::mutable_buffer*, int32)>;
+using PacketHandlerFunc = std::function<bool(SessionPtr&, boost::asio::mutable_buffer&, int32&)>;
 extern PacketHandlerFunc GPacketHandler[UINT16_MAX];
 
 enum
@@ -13,7 +13,7 @@ enum
 };
 
 // Custom Handler
-bool Handle_INVALID(SessionPtr& session, boost::asio::mutable_buffer* buffer, int32 len);
+bool Handle_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset);
 
 {%- for pkt in parser.recv_pkt %}
 bool Handle_{{pkt.name}}(SessionPtr& session, Chat::{{pkt.name}}& pkt);
@@ -29,14 +29,14 @@ public:
 			GPacketHandler[i] = Handle_INVALID;
 
 
-		{ % -for pkt in parser.recv_pkt% }
-		GPacketHandler[PKT_{ {pkt.name} }] = [](SessionPtr& session, boost::asio::mutable_buffer* buffer, int32 len) {
-			return HandlePacket < Chat::{{pkt.name}} > (Handle_{ {pkt.name} }, session, buffer, len);
+		{%- for pkt in parser.recv_pkt %}
+		GPacketHandler[PKT_{{pkt.name}}] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return HandlePacket < Chat::{{pkt.name}} > (Handle_{{pkt.name}}, session, buffer, offset);
 			};
-		{ % -endfor% }
+		{%- endfor %}
 	}
 
-	static bool HandlePacket(SessionPtr & session, const PacketHeader & header, char* ptr, size_t size)
+	static bool HandlePacket(SessionPtr & session, const PacketHeader& header, char* ptr, size_t size)
 	{
 		boost::asio::mutable_buffer buffer = boost::asio::buffer(ptr, size);
 		int offset = 4;
@@ -46,11 +46,14 @@ public:
 
 private:
 	template<typename PacketType, typename ProcessFunc>
-	static bool HandlePacket(ProcessFunc func, SessionPtr & session, boost::asio::mutable_buffer * buffer, int32 len)
+	static bool DispatchPacket(ProcessFunc func, SessionPtr & session, boost::asio::mutable_buffer& buffer, int32& offset)
 	{
 		PacketType pkt;
-		if (pkt.ParseFromArray(buffer + sizeof(PacketHeader), len - sizeof(PacketHeader)) == false)
+		if (!PacketUtil::Parse(pkt, buffer, buffer.size(), offset))
+		{
+			spdlog::error("Failed to Handle Packet : {}", pkt);
 			return false;
+		}
 
 		return func(session, pkt);
 	}
