@@ -434,9 +434,6 @@ Libraries
 
 **/*.vcxproj.*
 
-**/*.pb.h
-**/*.pb.cc
-
 # Include Packet Setting
 Common/**
 !Common/Protobuf
