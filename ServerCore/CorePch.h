@@ -21,11 +21,13 @@
 #include <boost/enable_shared_from_this.hpp>
 #include <boost/algorithm//string/split.hpp>
 #include <boost/algorithm//string/classification.hpp>
+#include <boost/pool/pool_alloc.hpp>
+
+using BufferAllocator = boost::pool_allocator<char>;
+using BufferPooledVector = std::vector<char, BufferAllocator>;
 
 // spdlog
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/basic_file_sink.h"
 #include "spdlog/sinks/rotating_file_sink.h"
 #include "spdlog/sinks/daily_file_sink.h"
-
-void HelloWorld();
