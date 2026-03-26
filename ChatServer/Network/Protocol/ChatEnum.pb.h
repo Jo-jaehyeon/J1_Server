@@ -57,20 +57,20 @@ PROTOBUF_NAMESPACE_CLOSE
 namespace Chat {
 
 enum MessageCode : int {
-  LOGIN_REQ = 0,
-  LOGIN_RES = 1,
-  LIST_REQ = 2,
-  LIST_RES = 3,
-  CHAT_REQ = 4,
-  CHAT_RES = 5,
-  CHAT_NOTI_REQ = 6,
-  CHAT_NOTI_RES = 7,
+  PKT_REQ_LOGIN = 0,
+  PKT_RES_LOGIN = 1,
+  PKT_REQ_LIST = 2,
+  PKT_RES_LIST = 3,
+  PKT_REQ_CHAT = 4,
+  PKT_RES_CHAT = 5,
+  PKT_REQ_CHATNOTI = 6,
+  PKT_RES_CHATNOTI = 7,
   MessageCode_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   MessageCode_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool MessageCode_IsValid(int value);
-constexpr MessageCode MessageCode_MIN = LOGIN_REQ;
-constexpr MessageCode MessageCode_MAX = CHAT_NOTI_RES;
+constexpr MessageCode MessageCode_MIN = PKT_REQ_LOGIN;
+constexpr MessageCode MessageCode_MAX = PKT_RES_CHATNOTI;
 constexpr int MessageCode_ARRAYSIZE = MessageCode_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MessageCode_descriptor();

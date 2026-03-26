@@ -21,6 +21,7 @@
 #include <boost/enable_shared_from_this.hpp>
 #include <boost/algorithm//string/split.hpp>
 #include <boost/algorithm//string/classification.hpp>
+#include <boost/algorithm/string.hpp>
 #include <boost/pool/pool_alloc.hpp>
 
 using BufferAllocator = boost::pool_allocator<char>;

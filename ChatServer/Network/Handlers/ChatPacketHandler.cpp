@@ -20,8 +20,9 @@ bool Handle_REQ_LIST(SessionPtr& session, Chat::REQ_LIST& pkt)
 
 bool Handle_REQ_CHAT(SessionPtr& session, Chat::REQ_CHAT& pkt)
 {
-	spdlog::info("Receive Chat Requset");
-    return false;
+	std::vector<std::string> msgs(pkt.message().begin(), pkt.message().end());
+	spdlog::trace("Receive Chat Request {}", boost::algorithm::join(msgs, " "));
+    return true;
 }
 
 bool Handle_REQ_CHATNOTI(SessionPtr& session, Chat::REQ_CHATNOTI& pkt)
