@@ -10,7 +10,7 @@ public:
 	bool HandleEnterPlayerLocked(ChatMemberPtr player);
 	bool HandleLeavePlayerLocked(ChatMemberPtr player);
 
-	void Broadcast(const std::string& msg);
+	void Broadcast(google::protobuf::Message& pkt);
 
 private:
 	std::unordered_map<uint64, ChatMemberPtr> _members;

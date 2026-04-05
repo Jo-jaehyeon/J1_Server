@@ -37,6 +37,8 @@ bool ChatRoom::HandleEnterPlayerLocked(ChatMemberPtr player)
 {
 	//WRITE_LOCK;
 
+	// TODO playerid 부여 
+	player->playerInfo->set_player_id(_members.size()+1);
 	bool success = EnterPlayer(player);
 
 	Chat::RES_ENTER_ROOM enterPkt;
@@ -56,18 +58,13 @@ bool ChatRoom::HandleLeavePlayerLocked(ChatMemberPtr player)
 	return success;
 }
 
-void ChatRoom::Broadcast(const std::string& msg)
+void ChatRoom::Broadcast(google::protobuf::Message& pkt)
 {
-	// TODO : Chatserver에선 msg전달이 주목적
-	// string에 대한 chat 요청 패킷으로 감싸 보내게 하자
-	Chat::RES_CHAT ChatPkt;
-	ChatPkt.set_message(msg);
-
 	for (auto& m : _members)
 	{
 		ChatMemberPtr player = m.second;
 
 		if (auto session = player->session.lock())
-			session->SendPacket(ChatPkt, Chat::MessageCode::PKT_RES_CHAT);
+			session->SendPacket(pkt, Chat::MessageCode::PKT_RES_CHAT);
 	}
 }
