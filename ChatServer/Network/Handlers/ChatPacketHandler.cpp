@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "ChatPacketHandler.h"
+#include "../../ChatMember.h"
+#include "../../ChatSession.h"
 
 PacketHandlerFunc GPacketHandler[UINT16_MAX];
 
@@ -8,26 +10,30 @@ bool Handle_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, in
     return false;
 }
 
-bool Handle_REQ_LOGIN(SessionPtr& session, Chat::REQ_LOGIN& pkt)
+bool Handle_REQ_ENTER_ROOM(SessionPtr& session, Chat::REQ_ENTER_ROOM& pkt)
 {
-    return false;
-}
+	// TODO
+	ChatMemberPtr player = std::make_shared<ChatMember>();
+	player->playerInfo->set_name(pkt.name());
 
-bool Handle_REQ_LIST(SessionPtr& session, Chat::REQ_LIST& pkt)
-{
-    return false;
+	ChatSessionPtr cs = static_pointer_cast<ChatSession>(session);
+	player->session = cs;
+	cs->player.store(player);
+
+	spdlog::info("Someone Enter chat Room");
+	GRoom->HandleEnterPlayerLocked(player);
+
+	return true;
 }
 
 bool Handle_REQ_CHAT(SessionPtr& session, Chat::REQ_CHAT& pkt)
 {
-	std::vector<std::string> msgs(pkt.message().begin(), pkt.message().end());
-	spdlog::trace("Receive Chat Request {}", boost::algorithm::join(msgs, " "));
-    return true;
-}
+	std::string content = pkt.message();
+	spdlog::trace("Receive Chat Request {}", content);
+	
+	GRoom->Broadcast(content);
 
-bool Handle_REQ_CHATNOTI(SessionPtr& session, Chat::REQ_CHATNOTI& pkt)
-{
-    return false;
+    return true;
 }
 
 /*
