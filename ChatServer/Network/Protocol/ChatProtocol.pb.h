@@ -460,28 +460,18 @@ class REQ_CHAT final :
     kSenderFieldNumber = 2,
     kMessageFieldNumber = 3,
   };
-  // repeated string time = 1;
-  int time_size() const;
-  private:
-  int _internal_time_size() const;
-  public:
+  // string time = 1;
   void clear_time();
-  const std::string& time(int index) const;
-  std::string* mutable_time(int index);
-  void set_time(int index, const std::string& value);
-  void set_time(int index, std::string&& value);
-  void set_time(int index, const char* value);
-  void set_time(int index, const char* value, size_t size);
-  std::string* add_time();
-  void add_time(const std::string& value);
-  void add_time(std::string&& value);
-  void add_time(const char* value);
-  void add_time(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& time() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_time();
+  const std::string& time() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_time(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_time();
+  PROTOBUF_FUTURE_MUST_USE_RESULT std::string* release_time();
+  void set_allocated_time(std::string* time);
   private:
-  const std::string& _internal_time(int index) const;
-  std::string* _internal_add_time();
+  const std::string& _internal_time() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_time(const std::string& value);
+  std::string* _internal_mutable_time();
   public:
 
   // string sender = 2;
@@ -519,7 +509,7 @@ class REQ_CHAT final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> time_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr time_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sender_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -639,28 +629,18 @@ class RES_CHAT final :
     kSenderFieldNumber = 2,
     kMessageFieldNumber = 3,
   };
-  // repeated string time = 1;
-  int time_size() const;
-  private:
-  int _internal_time_size() const;
-  public:
+  // string time = 1;
   void clear_time();
-  const std::string& time(int index) const;
-  std::string* mutable_time(int index);
-  void set_time(int index, const std::string& value);
-  void set_time(int index, std::string&& value);
-  void set_time(int index, const char* value);
-  void set_time(int index, const char* value, size_t size);
-  std::string* add_time();
-  void add_time(const std::string& value);
-  void add_time(std::string&& value);
-  void add_time(const char* value);
-  void add_time(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& time() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_time();
+  const std::string& time() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_time(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_time();
+  PROTOBUF_FUTURE_MUST_USE_RESULT std::string* release_time();
+  void set_allocated_time(std::string* time);
   private:
-  const std::string& _internal_time(int index) const;
-  std::string* _internal_add_time();
+  const std::string& _internal_time() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_time(const std::string& value);
+  std::string* _internal_mutable_time();
   public:
 
   // string sender = 2;
@@ -698,7 +678,7 @@ class RES_CHAT final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> time_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr time_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr sender_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr message_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -788,78 +768,49 @@ inline void RES_ENTER_ROOM::set_result(bool value) {
 
 // REQ_CHAT
 
-// repeated string time = 1;
-inline int REQ_CHAT::_internal_time_size() const {
-  return time_.size();
-}
-inline int REQ_CHAT::time_size() const {
-  return _internal_time_size();
-}
+// string time = 1;
 inline void REQ_CHAT::clear_time() {
-  time_.Clear();
+  time_.ClearToEmpty();
 }
-inline std::string* REQ_CHAT::add_time() {
-  // @@protoc_insertion_point(field_add_mutable:Chat.REQ_CHAT.time)
-  return _internal_add_time();
-}
-inline const std::string& REQ_CHAT::_internal_time(int index) const {
-  return time_.Get(index);
-}
-inline const std::string& REQ_CHAT::time(int index) const {
+inline const std::string& REQ_CHAT::time() const {
   // @@protoc_insertion_point(field_get:Chat.REQ_CHAT.time)
-  return _internal_time(index);
+  return _internal_time();
 }
-inline std::string* REQ_CHAT::mutable_time(int index) {
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void REQ_CHAT::set_time(ArgT0&& arg0, ArgT... args) {
+ 
+ time_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Chat.REQ_CHAT.time)
+}
+inline std::string* REQ_CHAT::mutable_time() {
   // @@protoc_insertion_point(field_mutable:Chat.REQ_CHAT.time)
-  return time_.Mutable(index);
+  return _internal_mutable_time();
 }
-inline void REQ_CHAT::set_time(int index, const std::string& value) {
-  // @@protoc_insertion_point(field_set:Chat.REQ_CHAT.time)
-  time_.Mutable(index)->assign(value);
+inline const std::string& REQ_CHAT::_internal_time() const {
+  return time_.Get();
 }
-inline void REQ_CHAT::set_time(int index, std::string&& value) {
-  // @@protoc_insertion_point(field_set:Chat.REQ_CHAT.time)
-  time_.Mutable(index)->assign(std::move(value));
+inline void REQ_CHAT::_internal_set_time(const std::string& value) {
+  
+  time_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline void REQ_CHAT::set_time(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  time_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:Chat.REQ_CHAT.time)
+inline std::string* REQ_CHAT::_internal_mutable_time() {
+  
+  return time_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline void REQ_CHAT::set_time(int index, const char* value, size_t size) {
-  time_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:Chat.REQ_CHAT.time)
+inline std::string* REQ_CHAT::release_time() {
+  // @@protoc_insertion_point(field_release:Chat.REQ_CHAT.time)
+  return time_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
-inline std::string* REQ_CHAT::_internal_add_time() {
-  return time_.Add();
-}
-inline void REQ_CHAT::add_time(const std::string& value) {
-  time_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:Chat.REQ_CHAT.time)
-}
-inline void REQ_CHAT::add_time(std::string&& value) {
-  time_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:Chat.REQ_CHAT.time)
-}
-inline void REQ_CHAT::add_time(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  time_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:Chat.REQ_CHAT.time)
-}
-inline void REQ_CHAT::add_time(const char* value, size_t size) {
-  time_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:Chat.REQ_CHAT.time)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-REQ_CHAT::time() const {
-  // @@protoc_insertion_point(field_list:Chat.REQ_CHAT.time)
-  return time_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-REQ_CHAT::mutable_time() {
-  // @@protoc_insertion_point(field_mutable_list:Chat.REQ_CHAT.time)
-  return &time_;
+inline void REQ_CHAT::set_allocated_time(std::string* time) {
+  if (time != nullptr) {
+    
+  } else {
+    
+  }
+  time_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), time,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:Chat.REQ_CHAT.time)
 }
 
 // string sender = 2;
@@ -956,78 +907,49 @@ inline void REQ_CHAT::set_allocated_message(std::string* message) {
 
 // RES_CHAT
 
-// repeated string time = 1;
-inline int RES_CHAT::_internal_time_size() const {
-  return time_.size();
-}
-inline int RES_CHAT::time_size() const {
-  return _internal_time_size();
-}
+// string time = 1;
 inline void RES_CHAT::clear_time() {
-  time_.Clear();
+  time_.ClearToEmpty();
 }
-inline std::string* RES_CHAT::add_time() {
-  // @@protoc_insertion_point(field_add_mutable:Chat.RES_CHAT.time)
-  return _internal_add_time();
-}
-inline const std::string& RES_CHAT::_internal_time(int index) const {
-  return time_.Get(index);
-}
-inline const std::string& RES_CHAT::time(int index) const {
+inline const std::string& RES_CHAT::time() const {
   // @@protoc_insertion_point(field_get:Chat.RES_CHAT.time)
-  return _internal_time(index);
+  return _internal_time();
 }
-inline std::string* RES_CHAT::mutable_time(int index) {
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RES_CHAT::set_time(ArgT0&& arg0, ArgT... args) {
+ 
+ time_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Chat.RES_CHAT.time)
+}
+inline std::string* RES_CHAT::mutable_time() {
   // @@protoc_insertion_point(field_mutable:Chat.RES_CHAT.time)
-  return time_.Mutable(index);
+  return _internal_mutable_time();
 }
-inline void RES_CHAT::set_time(int index, const std::string& value) {
-  // @@protoc_insertion_point(field_set:Chat.RES_CHAT.time)
-  time_.Mutable(index)->assign(value);
+inline const std::string& RES_CHAT::_internal_time() const {
+  return time_.Get();
 }
-inline void RES_CHAT::set_time(int index, std::string&& value) {
-  // @@protoc_insertion_point(field_set:Chat.RES_CHAT.time)
-  time_.Mutable(index)->assign(std::move(value));
+inline void RES_CHAT::_internal_set_time(const std::string& value) {
+  
+  time_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
 }
-inline void RES_CHAT::set_time(int index, const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  time_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:Chat.RES_CHAT.time)
+inline std::string* RES_CHAT::_internal_mutable_time() {
+  
+  return time_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
 }
-inline void RES_CHAT::set_time(int index, const char* value, size_t size) {
-  time_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:Chat.RES_CHAT.time)
+inline std::string* RES_CHAT::release_time() {
+  // @@protoc_insertion_point(field_release:Chat.RES_CHAT.time)
+  return time_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
 }
-inline std::string* RES_CHAT::_internal_add_time() {
-  return time_.Add();
-}
-inline void RES_CHAT::add_time(const std::string& value) {
-  time_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:Chat.RES_CHAT.time)
-}
-inline void RES_CHAT::add_time(std::string&& value) {
-  time_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:Chat.RES_CHAT.time)
-}
-inline void RES_CHAT::add_time(const char* value) {
-  GOOGLE_DCHECK(value != nullptr);
-  time_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:Chat.RES_CHAT.time)
-}
-inline void RES_CHAT::add_time(const char* value, size_t size) {
-  time_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:Chat.RES_CHAT.time)
-}
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-RES_CHAT::time() const {
-  // @@protoc_insertion_point(field_list:Chat.RES_CHAT.time)
-  return time_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-RES_CHAT::mutable_time() {
-  // @@protoc_insertion_point(field_mutable_list:Chat.RES_CHAT.time)
-  return &time_;
+inline void RES_CHAT::set_allocated_time(std::string* time) {
+  if (time != nullptr) {
+    
+  } else {
+    
+  }
+  time_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), time,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:Chat.RES_CHAT.time)
 }
 
 // string sender = 2;

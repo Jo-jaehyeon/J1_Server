@@ -43,7 +43,7 @@ struct RES_ENTER_ROOMDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RES_ENTER_ROOMDefaultTypeInternal _RES_ENTER_ROOM_default_instance_;
 constexpr REQ_CHAT::REQ_CHAT(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : time_()
+  : time_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , sender_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , message_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
 struct REQ_CHATDefaultTypeInternal {
@@ -57,7 +57,7 @@ struct REQ_CHATDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_CHATDefaultTypeInternal _REQ_CHAT_default_instance_;
 constexpr RES_CHAT::RES_CHAT(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : time_()
+  : time_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , sender_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
   , message_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
 struct RES_CHATDefaultTypeInternal {
@@ -122,9 +122,9 @@ const char descriptor_table_protodef_ChatProtocol_2eproto[] PROTOBUF_SECTION_VAR
   "\n\022ChatProtocol.proto\022\004Chat\032\016ChatEnum.pro"
   "to\032\020ChatStruct.proto\"\036\n\016REQ_ENTER_ROOM\022\014"
   "\n\004name\030\001 \001(\t\" \n\016RES_ENTER_ROOM\022\016\n\006result"
-  "\030\001 \001(\010\"9\n\010REQ_CHAT\022\014\n\004time\030\001 \003(\t\022\016\n\006send"
+  "\030\001 \001(\010\"9\n\010REQ_CHAT\022\014\n\004time\030\001 \001(\t\022\016\n\006send"
   "er\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\"9\n\010RES_CHAT\022\014\n"
-  "\004time\030\001 \003(\t\022\016\n\006sender\030\002 \001(\t\022\017\n\007message\030\003"
+  "\004time\030\001 \001(\t\022\016\n\006sender\030\002 \001(\t\022\017\n\007message\030\003"
   " \001(\tb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ChatProtocol_2eproto_deps[2] = {
@@ -546,16 +546,19 @@ class REQ_CHAT::_Internal {
 };
 
 REQ_CHAT::REQ_CHAT(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  time_(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:Chat.REQ_CHAT)
 }
 REQ_CHAT::REQ_CHAT(const REQ_CHAT& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      time_(from.time_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  time_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_time().empty()) {
+    time_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_time(), 
+      GetArenaForAllocation());
+  }
   sender_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_sender().empty()) {
     sender_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_sender(), 
@@ -570,6 +573,7 @@ REQ_CHAT::REQ_CHAT(const REQ_CHAT& from)
 }
 
 void REQ_CHAT::SharedCtor() {
+time_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 sender_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -582,6 +586,7 @@ REQ_CHAT::~REQ_CHAT() {
 
 void REQ_CHAT::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  time_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   sender_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   message_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -602,7 +607,7 @@ void REQ_CHAT::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  time_.Clear();
+  time_.ClearToEmpty();
   sender_.ClearToEmpty();
   message_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -614,18 +619,13 @@ const char* REQ_CHAT::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated string time = 1;
+      // string time = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            auto str = _internal_add_time();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Chat.REQ_CHAT.time"));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+          auto str = _internal_mutable_time();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Chat.REQ_CHAT.time"));
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // string sender = 2;
@@ -675,14 +675,14 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated string time = 1;
-  for (int i = 0, n = this->_internal_time_size(); i < n; i++) {
-    const auto& s = this->_internal_time(i);
+  // string time = 1;
+  if (!this->time().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      s.data(), static_cast<int>(s.length()),
+      this->_internal_time().data(), static_cast<int>(this->_internal_time().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "Chat.REQ_CHAT.time");
-    target = stream->WriteString(1, s, target);
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_time(), target);
   }
 
   // string sender = 2;
@@ -721,12 +721,11 @@ size_t REQ_CHAT::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string time = 1;
-  total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(time_.size());
-  for (int i = 0, n = time_.size(); i < n; i++) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-      time_.Get(i));
+  // string time = 1;
+  if (!this->time().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_time());
   }
 
   // string sender = 2;
@@ -774,7 +773,9 @@ void REQ_CHAT::MergeFrom(const REQ_CHAT& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  time_.MergeFrom(from.time_);
+  if (!from.time().empty()) {
+    _internal_set_time(from._internal_time());
+  }
   if (!from.sender().empty()) {
     _internal_set_sender(from._internal_sender());
   }
@@ -804,7 +805,11 @@ bool REQ_CHAT::IsInitialized() const {
 void REQ_CHAT::InternalSwap(REQ_CHAT* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  time_.InternalSwap(&other->time_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &time_, GetArenaForAllocation(),
+      &other->time_, other->GetArenaForAllocation()
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &sender_, GetArenaForAllocation(),
@@ -830,16 +835,19 @@ class RES_CHAT::_Internal {
 };
 
 RES_CHAT::RES_CHAT(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
-  time_(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:Chat.RES_CHAT)
 }
 RES_CHAT::RES_CHAT(const RES_CHAT& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message(),
-      time_(from.time_) {
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  time_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_time().empty()) {
+    time_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_time(), 
+      GetArenaForAllocation());
+  }
   sender_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   if (!from._internal_sender().empty()) {
     sender_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_sender(), 
@@ -854,6 +862,7 @@ RES_CHAT::RES_CHAT(const RES_CHAT& from)
 }
 
 void RES_CHAT::SharedCtor() {
+time_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 sender_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 message_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -866,6 +875,7 @@ RES_CHAT::~RES_CHAT() {
 
 void RES_CHAT::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  time_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   sender_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   message_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -886,7 +896,7 @@ void RES_CHAT::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  time_.Clear();
+  time_.ClearToEmpty();
   sender_.ClearToEmpty();
   message_.ClearToEmpty();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -898,18 +908,13 @@ const char* RES_CHAT::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::i
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated string time = 1;
+      // string time = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          ptr -= 1;
-          do {
-            ptr += 1;
-            auto str = _internal_add_time();
-            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-            CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Chat.RES_CHAT.time"));
-            CHK_(ptr);
-            if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+          auto str = _internal_mutable_time();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Chat.RES_CHAT.time"));
+          CHK_(ptr);
         } else goto handle_unusual;
         continue;
       // string sender = 2;
@@ -959,14 +964,14 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated string time = 1;
-  for (int i = 0, n = this->_internal_time_size(); i < n; i++) {
-    const auto& s = this->_internal_time(i);
+  // string time = 1;
+  if (!this->time().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      s.data(), static_cast<int>(s.length()),
+      this->_internal_time().data(), static_cast<int>(this->_internal_time().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "Chat.RES_CHAT.time");
-    target = stream->WriteString(1, s, target);
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_time(), target);
   }
 
   // string sender = 2;
@@ -1005,12 +1010,11 @@ size_t RES_CHAT::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated string time = 1;
-  total_size += 1 *
-      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(time_.size());
-  for (int i = 0, n = time_.size(); i < n; i++) {
-    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-      time_.Get(i));
+  // string time = 1;
+  if (!this->time().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_time());
   }
 
   // string sender = 2;
@@ -1058,7 +1062,9 @@ void RES_CHAT::MergeFrom(const RES_CHAT& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  time_.MergeFrom(from.time_);
+  if (!from.time().empty()) {
+    _internal_set_time(from._internal_time());
+  }
   if (!from.sender().empty()) {
     _internal_set_sender(from._internal_sender());
   }
@@ -1088,7 +1094,11 @@ bool RES_CHAT::IsInitialized() const {
 void RES_CHAT::InternalSwap(RES_CHAT* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  time_.InternalSwap(&other->time_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &time_, GetArenaForAllocation(),
+      &other->time_, other->GetArenaForAllocation()
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       &sender_, GetArenaForAllocation(),
