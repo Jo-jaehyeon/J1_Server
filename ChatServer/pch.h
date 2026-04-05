@@ -12,3 +12,5 @@
 
 #include "CorePch.h"
 #include "ChatTypes.h"
+#include "Network/Protocol/ChatProtocol.pb.h"
+#include "Network/Protocol/ChatStruct.pb.h"

@@ -8,3 +8,5 @@
 
 USING_SHARED_PTR(ChatSession)
 USING_SHARED_PTR(ChatServer)
+USING_SHARED_PTR(ChatRoom)
+USING_SHARED_PTR(ChatMember)
