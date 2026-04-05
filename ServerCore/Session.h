@@ -14,6 +14,7 @@ public:
 
 	boost::asio::ip::tcp::socket& GetSocket() { return _socket; }
 	void Start();
+	void Send(BufferPooledVector& buffer, size_t size);
 
 protected:
 	virtual void AsyncRead();

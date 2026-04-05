@@ -1,5 +1,8 @@
 #pragma once
 #include "Session.h"
+#include "ChatRoom.h"
+
+class ChatMemeber;
 
 class ChatSession : public Session
 {
@@ -13,7 +16,9 @@ public:
 
 	virtual void HandlePacket() override;
 
+	void SendPacket(google::protobuf::Message& msg, const short packetCode);
 
-private:
-	std::string _name;
+
+public:
+	std::atomic<std::shared_ptr<ChatMember>> player;
 };

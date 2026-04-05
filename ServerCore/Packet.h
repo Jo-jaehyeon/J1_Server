@@ -62,6 +62,7 @@ public:
 
 	static bool Parse(google::protobuf::Message& msg, const asio::mutable_buffer& buffer, const int payloadSize, int& offset)
 	{
+		// 헤더부터 읽고 바디를 따로 읽기때문에 offset을 더해주지 않음
 		const char* payloadPtr = static_cast<char*>(buffer.data());
 		const bool parseResult = msg.ParseFromArray(payloadPtr, payloadSize);
 

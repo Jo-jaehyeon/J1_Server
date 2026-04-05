@@ -15,6 +15,11 @@ void Session::Start()
     AsyncRead();
 }
 
+void Session::Send(BufferPooledVector& buffer, size_t size)
+{
+    AsyncWrite(buffer, size);
+}
+
 void Session::AsyncRead()
 {
     AsyncHeaderRead();

@@ -25,15 +25,14 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = n
 static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_ChatEnum_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\016ChatEnum.proto\022\004Chat*\247\001\n\013MessageCode\022\021"
-  "\n\rPKT_REQ_LOGIN\020\000\022\021\n\rPKT_RES_LOGIN\020\001\022\020\n\014"
-  "PKT_REQ_LIST\020\002\022\020\n\014PKT_RES_LIST\020\003\022\020\n\014PKT_"
-  "REQ_CHAT\020\004\022\020\n\014PKT_RES_CHAT\020\005\022\024\n\020PKT_REQ_"
-  "CHATNOTI\020\006\022\024\n\020PKT_RES_CHATNOTI\020\007b\006proto3"
+  "\n\016ChatEnum.proto\022\004Chat*a\n\013MessageCode\022\026\n"
+  "\022PKT_REQ_ENTER_ROOM\020\000\022\026\n\022PKT_RES_ENTER_R"
+  "OOM\020\001\022\020\n\014PKT_REQ_CHAT\020\002\022\020\n\014PKT_RES_CHAT\020"
+  "\003b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ChatEnum_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ChatEnum_2eproto = {
-  false, false, 200, descriptor_table_protodef_ChatEnum_2eproto, "ChatEnum.proto", 
+  false, false, 129, descriptor_table_protodef_ChatEnum_2eproto, "ChatEnum.proto", 
   &descriptor_table_ChatEnum_2eproto_once, nullptr, 0, 0,
   schemas, file_default_instances, TableStruct_ChatEnum_2eproto::offsets,
   nullptr, file_level_enum_descriptors_ChatEnum_2eproto, file_level_service_descriptors_ChatEnum_2eproto,
@@ -55,10 +54,6 @@ bool MessageCode_IsValid(int value) {
     case 1:
     case 2:
     case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
       return true;
     default:
       return false;
