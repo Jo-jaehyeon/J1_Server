@@ -56,32 +56,34 @@ PROTOBUF_NAMESPACE_OPEN
 PROTOBUF_NAMESPACE_CLOSE
 namespace Chat {
 
-enum MessageCode : int {
+enum PacketType : int {
   PKT_REQ_ENTER_ROOM = 0,
   PKT_RES_ENTER_ROOM = 1,
-  PKT_REQ_CHAT = 2,
-  PKT_RES_CHAT = 3,
-  MessageCode_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
-  MessageCode_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+  PKT_REQ_LEAVE_ROOM = 2,
+  PKT_RES_LEAVE_ROOM = 3,
+  PKT_REQ_CHAT = 4,
+  PKT_RES_CHAT = 5,
+  PacketType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  PacketType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
-bool MessageCode_IsValid(int value);
-constexpr MessageCode MessageCode_MIN = PKT_REQ_ENTER_ROOM;
-constexpr MessageCode MessageCode_MAX = PKT_RES_CHAT;
-constexpr int MessageCode_ARRAYSIZE = MessageCode_MAX + 1;
+bool PacketType_IsValid(int value);
+constexpr PacketType PacketType_MIN = PKT_REQ_ENTER_ROOM;
+constexpr PacketType PacketType_MAX = PKT_RES_CHAT;
+constexpr int PacketType_ARRAYSIZE = PacketType_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MessageCode_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PacketType_descriptor();
 template<typename T>
-inline const std::string& MessageCode_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, MessageCode>::value ||
+inline const std::string& PacketType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, PacketType>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function MessageCode_Name.");
+    "Incorrect type passed to function PacketType_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    MessageCode_descriptor(), enum_t_value);
+    PacketType_descriptor(), enum_t_value);
 }
-inline bool MessageCode_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, MessageCode* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<MessageCode>(
-    MessageCode_descriptor(), name, value);
+inline bool PacketType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, PacketType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<PacketType>(
+    PacketType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -105,10 +107,10 @@ inline bool MessageCode_Parse(
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::Chat::MessageCode> : ::std::true_type {};
+template <> struct is_proto_enum< ::Chat::PacketType> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Chat::MessageCode>() {
-  return ::Chat::MessageCode_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Chat::PacketType>() {
+  return ::Chat::PacketType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

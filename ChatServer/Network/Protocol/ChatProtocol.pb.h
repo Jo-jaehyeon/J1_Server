@@ -48,7 +48,7 @@ struct TableStruct_ChatProtocol_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[6]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -62,18 +62,26 @@ extern REQ_CHATDefaultTypeInternal _REQ_CHAT_default_instance_;
 class REQ_ENTER_ROOM;
 struct REQ_ENTER_ROOMDefaultTypeInternal;
 extern REQ_ENTER_ROOMDefaultTypeInternal _REQ_ENTER_ROOM_default_instance_;
+class REQ_LEAVE_ROOM;
+struct REQ_LEAVE_ROOMDefaultTypeInternal;
+extern REQ_LEAVE_ROOMDefaultTypeInternal _REQ_LEAVE_ROOM_default_instance_;
 class RES_CHAT;
 struct RES_CHATDefaultTypeInternal;
 extern RES_CHATDefaultTypeInternal _RES_CHAT_default_instance_;
 class RES_ENTER_ROOM;
 struct RES_ENTER_ROOMDefaultTypeInternal;
 extern RES_ENTER_ROOMDefaultTypeInternal _RES_ENTER_ROOM_default_instance_;
+class RES_LEAVE_ROOM;
+struct RES_LEAVE_ROOMDefaultTypeInternal;
+extern RES_LEAVE_ROOMDefaultTypeInternal _RES_LEAVE_ROOM_default_instance_;
 }  // namespace Chat
 PROTOBUF_NAMESPACE_OPEN
 template<> ::Chat::REQ_CHAT* Arena::CreateMaybeMessage<::Chat::REQ_CHAT>(Arena*);
 template<> ::Chat::REQ_ENTER_ROOM* Arena::CreateMaybeMessage<::Chat::REQ_ENTER_ROOM>(Arena*);
+template<> ::Chat::REQ_LEAVE_ROOM* Arena::CreateMaybeMessage<::Chat::REQ_LEAVE_ROOM>(Arena*);
 template<> ::Chat::RES_CHAT* Arena::CreateMaybeMessage<::Chat::RES_CHAT>(Arena*);
 template<> ::Chat::RES_ENTER_ROOM* Arena::CreateMaybeMessage<::Chat::RES_ENTER_ROOM>(Arena*);
+template<> ::Chat::RES_LEAVE_ROOM* Arena::CreateMaybeMessage<::Chat::RES_LEAVE_ROOM>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace Chat {
 
@@ -324,6 +332,281 @@ class RES_ENTER_ROOM final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kPlayerIdFieldNumber = 1,
+    kResultFieldNumber = 2,
+  };
+  // int32 player_id = 1;
+  void clear_player_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 player_id() const;
+  void set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_player_id() const;
+  void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // bool result = 2;
+  void clear_result();
+  bool result() const;
+  void set_result(bool value);
+  private:
+  bool _internal_result() const;
+  void _internal_set_result(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Chat.RES_ENTER_ROOM)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 player_id_;
+  bool result_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ChatProtocol_2eproto;
+};
+// -------------------------------------------------------------------
+
+class REQ_LEAVE_ROOM final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Chat.REQ_LEAVE_ROOM) */ {
+ public:
+  inline REQ_LEAVE_ROOM() : REQ_LEAVE_ROOM(nullptr) {}
+  ~REQ_LEAVE_ROOM() override;
+  explicit constexpr REQ_LEAVE_ROOM(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  REQ_LEAVE_ROOM(const REQ_LEAVE_ROOM& from);
+  REQ_LEAVE_ROOM(REQ_LEAVE_ROOM&& from) noexcept
+    : REQ_LEAVE_ROOM() {
+    *this = ::std::move(from);
+  }
+
+  inline REQ_LEAVE_ROOM& operator=(const REQ_LEAVE_ROOM& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline REQ_LEAVE_ROOM& operator=(REQ_LEAVE_ROOM&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const REQ_LEAVE_ROOM& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const REQ_LEAVE_ROOM* internal_default_instance() {
+    return reinterpret_cast<const REQ_LEAVE_ROOM*>(
+               &_REQ_LEAVE_ROOM_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(REQ_LEAVE_ROOM& a, REQ_LEAVE_ROOM& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(REQ_LEAVE_ROOM* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(REQ_LEAVE_ROOM* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline REQ_LEAVE_ROOM* New() const final {
+    return new REQ_LEAVE_ROOM();
+  }
+
+  REQ_LEAVE_ROOM* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<REQ_LEAVE_ROOM>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const REQ_LEAVE_ROOM& from);
+  void MergeFrom(const REQ_LEAVE_ROOM& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(REQ_LEAVE_ROOM* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Chat.REQ_LEAVE_ROOM";
+  }
+  protected:
+  explicit REQ_LEAVE_ROOM(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPlayerIdFieldNumber = 1,
+  };
+  // int32 player_id = 1;
+  void clear_player_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 player_id() const;
+  void set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_player_id() const;
+  void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Chat.REQ_LEAVE_ROOM)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 player_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_ChatProtocol_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RES_LEAVE_ROOM final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Chat.RES_LEAVE_ROOM) */ {
+ public:
+  inline RES_LEAVE_ROOM() : RES_LEAVE_ROOM(nullptr) {}
+  ~RES_LEAVE_ROOM() override;
+  explicit constexpr RES_LEAVE_ROOM(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RES_LEAVE_ROOM(const RES_LEAVE_ROOM& from);
+  RES_LEAVE_ROOM(RES_LEAVE_ROOM&& from) noexcept
+    : RES_LEAVE_ROOM() {
+    *this = ::std::move(from);
+  }
+
+  inline RES_LEAVE_ROOM& operator=(const RES_LEAVE_ROOM& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RES_LEAVE_ROOM& operator=(RES_LEAVE_ROOM&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RES_LEAVE_ROOM& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RES_LEAVE_ROOM* internal_default_instance() {
+    return reinterpret_cast<const RES_LEAVE_ROOM*>(
+               &_RES_LEAVE_ROOM_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(RES_LEAVE_ROOM& a, RES_LEAVE_ROOM& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RES_LEAVE_ROOM* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RES_LEAVE_ROOM* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RES_LEAVE_ROOM* New() const final {
+    return new RES_LEAVE_ROOM();
+  }
+
+  RES_LEAVE_ROOM* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<RES_LEAVE_ROOM>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const RES_LEAVE_ROOM& from);
+  void MergeFrom(const RES_LEAVE_ROOM& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RES_LEAVE_ROOM* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Chat.RES_LEAVE_ROOM";
+  }
+  protected:
+  explicit RES_LEAVE_ROOM(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
     kResultFieldNumber = 1,
   };
   // bool result = 1;
@@ -335,7 +618,7 @@ class RES_ENTER_ROOM final :
   void _internal_set_result(bool value);
   public:
 
-  // @@protoc_insertion_point(class_scope:Chat.RES_ENTER_ROOM)
+  // @@protoc_insertion_point(class_scope:Chat.RES_LEAVE_ROOM)
  private:
   class _Internal;
 
@@ -392,7 +675,7 @@ class REQ_CHAT final :
                &_REQ_CHAT_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    4;
 
   friend void swap(REQ_CHAT& a, REQ_CHAT& b) {
     a.Swap(&b);
@@ -561,7 +844,7 @@ class RES_CHAT final :
                &_RES_CHAT_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    5;
 
   friend void swap(RES_CHAT& a, RES_CHAT& b) {
     a.Swap(&b);
@@ -744,7 +1027,27 @@ inline void REQ_ENTER_ROOM::set_allocated_name(std::string* name) {
 
 // RES_ENTER_ROOM
 
-// bool result = 1;
+// int32 player_id = 1;
+inline void RES_ENTER_ROOM::clear_player_id() {
+  player_id_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RES_ENTER_ROOM::_internal_player_id() const {
+  return player_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RES_ENTER_ROOM::player_id() const {
+  // @@protoc_insertion_point(field_get:Chat.RES_ENTER_ROOM.player_id)
+  return _internal_player_id();
+}
+inline void RES_ENTER_ROOM::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  player_id_ = value;
+}
+inline void RES_ENTER_ROOM::set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_player_id(value);
+  // @@protoc_insertion_point(field_set:Chat.RES_ENTER_ROOM.player_id)
+}
+
+// bool result = 2;
 inline void RES_ENTER_ROOM::clear_result() {
   result_ = false;
 }
@@ -762,6 +1065,54 @@ inline void RES_ENTER_ROOM::_internal_set_result(bool value) {
 inline void RES_ENTER_ROOM::set_result(bool value) {
   _internal_set_result(value);
   // @@protoc_insertion_point(field_set:Chat.RES_ENTER_ROOM.result)
+}
+
+// -------------------------------------------------------------------
+
+// REQ_LEAVE_ROOM
+
+// int32 player_id = 1;
+inline void REQ_LEAVE_ROOM::clear_player_id() {
+  player_id_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_LEAVE_ROOM::_internal_player_id() const {
+  return player_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_LEAVE_ROOM::player_id() const {
+  // @@protoc_insertion_point(field_get:Chat.REQ_LEAVE_ROOM.player_id)
+  return _internal_player_id();
+}
+inline void REQ_LEAVE_ROOM::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  player_id_ = value;
+}
+inline void REQ_LEAVE_ROOM::set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_player_id(value);
+  // @@protoc_insertion_point(field_set:Chat.REQ_LEAVE_ROOM.player_id)
+}
+
+// -------------------------------------------------------------------
+
+// RES_LEAVE_ROOM
+
+// bool result = 1;
+inline void RES_LEAVE_ROOM::clear_result() {
+  result_ = false;
+}
+inline bool RES_LEAVE_ROOM::_internal_result() const {
+  return result_;
+}
+inline bool RES_LEAVE_ROOM::result() const {
+  // @@protoc_insertion_point(field_get:Chat.RES_LEAVE_ROOM.result)
+  return _internal_result();
+}
+inline void RES_LEAVE_ROOM::_internal_set_result(bool value) {
+  
+  result_ = value;
+}
+inline void RES_LEAVE_ROOM::set_result(bool value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:Chat.RES_LEAVE_ROOM.result)
 }
 
 // -------------------------------------------------------------------
@@ -1045,6 +1396,10 @@ inline void RES_CHAT::set_allocated_message(std::string* message) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
