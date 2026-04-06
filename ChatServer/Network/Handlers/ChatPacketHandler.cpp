@@ -1,7 +1,8 @@
 #include "pch.h"
 #include "ChatPacketHandler.h"
-#include "../../ChatMember.h"
-#include "../../ChatSession.h"
+#include "ChatSession.h"
+#include "ChatMember.h"
+#include "Utils/ObjectUtils.h"
 
 PacketHandlerFunc GPacketHandler[UINT16_MAX];
 
@@ -12,15 +13,12 @@ bool Handle_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, in
 
 bool Handle_REQ_ENTER_ROOM(SessionPtr& session, Chat::REQ_ENTER_ROOM& pkt)
 {
-	// TODO
-	ChatMemberPtr player = std::make_shared<ChatMember>();
-	player->playerInfo->set_name(pkt.name());
-	
+	ChatMemberPtr player = ObjectUtils::CreatePlayer(pkt.name());
+
 	ChatSessionPtr cs = static_pointer_cast<ChatSession>(session);
 	player->session = cs;
 	cs->player.store(player);
 
-	spdlog::info("Someone Enter chat Room");
 	GRoom->HandleEnterPlayerLocked(player);
 
 	return true;
@@ -28,11 +26,9 @@ bool Handle_REQ_ENTER_ROOM(SessionPtr& session, Chat::REQ_ENTER_ROOM& pkt)
 
 bool Handle_REQ_LEAVE_ROOM(SessionPtr& session, Chat::REQ_LEAVE_ROOM& pkt)
 {
-	// TODO
 	ChatSessionPtr cs = static_pointer_cast<ChatSession>(session);
 	cs->player.store({});
 
-	spdlog::info("Someone Leave chat Room");
 	GRoom->HandleLeavePlayerLocked(pkt.player_id());
 
 	return true;
