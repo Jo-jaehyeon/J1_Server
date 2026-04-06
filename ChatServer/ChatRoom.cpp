@@ -18,18 +18,35 @@ bool ChatRoom::EnterPlayer(ChatMemberPtr player)
 	return true;
 }
 
-bool ChatRoom::LeavePlayer(ChatMemberPtr player)
+bool ChatRoom::LeavePlayer(int32 player_id)
 {
 	// 없다면 문제가 있다
-	if (_members.find(player->playerInfo->player_id()) == _members.end())
-		return false;
+	auto it = _members.find(player_id);
+	if (it == _members.end())	return false;
 
-	_members.erase(player->playerInfo->player_id());
-
+	// player의 room 참조 해제
+	auto player = it->second;
 	player->room.store({});
 	auto loaded = player->room.load();
+	bool success = loaded.expired();
 
-	return loaded.expired();
+	// leave pkt 발송
+	Chat::RES_LEAVE_ROOM leavePkt;
+	leavePkt.set_result(success);
+	if (auto session = player->session.lock())
+		session->SendPacket(leavePkt, Chat::PacketType::PKT_RES_LEAVE_ROOM);
+
+
+	if (success)
+	{
+		// player의 sesion 참조해제
+		player->session.reset();
+
+		// room에서 player 제거
+		_members.erase(player_id);
+	}
+
+	return success;
 }
 
 
@@ -44,16 +61,16 @@ bool ChatRoom::HandleEnterPlayerLocked(ChatMemberPtr player)
 	Chat::RES_ENTER_ROOM enterPkt;
 	enterPkt.set_result(success);
 	if (auto session = player->session.lock())
-		session->SendPacket(enterPkt, Chat::MessageCode::PKT_RES_ENTER_ROOM);
+		session->SendPacket(enterPkt, Chat::PacketType::PKT_RES_ENTER_ROOM);
 
 	return success;
 }
 
-bool ChatRoom::HandleLeavePlayerLocked(ChatMemberPtr player)
+bool ChatRoom::HandleLeavePlayerLocked(int32 player_id)
 {
 	//WRITE_LOCK;
 
-	bool success = LeavePlayer(player);
+	bool success = LeavePlayer(player_id);
 
 	return success;
 }
@@ -65,6 +82,6 @@ void ChatRoom::Broadcast(google::protobuf::Message& pkt)
 		ChatMemberPtr player = m.second;
 
 		if (auto session = player->session.lock())
-			session->SendPacket(pkt, Chat::MessageCode::PKT_RES_CHAT);
+			session->SendPacket(pkt, Chat::PacketType::PKT_RES_CHAT);
 	}
 }

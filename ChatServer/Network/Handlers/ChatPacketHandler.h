@@ -9,19 +9,11 @@
 using PacketHandlerFunc = std::function<bool(SessionPtr&, boost::asio::mutable_buffer&, int32&)>;
 extern PacketHandlerFunc GPacketHandler[UINT16_MAX];
 
-/*
-enum : uint16
-{
-	PKT_REQ_ENTER_ROOM = 1000,
-	PKT_RES_ENTER_ROOM = 1001,
-	PKT_REQ_CHAT = 1002,
-	PKT_RES_CHAT = 1003,
-};
-*/
 
 // Custom Handler
 bool Handle_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset);
 bool Handle_REQ_ENTER_ROOM(SessionPtr& session, Chat::REQ_ENTER_ROOM& pkt);
+bool Handle_REQ_LEAVE_ROOM(SessionPtr& session, Chat::REQ_LEAVE_ROOM& pkt);
 bool Handle_REQ_CHAT(SessionPtr& session, Chat::REQ_CHAT& pkt);
 
 
@@ -32,10 +24,13 @@ public:
 	{
 		for (int32 i = 0; i < UINT16_MAX; i++)
 			GPacketHandler[i] = Handle_INVALID;
-		GPacketHandler[Chat::MessageCode::PKT_REQ_ENTER_ROOM] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+		GPacketHandler[Chat::PacketType::PKT_REQ_ENTER_ROOM] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
 			return DispatchPacket<Chat::REQ_ENTER_ROOM>(Handle_REQ_ENTER_ROOM, session, buffer, offset);
 			};
-		GPacketHandler[Chat::MessageCode::PKT_REQ_CHAT] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+		GPacketHandler[Chat::PacketType::PKT_REQ_LEAVE_ROOM] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<Chat::REQ_LEAVE_ROOM>(Handle_REQ_LEAVE_ROOM, session, buffer, offset);
+			};
+		GPacketHandler[Chat::PacketType::PKT_REQ_CHAT] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
 			return DispatchPacket<Chat::REQ_CHAT>(Handle_REQ_CHAT, session, buffer, offset);
 			};
 	}
