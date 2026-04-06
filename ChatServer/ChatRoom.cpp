@@ -54,11 +54,12 @@ bool ChatRoom::HandleEnterPlayerLocked(ChatMemberPtr player)
 {
 	//WRITE_LOCK;
 
-	// TODO playerid ºÎ¿© 
-	player->playerInfo->set_player_id(_members.size()+1);
 	bool success = EnterPlayer(player);
+	if(success)
+		spdlog::info("Someone Enter chat Room");
 
 	Chat::RES_ENTER_ROOM enterPkt;
+	enterPkt.set_player_id(player->playerInfo->player_id());
 	enterPkt.set_result(success);
 	if (auto session = player->session.lock())
 		session->SendPacket(enterPkt, Chat::PacketType::PKT_RES_ENTER_ROOM);
@@ -71,6 +72,8 @@ bool ChatRoom::HandleLeavePlayerLocked(int32 player_id)
 	//WRITE_LOCK;
 
 	bool success = LeavePlayer(player_id);
+	if (success)
+		spdlog::info("Someone Leave chat Room");
 
 	return success;
 }

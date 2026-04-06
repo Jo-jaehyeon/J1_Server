@@ -2,8 +2,6 @@
 #include "Session.h"
 #include "ChatRoom.h"
 
-class ChatMemeber;
-
 class ChatSession : public Session
 {
 public:

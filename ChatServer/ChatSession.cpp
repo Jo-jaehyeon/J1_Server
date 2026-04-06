@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "ChatSession.h"
+#include "ChatMember.h"
 #include "Network/Handlers/ChatPacketHandler.h"
 
 ChatSession::ChatSession(asio::io_context& io_context)
