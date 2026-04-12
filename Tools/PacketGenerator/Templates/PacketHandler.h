@@ -1,26 +1,23 @@
 #pragma once
-#include "../Protocol/ChatProtocol.pb.h"
+#include "../Protocol/{{parser.file_prefix}}Protocol.pb.h"
 #include "Packet.h"
+
+#if UE_BUILD_DEBUG + UE_BUILD_DEVELOPMENT + UE_BUILD_TEST + UE_BUILD_SHIPPING >= 1
+#include "J1.h"
+#endif
 
 using PacketHandlerFunc = std::function<bool(SessionPtr&, boost::asio::mutable_buffer&, int32&)>;
 extern PacketHandlerFunc GPacketHandler[UINT16_MAX];
 
-enum
-{
-{%- for pkt in parser.total_pkt %}
-	PKT_{{pkt.name}} = {{pkt.id}},
-{%- endfor %}
-};
-
 // Custom Handler
 bool Handle_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset);
 
-{%- for pkt in parser.recv_pkt %}
-bool Handle_{{pkt.name}}(SessionPtr& session, Chat::{{pkt.name}}& pkt);
-{%- endfor %}
+{ % -for pkt in parser.recv_pkt% }
+bool Handle_{ {pkt.name} }(SessionPtr& session, { {parser.file_prefix} }::{{pkt.name}}&pkt);
+{ % -endfor% }
 
 
-class {{output}}
+class { { output } }
 {
 public:
 	static void Init()
@@ -29,14 +26,14 @@ public:
 			GPacketHandler[i] = Handle_INVALID;
 
 
-		{%- for pkt in parser.recv_pkt %}
-		GPacketHandler[PKT_{{pkt.name}}] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
-			return HandlePacket < Chat::{{pkt.name}} > (Handle_{{pkt.name}}, session, buffer, offset);
+		{ % -for pkt in parser.recv_pkt% }
+		GPacketHandler[{{parser.file_prefix}}::PacketType::PKT_{ {pkt.name} }] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket < {{parser.file_prefix}}::{{pkt.name}} > (Handle_{ {pkt.name} }, session, buffer, offset);
 			};
-		{%- endfor %}
+		{ % -endfor% }
 	}
 
-	static bool HandlePacket(SessionPtr & session, const PacketHeader& header, char* ptr, size_t size)
+	static bool HandlePacket(SessionPtr & session, const PacketHeader & header, char* ptr, size_t size)
 	{
 		boost::asio::mutable_buffer buffer = boost::asio::buffer(ptr, size);
 		int offset = 4;
@@ -46,12 +43,16 @@ public:
 
 private:
 	template<typename PacketType, typename ProcessFunc>
-	static bool DispatchPacket(ProcessFunc func, SessionPtr & session, boost::asio::mutable_buffer& buffer, int32& offset)
+	static bool DispatchPacket(ProcessFunc func, SessionPtr & session, boost::asio::mutable_buffer & buffer, int32 & offset)
 	{
 		PacketType pkt;
 		if (!PacketUtil::Parse(pkt, buffer, buffer.size(), offset))
 		{
-			spdlog::error("Failed to Handle Packet : {}", pkt);
+#if UE_BUILD_DEBUG + UE_BUILD_DEVELOPMENT + UE_BUILD_TEST + UE_BUILD_SHIPPING >= 1
+			UE_LOG(LogTemp, Warning, TEXT("Failed to Handle Packet"))
+#else
+			spdlog::error("Failed to Handle Packet");
+#endif
 			return false;
 		}
 

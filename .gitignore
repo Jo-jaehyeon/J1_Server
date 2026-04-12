@@ -434,15 +434,5 @@ Libraries
 
 **/*.vcxproj.*
 
-# Include Packet Setting
-Common/**
-!Common/Protobuf
-!Common/Protobuf/bin
-!Common/Protobuf/bin/GenPackets.bat
-!Common/Protobuf/bin/Enum.proto
-!Common/Protobuf/bin/Struct.Proto
-!Common/Protobuf/bin/Protocol.Proto
-
 # Don't Commit
 Asio4
-LoginServer
