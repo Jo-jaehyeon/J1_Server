@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "LoginSession.h"
-
+#include "Network/Handlers/LoginPacketHandler.h"
 
 LoginSession::LoginSession(asio::io_context& io_context)
 	: Session(io_context)
@@ -19,7 +19,7 @@ void LoginSession::AsyncWrite(const BufferPooledVector& data, size_t size)
 void LoginSession::HandlePacket()
 {
 	SessionPtr session = this->GetSessionPtr();
-	//LoginPacketHandler::HandlePacket(session, _header, reinterpret_cast<char*>(_recvBodyBuffer.data()), _recvBodyBuffer.size());
+	LoginPacketHandler::HandlePacket(session, _header, reinterpret_cast<char*>(_recvBodyBuffer.data()), _recvBodyBuffer.size());
 	_offset = 0;
 }
 

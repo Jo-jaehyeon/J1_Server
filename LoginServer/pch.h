@@ -21,3 +21,4 @@
 
 USING_SHARED_PTR(LoginSession)
 USING_SHARED_PTR(LoginServer)
+USING_SHARED_PTR(SignManager)
