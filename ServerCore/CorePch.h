@@ -13,6 +13,8 @@
 #include <set>
 #include <unordered_map>
 #include <unordered_set>
+#include <string>
+#include <exception>
 
 // boost
 #include <boost/asio.hpp>
@@ -32,3 +34,11 @@ using BufferPooledVector = std::vector<char, BufferAllocator>;
 #include "spdlog/sinks/basic_file_sink.h"
 #include "spdlog/sinks/rotating_file_sink.h"
 #include "spdlog/sinks/daily_file_sink.h"
+
+//MySQL
+#include "mysql/mysql_connection.h"
+#include <mysql/cppconn/driver.h>
+#include <mysql/cppconn/exception.h>
+#include <mysql/cppconn/resultset.h>
+#include <mysql/cppconn/prepared_statement.h>
+#include <mysql/cppconn/statement.h>
