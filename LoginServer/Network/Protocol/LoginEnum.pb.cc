@@ -25,13 +25,15 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = n
 static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_LoginEnum_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\017LoginEnum.proto\022\005Login*2\n\nPacketType\022\021"
-  "\n\rPKT_REQ_LOGIN\020\000\022\021\n\rPKT_RES_LOGIN\020\001b\006pr"
-  "oto3"
+  "\n\017LoginEnum.proto\022\005Login*\202\001\n\nPacketType\022"
+  "\021\n\rPKT_REQ_LOGIN\020\000\022\021\n\rPKT_RES_LOGIN\020\001\022\024\n"
+  "\020PKT_REQ_CHECK_ID\020\002\022\024\n\020PKT_RES_CHECK_ID\020"
+  "\003\022\020\n\014PKT_REQ_JOIN\020\004\022\020\n\014PKT_RES_JOIN\020\005b\006p"
+  "roto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_LoginEnum_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_LoginEnum_2eproto = {
-  false, false, 84, descriptor_table_protodef_LoginEnum_2eproto, "LoginEnum.proto", 
+  false, false, 165, descriptor_table_protodef_LoginEnum_2eproto, "LoginEnum.proto", 
   &descriptor_table_LoginEnum_2eproto_once, nullptr, 0, 0,
   schemas, file_default_instances, TableStruct_LoginEnum_2eproto::offsets,
   nullptr, file_level_enum_descriptors_LoginEnum_2eproto, file_level_service_descriptors_LoginEnum_2eproto,
@@ -51,6 +53,10 @@ bool PacketType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
       return true;
     default:
       return false;

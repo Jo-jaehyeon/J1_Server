@@ -12,6 +12,8 @@ extern PacketHandlerFunc GPacketHandler[UINT16_MAX];
 // Custom Handler
 bool Handle_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset);
 bool Handle_REQ_LOGIN(SessionPtr& session, Login::REQ_LOGIN&pkt);
+bool Handle_REQ_CHECK_ID(SessionPtr& session, Login::REQ_CHECK_ID&pkt);
+bool Handle_REQ_JOIN(SessionPtr& session, Login::REQ_JOIN&pkt);
 
 
 class LoginPacketHandler
@@ -23,6 +25,12 @@ public:
 			GPacketHandler[i] = Handle_INVALID;
 		GPacketHandler[Login::PacketType::PKT_REQ_LOGIN] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
 			return DispatchPacket<Login::REQ_LOGIN>(Handle_REQ_LOGIN, session, buffer, offset);
+			};
+		GPacketHandler[Login::PacketType::PKT_REQ_CHECK_ID] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<Login::REQ_CHECK_ID>(Handle_REQ_CHECK_ID, session, buffer, offset);
+			};
+		GPacketHandler[Login::PacketType::PKT_REQ_JOIN] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<Login::REQ_JOIN>(Handle_REQ_JOIN, session, buffer, offset);
 			};
 	}
 
@@ -36,7 +44,7 @@ public:
 
 private:
 	template<typename PacketType, typename ProcessFunc>
-	static bool DispatchPacket(ProcessFunc func, SessionPtr & session, boost::asio::mutable_buffer & buffer, int32 & offset)
+	static bool DispatchPacket(ProcessFunc func, SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset)
 	{
 		PacketType pkt;
 		if (!PacketUtil::Parse(pkt, buffer, buffer.size(), offset))

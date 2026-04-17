@@ -1,5 +1,5 @@
 #pragma once
-#include "../Protocol/{{parser.file_prefix}}Protocol.pb.h"
+#include "../Protocol/LoginProtocol.pb.h"
 #include "Packet.h"
 
 #if UE_BUILD_DEBUG + UE_BUILD_DEVELOPMENT + UE_BUILD_TEST + UE_BUILD_SHIPPING >= 1
@@ -11,29 +11,26 @@ extern PacketHandlerFunc GPacketHandler[UINT16_MAX];
 
 // Custom Handler
 bool Handle_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset);
-
-{ % -for pkt in parser.recv_pkt% }
-bool Handle_{ {pkt.name} }(SessionPtr& session, { {parser.file_prefix} }::{{pkt.name}}&pkt);
-{ % -endfor% }
+bool Handle_REQ_LOGIN(SessionPtr& session, Login::REQ_LOGIN& pkt);
+bool Handle_REQ_JOIN(SessionPtr& session, Login::REQ_JOIN& pkt);
 
 
-class { { output } }
+class LoginPacketHandler
 {
 public:
 	static void Init()
 	{
 		for (int32 i = 0; i < UINT16_MAX; i++)
 			GPacketHandler[i] = Handle_INVALID;
-
-
-		{ % -for pkt in parser.recv_pkt% }
-		GPacketHandler[{{parser.file_prefix}}::PacketType::PKT_{ {pkt.name} }] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
-			return DispatchPacket < {{parser.file_prefix}}::{{pkt.name}} > (Handle_{ {pkt.name} }, session, buffer, offset);
+		GPacketHandler[Login::PacketType::PKT_REQ_LOGIN] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<Login::REQ_LOGIN>(Handle_REQ_LOGIN, session, buffer, offset);
 			};
-		{ % -endfor% }
+		GPacketHandler[Login::PacketType::PKT_REQ_JOIN] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<Login::REQ_JOIN>(Handle_REQ_JOIN, session, buffer, offset);
+			};
 	}
 
-	static bool HandlePacket(SessionPtr & session, const PacketHeader & header, char* ptr, size_t size)
+	static bool HandlePacket(SessionPtr& session, const PacketHeader& header, char* ptr, size_t size)
 	{
 		boost::asio::mutable_buffer buffer = boost::asio::buffer(ptr, size);
 		int offset = 4;
@@ -43,7 +40,7 @@ public:
 
 private:
 	template<typename PacketType, typename ProcessFunc>
-	static bool DispatchPacket(ProcessFunc func, SessionPtr & session, boost::asio::mutable_buffer & buffer, int32 & offset)
+	static bool DispatchPacket(ProcessFunc func, SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset)
 	{
 		PacketType pkt;
 		if (!PacketUtil::Parse(pkt, buffer, buffer.size(), offset))

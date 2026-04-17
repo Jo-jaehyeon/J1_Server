@@ -59,12 +59,16 @@ namespace Login {
 enum PacketType : int {
   PKT_REQ_LOGIN = 0,
   PKT_RES_LOGIN = 1,
+  PKT_REQ_CHECK_ID = 2,
+  PKT_RES_CHECK_ID = 3,
+  PKT_REQ_JOIN = 4,
+  PKT_RES_JOIN = 5,
   PacketType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   PacketType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool PacketType_IsValid(int value);
 constexpr PacketType PacketType_MIN = PKT_REQ_LOGIN;
-constexpr PacketType PacketType_MAX = PKT_RES_LOGIN;
+constexpr PacketType PacketType_MAX = PKT_RES_JOIN;
 constexpr int PacketType_ARRAYSIZE = PacketType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PacketType_descriptor();
