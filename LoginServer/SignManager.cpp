@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "SignManager.h"
 
 #include "DB/ConnectionPool.h"
@@ -32,12 +32,13 @@ bool SignManager::TryCheckID(const std::string& id)
 	auto result_set = SqlUtils::executeQuery(conn->sql_connection, "J1_DB", Query_CheckID, id);
 
 	bool result = false;
-
-	// °á°ú Ã³¸®
-	if (result_set && result_set->next())
-		result = true;
+	// ê²°ê³¼ ì²˜ë¦¬
+	if (result_set)
+	{
+		result = result_set->next(); // next() í˜¸ì¶œí•´ì„œ ì»¤ì„œ ì´ë™
+		result_set->close();         // ëª…ì‹œì ìœ¼ë¡œ ë‹«ê¸°
+	}
 	
-
 	if (result)
 		spdlog::info("can't make this id");
 	else
@@ -55,24 +56,24 @@ int SignManager::TrySignIn(const std::string& id, const std::string& pw)
 	{
 		conn = GConnectionPool->borrow();
 	}
-	// °ËÁõ
+	// ê²€ì¦
 	auto result_set = SqlUtils::executeQuery(conn->sql_connection, "J1_DB", Query_CheckID, id);
 
 	
-	// ÀÔ·ÂÇÑ id¿¡ ´ëÇÑ pw hash°ª °¡Á®¿À±â
+	// ì…ë ¥í•œ idì— ëŒ€í•œ pw hashê°’ ê°€ì ¸ì˜¤ê¸°
 	std::string hashed_pw;
 	
 	if (result_set && result_set->next())
 		hashed_pw = result_set->getString(1);
 
-	// ÀÔ·ÂÇÑ pw¿Í hash°ª ºñ±³
+	// ì…ë ¥í•œ pwì™€ hashê°’ ë¹„êµ
 	bool result = SqlUtils::VerifyPassword(pw, hashed_pw);
 
 
 	if (result)
 	{
 		spdlog::info("Success to match id&pw");
-		//¸¶Áö¸· ·Î±×ÀÎ Á¤º¸ °»½Å
+		//ë§ˆì§€ë§‰ ë¡œê·¸ì¸ ì •ë³´ ê°±ì‹ 
 		int successUpdate = SqlUtils::executeUpdate(conn->sql_connection, "J1_DB", Query_SignIn, id);
 		if(successUpdate > 0)
 			spdlog::info("Success to update id info");
@@ -93,15 +94,15 @@ bool SignManager::TrySignUp(const std::string& id, const std::string& pw)
 		conn = GConnectionPool->borrow();
 	}
 
-	// È¸¿ø°¡ÀÔ - ÇØ½Ã »ı¼º
+	// íšŒì›ê°€ì… - í•´ì‹œ ìƒì„±
 	std::string hash = SqlUtils::HashPassword(pw);
 
 	int account_id = SqlUtils::executeUpdate_GenKeys(conn->sql_connection, "J1_DB", Query_SignUp, id, hash);
 
-	// acount_id°¡ -1 ÀÌ¸é ½ÇÆĞÇÑ°Í
+	// acount_idê°€ -1 ì´ë©´ ì‹¤íŒ¨í•œê²ƒ
 	bool success = account_id != -1;
 
-	// °á°ú Ã³¸®
+	// ê²°ê³¼ ì²˜ë¦¬
 
 	if (success)
 		spdlog::info("Success to make id");
