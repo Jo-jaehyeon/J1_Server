@@ -3,9 +3,9 @@
 #include "LoginSession.h"
 #include "SignManager.h"
 
-PacketHandlerFunc GPacketHandler[UINT16_MAX];
+LoginHandlerFunc GLoginPacketHandler[UINT16_MAX];
 
-bool Handle_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& len)
+bool Handle_Login_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& len)
 {
     return false;
 }

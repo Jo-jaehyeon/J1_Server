@@ -9,14 +9,16 @@
 using PacketHandlerFunc = std::function<bool(SessionPtr&, boost::asio::mutable_buffer&, int32&)>;
 extern PacketHandlerFunc GPacketHandler[UINT16_MAX];
 
-// Custom Handler
-bool Handle_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset);
-bool Handle_REQ_LOGIN(SessionPtr& session, Login::REQ_LOGIN& pkt);
-bool Handle_REQ_JOIN(SessionPtr& session, Login::REQ_JOIN& pkt);
-
-
 class LoginPacketHandler
 {
+private:
+	// Custom Handler
+	bool Handle_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset);
+
+	{ % -for pkt in parser.recv_pkt% }
+	bool Handle_{ {pkt.name} }(SessionPtr& session, { {parser.file_prefix} }::{{pkt.name}}&pkt);
+	{ % -endfor% }
+
 public:
 	static void Init()
 	{

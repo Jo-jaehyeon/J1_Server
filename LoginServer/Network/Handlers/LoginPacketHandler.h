@@ -6,15 +6,14 @@
 #include "J1.h"
 #endif
 
-using PacketHandlerFunc = std::function<bool(SessionPtr&, boost::asio::mutable_buffer&, int32&)>;
-extern PacketHandlerFunc GPacketHandler[UINT16_MAX];
+using LoginHandlerFunc = std::function<bool(SessionPtr&, boost::asio::mutable_buffer&, int32&)>;
+extern LoginHandlerFunc GLoginPacketHandler[UINT16_MAX];
 
 // Custom Handler
-bool Handle_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset);
+bool Handle_Login_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset);
 bool Handle_REQ_LOGIN(SessionPtr& session, Login::REQ_LOGIN&pkt);
 bool Handle_REQ_CHECK_ID(SessionPtr& session, Login::REQ_CHECK_ID&pkt);
 bool Handle_REQ_JOIN(SessionPtr& session, Login::REQ_JOIN&pkt);
-
 
 class LoginPacketHandler
 {
@@ -22,14 +21,14 @@ public:
 	static void Init()
 	{
 		for (int32 i = 0; i < UINT16_MAX; i++)
-			GPacketHandler[i] = Handle_INVALID;
-		GPacketHandler[Login::PacketType::PKT_REQ_LOGIN] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			GLoginPacketHandler[i] = Handle_Login_INVALID;
+		GLoginPacketHandler[Login::PacketType::PKT_REQ_LOGIN] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
 			return DispatchPacket<Login::REQ_LOGIN>(Handle_REQ_LOGIN, session, buffer, offset);
 			};
-		GPacketHandler[Login::PacketType::PKT_REQ_CHECK_ID] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+		GLoginPacketHandler[Login::PacketType::PKT_REQ_CHECK_ID] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
 			return DispatchPacket<Login::REQ_CHECK_ID>(Handle_REQ_CHECK_ID, session, buffer, offset);
 			};
-		GPacketHandler[Login::PacketType::PKT_REQ_JOIN] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+		GLoginPacketHandler[Login::PacketType::PKT_REQ_JOIN] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
 			return DispatchPacket<Login::REQ_JOIN>(Handle_REQ_JOIN, session, buffer, offset);
 			};
 	}
@@ -39,7 +38,7 @@ public:
 		boost::asio::mutable_buffer buffer = boost::asio::buffer(ptr, size);
 		int offset = 4;
 
-		return GPacketHandler[header.Code](session, buffer, offset);
+		return GLoginPacketHandler[header.Code](session, buffer, offset);
 	}
 
 private:
