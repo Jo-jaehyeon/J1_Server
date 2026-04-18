@@ -348,8 +348,23 @@ class RES_LOGIN final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kTokenFieldNumber = 2,
     kPlayerIdFieldNumber = 1,
   };
+  // string token = 2;
+  void clear_token();
+  const std::string& token() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_token(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_token();
+  PROTOBUF_FUTURE_MUST_USE_RESULT std::string* release_token();
+  void set_allocated_token(std::string* token);
+  private:
+  const std::string& _internal_token() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_token(const std::string& value);
+  std::string* _internal_mutable_token();
+  public:
+
   // int32 player_id = 1;
   void clear_player_id();
   ::PROTOBUF_NAMESPACE_ID::int32 player_id() const;
@@ -366,6 +381,7 @@ class RES_LOGIN final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr token_;
   ::PROTOBUF_NAMESPACE_ID::int32 player_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_LoginProtocol_2eproto;
@@ -1047,6 +1063,51 @@ inline void RES_LOGIN::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 va
 inline void RES_LOGIN::set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_player_id(value);
   // @@protoc_insertion_point(field_set:Login.RES_LOGIN.player_id)
+}
+
+// string token = 2;
+inline void RES_LOGIN::clear_token() {
+  token_.ClearToEmpty();
+}
+inline const std::string& RES_LOGIN::token() const {
+  // @@protoc_insertion_point(field_get:Login.RES_LOGIN.token)
+  return _internal_token();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void RES_LOGIN::set_token(ArgT0&& arg0, ArgT... args) {
+ 
+ token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Login.RES_LOGIN.token)
+}
+inline std::string* RES_LOGIN::mutable_token() {
+  // @@protoc_insertion_point(field_mutable:Login.RES_LOGIN.token)
+  return _internal_mutable_token();
+}
+inline const std::string& RES_LOGIN::_internal_token() const {
+  return token_.Get();
+}
+inline void RES_LOGIN::_internal_set_token(const std::string& value) {
+  
+  token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* RES_LOGIN::_internal_mutable_token() {
+  
+  return token_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* RES_LOGIN::release_token() {
+  // @@protoc_insertion_point(field_release:Login.RES_LOGIN.token)
+  return token_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void RES_LOGIN::set_allocated_token(std::string* token) {
+  if (token != nullptr) {
+    
+  } else {
+    
+  }
+  token_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), token,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:Login.RES_LOGIN.token)
 }
 
 // -------------------------------------------------------------------

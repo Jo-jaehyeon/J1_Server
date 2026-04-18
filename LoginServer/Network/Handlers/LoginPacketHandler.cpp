@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "LoginPacketHandler.h"
 #include "LoginSession.h"
 #include "SignManager.h"
@@ -14,10 +14,11 @@ bool Handle_REQ_LOGIN(SessionPtr& session, Login::REQ_LOGIN& pkt)
 {
     const std::string& id = pkt.id();
     const std::string& pw = pkt.pw();
-    int account_id = GSignManager->TrySignIn(id, pw);
-
+    auto loginResult = GSignManager->TrySignIn(id, pw);
+    
     Login::RES_LOGIN loginPkt;
-    loginPkt.set_player_id(account_id);
+    loginPkt.set_player_id(loginResult.first);
+    loginPkt.set_token(loginResult.second);
 
     if (LoginSessionPtr _Session = static_pointer_cast<LoginSession>(session))
         _Session->SendPacket(loginPkt, Login::PacketType::PKT_RES_LOGIN);

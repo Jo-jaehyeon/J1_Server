@@ -32,7 +32,8 @@ struct REQ_LOGINDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_LOGINDefaultTypeInternal _REQ_LOGIN_default_instance_;
 constexpr RES_LOGIN::RES_LOGIN(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : player_id_(0){}
+  : token_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , player_id_(0){}
 struct RES_LOGINDefaultTypeInternal {
   constexpr RES_LOGINDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -110,6 +111,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LoginProtocol_2eproto::offsets
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::Login::RES_LOGIN, player_id_),
+  PROTOBUF_FIELD_OFFSET(::Login::RES_LOGIN, token_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Login::REQ_CHECK_ID, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -139,10 +141,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LoginProtocol_2eproto::offsets
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::Login::REQ_LOGIN)},
   { 7, -1, sizeof(::Login::RES_LOGIN)},
-  { 13, -1, sizeof(::Login::REQ_CHECK_ID)},
-  { 19, -1, sizeof(::Login::RES_CHECK_ID)},
-  { 25, -1, sizeof(::Login::REQ_JOIN)},
-  { 32, -1, sizeof(::Login::RES_JOIN)},
+  { 14, -1, sizeof(::Login::REQ_CHECK_ID)},
+  { 20, -1, sizeof(::Login::RES_CHECK_ID)},
+  { 26, -1, sizeof(::Login::REQ_JOIN)},
+  { 33, -1, sizeof(::Login::RES_JOIN)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -157,11 +159,11 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_LoginProtocol_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\023LoginProtocol.proto\022\005Login\032\017LoginEnum."
   "proto\032\021LoginStruct.proto\"#\n\tREQ_LOGIN\022\n\n"
-  "\002id\030\001 \001(\t\022\n\n\002pw\030\002 \001(\t\"\036\n\tRES_LOGIN\022\021\n\tpl"
-  "ayer_id\030\001 \001(\005\"\032\n\014REQ_CHECK_ID\022\n\n\002id\030\001 \001("
-  "\t\"\036\n\014RES_CHECK_ID\022\016\n\006result\030\001 \001(\010\"\"\n\010REQ"
-  "_JOIN\022\n\n\002id\030\001 \001(\t\022\n\n\002pw\030\002 \001(\t\"\032\n\010RES_JOI"
-  "N\022\016\n\006result\030\001 \001(\010b\006proto3"
+  "\002id\030\001 \001(\t\022\n\n\002pw\030\002 \001(\t\"-\n\tRES_LOGIN\022\021\n\tpl"
+  "ayer_id\030\001 \001(\005\022\r\n\005token\030\002 \001(\t\"\032\n\014REQ_CHEC"
+  "K_ID\022\n\n\002id\030\001 \001(\t\"\036\n\014RES_CHECK_ID\022\016\n\006resu"
+  "lt\030\001 \001(\010\"\"\n\010REQ_JOIN\022\n\n\002id\030\001 \001(\t\022\n\n\002pw\030\002"
+  " \001(\t\"\032\n\010RES_JOIN\022\016\n\006result\030\001 \001(\010b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_LoginProtocol_2eproto_deps[2] = {
   &::descriptor_table_LoginEnum_2eproto,
@@ -169,7 +171,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_LoginProtocol_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_LoginProtocol_2eproto = {
-  false, false, 265, descriptor_table_protodef_LoginProtocol_2eproto, "LoginProtocol.proto", 
+  false, false, 280, descriptor_table_protodef_LoginProtocol_2eproto, "LoginProtocol.proto", 
   &descriptor_table_LoginProtocol_2eproto_once, descriptor_table_LoginProtocol_2eproto_deps, 2, 6,
   schemas, file_default_instances, TableStruct_LoginProtocol_2eproto::offsets,
   file_level_metadata_LoginProtocol_2eproto, file_level_enum_descriptors_LoginProtocol_2eproto, file_level_service_descriptors_LoginProtocol_2eproto,
@@ -444,11 +446,17 @@ RES_LOGIN::RES_LOGIN(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 RES_LOGIN::RES_LOGIN(const RES_LOGIN& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_token().empty()) {
+    token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_token(), 
+      GetArenaForAllocation());
+  }
   player_id_ = from.player_id_;
   // @@protoc_insertion_point(copy_constructor:Login.RES_LOGIN)
 }
 
 void RES_LOGIN::SharedCtor() {
+token_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 player_id_ = 0;
 }
 
@@ -460,6 +468,7 @@ RES_LOGIN::~RES_LOGIN() {
 
 void RES_LOGIN::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  token_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void RES_LOGIN::ArenaDtor(void* object) {
@@ -478,6 +487,7 @@ void RES_LOGIN::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  token_.ClearToEmpty();
   player_id_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -492,6 +502,15 @@ const char* RES_LOGIN::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string token = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_token();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Login.RES_LOGIN.token"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -530,6 +549,16 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
   }
 
+  // string token = 2;
+  if (!this->token().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_token().data(), static_cast<int>(this->_internal_token().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "Login.RES_LOGIN.token");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_token(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -545,6 +574,13 @@ size_t RES_LOGIN::ByteSizeLong() const {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // string token = 2;
+  if (!this->token().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_token());
+  }
 
   // int32 player_id = 1;
   if (this->player_id() != 0) {
@@ -584,6 +620,9 @@ void RES_LOGIN::MergeFrom(const RES_LOGIN& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from.token().empty()) {
+    _internal_set_token(from._internal_token());
+  }
   if (from.player_id() != 0) {
     _internal_set_player_id(from._internal_player_id());
   }
@@ -610,6 +649,11 @@ bool RES_LOGIN::IsInitialized() const {
 void RES_LOGIN::InternalSwap(RES_LOGIN* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &token_, GetArenaForAllocation(),
+      &other->token_, other->GetArenaForAllocation()
+  );
   swap(player_id_, other->player_id_);
 }
 

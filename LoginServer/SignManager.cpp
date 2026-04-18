@@ -9,13 +9,15 @@ SignManagerPtr GSignManager = std::make_shared<SignManager>();
 
 SignManager::SignManager()
 {
-	Query_CheckID = "SELECT user_password "
+	Query_CheckID = "SELECT account_id, user_password "
 		"FROM account "
 		"WHERE is_active = 1 AND user_id = ?";
 
 	Query_SignIn = "UPDATE account "
 		"SET last_login = NOW() "
 		"WHERE user_id = ?";
+	Query_Signtoken = "INSERT INTO sessions (account_id, token) "
+		"VALUES(?, ?)";
 
 	Query_SignUp = "INSERT INTO account (user_id, user_password, created_at, is_active) "
 		"VALUES(?, ?, NOW(), 1)";
@@ -49,7 +51,7 @@ bool SignManager::TryCheckID(const std::string& id)
 	return result;
 }
 
-int SignManager::TrySignIn(const std::string& id, const std::string& pw)
+std::pair<int, std::string> SignManager::TrySignIn(const std::string& id, const std::string& pw)
 {
 	auto conn = GConnectionPool->borrow();
 	while (conn == nullptr)
@@ -61,22 +63,44 @@ int SignManager::TrySignIn(const std::string& id, const std::string& pw)
 
 	
 	// 입력한 id에 대한 pw hash값 가져오기
+	int account_id = -1;
 	std::string hashed_pw;
-	
 	if (result_set && result_set->next())
-		hashed_pw = result_set->getString(1);
+	{
+		account_id = result_set->getInt("account_id");
+		hashed_pw = result_set->getString("user_password");
+	}
 
 	// 입력한 pw와 hash값 비교
-	bool result = SqlUtils::VerifyPassword(pw, hashed_pw);
+	bool bSuccess = SqlUtils::VerifyPassword(pw, hashed_pw);
 
-
-	if (result)
+	pair<int, string> result = make_pair(-1, "");
+	if (bSuccess)
 	{
 		spdlog::info("Success to match id&pw");
+
+		// 로그인 토큰 생성 후 insert
+		int successInsert = 0;
+		do
+		{
+			try
+			{
+				string token = SqlUtils::GenerateToken();
+				successInsert = SqlUtils::executeUpdate(conn->sql_connection, "J1_DB", Query_Signtoken, account_id, token);
+				result.first = account_id;
+				result.second = token;
+			}
+			catch (...)
+			{
+				// token 중복 - 재시도
+				successInsert = -1;
+			}
+		} while (successInsert < 0);
+
 		//마지막 로그인 정보 갱신
 		int successUpdate = SqlUtils::executeUpdate(conn->sql_connection, "J1_DB", Query_SignIn, id);
-		if(successUpdate > 0)
-			spdlog::info("Success to update id info");
+		if (successUpdate > 0)
+			spdlog::info("Success to update id info");	
 	}
 	else
 		spdlog::info("Failed to match id&pw");
