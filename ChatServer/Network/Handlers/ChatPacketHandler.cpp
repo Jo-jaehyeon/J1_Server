@@ -1,14 +1,19 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "ChatPacketHandler.h"
 #include "ChatSession.h"
 #include "ChatMember.h"
 #include "Utils/ObjectUtils.h"
 
-PacketHandlerFunc GPacketHandler[UINT16_MAX];
+ChatHandlerFunc GChatPacketHandler[UINT16_MAX];
 
 bool Handle_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& len)
 {
     return false;
+}
+
+bool Handle_Chat_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset)
+{
+	return false;
 }
 
 bool Handle_REQ_ENTER_ROOM(SessionPtr& session, Chat::REQ_ENTER_ROOM& pkt)

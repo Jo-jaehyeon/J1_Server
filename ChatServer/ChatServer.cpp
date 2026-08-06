@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "ChatServer.h"
 #include "ChatSession.h"
 #include "Network/Handlers/ChatPacketHandler.h"
@@ -15,10 +15,10 @@ void ChatServer::StartAccept()
 	ChatSession* session = new ChatSession(_io_context);
 	ChatSessionPtr sessionPtr(session);
 
-	//sessionPtr = sessionPtrÀÇ ÀÌÀ¯
-	//ChatSessionPtr& abc = SessionPtrÀº ÁÖ¼Ò°ªÀ» º¹»çÇØ¿À±â ¶§¹®¿¡ ·¹ÆÛ Ä«¿îÆÃÀÌ Áõ°¡ÇÏÁö ¾ÊÀ½
-	//¶÷´Ù¿¡ &sessionPtrÀ» ÇÏ°Ô µÉ °æ¿ì ¸¶Âù°¡Áö·Î ·¹ÆÛÄ«¿îÆÃÀÌ Áõ°¡ÇÏÁö ¾Ê¾Æ OnAccept Áß°£¿¡ Å©·¡½Ã°¡ ³¯ ¼ö ÀÖÀ½
-	//ÀÇµµÀûÀÎ º¹»ç¸¦ ÅëÇØ ³Ñ°ÜÁÖ´Â°Í
+	//sessionPtr = sessionPtrì˜ ì´ìœ 
+	//ChatSessionPtr& abc = SessionPtrì€ ì£¼ì†Œê°’ì„ ë³µì‚¬í•´ì˜¤ê¸° ë•Œë¬¸ì— ë ˆí¼ ì¹´ìš´íŒ…ì´ ì¦ê°€í•˜ì§€ ì•ŠìŒ
+	//ëžŒë‹¤ì— &sessionPtrì„ í•˜ê²Œ ë  ê²½ìš° ë§ˆì°¬ê°€ì§€ë¡œ ë ˆí¼ì¹´ìš´íŒ…ì´ ì¦ê°€í•˜ì§€ ì•Šì•„ OnAccept ì¤‘ê°„ì— í¬ëž˜ì‹œê°€ ë‚  ìˆ˜ ìžˆìŒ
+	//ì˜ë„ì ì¸ ë³µì‚¬ë¥¼ í†µí•´ ë„˜ê²¨ì£¼ëŠ”ê²ƒ
 	_acceptor.async_accept(sessionPtr->GetSocket(),
 		boost::bind(
 			&ChatServer::OnAccept, this,
@@ -43,7 +43,7 @@ int main()
 
 	try
 	{
-		int port = 4242;
+		int port = 9002;
 		boost::asio::io_context io_context;
 		ChatServer s(io_context, port);
 		s.StartAccept();

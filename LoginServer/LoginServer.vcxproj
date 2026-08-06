@@ -71,25 +71,25 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <ExternalIncludePath>C:\Jerry\CPP_Server\Libraries\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>$(ExternalIncludePath)</ExternalIncludePath>
     <LibraryPath>$(SolutionDir)Libraries\Libs\;C:\Program Files\MySQL\MySQL Server 8.0\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Binary\$(Configuration)\</OutDir>
     <IncludePath>$(SolutionDir)ServerCore\;$(SolutionDir)Libraries\include;C:\Program Files\MySQL\MySQL Server 8.0\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <ExternalIncludePath>C:\Jerry\CPP_Server\Libraries\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>$(ExternalIncludePath)</ExternalIncludePath>
     <LibraryPath>$(SolutionDir)Libraries\Libs\;C:\Program Files\MySQL\MySQL Server 8.0\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Binary\$(Configuration)\</OutDir>
     <IncludePath>$(SolutionDir)ServerCore\;$(SolutionDir)Libraries\include;C:\Program Files\MySQL\MySQL Server 8.0\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ExternalIncludePath>C:\Jerry\CPP_Server\Libraries\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>$(ExternalIncludePath)</ExternalIncludePath>
     <LibraryPath>$(SolutionDir)Libraries\Libs\;C:\Program Files\MySQL\MySQL Server 8.0\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Binary\$(Configuration)\</OutDir>
     <IncludePath>$(SolutionDir)ServerCore\;$(SolutionDir)Libraries\include;C:\Program Files\MySQL\MySQL Server 8.0\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ExternalIncludePath>C:\Jerry\CPP_Server\Libraries\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <ExternalIncludePath>$(ExternalIncludePath)</ExternalIncludePath>
     <LibraryPath>$(SolutionDir)Libraries\Libs\;C:\Program Files\MySQL\MySQL Server 8.0\lib;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Binary\$(Configuration)\</OutDir>
     <IncludePath>$(SolutionDir)ServerCore\;$(SolutionDir)Libraries\include;C:\Program Files\MySQL\MySQL Server 8.0\include;$(IncludePath)</IncludePath>
