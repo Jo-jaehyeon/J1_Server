@@ -16,8 +16,8 @@ SignManager::SignManager()
 	Query_SignIn = "UPDATE account "
 		"SET last_login = NOW() "
 		"WHERE user_id = ?";
-	Query_Signtoken = "INSERT INTO sessions (account_id, token) "
-		"VALUES(?, ?)";
+	Query_Signtoken = "INSERT INTO sessions (account_id, token, expires_at) "
+		"VALUES(?, ?, NOW() + INTERVAL 30 MINUTE)";
 
 	Query_SignUp = "INSERT INTO account (user_id, user_password, created_at, is_active) "
 		"VALUES(?, ?, NOW(), 1)";
