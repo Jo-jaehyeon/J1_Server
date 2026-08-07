@@ -57,17 +57,17 @@ PROTOBUF_NAMESPACE_CLOSE
 namespace Chat {
 
 enum PacketType : int {
-  PKT_REQ_ENTER_ROOM = 0,
-  PKT_RES_ENTER_ROOM = 1,
-  PKT_REQ_LEAVE_ROOM = 2,
-  PKT_RES_LEAVE_ROOM = 3,
+  PKT_REQ_ENTER_CHATROOM = 0,
+  PKT_RES_ENTER_CHATROOM = 1,
+  PKT_REQ_LEAVE_CHATROOM = 2,
+  PKT_RES_LEAVE_CHATROOM = 3,
   PKT_REQ_CHAT = 4,
   PKT_RES_CHAT = 5,
   PacketType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   PacketType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool PacketType_IsValid(int value);
-constexpr PacketType PacketType_MIN = PKT_REQ_ENTER_ROOM;
+constexpr PacketType PacketType_MIN = PKT_REQ_ENTER_CHATROOM;
 constexpr PacketType PacketType_MAX = PKT_RES_CHAT;
 constexpr int PacketType_ARRAYSIZE = PacketType_MAX + 1;
 

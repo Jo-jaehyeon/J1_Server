@@ -12,6 +12,8 @@ extern GameHandlerFunc GGamePacketHandler[UINT16_MAX];
 // Custom Handler
 bool Handle_Game_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset);
 bool Handle_REQ_CHARACTER_LIST(SessionPtr& session, Game::REQ_CHARACTER_LIST&pkt);
+bool Handle_REQ_ENTER_GAME(SessionPtr& session, Game::REQ_ENTER_GAME&pkt);
+bool Handle_REQ_LEAVE_GAME(SessionPtr& session, Game::REQ_LEAVE_GAME&pkt);
 
 class GamePacketHandler
 {
@@ -22,6 +24,12 @@ public:
 			GGamePacketHandler[i] = Handle_Game_INVALID;
 		GGamePacketHandler[Game::PacketType::PKT_REQ_CHARACTER_LIST] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
 			return DispatchPacket<Game::REQ_CHARACTER_LIST>(Handle_REQ_CHARACTER_LIST, session, buffer, offset);
+			};
+		GGamePacketHandler[Game::PacketType::PKT_REQ_ENTER_GAME] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<Game::REQ_ENTER_GAME>(Handle_REQ_ENTER_GAME, session, buffer, offset);
+			};
+		GGamePacketHandler[Game::PacketType::PKT_REQ_LEAVE_GAME] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<Game::REQ_LEAVE_GAME>(Handle_REQ_LEAVE_GAME, session, buffer, offset);
 			};
 	}
 

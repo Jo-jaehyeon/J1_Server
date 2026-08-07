@@ -1,4 +1,4 @@
-#include "pch.h"
+ï»¿#include "pch.h"
 #include "ChatRoom.h"
 #include "ChatMember.h"
 #include "ChatSession.h"
@@ -7,7 +7,7 @@ ChatRoomPtr GRoom = std::make_shared<ChatRoom>();
 
 bool ChatRoom::EnterPlayer(ChatMemberPtr player)
 {
-	// ÀÖ´Ù¸é ¹®Á¦°¡ ÀÖ´Ù
+	// ìžˆë‹¤ë©´ ë¬¸ì œê°€ ìžˆë‹¤
 	if (_members.find(player->playerInfo->player_id()) != _members.end())
 		return false;
 
@@ -20,29 +20,29 @@ bool ChatRoom::EnterPlayer(ChatMemberPtr player)
 
 bool ChatRoom::LeavePlayer(int32 player_id)
 {
-	// ¾ø´Ù¸é ¹®Á¦°¡ ÀÖ´Ù
+	// ì—†ë‹¤ë©´ ë¬¸ì œê°€ ìžˆë‹¤
 	auto it = _members.find(player_id);
 	if (it == _members.end())	return false;
 
-	// playerÀÇ room ÂüÁ¶ ÇØÁ¦
+	// playerì˜ room ì°¸ì¡° í•´ì œ
 	auto player = it->second;
 	player->room.store({});
 	auto loaded = player->room.load();
 	bool success = loaded.expired();
 
-	// leave pkt ¹ß¼Û
-	Chat::RES_LEAVE_ROOM leavePkt;
+	// leave pkt ë°œì†¡
+	Chat::RES_LEAVE_CHATROOM leavePkt;
 	leavePkt.set_result(success);
 	if (auto session = player->session.lock())
-		session->SendPacket(leavePkt, Chat::PacketType::PKT_RES_LEAVE_ROOM);
+		session->SendPacket(leavePkt, Chat::PacketType::PKT_RES_LEAVE_CHATROOM);
 
 
 	if (success)
 	{
-		// playerÀÇ sesion ÂüÁ¶ÇØÁ¦
+		// playerì˜ sesion ì°¸ì¡°í•´ì œ
 		player->session.reset();
 
-		// room¿¡¼­ player Á¦°Å
+		// roomì—ì„œ player ì œê±°
 		_members.erase(player_id);
 	}
 
@@ -58,11 +58,11 @@ bool ChatRoom::HandleEnterPlayerLocked(ChatMemberPtr player)
 	if(success)
 		spdlog::info("Someone Enter chat Room");
 
-	Chat::RES_ENTER_ROOM enterPkt;
+	Chat::RES_ENTER_CHATROOM enterPkt;
 	enterPkt.set_player_id(player->playerInfo->player_id());
 	enterPkt.set_result(success);
 	if (auto session = player->session.lock())
-		session->SendPacket(enterPkt, Chat::PacketType::PKT_RES_ENTER_ROOM);
+		session->SendPacket(enterPkt, Chat::PacketType::PKT_RES_ENTER_CHATROOM);
 
 	return success;
 }

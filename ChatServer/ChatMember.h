@@ -1,9 +1,9 @@
-#pragma once
+﻿#pragma once
 
 class ChatSession;
 class ChatRoom;
 
-class ChatMember : public enable_shared_from_this<ChatMember>
+class ChatMember : public std::enable_shared_from_this<ChatMember>
 {
 public:
 	ChatMember();

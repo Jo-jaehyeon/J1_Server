@@ -53,17 +53,14 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_ChatStruct_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\020ChatStruct.proto\022\004Chat\032\016ChatEnum.proto"
-  "\"1\n\016ChatMemberInfo\022\021\n\tplayer_id\030\001 \001(\004\022\014\n"
-  "\004name\030\002 \001(\tb\006proto3"
+  "\n\020ChatStruct.proto\022\004Chat\"1\n\016ChatMemberIn"
+  "fo\022\021\n\tplayer_id\030\001 \001(\004\022\014\n\004name\030\002 \001(\tb\006pro"
+  "to3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ChatStruct_2eproto_deps[1] = {
-  &::descriptor_table_ChatEnum_2eproto,
-};
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ChatStruct_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ChatStruct_2eproto = {
-  false, false, 99, descriptor_table_protodef_ChatStruct_2eproto, "ChatStruct.proto", 
-  &descriptor_table_ChatStruct_2eproto_once, descriptor_table_ChatStruct_2eproto_deps, 1, 1,
+  false, false, 83, descriptor_table_protodef_ChatStruct_2eproto, "ChatStruct.proto", 
+  &descriptor_table_ChatStruct_2eproto_once, nullptr, 0, 1,
   schemas, file_default_instances, TableStruct_ChatStruct_2eproto::offsets,
   file_level_metadata_ChatStruct_2eproto, file_level_enum_descriptors_ChatStruct_2eproto, file_level_service_descriptors_ChatStruct_2eproto,
 };

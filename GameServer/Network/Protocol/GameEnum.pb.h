@@ -59,12 +59,16 @@ namespace Game {
 enum PacketType : int {
   PKT_REQ_CHARACTER_LIST = 0,
   PKT_RES_CHARACTER_LIST = 1,
+  PKT_REQ_ENTER_GAME = 2,
+  PKT_RES_ENTER_GAME = 3,
+  PKT_REQ_LEAVE_GAME = 4,
+  PKT_RES_LEAVE_GAME = 5,
   PacketType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   PacketType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool PacketType_IsValid(int value);
 constexpr PacketType PacketType_MIN = PKT_REQ_CHARACTER_LIST;
-constexpr PacketType PacketType_MAX = PKT_RES_CHARACTER_LIST;
+constexpr PacketType PacketType_MAX = PKT_RES_LEAVE_GAME;
 constexpr int PacketType_ARRAYSIZE = PacketType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PacketType_descriptor();

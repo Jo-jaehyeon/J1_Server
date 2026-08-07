@@ -16,7 +16,7 @@ bool Handle_Chat_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffe
 	return false;
 }
 
-bool Handle_REQ_ENTER_ROOM(SessionPtr& session, Chat::REQ_ENTER_ROOM& pkt)
+bool Handle_REQ_ENTER_CHATROOM(SessionPtr& session, Chat::REQ_ENTER_CHATROOM& pkt)
 {
 	ChatMemberPtr player = ObjectUtils::CreatePlayer(pkt.name());
 
@@ -29,7 +29,7 @@ bool Handle_REQ_ENTER_ROOM(SessionPtr& session, Chat::REQ_ENTER_ROOM& pkt)
 	return true;
 }
 
-bool Handle_REQ_LEAVE_ROOM(SessionPtr& session, Chat::REQ_LEAVE_ROOM& pkt)
+bool Handle_REQ_LEAVE_CHATROOM(SessionPtr& session, Chat::REQ_LEAVE_CHATROOM& pkt)
 {
 	ChatSessionPtr cs = static_pointer_cast<ChatSession>(session);
 	cs->player.store({});

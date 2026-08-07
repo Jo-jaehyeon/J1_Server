@@ -17,55 +17,55 @@
 
 PROTOBUF_PRAGMA_INIT_SEG
 namespace Chat {
-constexpr REQ_ENTER_ROOM::REQ_ENTER_ROOM(
+constexpr REQ_ENTER_CHATROOM::REQ_ENTER_CHATROOM(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
-struct REQ_ENTER_ROOMDefaultTypeInternal {
-  constexpr REQ_ENTER_ROOMDefaultTypeInternal()
+struct REQ_ENTER_CHATROOMDefaultTypeInternal {
+  constexpr REQ_ENTER_CHATROOMDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~REQ_ENTER_ROOMDefaultTypeInternal() {}
+  ~REQ_ENTER_CHATROOMDefaultTypeInternal() {}
   union {
-    REQ_ENTER_ROOM _instance;
+    REQ_ENTER_CHATROOM _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_ENTER_ROOMDefaultTypeInternal _REQ_ENTER_ROOM_default_instance_;
-constexpr RES_ENTER_ROOM::RES_ENTER_ROOM(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_ENTER_CHATROOMDefaultTypeInternal _REQ_ENTER_CHATROOM_default_instance_;
+constexpr RES_ENTER_CHATROOM::RES_ENTER_CHATROOM(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : player_id_(0)
   , result_(false){}
-struct RES_ENTER_ROOMDefaultTypeInternal {
-  constexpr RES_ENTER_ROOMDefaultTypeInternal()
+struct RES_ENTER_CHATROOMDefaultTypeInternal {
+  constexpr RES_ENTER_CHATROOMDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~RES_ENTER_ROOMDefaultTypeInternal() {}
+  ~RES_ENTER_CHATROOMDefaultTypeInternal() {}
   union {
-    RES_ENTER_ROOM _instance;
+    RES_ENTER_CHATROOM _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RES_ENTER_ROOMDefaultTypeInternal _RES_ENTER_ROOM_default_instance_;
-constexpr REQ_LEAVE_ROOM::REQ_LEAVE_ROOM(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RES_ENTER_CHATROOMDefaultTypeInternal _RES_ENTER_CHATROOM_default_instance_;
+constexpr REQ_LEAVE_CHATROOM::REQ_LEAVE_CHATROOM(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : player_id_(0){}
-struct REQ_LEAVE_ROOMDefaultTypeInternal {
-  constexpr REQ_LEAVE_ROOMDefaultTypeInternal()
+struct REQ_LEAVE_CHATROOMDefaultTypeInternal {
+  constexpr REQ_LEAVE_CHATROOMDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~REQ_LEAVE_ROOMDefaultTypeInternal() {}
+  ~REQ_LEAVE_CHATROOMDefaultTypeInternal() {}
   union {
-    REQ_LEAVE_ROOM _instance;
+    REQ_LEAVE_CHATROOM _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_LEAVE_ROOMDefaultTypeInternal _REQ_LEAVE_ROOM_default_instance_;
-constexpr RES_LEAVE_ROOM::RES_LEAVE_ROOM(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_LEAVE_CHATROOMDefaultTypeInternal _REQ_LEAVE_CHATROOM_default_instance_;
+constexpr RES_LEAVE_CHATROOM::RES_LEAVE_CHATROOM(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : result_(false){}
-struct RES_LEAVE_ROOMDefaultTypeInternal {
-  constexpr RES_LEAVE_ROOMDefaultTypeInternal()
+struct RES_LEAVE_CHATROOMDefaultTypeInternal {
+  constexpr RES_LEAVE_CHATROOMDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
-  ~RES_LEAVE_ROOMDefaultTypeInternal() {}
+  ~RES_LEAVE_CHATROOMDefaultTypeInternal() {}
   union {
-    RES_LEAVE_ROOM _instance;
+    RES_LEAVE_CHATROOM _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RES_LEAVE_ROOMDefaultTypeInternal _RES_LEAVE_ROOM_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RES_LEAVE_CHATROOMDefaultTypeInternal _RES_LEAVE_CHATROOM_default_instance_;
 constexpr REQ_CHAT::REQ_CHAT(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : time_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
@@ -101,30 +101,30 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_s
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ChatProtocol_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::Chat::REQ_ENTER_ROOM, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::Chat::REQ_ENTER_CHATROOM, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Chat::REQ_ENTER_ROOM, name_),
+  PROTOBUF_FIELD_OFFSET(::Chat::REQ_ENTER_CHATROOM, name_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::Chat::RES_ENTER_ROOM, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::Chat::RES_ENTER_CHATROOM, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Chat::RES_ENTER_ROOM, player_id_),
-  PROTOBUF_FIELD_OFFSET(::Chat::RES_ENTER_ROOM, result_),
+  PROTOBUF_FIELD_OFFSET(::Chat::RES_ENTER_CHATROOM, player_id_),
+  PROTOBUF_FIELD_OFFSET(::Chat::RES_ENTER_CHATROOM, result_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::Chat::REQ_LEAVE_ROOM, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::Chat::REQ_LEAVE_CHATROOM, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Chat::REQ_LEAVE_ROOM, player_id_),
+  PROTOBUF_FIELD_OFFSET(::Chat::REQ_LEAVE_CHATROOM, player_id_),
   ~0u,  // no _has_bits_
-  PROTOBUF_FIELD_OFFSET(::Chat::RES_LEAVE_ROOM, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::Chat::RES_LEAVE_CHATROOM, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Chat::RES_LEAVE_ROOM, result_),
+  PROTOBUF_FIELD_OFFSET(::Chat::RES_LEAVE_CHATROOM, result_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Chat::REQ_CHAT, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -143,33 +143,33 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ChatProtocol_2eproto::offsets[
   PROTOBUF_FIELD_OFFSET(::Chat::RES_CHAT, message_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, sizeof(::Chat::REQ_ENTER_ROOM)},
-  { 6, -1, sizeof(::Chat::RES_ENTER_ROOM)},
-  { 13, -1, sizeof(::Chat::REQ_LEAVE_ROOM)},
-  { 19, -1, sizeof(::Chat::RES_LEAVE_ROOM)},
+  { 0, -1, sizeof(::Chat::REQ_ENTER_CHATROOM)},
+  { 6, -1, sizeof(::Chat::RES_ENTER_CHATROOM)},
+  { 13, -1, sizeof(::Chat::REQ_LEAVE_CHATROOM)},
+  { 19, -1, sizeof(::Chat::RES_LEAVE_CHATROOM)},
   { 25, -1, sizeof(::Chat::REQ_CHAT)},
   { 33, -1, sizeof(::Chat::RES_CHAT)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Chat::_REQ_ENTER_ROOM_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Chat::_RES_ENTER_ROOM_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Chat::_REQ_LEAVE_ROOM_default_instance_),
-  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Chat::_RES_LEAVE_ROOM_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Chat::_REQ_ENTER_CHATROOM_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Chat::_RES_ENTER_CHATROOM_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Chat::_REQ_LEAVE_CHATROOM_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Chat::_RES_LEAVE_CHATROOM_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Chat::_REQ_CHAT_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::Chat::_RES_CHAT_default_instance_),
 };
 
 const char descriptor_table_protodef_ChatProtocol_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\022ChatProtocol.proto\022\004Chat\032\016ChatEnum.pro"
-  "to\032\020ChatStruct.proto\"\036\n\016REQ_ENTER_ROOM\022\014"
-  "\n\004name\030\001 \001(\t\"3\n\016RES_ENTER_ROOM\022\021\n\tplayer"
-  "_id\030\001 \001(\005\022\016\n\006result\030\002 \001(\010\"#\n\016REQ_LEAVE_R"
-  "OOM\022\021\n\tplayer_id\030\001 \001(\005\" \n\016RES_LEAVE_ROOM"
-  "\022\016\n\006result\030\001 \001(\010\"9\n\010REQ_CHAT\022\014\n\004time\030\001 \001"
-  "(\t\022\016\n\006sender\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\"9\n\010R"
-  "ES_CHAT\022\014\n\004time\030\001 \001(\t\022\016\n\006sender\030\002 \001(\t\022\017\n"
-  "\007message\030\003 \001(\tb\006proto3"
+  "to\032\020ChatStruct.proto\"\"\n\022REQ_ENTER_CHATRO"
+  "OM\022\014\n\004name\030\001 \001(\t\"7\n\022RES_ENTER_CHATROOM\022\021"
+  "\n\tplayer_id\030\001 \001(\005\022\016\n\006result\030\002 \001(\010\"\'\n\022REQ"
+  "_LEAVE_CHATROOM\022\021\n\tplayer_id\030\001 \001(\005\"$\n\022RE"
+  "S_LEAVE_CHATROOM\022\016\n\006result\030\001 \001(\010\"9\n\010REQ_"
+  "CHAT\022\014\n\004time\030\001 \001(\t\022\016\n\006sender\030\002 \001(\t\022\017\n\007me"
+  "ssage\030\003 \001(\t\"9\n\010RES_CHAT\022\014\n\004time\030\001 \001(\t\022\016\n"
+  "\006sender\030\002 \001(\t\022\017\n\007message\030\003 \001(\tb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_ChatProtocol_2eproto_deps[2] = {
   &::descriptor_table_ChatEnum_2eproto,
@@ -177,7 +177,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_ChatProtocol_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_ChatProtocol_2eproto = {
-  false, false, 342, descriptor_table_protodef_ChatProtocol_2eproto, "ChatProtocol.proto", 
+  false, false, 358, descriptor_table_protodef_ChatProtocol_2eproto, "ChatProtocol.proto", 
   &descriptor_table_ChatProtocol_2eproto_once, descriptor_table_ChatProtocol_2eproto_deps, 2, 6,
   schemas, file_default_instances, TableStruct_ChatProtocol_2eproto::offsets,
   file_level_metadata_ChatProtocol_2eproto, file_level_enum_descriptors_ChatProtocol_2eproto, file_level_service_descriptors_ChatProtocol_2eproto,
@@ -192,17 +192,17 @@ namespace Chat {
 
 // ===================================================================
 
-class REQ_ENTER_ROOM::_Internal {
+class REQ_ENTER_CHATROOM::_Internal {
  public:
 };
 
-REQ_ENTER_ROOM::REQ_ENTER_ROOM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+REQ_ENTER_CHATROOM::REQ_ENTER_CHATROOM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:Chat.REQ_ENTER_ROOM)
+  // @@protoc_insertion_point(arena_constructor:Chat.REQ_ENTER_CHATROOM)
 }
-REQ_ENTER_ROOM::REQ_ENTER_ROOM(const REQ_ENTER_ROOM& from)
+REQ_ENTER_CHATROOM::REQ_ENTER_CHATROOM(const REQ_ENTER_CHATROOM& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -210,36 +210,36 @@ REQ_ENTER_ROOM::REQ_ENTER_ROOM(const REQ_ENTER_ROOM& from)
     name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArenaForAllocation());
   }
-  // @@protoc_insertion_point(copy_constructor:Chat.REQ_ENTER_ROOM)
+  // @@protoc_insertion_point(copy_constructor:Chat.REQ_ENTER_CHATROOM)
 }
 
-void REQ_ENTER_ROOM::SharedCtor() {
+void REQ_ENTER_CHATROOM::SharedCtor() {
 name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-REQ_ENTER_ROOM::~REQ_ENTER_ROOM() {
-  // @@protoc_insertion_point(destructor:Chat.REQ_ENTER_ROOM)
+REQ_ENTER_CHATROOM::~REQ_ENTER_CHATROOM() {
+  // @@protoc_insertion_point(destructor:Chat.REQ_ENTER_CHATROOM)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void REQ_ENTER_ROOM::SharedDtor() {
+void REQ_ENTER_CHATROOM::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-void REQ_ENTER_ROOM::ArenaDtor(void* object) {
-  REQ_ENTER_ROOM* _this = reinterpret_cast< REQ_ENTER_ROOM* >(object);
+void REQ_ENTER_CHATROOM::ArenaDtor(void* object) {
+  REQ_ENTER_CHATROOM* _this = reinterpret_cast< REQ_ENTER_CHATROOM* >(object);
   (void)_this;
 }
-void REQ_ENTER_ROOM::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void REQ_ENTER_CHATROOM::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void REQ_ENTER_ROOM::SetCachedSize(int size) const {
+void REQ_ENTER_CHATROOM::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void REQ_ENTER_ROOM::Clear() {
-// @@protoc_insertion_point(message_clear_start:Chat.REQ_ENTER_ROOM)
+void REQ_ENTER_CHATROOM::Clear() {
+// @@protoc_insertion_point(message_clear_start:Chat.REQ_ENTER_CHATROOM)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -248,7 +248,7 @@ void REQ_ENTER_ROOM::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* REQ_ENTER_ROOM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* REQ_ENTER_CHATROOM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
@@ -259,7 +259,7 @@ const char* REQ_ENTER_ROOM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
           auto str = _internal_mutable_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Chat.REQ_ENTER_ROOM.name"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Chat.REQ_ENTER_CHATROOM.name"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -286,9 +286,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* REQ_ENTER_ROOM::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* REQ_ENTER_CHATROOM::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Chat.REQ_ENTER_ROOM)
+  // @@protoc_insertion_point(serialize_to_array_start:Chat.REQ_ENTER_CHATROOM)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -297,7 +297,7 @@ failure:
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "Chat.REQ_ENTER_ROOM.name");
+      "Chat.REQ_ENTER_CHATROOM.name");
     target = stream->WriteStringMaybeAliased(
         1, this->_internal_name(), target);
   }
@@ -306,12 +306,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:Chat.REQ_ENTER_ROOM)
+  // @@protoc_insertion_point(serialize_to_array_end:Chat.REQ_ENTER_CHATROOM)
   return target;
 }
 
-size_t REQ_ENTER_ROOM::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Chat.REQ_ENTER_ROOM)
+size_t REQ_ENTER_CHATROOM::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:Chat.REQ_ENTER_CHATROOM)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -334,23 +334,23 @@ size_t REQ_ENTER_ROOM::ByteSizeLong() const {
   return total_size;
 }
 
-void REQ_ENTER_ROOM::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Chat.REQ_ENTER_ROOM)
+void REQ_ENTER_CHATROOM::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:Chat.REQ_ENTER_CHATROOM)
   GOOGLE_DCHECK_NE(&from, this);
-  const REQ_ENTER_ROOM* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<REQ_ENTER_ROOM>(
+  const REQ_ENTER_CHATROOM* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<REQ_ENTER_CHATROOM>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Chat.REQ_ENTER_ROOM)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Chat.REQ_ENTER_CHATROOM)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Chat.REQ_ENTER_ROOM)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:Chat.REQ_ENTER_CHATROOM)
     MergeFrom(*source);
   }
 }
 
-void REQ_ENTER_ROOM::MergeFrom(const REQ_ENTER_ROOM& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Chat.REQ_ENTER_ROOM)
+void REQ_ENTER_CHATROOM::MergeFrom(const REQ_ENTER_CHATROOM& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:Chat.REQ_ENTER_CHATROOM)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -361,25 +361,25 @@ void REQ_ENTER_ROOM::MergeFrom(const REQ_ENTER_ROOM& from) {
   }
 }
 
-void REQ_ENTER_ROOM::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Chat.REQ_ENTER_ROOM)
+void REQ_ENTER_CHATROOM::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:Chat.REQ_ENTER_CHATROOM)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void REQ_ENTER_ROOM::CopyFrom(const REQ_ENTER_ROOM& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Chat.REQ_ENTER_ROOM)
+void REQ_ENTER_CHATROOM::CopyFrom(const REQ_ENTER_CHATROOM& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:Chat.REQ_ENTER_CHATROOM)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool REQ_ENTER_ROOM::IsInitialized() const {
+bool REQ_ENTER_CHATROOM::IsInitialized() const {
   return true;
 }
 
-void REQ_ENTER_ROOM::InternalSwap(REQ_ENTER_ROOM* other) {
+void REQ_ENTER_CHATROOM::InternalSwap(REQ_ENTER_CHATROOM* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
@@ -389,7 +389,7 @@ void REQ_ENTER_ROOM::InternalSwap(REQ_ENTER_ROOM* other) {
   );
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata REQ_ENTER_ROOM::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata REQ_ENTER_CHATROOM::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_ChatProtocol_2eproto_getter, &descriptor_table_ChatProtocol_2eproto_once,
       file_level_metadata_ChatProtocol_2eproto[0]);
@@ -397,54 +397,54 @@ void REQ_ENTER_ROOM::InternalSwap(REQ_ENTER_ROOM* other) {
 
 // ===================================================================
 
-class RES_ENTER_ROOM::_Internal {
+class RES_ENTER_CHATROOM::_Internal {
  public:
 };
 
-RES_ENTER_ROOM::RES_ENTER_ROOM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+RES_ENTER_CHATROOM::RES_ENTER_CHATROOM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:Chat.RES_ENTER_ROOM)
+  // @@protoc_insertion_point(arena_constructor:Chat.RES_ENTER_CHATROOM)
 }
-RES_ENTER_ROOM::RES_ENTER_ROOM(const RES_ENTER_ROOM& from)
+RES_ENTER_CHATROOM::RES_ENTER_CHATROOM(const RES_ENTER_CHATROOM& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&player_id_, &from.player_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&result_) -
     reinterpret_cast<char*>(&player_id_)) + sizeof(result_));
-  // @@protoc_insertion_point(copy_constructor:Chat.RES_ENTER_ROOM)
+  // @@protoc_insertion_point(copy_constructor:Chat.RES_ENTER_CHATROOM)
 }
 
-void RES_ENTER_ROOM::SharedCtor() {
+void RES_ENTER_CHATROOM::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&player_id_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&result_) -
     reinterpret_cast<char*>(&player_id_)) + sizeof(result_));
 }
 
-RES_ENTER_ROOM::~RES_ENTER_ROOM() {
-  // @@protoc_insertion_point(destructor:Chat.RES_ENTER_ROOM)
+RES_ENTER_CHATROOM::~RES_ENTER_CHATROOM() {
+  // @@protoc_insertion_point(destructor:Chat.RES_ENTER_CHATROOM)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void RES_ENTER_ROOM::SharedDtor() {
+void RES_ENTER_CHATROOM::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void RES_ENTER_ROOM::ArenaDtor(void* object) {
-  RES_ENTER_ROOM* _this = reinterpret_cast< RES_ENTER_ROOM* >(object);
+void RES_ENTER_CHATROOM::ArenaDtor(void* object) {
+  RES_ENTER_CHATROOM* _this = reinterpret_cast< RES_ENTER_CHATROOM* >(object);
   (void)_this;
 }
-void RES_ENTER_ROOM::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void RES_ENTER_CHATROOM::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void RES_ENTER_ROOM::SetCachedSize(int size) const {
+void RES_ENTER_CHATROOM::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void RES_ENTER_ROOM::Clear() {
-// @@protoc_insertion_point(message_clear_start:Chat.RES_ENTER_ROOM)
+void RES_ENTER_CHATROOM::Clear() {
+// @@protoc_insertion_point(message_clear_start:Chat.RES_ENTER_CHATROOM)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -455,7 +455,7 @@ void RES_ENTER_ROOM::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RES_ENTER_ROOM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RES_ENTER_CHATROOM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
@@ -498,9 +498,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* RES_ENTER_ROOM::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* RES_ENTER_CHATROOM::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Chat.RES_ENTER_ROOM)
+  // @@protoc_insertion_point(serialize_to_array_start:Chat.RES_ENTER_CHATROOM)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -520,12 +520,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:Chat.RES_ENTER_ROOM)
+  // @@protoc_insertion_point(serialize_to_array_end:Chat.RES_ENTER_CHATROOM)
   return target;
 }
 
-size_t RES_ENTER_ROOM::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Chat.RES_ENTER_ROOM)
+size_t RES_ENTER_CHATROOM::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:Chat.RES_ENTER_CHATROOM)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -553,23 +553,23 @@ size_t RES_ENTER_ROOM::ByteSizeLong() const {
   return total_size;
 }
 
-void RES_ENTER_ROOM::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Chat.RES_ENTER_ROOM)
+void RES_ENTER_CHATROOM::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:Chat.RES_ENTER_CHATROOM)
   GOOGLE_DCHECK_NE(&from, this);
-  const RES_ENTER_ROOM* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RES_ENTER_ROOM>(
+  const RES_ENTER_CHATROOM* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RES_ENTER_CHATROOM>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Chat.RES_ENTER_ROOM)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Chat.RES_ENTER_CHATROOM)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Chat.RES_ENTER_ROOM)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:Chat.RES_ENTER_CHATROOM)
     MergeFrom(*source);
   }
 }
 
-void RES_ENTER_ROOM::MergeFrom(const RES_ENTER_ROOM& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Chat.RES_ENTER_ROOM)
+void RES_ENTER_CHATROOM::MergeFrom(const RES_ENTER_CHATROOM& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:Chat.RES_ENTER_CHATROOM)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -583,36 +583,36 @@ void RES_ENTER_ROOM::MergeFrom(const RES_ENTER_ROOM& from) {
   }
 }
 
-void RES_ENTER_ROOM::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Chat.RES_ENTER_ROOM)
+void RES_ENTER_CHATROOM::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:Chat.RES_ENTER_CHATROOM)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void RES_ENTER_ROOM::CopyFrom(const RES_ENTER_ROOM& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Chat.RES_ENTER_ROOM)
+void RES_ENTER_CHATROOM::CopyFrom(const RES_ENTER_CHATROOM& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:Chat.RES_ENTER_CHATROOM)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool RES_ENTER_ROOM::IsInitialized() const {
+bool RES_ENTER_CHATROOM::IsInitialized() const {
   return true;
 }
 
-void RES_ENTER_ROOM::InternalSwap(RES_ENTER_ROOM* other) {
+void RES_ENTER_CHATROOM::InternalSwap(RES_ENTER_CHATROOM* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RES_ENTER_ROOM, result_)
-      + sizeof(RES_ENTER_ROOM::result_)
-      - PROTOBUF_FIELD_OFFSET(RES_ENTER_ROOM, player_id_)>(
+      PROTOBUF_FIELD_OFFSET(RES_ENTER_CHATROOM, result_)
+      + sizeof(RES_ENTER_CHATROOM::result_)
+      - PROTOBUF_FIELD_OFFSET(RES_ENTER_CHATROOM, player_id_)>(
           reinterpret_cast<char*>(&player_id_),
           reinterpret_cast<char*>(&other->player_id_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata RES_ENTER_ROOM::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata RES_ENTER_CHATROOM::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_ChatProtocol_2eproto_getter, &descriptor_table_ChatProtocol_2eproto_once,
       file_level_metadata_ChatProtocol_2eproto[1]);
@@ -620,49 +620,49 @@ void RES_ENTER_ROOM::InternalSwap(RES_ENTER_ROOM* other) {
 
 // ===================================================================
 
-class REQ_LEAVE_ROOM::_Internal {
+class REQ_LEAVE_CHATROOM::_Internal {
  public:
 };
 
-REQ_LEAVE_ROOM::REQ_LEAVE_ROOM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+REQ_LEAVE_CHATROOM::REQ_LEAVE_CHATROOM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:Chat.REQ_LEAVE_ROOM)
+  // @@protoc_insertion_point(arena_constructor:Chat.REQ_LEAVE_CHATROOM)
 }
-REQ_LEAVE_ROOM::REQ_LEAVE_ROOM(const REQ_LEAVE_ROOM& from)
+REQ_LEAVE_CHATROOM::REQ_LEAVE_CHATROOM(const REQ_LEAVE_CHATROOM& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   player_id_ = from.player_id_;
-  // @@protoc_insertion_point(copy_constructor:Chat.REQ_LEAVE_ROOM)
+  // @@protoc_insertion_point(copy_constructor:Chat.REQ_LEAVE_CHATROOM)
 }
 
-void REQ_LEAVE_ROOM::SharedCtor() {
+void REQ_LEAVE_CHATROOM::SharedCtor() {
 player_id_ = 0;
 }
 
-REQ_LEAVE_ROOM::~REQ_LEAVE_ROOM() {
-  // @@protoc_insertion_point(destructor:Chat.REQ_LEAVE_ROOM)
+REQ_LEAVE_CHATROOM::~REQ_LEAVE_CHATROOM() {
+  // @@protoc_insertion_point(destructor:Chat.REQ_LEAVE_CHATROOM)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void REQ_LEAVE_ROOM::SharedDtor() {
+void REQ_LEAVE_CHATROOM::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void REQ_LEAVE_ROOM::ArenaDtor(void* object) {
-  REQ_LEAVE_ROOM* _this = reinterpret_cast< REQ_LEAVE_ROOM* >(object);
+void REQ_LEAVE_CHATROOM::ArenaDtor(void* object) {
+  REQ_LEAVE_CHATROOM* _this = reinterpret_cast< REQ_LEAVE_CHATROOM* >(object);
   (void)_this;
 }
-void REQ_LEAVE_ROOM::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void REQ_LEAVE_CHATROOM::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void REQ_LEAVE_ROOM::SetCachedSize(int size) const {
+void REQ_LEAVE_CHATROOM::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void REQ_LEAVE_ROOM::Clear() {
-// @@protoc_insertion_point(message_clear_start:Chat.REQ_LEAVE_ROOM)
+void REQ_LEAVE_CHATROOM::Clear() {
+// @@protoc_insertion_point(message_clear_start:Chat.REQ_LEAVE_CHATROOM)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -671,7 +671,7 @@ void REQ_LEAVE_ROOM::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* REQ_LEAVE_ROOM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* REQ_LEAVE_CHATROOM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
@@ -707,9 +707,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* REQ_LEAVE_ROOM::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* REQ_LEAVE_CHATROOM::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Chat.REQ_LEAVE_ROOM)
+  // @@protoc_insertion_point(serialize_to_array_start:Chat.REQ_LEAVE_CHATROOM)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -723,12 +723,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:Chat.REQ_LEAVE_ROOM)
+  // @@protoc_insertion_point(serialize_to_array_end:Chat.REQ_LEAVE_CHATROOM)
   return target;
 }
 
-size_t REQ_LEAVE_ROOM::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Chat.REQ_LEAVE_ROOM)
+size_t REQ_LEAVE_CHATROOM::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:Chat.REQ_LEAVE_CHATROOM)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -751,23 +751,23 @@ size_t REQ_LEAVE_ROOM::ByteSizeLong() const {
   return total_size;
 }
 
-void REQ_LEAVE_ROOM::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Chat.REQ_LEAVE_ROOM)
+void REQ_LEAVE_CHATROOM::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:Chat.REQ_LEAVE_CHATROOM)
   GOOGLE_DCHECK_NE(&from, this);
-  const REQ_LEAVE_ROOM* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<REQ_LEAVE_ROOM>(
+  const REQ_LEAVE_CHATROOM* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<REQ_LEAVE_CHATROOM>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Chat.REQ_LEAVE_ROOM)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Chat.REQ_LEAVE_CHATROOM)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Chat.REQ_LEAVE_ROOM)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:Chat.REQ_LEAVE_CHATROOM)
     MergeFrom(*source);
   }
 }
 
-void REQ_LEAVE_ROOM::MergeFrom(const REQ_LEAVE_ROOM& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Chat.REQ_LEAVE_ROOM)
+void REQ_LEAVE_CHATROOM::MergeFrom(const REQ_LEAVE_CHATROOM& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:Chat.REQ_LEAVE_CHATROOM)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -778,31 +778,31 @@ void REQ_LEAVE_ROOM::MergeFrom(const REQ_LEAVE_ROOM& from) {
   }
 }
 
-void REQ_LEAVE_ROOM::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Chat.REQ_LEAVE_ROOM)
+void REQ_LEAVE_CHATROOM::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:Chat.REQ_LEAVE_CHATROOM)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void REQ_LEAVE_ROOM::CopyFrom(const REQ_LEAVE_ROOM& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Chat.REQ_LEAVE_ROOM)
+void REQ_LEAVE_CHATROOM::CopyFrom(const REQ_LEAVE_CHATROOM& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:Chat.REQ_LEAVE_CHATROOM)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool REQ_LEAVE_ROOM::IsInitialized() const {
+bool REQ_LEAVE_CHATROOM::IsInitialized() const {
   return true;
 }
 
-void REQ_LEAVE_ROOM::InternalSwap(REQ_LEAVE_ROOM* other) {
+void REQ_LEAVE_CHATROOM::InternalSwap(REQ_LEAVE_CHATROOM* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(player_id_, other->player_id_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata REQ_LEAVE_ROOM::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata REQ_LEAVE_CHATROOM::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_ChatProtocol_2eproto_getter, &descriptor_table_ChatProtocol_2eproto_once,
       file_level_metadata_ChatProtocol_2eproto[2]);
@@ -810,49 +810,49 @@ void REQ_LEAVE_ROOM::InternalSwap(REQ_LEAVE_ROOM* other) {
 
 // ===================================================================
 
-class RES_LEAVE_ROOM::_Internal {
+class RES_LEAVE_CHATROOM::_Internal {
  public:
 };
 
-RES_LEAVE_ROOM::RES_LEAVE_ROOM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+RES_LEAVE_CHATROOM::RES_LEAVE_CHATROOM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:Chat.RES_LEAVE_ROOM)
+  // @@protoc_insertion_point(arena_constructor:Chat.RES_LEAVE_CHATROOM)
 }
-RES_LEAVE_ROOM::RES_LEAVE_ROOM(const RES_LEAVE_ROOM& from)
+RES_LEAVE_CHATROOM::RES_LEAVE_CHATROOM(const RES_LEAVE_CHATROOM& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   result_ = from.result_;
-  // @@protoc_insertion_point(copy_constructor:Chat.RES_LEAVE_ROOM)
+  // @@protoc_insertion_point(copy_constructor:Chat.RES_LEAVE_CHATROOM)
 }
 
-void RES_LEAVE_ROOM::SharedCtor() {
+void RES_LEAVE_CHATROOM::SharedCtor() {
 result_ = false;
 }
 
-RES_LEAVE_ROOM::~RES_LEAVE_ROOM() {
-  // @@protoc_insertion_point(destructor:Chat.RES_LEAVE_ROOM)
+RES_LEAVE_CHATROOM::~RES_LEAVE_CHATROOM() {
+  // @@protoc_insertion_point(destructor:Chat.RES_LEAVE_CHATROOM)
   SharedDtor();
   _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-void RES_LEAVE_ROOM::SharedDtor() {
+void RES_LEAVE_CHATROOM::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void RES_LEAVE_ROOM::ArenaDtor(void* object) {
-  RES_LEAVE_ROOM* _this = reinterpret_cast< RES_LEAVE_ROOM* >(object);
+void RES_LEAVE_CHATROOM::ArenaDtor(void* object) {
+  RES_LEAVE_CHATROOM* _this = reinterpret_cast< RES_LEAVE_CHATROOM* >(object);
   (void)_this;
 }
-void RES_LEAVE_ROOM::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+void RES_LEAVE_CHATROOM::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 }
-void RES_LEAVE_ROOM::SetCachedSize(int size) const {
+void RES_LEAVE_CHATROOM::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
 
-void RES_LEAVE_ROOM::Clear() {
-// @@protoc_insertion_point(message_clear_start:Chat.RES_LEAVE_ROOM)
+void RES_LEAVE_CHATROOM::Clear() {
+// @@protoc_insertion_point(message_clear_start:Chat.RES_LEAVE_CHATROOM)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -861,7 +861,7 @@ void RES_LEAVE_ROOM::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* RES_LEAVE_ROOM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+const char* RES_LEAVE_CHATROOM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
@@ -897,9 +897,9 @@ failure:
 #undef CHK_
 }
 
-::PROTOBUF_NAMESPACE_ID::uint8* RES_LEAVE_ROOM::_InternalSerialize(
+::PROTOBUF_NAMESPACE_ID::uint8* RES_LEAVE_CHATROOM::_InternalSerialize(
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:Chat.RES_LEAVE_ROOM)
+  // @@protoc_insertion_point(serialize_to_array_start:Chat.RES_LEAVE_CHATROOM)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -913,12 +913,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:Chat.RES_LEAVE_ROOM)
+  // @@protoc_insertion_point(serialize_to_array_end:Chat.RES_LEAVE_CHATROOM)
   return target;
 }
 
-size_t RES_LEAVE_ROOM::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:Chat.RES_LEAVE_ROOM)
+size_t RES_LEAVE_CHATROOM::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:Chat.RES_LEAVE_CHATROOM)
   size_t total_size = 0;
 
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -939,23 +939,23 @@ size_t RES_LEAVE_ROOM::ByteSizeLong() const {
   return total_size;
 }
 
-void RES_LEAVE_ROOM::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:Chat.RES_LEAVE_ROOM)
+void RES_LEAVE_CHATROOM::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:Chat.RES_LEAVE_CHATROOM)
   GOOGLE_DCHECK_NE(&from, this);
-  const RES_LEAVE_ROOM* source =
-      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RES_LEAVE_ROOM>(
+  const RES_LEAVE_CHATROOM* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RES_LEAVE_CHATROOM>(
           &from);
   if (source == nullptr) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Chat.RES_LEAVE_ROOM)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:Chat.RES_LEAVE_CHATROOM)
     ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:Chat.RES_LEAVE_ROOM)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:Chat.RES_LEAVE_CHATROOM)
     MergeFrom(*source);
   }
 }
 
-void RES_LEAVE_ROOM::MergeFrom(const RES_LEAVE_ROOM& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:Chat.RES_LEAVE_ROOM)
+void RES_LEAVE_CHATROOM::MergeFrom(const RES_LEAVE_CHATROOM& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:Chat.RES_LEAVE_CHATROOM)
   GOOGLE_DCHECK_NE(&from, this);
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -966,31 +966,31 @@ void RES_LEAVE_ROOM::MergeFrom(const RES_LEAVE_ROOM& from) {
   }
 }
 
-void RES_LEAVE_ROOM::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:Chat.RES_LEAVE_ROOM)
+void RES_LEAVE_CHATROOM::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:Chat.RES_LEAVE_CHATROOM)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void RES_LEAVE_ROOM::CopyFrom(const RES_LEAVE_ROOM& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:Chat.RES_LEAVE_ROOM)
+void RES_LEAVE_CHATROOM::CopyFrom(const RES_LEAVE_CHATROOM& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:Chat.RES_LEAVE_CHATROOM)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool RES_LEAVE_ROOM::IsInitialized() const {
+bool RES_LEAVE_CHATROOM::IsInitialized() const {
   return true;
 }
 
-void RES_LEAVE_ROOM::InternalSwap(RES_LEAVE_ROOM* other) {
+void RES_LEAVE_CHATROOM::InternalSwap(RES_LEAVE_CHATROOM* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(result_, other->result_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata RES_LEAVE_ROOM::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata RES_LEAVE_CHATROOM::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_ChatProtocol_2eproto_getter, &descriptor_table_ChatProtocol_2eproto_once,
       file_level_metadata_ChatProtocol_2eproto[3]);
@@ -1577,17 +1577,17 @@ void RES_CHAT::InternalSwap(RES_CHAT* other) {
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace Chat
 PROTOBUF_NAMESPACE_OPEN
-template<> PROTOBUF_NOINLINE ::Chat::REQ_ENTER_ROOM* Arena::CreateMaybeMessage< ::Chat::REQ_ENTER_ROOM >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::Chat::REQ_ENTER_ROOM >(arena);
+template<> PROTOBUF_NOINLINE ::Chat::REQ_ENTER_CHATROOM* Arena::CreateMaybeMessage< ::Chat::REQ_ENTER_CHATROOM >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::Chat::REQ_ENTER_CHATROOM >(arena);
 }
-template<> PROTOBUF_NOINLINE ::Chat::RES_ENTER_ROOM* Arena::CreateMaybeMessage< ::Chat::RES_ENTER_ROOM >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::Chat::RES_ENTER_ROOM >(arena);
+template<> PROTOBUF_NOINLINE ::Chat::RES_ENTER_CHATROOM* Arena::CreateMaybeMessage< ::Chat::RES_ENTER_CHATROOM >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::Chat::RES_ENTER_CHATROOM >(arena);
 }
-template<> PROTOBUF_NOINLINE ::Chat::REQ_LEAVE_ROOM* Arena::CreateMaybeMessage< ::Chat::REQ_LEAVE_ROOM >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::Chat::REQ_LEAVE_ROOM >(arena);
+template<> PROTOBUF_NOINLINE ::Chat::REQ_LEAVE_CHATROOM* Arena::CreateMaybeMessage< ::Chat::REQ_LEAVE_CHATROOM >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::Chat::REQ_LEAVE_CHATROOM >(arena);
 }
-template<> PROTOBUF_NOINLINE ::Chat::RES_LEAVE_ROOM* Arena::CreateMaybeMessage< ::Chat::RES_LEAVE_ROOM >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::Chat::RES_LEAVE_ROOM >(arena);
+template<> PROTOBUF_NOINLINE ::Chat::RES_LEAVE_CHATROOM* Arena::CreateMaybeMessage< ::Chat::RES_LEAVE_CHATROOM >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::Chat::RES_LEAVE_CHATROOM >(arena);
 }
 template<> PROTOBUF_NOINLINE ::Chat::REQ_CHAT* Arena::CreateMaybeMessage< ::Chat::REQ_CHAT >(Arena* arena) {
   return Arena::CreateMessageInternal< ::Chat::REQ_CHAT >(arena);

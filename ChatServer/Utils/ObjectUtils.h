@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 class ObjectUtils
 {
@@ -10,4 +10,3 @@ public:
 private:
 	static std::atomic<uint32> s_idGenerator;
 };
-
