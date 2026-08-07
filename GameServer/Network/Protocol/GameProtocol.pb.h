@@ -343,9 +343,10 @@ class RES_CHARACTER_LIST final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kCharactersFieldNumber = 1,
+    kCharactersFieldNumber = 2,
+    kResultFieldNumber = 1,
   };
-  // repeated .Game.LobbyCharacterInfo Characters = 1;
+  // repeated .Game.LobbyCharacterInfo Characters = 2;
   int characters_size() const;
   private:
   int _internal_characters_size() const;
@@ -363,6 +364,15 @@ class RES_CHARACTER_LIST final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::LobbyCharacterInfo >&
       characters() const;
 
+  // bool result = 1;
+  void clear_result();
+  bool result() const;
+  void set_result(bool value);
+  private:
+  bool _internal_result() const;
+  void _internal_set_result(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:Game.RES_CHARACTER_LIST)
  private:
   class _Internal;
@@ -371,6 +381,7 @@ class RES_CHARACTER_LIST final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::LobbyCharacterInfo > characters_;
+  bool result_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameProtocol_2eproto;
 };
@@ -998,7 +1009,27 @@ inline void REQ_CHARACTER_LIST::set_allocated_token(std::string* token) {
 
 // RES_CHARACTER_LIST
 
-// repeated .Game.LobbyCharacterInfo Characters = 1;
+// bool result = 1;
+inline void RES_CHARACTER_LIST::clear_result() {
+  result_ = false;
+}
+inline bool RES_CHARACTER_LIST::_internal_result() const {
+  return result_;
+}
+inline bool RES_CHARACTER_LIST::result() const {
+  // @@protoc_insertion_point(field_get:Game.RES_CHARACTER_LIST.result)
+  return _internal_result();
+}
+inline void RES_CHARACTER_LIST::_internal_set_result(bool value) {
+  
+  result_ = value;
+}
+inline void RES_CHARACTER_LIST::set_result(bool value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:Game.RES_CHARACTER_LIST.result)
+}
+
+// repeated .Game.LobbyCharacterInfo Characters = 2;
 inline int RES_CHARACTER_LIST::_internal_characters_size() const {
   return characters_.size();
 }

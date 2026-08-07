@@ -2,6 +2,9 @@
 #include "GameServer.h"
 #include "GameSession.h"
 #include "Network/Handlers/GamePacketHandler.h"
+#include "DB/ConnectionPool.h"
+#include "DB/MySQLConnection.h"
+#include "DB/ConnectionFactory.h"
 
 GameServer::GameServer(asio::io_context& io_context, int port)
 	: _acceptor(io_context, tcp::endpoint(tcp::v4(), port)),
@@ -40,6 +43,10 @@ void GameServer::OnAccept(SessionPtr session, boost::system::error_code ec)
 int main()
 {
 	GamePacketHandler::Init();
+
+	// DB ConnectionPool 생성
+	std::shared_ptr<active911::MySQLConnectionFactory>connection_factory(new active911::MySQLConnectionFactory("localhost:3306", "root", "OmegaAlpha"));
+	active911::ConnectionPool<active911::MySQLConnection>::Init(10, connection_factory);
 
 	try
 	{

@@ -32,7 +32,8 @@ struct REQ_CHARACTER_LISTDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_CHARACTER_LISTDefaultTypeInternal _REQ_CHARACTER_LIST_default_instance_;
 constexpr RES_CHARACTER_LIST::RES_CHARACTER_LIST(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : characters_(){}
+  : characters_()
+  , result_(false){}
 struct RES_CHARACTER_LISTDefaultTypeInternal {
   constexpr RES_CHARACTER_LISTDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -109,6 +110,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameProtocol_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::Game::RES_CHARACTER_LIST, result_),
   PROTOBUF_FIELD_OFFSET(::Game::RES_CHARACTER_LIST, characters_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Game::REQ_ENTER_GAME, _internal_metadata_),
@@ -139,10 +141,10 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameProtocol_2eproto::offsets[
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::Game::REQ_CHARACTER_LIST)},
   { 7, -1, sizeof(::Game::RES_CHARACTER_LIST)},
-  { 13, -1, sizeof(::Game::REQ_ENTER_GAME)},
-  { 19, -1, sizeof(::Game::RES_ENTER_GAME)},
-  { 26, -1, sizeof(::Game::REQ_LEAVE_GAME)},
-  { 32, -1, sizeof(::Game::RES_LEAVE_GAME)},
+  { 14, -1, sizeof(::Game::REQ_ENTER_GAME)},
+  { 20, -1, sizeof(::Game::RES_ENTER_GAME)},
+  { 27, -1, sizeof(::Game::REQ_LEAVE_GAME)},
+  { 33, -1, sizeof(::Game::RES_LEAVE_GAME)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -157,13 +159,13 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 const char descriptor_table_protodef_GameProtocol_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\022GameProtocol.proto\022\004Game\032\016GameEnum.pro"
   "to\032\020GameStruct.proto\"/\n\022REQ_CHARACTER_LI"
-  "ST\022\n\n\002id\030\001 \001(\004\022\r\n\005token\030\002 \001(\t\"B\n\022RES_CHA"
-  "RACTER_LIST\022,\n\nCharacters\030\001 \003(\0132\030.Game.L"
-  "obbyCharacterInfo\"\036\n\016REQ_ENTER_GAME\022\014\n\004n"
-  "ame\030\001 \001(\t\"3\n\016RES_ENTER_GAME\022\021\n\tplayer_id"
-  "\030\001 \001(\005\022\016\n\006result\030\002 \001(\010\"#\n\016REQ_LEAVE_GAME"
-  "\022\021\n\tplayer_id\030\001 \001(\005\" \n\016RES_LEAVE_GAME\022\016\n"
-  "\006result\030\001 \001(\010b\006proto3"
+  "ST\022\n\n\002id\030\001 \001(\004\022\r\n\005token\030\002 \001(\t\"R\n\022RES_CHA"
+  "RACTER_LIST\022\016\n\006result\030\001 \001(\010\022,\n\nCharacter"
+  "s\030\002 \003(\0132\030.Game.LobbyCharacterInfo\"\036\n\016REQ"
+  "_ENTER_GAME\022\014\n\004name\030\001 \001(\t\"3\n\016RES_ENTER_G"
+  "AME\022\021\n\tplayer_id\030\001 \001(\005\022\016\n\006result\030\002 \001(\010\"#"
+  "\n\016REQ_LEAVE_GAME\022\021\n\tplayer_id\030\001 \001(\005\" \n\016R"
+  "ES_LEAVE_GAME\022\016\n\006result\030\001 \001(\010b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_GameProtocol_2eproto_deps[2] = {
   &::descriptor_table_GameEnum_2eproto,
@@ -171,7 +173,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameProtocol_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameProtocol_2eproto = {
-  false, false, 341, descriptor_table_protodef_GameProtocol_2eproto, "GameProtocol.proto", 
+  false, false, 357, descriptor_table_protodef_GameProtocol_2eproto, "GameProtocol.proto", 
   &descriptor_table_GameProtocol_2eproto_once, descriptor_table_GameProtocol_2eproto_deps, 2, 6,
   schemas, file_default_instances, TableStruct_GameProtocol_2eproto::offsets,
   file_level_metadata_GameProtocol_2eproto, file_level_enum_descriptors_GameProtocol_2eproto, file_level_service_descriptors_GameProtocol_2eproto,
@@ -436,10 +438,12 @@ RES_CHARACTER_LIST::RES_CHARACTER_LIST(const RES_CHARACTER_LIST& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       characters_(from.characters_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  result_ = from.result_;
   // @@protoc_insertion_point(copy_constructor:Game.RES_CHARACTER_LIST)
 }
 
 void RES_CHARACTER_LIST::SharedCtor() {
+result_ = false;
 }
 
 RES_CHARACTER_LIST::~RES_CHARACTER_LIST() {
@@ -469,6 +473,7 @@ void RES_CHARACTER_LIST::Clear() {
   (void) cached_has_bits;
 
   characters_.Clear();
+  result_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -478,16 +483,23 @@ const char* RES_CHARACTER_LIST::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // repeated .Game.LobbyCharacterInfo Characters = 1;
+      // bool result = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          result_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .Game.LobbyCharacterInfo Characters = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
           do {
             ptr += 1;
             ptr = ctx->ParseMessage(_internal_add_characters(), ptr);
             CHK_(ptr);
             if (!ctx->DataAvailable(ptr)) break;
-          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -519,12 +531,18 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // repeated .Game.LobbyCharacterInfo Characters = 1;
+  // bool result = 1;
+  if (this->result() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_result(), target);
+  }
+
+  // repeated .Game.LobbyCharacterInfo Characters = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_characters_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
-      InternalWriteMessage(1, this->_internal_characters(i), target, stream);
+      InternalWriteMessage(2, this->_internal_characters(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -543,11 +561,16 @@ size_t RES_CHARACTER_LIST::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .Game.LobbyCharacterInfo Characters = 1;
+  // repeated .Game.LobbyCharacterInfo Characters = 2;
   total_size += 1UL * this->_internal_characters_size();
   for (const auto& msg : this->characters_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // bool result = 1;
+  if (this->result() != 0) {
+    total_size += 1 + 1;
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -582,6 +605,9 @@ void RES_CHARACTER_LIST::MergeFrom(const RES_CHARACTER_LIST& from) {
   (void) cached_has_bits;
 
   characters_.MergeFrom(from.characters_);
+  if (from.result() != 0) {
+    _internal_set_result(from._internal_result());
+  }
 }
 
 void RES_CHARACTER_LIST::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -606,6 +632,7 @@ void RES_CHARACTER_LIST::InternalSwap(RES_CHARACTER_LIST* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   characters_.InternalSwap(&other->characters_);
+  swap(result_, other->result_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RES_CHARACTER_LIST::GetMetadata() const {
