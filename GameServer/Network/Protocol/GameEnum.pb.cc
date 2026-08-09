@@ -25,15 +25,18 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = n
 static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_GameEnum_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\016GameEnum.proto\022\004Game*\244\001\n\nPacketType\022\032\n"
-  "\026PKT_REQ_CHARACTER_LIST\020\000\022\032\n\026PKT_RES_CHA"
-  "RACTER_LIST\020\001\022\026\n\022PKT_REQ_ENTER_GAME\020\002\022\026\n"
-  "\022PKT_RES_ENTER_GAME\020\003\022\026\n\022PKT_REQ_LEAVE_G"
-  "AME\020\004\022\026\n\022PKT_RES_LEAVE_GAME\020\005b\006proto3"
+  "\n\016GameEnum.proto\022\004Game*\231\002\n\nPacketType\022\017\n"
+  "\013PKT_INVALID\020\000\022\033\n\026PKT_REQ_CHARACTER_LIST"
+  "\020\350\007\022\033\n\026PKT_RES_CHARACTER_LIST\020\351\007\022\027\n\022PKT_"
+  "REQ_ENTER_GAME\020\352\007\022\027\n\022PKT_RES_ENTER_GAME\020"
+  "\353\007\022\027\n\022PKT_REQ_LEAVE_GAME\020\354\007\022\027\n\022PKT_RES_L"
+  "EAVE_GAME\020\355\007\022\023\n\016PKT_REQ_ATTACK\020\320\017\022\023\n\016PKT"
+  "_RES_ATTACK\020\321\017\022\030\n\023PKT_REQ_OPENAUCTION\020\270\027"
+  "\022\030\n\023PKT_RES_OPENAUCTION\020\271\027b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameEnum_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameEnum_2eproto = {
-  false, false, 197, descriptor_table_protodef_GameEnum_2eproto, "GameEnum.proto", 
+  false, false, 314, descriptor_table_protodef_GameEnum_2eproto, "GameEnum.proto", 
   &descriptor_table_GameEnum_2eproto_once, nullptr, 0, 0,
   schemas, file_default_instances, TableStruct_GameEnum_2eproto::offsets,
   nullptr, file_level_enum_descriptors_GameEnum_2eproto, file_level_service_descriptors_GameEnum_2eproto,
@@ -52,11 +55,16 @@ const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PacketType_descriptor() {
 bool PacketType_IsValid(int value) {
   switch (value) {
     case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
+    case 1000:
+    case 1001:
+    case 1002:
+    case 1003:
+    case 1004:
+    case 1005:
+    case 2000:
+    case 2001:
+    case 3000:
+    case 3001:
       return true;
     default:
       return false;

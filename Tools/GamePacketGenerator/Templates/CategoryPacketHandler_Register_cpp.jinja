@@ -1,0 +1,10 @@
+#include "{{category}}{{suffix}}.h"
+
+void Register_{{category}}_Handlers()
+{
+	{% for pkt in pkts %}
+	G{{prefix}}PacketHandler[{{prefix}}::PacketType::PKT_{{pkt.name}}] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+		return {{output}}::DispatchPacket<{{prefix}}::{{pkt.name}}>(Handle_{{pkt.name}}, session, buffer, offset);
+		};
+	{% endfor %}
+}

@@ -1,0 +1,7 @@
+#pragma once
+#include "../Protocol/{{category}}Protocol.pb.h"
+#include "{{output}}.h"
+
+{% for pkt in pkts %}
+bool Handle_{{pkt.name}}(SessionPtr& session, {{prefix}}::{{pkt.name}}& pkt);
+{% endfor %}

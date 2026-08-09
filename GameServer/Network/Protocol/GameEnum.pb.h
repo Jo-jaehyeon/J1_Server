@@ -57,18 +57,23 @@ PROTOBUF_NAMESPACE_CLOSE
 namespace Game {
 
 enum PacketType : int {
-  PKT_REQ_CHARACTER_LIST = 0,
-  PKT_RES_CHARACTER_LIST = 1,
-  PKT_REQ_ENTER_GAME = 2,
-  PKT_RES_ENTER_GAME = 3,
-  PKT_REQ_LEAVE_GAME = 4,
-  PKT_RES_LEAVE_GAME = 5,
+  PKT_INVALID = 0,
+  PKT_REQ_CHARACTER_LIST = 1000,
+  PKT_RES_CHARACTER_LIST = 1001,
+  PKT_REQ_ENTER_GAME = 1002,
+  PKT_RES_ENTER_GAME = 1003,
+  PKT_REQ_LEAVE_GAME = 1004,
+  PKT_RES_LEAVE_GAME = 1005,
+  PKT_REQ_ATTACK = 2000,
+  PKT_RES_ATTACK = 2001,
+  PKT_REQ_OPENAUCTION = 3000,
+  PKT_RES_OPENAUCTION = 3001,
   PacketType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   PacketType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool PacketType_IsValid(int value);
-constexpr PacketType PacketType_MIN = PKT_REQ_CHARACTER_LIST;
-constexpr PacketType PacketType_MAX = PKT_RES_LEAVE_GAME;
+constexpr PacketType PacketType_MIN = PKT_INVALID;
+constexpr PacketType PacketType_MAX = PKT_RES_OPENAUCTION;
 constexpr int PacketType_ARRAYSIZE = PacketType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PacketType_descriptor();

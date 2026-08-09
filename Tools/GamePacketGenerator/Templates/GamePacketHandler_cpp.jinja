@@ -1,0 +1,9 @@
+#include "{{output}}.h"
+
+{{parser.prefix}}HandlerFunc G{{parser.prefix}}PacketHandler[UINT16_MAX];
+
+bool Handle_{{parser.prefix}}_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset)
+{
+	spdlog::warn("Invalid Packet Received");
+	return false;
+}

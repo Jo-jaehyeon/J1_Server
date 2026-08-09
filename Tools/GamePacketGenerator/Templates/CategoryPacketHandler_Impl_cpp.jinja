@@ -1,0 +1,10 @@
+#include "{{category}}{{suffix}}.h"
+
+{% for pkt in pkts %}
+bool Handle_{{pkt.name}}(SessionPtr& session, {{prefix}}::{{pkt.name}}& pkt)
+{
+	// TODO: {{category}} 관련 로직 작성
+	return true;
+}
+
+{% endfor %}
