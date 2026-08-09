@@ -1,4 +1,4 @@
-import argparse
+﻿import argparse
 import os
 from collections import defaultdict
 
@@ -61,21 +61,13 @@ def main():
         h_tmpl.render(parser=parser, output=args.output, categories=categories, suffix=suffix)
     )
 
-    cpp_tmpl = env.get_template('GamePacketHandler_cpp.jinja')
-    write(
-        os.path.join(args.dir, f'{args.output}.cpp'),
-        cpp_tmpl.render(parser=parser, output=args.output)
-    )
-
     # ------------------------------------------------------------------
     # 2) 카테고리별 파일
     #    - {Category}{suffix}.h   : 함수 선언 (항상 재생성)
-    #    - {Category}{suffix}.cpp : 실제 게임 로직 (최초 1회만 생성, 이후 보호)
     #      -> 서버(recv=REQ_)로 실행했을 때만 생성. 등록 코드는 별도 파일 없이
     #         공통 GamePacketHandler.h의 Init()이 직접 처리한다.
     # ------------------------------------------------------------------
     cat_h_tmpl = env.get_template('CategoryPacketHandler_h.jinja')
-    cat_impl_tmpl = env.get_template('CategoryPacketHandler_cpp.jinja')
 
     for category in categories:
         pkts = by_category[category]
@@ -84,16 +76,6 @@ def main():
             os.path.join(args.dir, f'{category}{suffix}.h'),
             cat_h_tmpl.render(category=category, pkts=pkts, prefix=args.prefix)
         )
-
-        if args.recv == 'REQ_':
-            impl_path = os.path.join(args.dir, f'{category}{suffix}.cpp')
-            if os.path.exists(impl_path):
-                print(f'[SKIP] {impl_path} 이미 존재함 (기존 로직 보호)')
-            else:
-                write(
-                    impl_path,
-                    cat_impl_tmpl.render(category=category, pkts=pkts, prefix=args.prefix, suffix=suffix)
-                )
 
     print('\n완료되었습니다.')
 
