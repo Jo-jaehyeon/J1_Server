@@ -36,11 +36,26 @@ namespace active911
 			{
 
 				//_DEBUG("MYSQL Destruct");
-
 				this->sql_connection->close();
 				this->sql_connection.reset(); 	// Release and destruct
 			}
 		};
+
+		void SetAutoCommit(bool start)
+		{
+			// 오토커밋 끄기 -> 트랜잭션 시작
+			sql_connection->setAutoCommit(start);
+		}
+
+		void Commit()
+		{
+			sql_connection->commit();
+		}
+
+		void Rollback()
+		{
+			sql_connection->rollback();
+		}
 		
 		std::shared_ptr<sql::Connection> sql_connection;
 		int a;

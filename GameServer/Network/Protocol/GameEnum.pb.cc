@@ -25,18 +25,22 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = n
 static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_GameEnum_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\016GameEnum.proto\022\004Game*\231\002\n\nPacketType\022\017\n"
+  "\n\016GameEnum.proto\022\004Game*\233\003\n\nPacketType\022\017\n"
   "\013PKT_INVALID\020\000\022\033\n\026PKT_REQ_CHARACTER_LIST"
-  "\020\350\007\022\033\n\026PKT_RES_CHARACTER_LIST\020\351\007\022\027\n\022PKT_"
-  "REQ_ENTER_GAME\020\352\007\022\027\n\022PKT_RES_ENTER_GAME\020"
-  "\353\007\022\027\n\022PKT_REQ_LEAVE_GAME\020\354\007\022\027\n\022PKT_RES_L"
-  "EAVE_GAME\020\355\007\022\023\n\016PKT_REQ_ATTACK\020\320\017\022\023\n\016PKT"
-  "_RES_ATTACK\020\321\017\022\030\n\023PKT_REQ_OPENAUCTION\020\270\027"
-  "\022\030\n\023PKT_RES_OPENAUCTION\020\271\027b\006proto3"
+  "\020\350\007\022\033\n\026PKT_RES_CHARACTER_LIST\020\351\007\022\033\n\026PKT_"
+  "REQ_CHECK_NICKNAME\020\352\007\022\033\n\026PKT_RES_CHECK_N"
+  "ICKNAME\020\353\007\022\035\n\030PKT_REQ_CREATE_CHARACTER\020\354"
+  "\007\022\035\n\030PKT_RES_CREATE_CHARACTER\020\355\007\022\035\n\030PKT_"
+  "REQ_DELETE_CHARACTER\020\356\007\022\035\n\030PKT_RES_DELET"
+  "E_CHARACTER\020\357\007\022\027\n\022PKT_REQ_ENTER_GAME\020\360\007\022"
+  "\027\n\022PKT_RES_ENTER_GAME\020\361\007\022\027\n\022PKT_REQ_LEAV"
+  "E_GAME\020\362\007\022\027\n\022PKT_RES_LEAVE_GAME\020\363\007\022\023\n\016PK"
+  "T_REQ_ATTACK\020\320\017\022\023\n\016PKT_RES_ATTACK\020\321\017b\006pr"
+  "oto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameEnum_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameEnum_2eproto = {
-  false, false, 314, descriptor_table_protodef_GameEnum_2eproto, "GameEnum.proto", 
+  false, false, 444, descriptor_table_protodef_GameEnum_2eproto, "GameEnum.proto", 
   &descriptor_table_GameEnum_2eproto_once, nullptr, 0, 0,
   schemas, file_default_instances, TableStruct_GameEnum_2eproto::offsets,
   nullptr, file_level_enum_descriptors_GameEnum_2eproto, file_level_service_descriptors_GameEnum_2eproto,
@@ -61,10 +65,14 @@ bool PacketType_IsValid(int value) {
     case 1003:
     case 1004:
     case 1005:
+    case 1006:
+    case 1007:
+    case 1008:
+    case 1009:
+    case 1010:
+    case 1011:
     case 2000:
     case 2001:
-    case 3000:
-    case 3001:
       return true;
     default:
       return false;

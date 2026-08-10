@@ -20,8 +20,10 @@ namespace Game {
 constexpr LobbyCharacterInfo::LobbyCharacterInfo(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , character_id_(uint64_t{0u})
   , slot_id_(uint64_t{0u})
   , classtype_(uint64_t{0u})
+  , level_(uint64_t{0u})
   , upperskinid_(uint64_t{0u})
   , lowerskinid_(uint64_t{0u})
   , weaponskinid_(uint64_t{0u}){}
@@ -45,9 +47,11 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameStruct_2eproto::offsets[] 
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::Game::LobbyCharacterInfo, character_id_),
   PROTOBUF_FIELD_OFFSET(::Game::LobbyCharacterInfo, slot_id_),
   PROTOBUF_FIELD_OFFSET(::Game::LobbyCharacterInfo, name_),
   PROTOBUF_FIELD_OFFSET(::Game::LobbyCharacterInfo, classtype_),
+  PROTOBUF_FIELD_OFFSET(::Game::LobbyCharacterInfo, level_),
   PROTOBUF_FIELD_OFFSET(::Game::LobbyCharacterInfo, upperskinid_),
   PROTOBUF_FIELD_OFFSET(::Game::LobbyCharacterInfo, lowerskinid_),
   PROTOBUF_FIELD_OFFSET(::Game::LobbyCharacterInfo, weaponskinid_),
@@ -62,17 +66,18 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_GameStruct_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\020GameStruct.proto\022\004Game\032\016GameEnum.proto"
-  "\"\206\001\n\022LobbyCharacterInfo\022\017\n\007slot_id\030\001 \001(\004"
-  "\022\014\n\004name\030\002 \001(\t\022\021\n\tclassType\030\003 \001(\004\022\023\n\013Upp"
-  "erskinId\030\004 \001(\004\022\023\n\013LowerskinId\030\005 \001(\004\022\024\n\014W"
-  "eaponskinId\030\006 \001(\004b\006proto3"
+  "\"\253\001\n\022LobbyCharacterInfo\022\024\n\014character_id\030"
+  "\001 \001(\004\022\017\n\007slot_id\030\002 \001(\004\022\014\n\004name\030\003 \001(\t\022\021\n\t"
+  "classType\030\004 \001(\004\022\r\n\005level\030\005 \001(\004\022\023\n\013Uppers"
+  "kinId\030\006 \001(\004\022\023\n\013LowerskinId\030\007 \001(\004\022\024\n\014Weap"
+  "onskinId\030\010 \001(\004b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_GameStruct_2eproto_deps[1] = {
   &::descriptor_table_GameEnum_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameStruct_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameStruct_2eproto = {
-  false, false, 185, descriptor_table_protodef_GameStruct_2eproto, "GameStruct.proto", 
+  false, false, 222, descriptor_table_protodef_GameStruct_2eproto, "GameStruct.proto", 
   &descriptor_table_GameStruct_2eproto_once, descriptor_table_GameStruct_2eproto_deps, 1, 1,
   schemas, file_default_instances, TableStruct_GameStruct_2eproto::offsets,
   file_level_metadata_GameStruct_2eproto, file_level_enum_descriptors_GameStruct_2eproto, file_level_service_descriptors_GameStruct_2eproto,
@@ -105,18 +110,18 @@ LobbyCharacterInfo::LobbyCharacterInfo(const LobbyCharacterInfo& from)
     name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArenaForAllocation());
   }
-  ::memcpy(&slot_id_, &from.slot_id_,
+  ::memcpy(&character_id_, &from.character_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&weaponskinid_) -
-    reinterpret_cast<char*>(&slot_id_)) + sizeof(weaponskinid_));
+    reinterpret_cast<char*>(&character_id_)) + sizeof(weaponskinid_));
   // @@protoc_insertion_point(copy_constructor:Game.LobbyCharacterInfo)
 }
 
 void LobbyCharacterInfo::SharedCtor() {
 name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&slot_id_) - reinterpret_cast<char*>(this)),
+    reinterpret_cast<char*>(&character_id_) - reinterpret_cast<char*>(this)),
     0, static_cast<size_t>(reinterpret_cast<char*>(&weaponskinid_) -
-    reinterpret_cast<char*>(&slot_id_)) + sizeof(weaponskinid_));
+    reinterpret_cast<char*>(&character_id_)) + sizeof(weaponskinid_));
 }
 
 LobbyCharacterInfo::~LobbyCharacterInfo() {
@@ -147,9 +152,9 @@ void LobbyCharacterInfo::Clear() {
   (void) cached_has_bits;
 
   name_.ClearToEmpty();
-  ::memset(&slot_id_, 0, static_cast<size_t>(
+  ::memset(&character_id_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&weaponskinid_) -
-      reinterpret_cast<char*>(&slot_id_)) + sizeof(weaponskinid_));
+      reinterpret_cast<char*>(&character_id_)) + sizeof(weaponskinid_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -159,46 +164,60 @@ const char* LobbyCharacterInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // uint64 slot_id = 1;
+      // uint64 character_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          character_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint64 slot_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           slot_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // string name = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+      // string name = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           auto str = _internal_mutable_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Game.LobbyCharacterInfo.name"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 classType = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+      // uint64 classType = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
           classtype_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 UpperskinId = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+      // uint64 level = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          level_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint64 UpperskinId = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           upperskinid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 LowerskinId = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+      // uint64 LowerskinId = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           lowerskinid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint64 WeaponskinId = 6;
-      case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+      // uint64 WeaponskinId = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           weaponskinid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -232,44 +251,56 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint64 slot_id = 1;
-  if (this->slot_id() != 0) {
+  // uint64 character_id = 1;
+  if (this->character_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_slot_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(1, this->_internal_character_id(), target);
   }
 
-  // string name = 2;
+  // uint64 slot_id = 2;
+  if (this->slot_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_slot_id(), target);
+  }
+
+  // string name = 3;
   if (!this->name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "Game.LobbyCharacterInfo.name");
     target = stream->WriteStringMaybeAliased(
-        2, this->_internal_name(), target);
+        3, this->_internal_name(), target);
   }
 
-  // uint64 classType = 3;
+  // uint64 classType = 4;
   if (this->classtype() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(3, this->_internal_classtype(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_classtype(), target);
   }
 
-  // uint64 UpperskinId = 4;
+  // uint64 level = 5;
+  if (this->level() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_level(), target);
+  }
+
+  // uint64 UpperskinId = 6;
   if (this->upperskinid() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(4, this->_internal_upperskinid(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(6, this->_internal_upperskinid(), target);
   }
 
-  // uint64 LowerskinId = 5;
+  // uint64 LowerskinId = 7;
   if (this->lowerskinid() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(5, this->_internal_lowerskinid(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(7, this->_internal_lowerskinid(), target);
   }
 
-  // uint64 WeaponskinId = 6;
+  // uint64 WeaponskinId = 8;
   if (this->weaponskinid() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(6, this->_internal_weaponskinid(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(8, this->_internal_weaponskinid(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -288,42 +319,56 @@ size_t LobbyCharacterInfo::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string name = 2;
+  // string name = 3;
   if (!this->name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
   }
 
-  // uint64 slot_id = 1;
+  // uint64 character_id = 1;
+  if (this->character_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_character_id());
+  }
+
+  // uint64 slot_id = 2;
   if (this->slot_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_slot_id());
   }
 
-  // uint64 classType = 3;
+  // uint64 classType = 4;
   if (this->classtype() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_classtype());
   }
 
-  // uint64 UpperskinId = 4;
+  // uint64 level = 5;
+  if (this->level() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_level());
+  }
+
+  // uint64 UpperskinId = 6;
   if (this->upperskinid() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_upperskinid());
   }
 
-  // uint64 LowerskinId = 5;
+  // uint64 LowerskinId = 7;
   if (this->lowerskinid() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_lowerskinid());
   }
 
-  // uint64 WeaponskinId = 6;
+  // uint64 WeaponskinId = 8;
   if (this->weaponskinid() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
@@ -364,11 +409,17 @@ void LobbyCharacterInfo::MergeFrom(const LobbyCharacterInfo& from) {
   if (!from.name().empty()) {
     _internal_set_name(from._internal_name());
   }
+  if (from.character_id() != 0) {
+    _internal_set_character_id(from._internal_character_id());
+  }
   if (from.slot_id() != 0) {
     _internal_set_slot_id(from._internal_slot_id());
   }
   if (from.classtype() != 0) {
     _internal_set_classtype(from._internal_classtype());
+  }
+  if (from.level() != 0) {
+    _internal_set_level(from._internal_level());
   }
   if (from.upperskinid() != 0) {
     _internal_set_upperskinid(from._internal_upperskinid());
@@ -410,9 +461,9 @@ void LobbyCharacterInfo::InternalSwap(LobbyCharacterInfo* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(LobbyCharacterInfo, weaponskinid_)
       + sizeof(LobbyCharacterInfo::weaponskinid_)
-      - PROTOBUF_FIELD_OFFSET(LobbyCharacterInfo, slot_id_)>(
-          reinterpret_cast<char*>(&slot_id_),
-          reinterpret_cast<char*>(&other->slot_id_));
+      - PROTOBUF_FIELD_OFFSET(LobbyCharacterInfo, character_id_)>(
+          reinterpret_cast<char*>(&character_id_),
+          reinterpret_cast<char*>(&other->character_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata LobbyCharacterInfo::GetMetadata() const {

@@ -7,5 +7,8 @@
 #endif
 
 bool Handle_REQ_CHARACTER_LIST(SessionPtr& session, Game::REQ_CHARACTER_LIST& pkt);
+bool Handle_REQ_CHECK_NICKNAME(SessionPtr& session, Game::REQ_CHECK_NICKNAME& pkt);
+bool Handle_REQ_CREATE_CHARACTER(SessionPtr& session, Game::REQ_CREATE_CHARACTER& pkt);
+bool Handle_REQ_DELETE_CHARACTER(SessionPtr& session, Game::REQ_DELETE_CHARACTER& pkt);
 bool Handle_REQ_ENTER_GAME(SessionPtr& session, Game::REQ_ENTER_GAME& pkt);
 bool Handle_REQ_LEAVE_GAME(SessionPtr& session, Game::REQ_LEAVE_GAME& pkt);

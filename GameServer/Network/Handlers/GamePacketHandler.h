@@ -1,6 +1,5 @@
 #pragma once
 #include "Packet.h"
-#include "AuctionPacketHandler.h"
 #include "BattlePacketHandler.h"
 #include "LobbyPacketHandler.h"
 
@@ -21,14 +20,20 @@ public:
 		for (int32 i = 0; i < UINT16_MAX; i++)
 			GGamePacketHandler[i] = Handle_Game_INVALID;
 
-		GGamePacketHandler[Game::PacketType::PKT_REQ_OPENAUCTION] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
-			return DispatchPacket<Game::REQ_OPENAUCTION>(Handle_REQ_OPENAUCTION, session, buffer, offset);
-			};
 		GGamePacketHandler[Game::PacketType::PKT_REQ_ATTACK] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
 			return DispatchPacket<Game::REQ_ATTACK>(Handle_REQ_ATTACK, session, buffer, offset);
 			};
 		GGamePacketHandler[Game::PacketType::PKT_REQ_CHARACTER_LIST] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
 			return DispatchPacket<Game::REQ_CHARACTER_LIST>(Handle_REQ_CHARACTER_LIST, session, buffer, offset);
+			};
+		GGamePacketHandler[Game::PacketType::PKT_REQ_CHECK_NICKNAME] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<Game::REQ_CHECK_NICKNAME>(Handle_REQ_CHECK_NICKNAME, session, buffer, offset);
+			};
+		GGamePacketHandler[Game::PacketType::PKT_REQ_CREATE_CHARACTER] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<Game::REQ_CREATE_CHARACTER>(Handle_REQ_CREATE_CHARACTER, session, buffer, offset);
+			};
+		GGamePacketHandler[Game::PacketType::PKT_REQ_DELETE_CHARACTER] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<Game::REQ_DELETE_CHARACTER>(Handle_REQ_DELETE_CHARACTER, session, buffer, offset);
 			};
 		GGamePacketHandler[Game::PacketType::PKT_REQ_ENTER_GAME] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
 			return DispatchPacket<Game::REQ_ENTER_GAME>(Handle_REQ_ENTER_GAME, session, buffer, offset);

@@ -179,11 +179,9 @@
     <ClInclude Include="GameRoom.h" />
     <ClInclude Include="GameServer.h" />
     <ClInclude Include="GameSession.h" />
-    <ClInclude Include="Network\Handlers\AuctionPacketHandler.h" />
     <ClInclude Include="Network\Handlers\BattlePacketHandler.h" />
     <ClInclude Include="Network\Handlers\GamePacketHandler.h" />
     <ClInclude Include="Network\Handlers\LobbyPacketHandler.h" />
-    <ClInclude Include="Network\Protocol\AuctionProtocol.pb.h" />
     <ClInclude Include="Network\Protocol\BattleProtocol.pb.h" />
     <ClInclude Include="Network\Protocol\GameEnum.pb.h" />
     <ClInclude Include="Network\Protocol\GameStruct.pb.h" />
@@ -195,16 +193,9 @@
     <ClCompile Include="GameRoom.cpp" />
     <ClCompile Include="GameServer.cpp" />
     <ClCompile Include="GameSession.cpp" />
-    <ClCompile Include="Network\Handlers\AuctionPacketHandler.cpp" />
     <ClCompile Include="Network\Handlers\BattlePacketHandler.cpp" />
     <ClCompile Include="Network\Handlers\GamePacketHandler.cpp" />
     <ClCompile Include="Network\Handlers\LobbyPacketHandler.cpp" />
-    <ClCompile Include="Network\Protocol\AuctionProtocol.pb.cc">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
-    </ClCompile>
     <ClCompile Include="Network\Protocol\BattleProtocol.pb.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -237,9 +228,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Common\Protobuf\bin\Game\BattleProtocol.proto" />
     <None Include="..\Common\Protobuf\bin\Game\GameEnum.proto" />
-    <None Include="..\Common\Protobuf\bin\Game\GameProtocol.proto" />
     <None Include="..\Common\Protobuf\bin\Game\GameStruct.proto" />
+    <None Include="..\Common\Protobuf\bin\Game\LobbyProtocol.proto" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

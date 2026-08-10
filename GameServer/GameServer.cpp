@@ -59,7 +59,7 @@ int main()
 	}
 	catch (std::exception& e)
 	{
-		spdlog::info("Exception {}", e.what());
+		spdlog::info("Server Exception {}", e.what());
 	}
 
 	return 0;

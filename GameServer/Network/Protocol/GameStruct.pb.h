@@ -174,14 +174,16 @@ class LobbyCharacterInfo final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNameFieldNumber = 2,
-    kSlotIdFieldNumber = 1,
-    kClassTypeFieldNumber = 3,
-    kUpperskinIdFieldNumber = 4,
-    kLowerskinIdFieldNumber = 5,
-    kWeaponskinIdFieldNumber = 6,
+    kNameFieldNumber = 3,
+    kCharacterIdFieldNumber = 1,
+    kSlotIdFieldNumber = 2,
+    kClassTypeFieldNumber = 4,
+    kLevelFieldNumber = 5,
+    kUpperskinIdFieldNumber = 6,
+    kLowerskinIdFieldNumber = 7,
+    kWeaponskinIdFieldNumber = 8,
   };
-  // string name = 2;
+  // string name = 3;
   void clear_name();
   const std::string& name() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -195,7 +197,16 @@ class LobbyCharacterInfo final :
   std::string* _internal_mutable_name();
   public:
 
-  // uint64 slot_id = 1;
+  // uint64 character_id = 1;
+  void clear_character_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 character_id() const;
+  void set_character_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_character_id() const;
+  void _internal_set_character_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // uint64 slot_id = 2;
   void clear_slot_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 slot_id() const;
   void set_slot_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -204,7 +215,7 @@ class LobbyCharacterInfo final :
   void _internal_set_slot_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 classType = 3;
+  // uint64 classType = 4;
   void clear_classtype();
   ::PROTOBUF_NAMESPACE_ID::uint64 classtype() const;
   void set_classtype(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -213,7 +224,16 @@ class LobbyCharacterInfo final :
   void _internal_set_classtype(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 UpperskinId = 4;
+  // uint64 level = 5;
+  void clear_level();
+  ::PROTOBUF_NAMESPACE_ID::uint64 level() const;
+  void set_level(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_level() const;
+  void _internal_set_level(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // uint64 UpperskinId = 6;
   void clear_upperskinid();
   ::PROTOBUF_NAMESPACE_ID::uint64 upperskinid() const;
   void set_upperskinid(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -222,7 +242,7 @@ class LobbyCharacterInfo final :
   void _internal_set_upperskinid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 LowerskinId = 5;
+  // uint64 LowerskinId = 7;
   void clear_lowerskinid();
   ::PROTOBUF_NAMESPACE_ID::uint64 lowerskinid() const;
   void set_lowerskinid(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -231,7 +251,7 @@ class LobbyCharacterInfo final :
   void _internal_set_lowerskinid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // uint64 WeaponskinId = 6;
+  // uint64 WeaponskinId = 8;
   void clear_weaponskinid();
   ::PROTOBUF_NAMESPACE_ID::uint64 weaponskinid() const;
   void set_weaponskinid(::PROTOBUF_NAMESPACE_ID::uint64 value);
@@ -248,8 +268,10 @@ class LobbyCharacterInfo final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 character_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 slot_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 classtype_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 level_;
   ::PROTOBUF_NAMESPACE_ID::uint64 upperskinid_;
   ::PROTOBUF_NAMESPACE_ID::uint64 lowerskinid_;
   ::PROTOBUF_NAMESPACE_ID::uint64 weaponskinid_;
@@ -267,7 +289,27 @@ class LobbyCharacterInfo final :
 #endif  // __GNUC__
 // LobbyCharacterInfo
 
-// uint64 slot_id = 1;
+// uint64 character_id = 1;
+inline void LobbyCharacterInfo::clear_character_id() {
+  character_id_ = uint64_t{0u};
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 LobbyCharacterInfo::_internal_character_id() const {
+  return character_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 LobbyCharacterInfo::character_id() const {
+  // @@protoc_insertion_point(field_get:Game.LobbyCharacterInfo.character_id)
+  return _internal_character_id();
+}
+inline void LobbyCharacterInfo::_internal_set_character_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  character_id_ = value;
+}
+inline void LobbyCharacterInfo::set_character_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_character_id(value);
+  // @@protoc_insertion_point(field_set:Game.LobbyCharacterInfo.character_id)
+}
+
+// uint64 slot_id = 2;
 inline void LobbyCharacterInfo::clear_slot_id() {
   slot_id_ = uint64_t{0u};
 }
@@ -287,7 +329,7 @@ inline void LobbyCharacterInfo::set_slot_id(::PROTOBUF_NAMESPACE_ID::uint64 valu
   // @@protoc_insertion_point(field_set:Game.LobbyCharacterInfo.slot_id)
 }
 
-// string name = 2;
+// string name = 3;
 inline void LobbyCharacterInfo::clear_name() {
   name_.ClearToEmpty();
 }
@@ -332,7 +374,7 @@ inline void LobbyCharacterInfo::set_allocated_name(std::string* name) {
   // @@protoc_insertion_point(field_set_allocated:Game.LobbyCharacterInfo.name)
 }
 
-// uint64 classType = 3;
+// uint64 classType = 4;
 inline void LobbyCharacterInfo::clear_classtype() {
   classtype_ = uint64_t{0u};
 }
@@ -352,7 +394,27 @@ inline void LobbyCharacterInfo::set_classtype(::PROTOBUF_NAMESPACE_ID::uint64 va
   // @@protoc_insertion_point(field_set:Game.LobbyCharacterInfo.classType)
 }
 
-// uint64 UpperskinId = 4;
+// uint64 level = 5;
+inline void LobbyCharacterInfo::clear_level() {
+  level_ = uint64_t{0u};
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 LobbyCharacterInfo::_internal_level() const {
+  return level_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 LobbyCharacterInfo::level() const {
+  // @@protoc_insertion_point(field_get:Game.LobbyCharacterInfo.level)
+  return _internal_level();
+}
+inline void LobbyCharacterInfo::_internal_set_level(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  level_ = value;
+}
+inline void LobbyCharacterInfo::set_level(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_level(value);
+  // @@protoc_insertion_point(field_set:Game.LobbyCharacterInfo.level)
+}
+
+// uint64 UpperskinId = 6;
 inline void LobbyCharacterInfo::clear_upperskinid() {
   upperskinid_ = uint64_t{0u};
 }
@@ -372,7 +434,7 @@ inline void LobbyCharacterInfo::set_upperskinid(::PROTOBUF_NAMESPACE_ID::uint64 
   // @@protoc_insertion_point(field_set:Game.LobbyCharacterInfo.UpperskinId)
 }
 
-// uint64 LowerskinId = 5;
+// uint64 LowerskinId = 7;
 inline void LobbyCharacterInfo::clear_lowerskinid() {
   lowerskinid_ = uint64_t{0u};
 }
@@ -392,7 +454,7 @@ inline void LobbyCharacterInfo::set_lowerskinid(::PROTOBUF_NAMESPACE_ID::uint64 
   // @@protoc_insertion_point(field_set:Game.LobbyCharacterInfo.LowerskinId)
 }
 
-// uint64 WeaponskinId = 6;
+// uint64 WeaponskinId = 8;
 inline void LobbyCharacterInfo::clear_weaponskinid() {
   weaponskinid_ = uint64_t{0u};
 }
