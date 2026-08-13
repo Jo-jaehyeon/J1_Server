@@ -19,7 +19,8 @@ PROTOBUF_PRAGMA_INIT_SEG
 namespace Chat {
 constexpr REQ_ENTER_CHATROOM::REQ_ENTER_CHATROOM(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+  : name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , player_id_(0){}
 struct REQ_ENTER_CHATROOMDefaultTypeInternal {
   constexpr REQ_ENTER_CHATROOMDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -31,8 +32,7 @@ struct REQ_ENTER_CHATROOMDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_ENTER_CHATROOMDefaultTypeInternal _REQ_ENTER_CHATROOM_default_instance_;
 constexpr RES_ENTER_CHATROOM::RES_ENTER_CHATROOM(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : player_id_(0)
-  , result_(false){}
+  : result_(false){}
 struct RES_ENTER_CHATROOMDefaultTypeInternal {
   constexpr RES_ENTER_CHATROOMDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -105,13 +105,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ChatProtocol_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::Chat::REQ_ENTER_CHATROOM, player_id_),
   PROTOBUF_FIELD_OFFSET(::Chat::REQ_ENTER_CHATROOM, name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Chat::RES_ENTER_CHATROOM, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Chat::RES_ENTER_CHATROOM, player_id_),
   PROTOBUF_FIELD_OFFSET(::Chat::RES_ENTER_CHATROOM, result_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Chat::REQ_LEAVE_CHATROOM, _internal_metadata_),
@@ -144,7 +144,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_ChatProtocol_2eproto::offsets[
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::Chat::REQ_ENTER_CHATROOM)},
-  { 6, -1, sizeof(::Chat::RES_ENTER_CHATROOM)},
+  { 7, -1, sizeof(::Chat::RES_ENTER_CHATROOM)},
   { 13, -1, sizeof(::Chat::REQ_LEAVE_CHATROOM)},
   { 19, -1, sizeof(::Chat::RES_LEAVE_CHATROOM)},
   { 25, -1, sizeof(::Chat::REQ_CHAT)},
@@ -162,9 +162,9 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_ChatProtocol_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\022ChatProtocol.proto\022\004Chat\032\016ChatEnum.pro"
-  "to\032\020ChatStruct.proto\"\"\n\022REQ_ENTER_CHATRO"
-  "OM\022\014\n\004name\030\001 \001(\t\"7\n\022RES_ENTER_CHATROOM\022\021"
-  "\n\tplayer_id\030\001 \001(\005\022\016\n\006result\030\002 \001(\010\"\'\n\022REQ"
+  "to\032\020ChatStruct.proto\"5\n\022REQ_ENTER_CHATRO"
+  "OM\022\021\n\tplayer_id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\"$\n\022R"
+  "ES_ENTER_CHATROOM\022\016\n\006result\030\001 \001(\010\"\'\n\022REQ"
   "_LEAVE_CHATROOM\022\021\n\tplayer_id\030\001 \001(\005\"$\n\022RE"
   "S_LEAVE_CHATROOM\022\016\n\006result\030\001 \001(\010\"9\n\010REQ_"
   "CHAT\022\014\n\004time\030\001 \001(\t\022\016\n\006sender\030\002 \001(\t\022\017\n\007me"
@@ -210,11 +210,13 @@ REQ_ENTER_CHATROOM::REQ_ENTER_CHATROOM(const REQ_ENTER_CHATROOM& from)
     name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArenaForAllocation());
   }
+  player_id_ = from.player_id_;
   // @@protoc_insertion_point(copy_constructor:Chat.REQ_ENTER_CHATROOM)
 }
 
 void REQ_ENTER_CHATROOM::SharedCtor() {
 name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+player_id_ = 0;
 }
 
 REQ_ENTER_CHATROOM::~REQ_ENTER_CHATROOM() {
@@ -245,6 +247,7 @@ void REQ_ENTER_CHATROOM::Clear() {
   (void) cached_has_bits;
 
   name_.ClearToEmpty();
+  player_id_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -254,9 +257,16 @@ const char* REQ_ENTER_CHATROOM::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string name = 1;
+      // int32 player_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string name = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Chat.REQ_ENTER_CHATROOM.name"));
@@ -292,14 +302,20 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string name = 1;
+  // int32 player_id = 1;
+  if (this->player_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
+  }
+
+  // string name = 2;
   if (!this->name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "Chat.REQ_ENTER_CHATROOM.name");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
+        2, this->_internal_name(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -318,11 +334,18 @@ size_t REQ_ENTER_CHATROOM::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string name = 1;
+  // string name = 2;
   if (!this->name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
+  }
+
+  // int32 player_id = 1;
+  if (this->player_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_player_id());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -359,6 +382,9 @@ void REQ_ENTER_CHATROOM::MergeFrom(const REQ_ENTER_CHATROOM& from) {
   if (!from.name().empty()) {
     _internal_set_name(from._internal_name());
   }
+  if (from.player_id() != 0) {
+    _internal_set_player_id(from._internal_player_id());
+  }
 }
 
 void REQ_ENTER_CHATROOM::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -387,6 +413,7 @@ void REQ_ENTER_CHATROOM::InternalSwap(REQ_ENTER_CHATROOM* other) {
       &name_, GetArenaForAllocation(),
       &other->name_, other->GetArenaForAllocation()
   );
+  swap(player_id_, other->player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata REQ_ENTER_CHATROOM::GetMetadata() const {
@@ -410,17 +437,12 @@ RES_ENTER_CHATROOM::RES_ENTER_CHATROOM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 RES_ENTER_CHATROOM::RES_ENTER_CHATROOM(const RES_ENTER_CHATROOM& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&player_id_, &from.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&result_) -
-    reinterpret_cast<char*>(&player_id_)) + sizeof(result_));
+  result_ = from.result_;
   // @@protoc_insertion_point(copy_constructor:Chat.RES_ENTER_CHATROOM)
 }
 
 void RES_ENTER_CHATROOM::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&player_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&result_) -
-    reinterpret_cast<char*>(&player_id_)) + sizeof(result_));
+result_ = false;
 }
 
 RES_ENTER_CHATROOM::~RES_ENTER_CHATROOM() {
@@ -449,9 +471,7 @@ void RES_ENTER_CHATROOM::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&player_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&result_) -
-      reinterpret_cast<char*>(&player_id_)) + sizeof(result_));
+  result_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -461,16 +481,9 @@ const char* RES_ENTER_CHATROOM::_InternalParse(const char* ptr, ::PROTOBUF_NAMES
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 player_id = 1;
+      // bool result = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool result = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           result_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -504,16 +517,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 player_id = 1;
-  if (this->player_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
-  }
-
-  // bool result = 2;
+  // bool result = 1;
   if (this->result() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_result(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_result(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -532,14 +539,7 @@ size_t RES_ENTER_CHATROOM::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // int32 player_id = 1;
-  if (this->player_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_player_id());
-  }
-
-  // bool result = 2;
+  // bool result = 1;
   if (this->result() != 0) {
     total_size += 1 + 1;
   }
@@ -575,9 +575,6 @@ void RES_ENTER_CHATROOM::MergeFrom(const RES_ENTER_CHATROOM& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.player_id() != 0) {
-    _internal_set_player_id(from._internal_player_id());
-  }
   if (from.result() != 0) {
     _internal_set_result(from._internal_result());
   }
@@ -604,12 +601,7 @@ bool RES_ENTER_CHATROOM::IsInitialized() const {
 void RES_ENTER_CHATROOM::InternalSwap(RES_ENTER_CHATROOM* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RES_ENTER_CHATROOM, result_)
-      + sizeof(RES_ENTER_CHATROOM::result_)
-      - PROTOBUF_FIELD_OFFSET(RES_ENTER_CHATROOM, player_id_)>(
-          reinterpret_cast<char*>(&player_id_),
-          reinterpret_cast<char*>(&other->player_id_));
+  swap(result_, other->result_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RES_ENTER_CHATROOM::GetMetadata() const {

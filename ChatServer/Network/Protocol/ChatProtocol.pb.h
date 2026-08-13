@@ -195,9 +195,10 @@ class REQ_ENTER_CHATROOM final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNameFieldNumber = 1,
+    kNameFieldNumber = 2,
+    kPlayerIdFieldNumber = 1,
   };
-  // string name = 1;
+  // string name = 2;
   void clear_name();
   const std::string& name() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -211,6 +212,15 @@ class REQ_ENTER_CHATROOM final :
   std::string* _internal_mutable_name();
   public:
 
+  // int32 player_id = 1;
+  void clear_player_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 player_id() const;
+  void set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_player_id() const;
+  void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:Chat.REQ_ENTER_CHATROOM)
  private:
   class _Internal;
@@ -219,6 +229,7 @@ class REQ_ENTER_CHATROOM final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::PROTOBUF_NAMESPACE_ID::int32 player_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ChatProtocol_2eproto;
 };
@@ -332,19 +343,9 @@ class RES_ENTER_CHATROOM final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
-    kResultFieldNumber = 2,
+    kResultFieldNumber = 1,
   };
-  // int32 player_id = 1;
-  void clear_player_id();
-  ::PROTOBUF_NAMESPACE_ID::int32 player_id() const;
-  void set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_player_id() const;
-  void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // bool result = 2;
+  // bool result = 1;
   void clear_result();
   bool result() const;
   void set_result(bool value);
@@ -360,7 +361,6 @@ class RES_ENTER_CHATROOM final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int32 player_id_;
   bool result_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_ChatProtocol_2eproto;
@@ -978,7 +978,27 @@ class RES_CHAT final :
 #endif  // __GNUC__
 // REQ_ENTER_CHATROOM
 
-// string name = 1;
+// int32 player_id = 1;
+inline void REQ_ENTER_CHATROOM::clear_player_id() {
+  player_id_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_ENTER_CHATROOM::_internal_player_id() const {
+  return player_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_ENTER_CHATROOM::player_id() const {
+  // @@protoc_insertion_point(field_get:Chat.REQ_ENTER_CHATROOM.player_id)
+  return _internal_player_id();
+}
+inline void REQ_ENTER_CHATROOM::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  player_id_ = value;
+}
+inline void REQ_ENTER_CHATROOM::set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_player_id(value);
+  // @@protoc_insertion_point(field_set:Chat.REQ_ENTER_CHATROOM.player_id)
+}
+
+// string name = 2;
 inline void REQ_ENTER_CHATROOM::clear_name() {
   name_.ClearToEmpty();
 }
@@ -1027,27 +1047,7 @@ inline void REQ_ENTER_CHATROOM::set_allocated_name(std::string* name) {
 
 // RES_ENTER_CHATROOM
 
-// int32 player_id = 1;
-inline void RES_ENTER_CHATROOM::clear_player_id() {
-  player_id_ = 0;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_ENTER_CHATROOM::_internal_player_id() const {
-  return player_id_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_ENTER_CHATROOM::player_id() const {
-  // @@protoc_insertion_point(field_get:Chat.RES_ENTER_CHATROOM.player_id)
-  return _internal_player_id();
-}
-inline void RES_ENTER_CHATROOM::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
-  player_id_ = value;
-}
-inline void RES_ENTER_CHATROOM::set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_player_id(value);
-  // @@protoc_insertion_point(field_set:Chat.RES_ENTER_CHATROOM.player_id)
-}
-
-// bool result = 2;
+// bool result = 1;
 inline void RES_ENTER_CHATROOM::clear_result() {
   result_ = false;
 }

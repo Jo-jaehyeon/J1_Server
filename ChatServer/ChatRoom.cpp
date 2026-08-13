@@ -59,7 +59,6 @@ bool ChatRoom::HandleEnterPlayerLocked(ChatMemberPtr player)
 		spdlog::info("Someone Enter chat Room");
 
 	Chat::RES_ENTER_CHATROOM enterPkt;
-	enterPkt.set_player_id(player->playerInfo->player_id());
 	enterPkt.set_result(success);
 	if (auto session = player->session.lock())
 		session->SendPacket(enterPkt, Chat::PacketType::PKT_RES_ENTER_CHATROOM);

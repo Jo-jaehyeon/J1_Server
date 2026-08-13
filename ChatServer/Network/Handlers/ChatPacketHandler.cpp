@@ -2,7 +2,6 @@
 #include "ChatPacketHandler.h"
 #include "ChatSession.h"
 #include "ChatMember.h"
-#include "Utils/ObjectUtils.h"
 
 ChatHandlerFunc GChatPacketHandler[UINT16_MAX];
 
@@ -18,7 +17,9 @@ bool Handle_Chat_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffe
 
 bool Handle_REQ_ENTER_CHATROOM(SessionPtr& session, Chat::REQ_ENTER_CHATROOM& pkt)
 {
-	ChatMemberPtr player = ObjectUtils::CreatePlayer(pkt.name());
+	ChatMemberPtr player = std::make_shared<ChatMember>();;
+	player->playerInfo->set_player_id(pkt.player_id());
+	player->playerInfo->set_name(pkt.name());
 
 	ChatSessionPtr cs = static_pointer_cast<ChatSession>(session);
 	player->session = cs;
