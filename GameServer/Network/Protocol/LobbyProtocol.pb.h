@@ -48,7 +48,7 @@ struct TableStruct_LobbyProtocol_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[12]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[14]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -62,6 +62,9 @@ extern REQ_CHARACTER_LISTDefaultTypeInternal _REQ_CHARACTER_LIST_default_instanc
 class REQ_CHECK_NICKNAME;
 struct REQ_CHECK_NICKNAMEDefaultTypeInternal;
 extern REQ_CHECK_NICKNAMEDefaultTypeInternal _REQ_CHECK_NICKNAME_default_instance_;
+class REQ_CHECK_TOKENVALID;
+struct REQ_CHECK_TOKENVALIDDefaultTypeInternal;
+extern REQ_CHECK_TOKENVALIDDefaultTypeInternal _REQ_CHECK_TOKENVALID_default_instance_;
 class REQ_CREATE_CHARACTER;
 struct REQ_CREATE_CHARACTERDefaultTypeInternal;
 extern REQ_CREATE_CHARACTERDefaultTypeInternal _REQ_CREATE_CHARACTER_default_instance_;
@@ -80,6 +83,9 @@ extern RES_CHARACTER_LISTDefaultTypeInternal _RES_CHARACTER_LIST_default_instanc
 class RES_CHECK_NICKNAME;
 struct RES_CHECK_NICKNAMEDefaultTypeInternal;
 extern RES_CHECK_NICKNAMEDefaultTypeInternal _RES_CHECK_NICKNAME_default_instance_;
+class RES_CHECK_TOKENVALID;
+struct RES_CHECK_TOKENVALIDDefaultTypeInternal;
+extern RES_CHECK_TOKENVALIDDefaultTypeInternal _RES_CHECK_TOKENVALID_default_instance_;
 class RES_CREATE_CHARACTER;
 struct RES_CREATE_CHARACTERDefaultTypeInternal;
 extern RES_CREATE_CHARACTERDefaultTypeInternal _RES_CREATE_CHARACTER_default_instance_;
@@ -96,12 +102,14 @@ extern RES_LEAVE_GAMEDefaultTypeInternal _RES_LEAVE_GAME_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
 template<> ::Game::REQ_CHARACTER_LIST* Arena::CreateMaybeMessage<::Game::REQ_CHARACTER_LIST>(Arena*);
 template<> ::Game::REQ_CHECK_NICKNAME* Arena::CreateMaybeMessage<::Game::REQ_CHECK_NICKNAME>(Arena*);
+template<> ::Game::REQ_CHECK_TOKENVALID* Arena::CreateMaybeMessage<::Game::REQ_CHECK_TOKENVALID>(Arena*);
 template<> ::Game::REQ_CREATE_CHARACTER* Arena::CreateMaybeMessage<::Game::REQ_CREATE_CHARACTER>(Arena*);
 template<> ::Game::REQ_DELETE_CHARACTER* Arena::CreateMaybeMessage<::Game::REQ_DELETE_CHARACTER>(Arena*);
 template<> ::Game::REQ_ENTER_GAME* Arena::CreateMaybeMessage<::Game::REQ_ENTER_GAME>(Arena*);
 template<> ::Game::REQ_LEAVE_GAME* Arena::CreateMaybeMessage<::Game::REQ_LEAVE_GAME>(Arena*);
 template<> ::Game::RES_CHARACTER_LIST* Arena::CreateMaybeMessage<::Game::RES_CHARACTER_LIST>(Arena*);
 template<> ::Game::RES_CHECK_NICKNAME* Arena::CreateMaybeMessage<::Game::RES_CHECK_NICKNAME>(Arena*);
+template<> ::Game::RES_CHECK_TOKENVALID* Arena::CreateMaybeMessage<::Game::RES_CHECK_TOKENVALID>(Arena*);
 template<> ::Game::RES_CREATE_CHARACTER* Arena::CreateMaybeMessage<::Game::RES_CREATE_CHARACTER>(Arena*);
 template<> ::Game::RES_DELETE_CHARACTER* Arena::CreateMaybeMessage<::Game::RES_DELETE_CHARACTER>(Arena*);
 template<> ::Game::RES_ENTER_GAME* Arena::CreateMaybeMessage<::Game::RES_ENTER_GAME>(Arena*);
@@ -110,6 +118,286 @@ PROTOBUF_NAMESPACE_CLOSE
 namespace Game {
 
 // ===================================================================
+
+class REQ_CHECK_TOKENVALID final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Game.REQ_CHECK_TOKENVALID) */ {
+ public:
+  inline REQ_CHECK_TOKENVALID() : REQ_CHECK_TOKENVALID(nullptr) {}
+  ~REQ_CHECK_TOKENVALID() override;
+  explicit constexpr REQ_CHECK_TOKENVALID(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  REQ_CHECK_TOKENVALID(const REQ_CHECK_TOKENVALID& from);
+  REQ_CHECK_TOKENVALID(REQ_CHECK_TOKENVALID&& from) noexcept
+    : REQ_CHECK_TOKENVALID() {
+    *this = ::std::move(from);
+  }
+
+  inline REQ_CHECK_TOKENVALID& operator=(const REQ_CHECK_TOKENVALID& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline REQ_CHECK_TOKENVALID& operator=(REQ_CHECK_TOKENVALID&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const REQ_CHECK_TOKENVALID& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const REQ_CHECK_TOKENVALID* internal_default_instance() {
+    return reinterpret_cast<const REQ_CHECK_TOKENVALID*>(
+               &_REQ_CHECK_TOKENVALID_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(REQ_CHECK_TOKENVALID& a, REQ_CHECK_TOKENVALID& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(REQ_CHECK_TOKENVALID* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(REQ_CHECK_TOKENVALID* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline REQ_CHECK_TOKENVALID* New() const final {
+    return new REQ_CHECK_TOKENVALID();
+  }
+
+  REQ_CHECK_TOKENVALID* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<REQ_CHECK_TOKENVALID>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const REQ_CHECK_TOKENVALID& from);
+  void MergeFrom(const REQ_CHECK_TOKENVALID& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(REQ_CHECK_TOKENVALID* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Game.REQ_CHECK_TOKENVALID";
+  }
+  protected:
+  explicit REQ_CHECK_TOKENVALID(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kTokenFieldNumber = 2,
+    kIdFieldNumber = 1,
+  };
+  // string token = 2;
+  void clear_token();
+  const std::string& token() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_token(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_token();
+  PROTOBUF_FUTURE_MUST_USE_RESULT std::string* release_token();
+  void set_allocated_token(std::string* token);
+  private:
+  const std::string& _internal_token() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_token(const std::string& value);
+  std::string* _internal_mutable_token();
+  public:
+
+  // uint64 id = 1;
+  void clear_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 id() const;
+  void set_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_id() const;
+  void _internal_set_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Game.REQ_CHECK_TOKENVALID)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr token_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_LobbyProtocol_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RES_CHECK_TOKENVALID final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Game.RES_CHECK_TOKENVALID) */ {
+ public:
+  inline RES_CHECK_TOKENVALID() : RES_CHECK_TOKENVALID(nullptr) {}
+  ~RES_CHECK_TOKENVALID() override;
+  explicit constexpr RES_CHECK_TOKENVALID(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RES_CHECK_TOKENVALID(const RES_CHECK_TOKENVALID& from);
+  RES_CHECK_TOKENVALID(RES_CHECK_TOKENVALID&& from) noexcept
+    : RES_CHECK_TOKENVALID() {
+    *this = ::std::move(from);
+  }
+
+  inline RES_CHECK_TOKENVALID& operator=(const RES_CHECK_TOKENVALID& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RES_CHECK_TOKENVALID& operator=(RES_CHECK_TOKENVALID&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RES_CHECK_TOKENVALID& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RES_CHECK_TOKENVALID* internal_default_instance() {
+    return reinterpret_cast<const RES_CHECK_TOKENVALID*>(
+               &_RES_CHECK_TOKENVALID_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(RES_CHECK_TOKENVALID& a, RES_CHECK_TOKENVALID& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RES_CHECK_TOKENVALID* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RES_CHECK_TOKENVALID* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RES_CHECK_TOKENVALID* New() const final {
+    return new RES_CHECK_TOKENVALID();
+  }
+
+  RES_CHECK_TOKENVALID* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<RES_CHECK_TOKENVALID>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const RES_CHECK_TOKENVALID& from);
+  void MergeFrom(const RES_CHECK_TOKENVALID& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RES_CHECK_TOKENVALID* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Game.RES_CHECK_TOKENVALID";
+  }
+  protected:
+  explicit RES_CHECK_TOKENVALID(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kResultFieldNumber = 1,
+  };
+  // bool result = 1;
+  void clear_result();
+  bool result() const;
+  void set_result(bool value);
+  private:
+  bool _internal_result() const;
+  void _internal_set_result(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Game.RES_CHECK_TOKENVALID)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  bool result_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_LobbyProtocol_2eproto;
+};
+// -------------------------------------------------------------------
 
 class REQ_CHARACTER_LIST final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Game.REQ_CHARACTER_LIST) */ {
@@ -155,7 +443,7 @@ class REQ_CHARACTER_LIST final :
                &_REQ_CHARACTER_LIST_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    2;
 
   friend void swap(REQ_CHARACTER_LIST& a, REQ_CHARACTER_LIST& b) {
     a.Swap(&b);
@@ -219,23 +507,8 @@ class REQ_CHARACTER_LIST final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kTokenFieldNumber = 2,
     kIdFieldNumber = 1,
   };
-  // string token = 2;
-  void clear_token();
-  const std::string& token() const;
-  template <typename ArgT0 = const std::string&, typename... ArgT>
-  void set_token(ArgT0&& arg0, ArgT... args);
-  std::string* mutable_token();
-  PROTOBUF_FUTURE_MUST_USE_RESULT std::string* release_token();
-  void set_allocated_token(std::string* token);
-  private:
-  const std::string& _internal_token() const;
-  inline PROTOBUF_ALWAYS_INLINE void _internal_set_token(const std::string& value);
-  std::string* _internal_mutable_token();
-  public:
-
   // uint64 id = 1;
   void clear_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 id() const;
@@ -252,7 +525,6 @@ class REQ_CHARACTER_LIST final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr token_;
   ::PROTOBUF_NAMESPACE_ID::uint64 id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_LobbyProtocol_2eproto;
@@ -303,7 +575,7 @@ class RES_CHARACTER_LIST final :
                &_RES_CHARACTER_LIST_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    3;
 
   friend void swap(RES_CHARACTER_LIST& a, RES_CHARACTER_LIST& b) {
     a.Swap(&b);
@@ -455,7 +727,7 @@ class REQ_CHECK_NICKNAME final :
                &_REQ_CHECK_NICKNAME_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    4;
 
   friend void swap(REQ_CHECK_NICKNAME& a, REQ_CHECK_NICKNAME& b) {
     a.Swap(&b);
@@ -592,7 +864,7 @@ class RES_CHECK_NICKNAME final :
                &_RES_CHECK_NICKNAME_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    5;
 
   friend void swap(RES_CHECK_NICKNAME& a, RES_CHECK_NICKNAME& b) {
     a.Swap(&b);
@@ -724,7 +996,7 @@ class REQ_CREATE_CHARACTER final :
                &_REQ_CREATE_CHARACTER_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    6;
 
   friend void swap(REQ_CREATE_CHARACTER& a, REQ_CREATE_CHARACTER& b) {
     a.Swap(&b);
@@ -876,7 +1148,7 @@ class RES_CREATE_CHARACTER final :
                &_RES_CREATE_CHARACTER_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   friend void swap(RES_CREATE_CHARACTER& a, RES_CREATE_CHARACTER& b) {
     a.Swap(&b);
@@ -1008,7 +1280,7 @@ class REQ_DELETE_CHARACTER final :
                &_REQ_DELETE_CHARACTER_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   friend void swap(REQ_DELETE_CHARACTER& a, REQ_DELETE_CHARACTER& b) {
     a.Swap(&b);
@@ -1151,7 +1423,7 @@ class RES_DELETE_CHARACTER final :
                &_RES_DELETE_CHARACTER_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   friend void swap(RES_DELETE_CHARACTER& a, RES_DELETE_CHARACTER& b) {
     a.Swap(&b);
@@ -1283,7 +1555,7 @@ class REQ_ENTER_GAME final :
                &_REQ_ENTER_GAME_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   friend void swap(REQ_ENTER_GAME& a, REQ_ENTER_GAME& b) {
     a.Swap(&b);
@@ -1420,7 +1692,7 @@ class RES_ENTER_GAME final :
                &_RES_ENTER_GAME_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   friend void swap(RES_ENTER_GAME& a, RES_ENTER_GAME& b) {
     a.Swap(&b);
@@ -1563,7 +1835,7 @@ class REQ_LEAVE_GAME final :
                &_REQ_LEAVE_GAME_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   friend void swap(REQ_LEAVE_GAME& a, REQ_LEAVE_GAME& b) {
     a.Swap(&b);
@@ -1695,7 +1967,7 @@ class RES_LEAVE_GAME final :
                &_RES_LEAVE_GAME_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   friend void swap(RES_LEAVE_GAME& a, RES_LEAVE_GAME& b) {
     a.Swap(&b);
@@ -1790,6 +2062,99 @@ class RES_LEAVE_GAME final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// REQ_CHECK_TOKENVALID
+
+// uint64 id = 1;
+inline void REQ_CHECK_TOKENVALID::clear_id() {
+  id_ = uint64_t{0u};
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 REQ_CHECK_TOKENVALID::_internal_id() const {
+  return id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 REQ_CHECK_TOKENVALID::id() const {
+  // @@protoc_insertion_point(field_get:Game.REQ_CHECK_TOKENVALID.id)
+  return _internal_id();
+}
+inline void REQ_CHECK_TOKENVALID::_internal_set_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  id_ = value;
+}
+inline void REQ_CHECK_TOKENVALID::set_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_id(value);
+  // @@protoc_insertion_point(field_set:Game.REQ_CHECK_TOKENVALID.id)
+}
+
+// string token = 2;
+inline void REQ_CHECK_TOKENVALID::clear_token() {
+  token_.ClearToEmpty();
+}
+inline const std::string& REQ_CHECK_TOKENVALID::token() const {
+  // @@protoc_insertion_point(field_get:Game.REQ_CHECK_TOKENVALID.token)
+  return _internal_token();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void REQ_CHECK_TOKENVALID::set_token(ArgT0&& arg0, ArgT... args) {
+ 
+ token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Game.REQ_CHECK_TOKENVALID.token)
+}
+inline std::string* REQ_CHECK_TOKENVALID::mutable_token() {
+  // @@protoc_insertion_point(field_mutable:Game.REQ_CHECK_TOKENVALID.token)
+  return _internal_mutable_token();
+}
+inline const std::string& REQ_CHECK_TOKENVALID::_internal_token() const {
+  return token_.Get();
+}
+inline void REQ_CHECK_TOKENVALID::_internal_set_token(const std::string& value) {
+  
+  token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* REQ_CHECK_TOKENVALID::_internal_mutable_token() {
+  
+  return token_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* REQ_CHECK_TOKENVALID::release_token() {
+  // @@protoc_insertion_point(field_release:Game.REQ_CHECK_TOKENVALID.token)
+  return token_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void REQ_CHECK_TOKENVALID::set_allocated_token(std::string* token) {
+  if (token != nullptr) {
+    
+  } else {
+    
+  }
+  token_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), token,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:Game.REQ_CHECK_TOKENVALID.token)
+}
+
+// -------------------------------------------------------------------
+
+// RES_CHECK_TOKENVALID
+
+// bool result = 1;
+inline void RES_CHECK_TOKENVALID::clear_result() {
+  result_ = false;
+}
+inline bool RES_CHECK_TOKENVALID::_internal_result() const {
+  return result_;
+}
+inline bool RES_CHECK_TOKENVALID::result() const {
+  // @@protoc_insertion_point(field_get:Game.RES_CHECK_TOKENVALID.result)
+  return _internal_result();
+}
+inline void RES_CHECK_TOKENVALID::_internal_set_result(bool value) {
+  
+  result_ = value;
+}
+inline void RES_CHECK_TOKENVALID::set_result(bool value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:Game.RES_CHECK_TOKENVALID.result)
+}
+
+// -------------------------------------------------------------------
+
 // REQ_CHARACTER_LIST
 
 // uint64 id = 1;
@@ -1810,51 +2175,6 @@ inline void REQ_CHARACTER_LIST::_internal_set_id(::PROTOBUF_NAMESPACE_ID::uint64
 inline void REQ_CHARACTER_LIST::set_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_id(value);
   // @@protoc_insertion_point(field_set:Game.REQ_CHARACTER_LIST.id)
-}
-
-// string token = 2;
-inline void REQ_CHARACTER_LIST::clear_token() {
-  token_.ClearToEmpty();
-}
-inline const std::string& REQ_CHARACTER_LIST::token() const {
-  // @@protoc_insertion_point(field_get:Game.REQ_CHARACTER_LIST.token)
-  return _internal_token();
-}
-template <typename ArgT0, typename... ArgT>
-inline PROTOBUF_ALWAYS_INLINE
-void REQ_CHARACTER_LIST::set_token(ArgT0&& arg0, ArgT... args) {
- 
- token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set:Game.REQ_CHARACTER_LIST.token)
-}
-inline std::string* REQ_CHARACTER_LIST::mutable_token() {
-  // @@protoc_insertion_point(field_mutable:Game.REQ_CHARACTER_LIST.token)
-  return _internal_mutable_token();
-}
-inline const std::string& REQ_CHARACTER_LIST::_internal_token() const {
-  return token_.Get();
-}
-inline void REQ_CHARACTER_LIST::_internal_set_token(const std::string& value) {
-  
-  token_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
-}
-inline std::string* REQ_CHARACTER_LIST::_internal_mutable_token() {
-  
-  return token_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
-}
-inline std::string* REQ_CHARACTER_LIST::release_token() {
-  // @@protoc_insertion_point(field_release:Game.REQ_CHARACTER_LIST.token)
-  return token_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
-}
-inline void REQ_CHARACTER_LIST::set_allocated_token(std::string* token) {
-  if (token != nullptr) {
-    
-  } else {
-    
-  }
-  token_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), token,
-      GetArenaForAllocation());
-  // @@protoc_insertion_point(field_set_allocated:Game.REQ_CHARACTER_LIST.token)
 }
 
 // -------------------------------------------------------------------
@@ -2286,6 +2606,10 @@ inline void RES_LEAVE_GAME::set_result(bool value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -23,6 +23,9 @@ public:
 		GGamePacketHandler[Game::PacketType::PKT_REQ_ATTACK] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
 			return DispatchPacket<Game::REQ_ATTACK>(Handle_REQ_ATTACK, session, buffer, offset);
 			};
+		GGamePacketHandler[Game::PacketType::PKT_REQ_CHECK_TOKENVALID] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<Game::REQ_CHECK_TOKENVALID>(Handle_REQ_CHECK_TOKENVALID, session, buffer, offset);
+			};
 		GGamePacketHandler[Game::PacketType::PKT_REQ_CHARACTER_LIST] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
 			return DispatchPacket<Game::REQ_CHARACTER_LIST>(Handle_REQ_CHARACTER_LIST, session, buffer, offset);
 			};

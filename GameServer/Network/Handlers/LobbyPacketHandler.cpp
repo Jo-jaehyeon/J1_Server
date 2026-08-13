@@ -5,7 +5,7 @@
 #include "DB/MySQLConnection.h"
 #include "SqlUtils.h"
 
-bool Handle_REQ_CHARACTER_LIST(SessionPtr& session, Game::REQ_CHARACTER_LIST& pkt)
+bool Handle_REQ_CHECK_TOKENVALID(SessionPtr& session, Game::REQ_CHECK_TOKENVALID& pkt)
 {
 	auto conn = GConnectionPool->borrow();
 	while (conn == nullptr)
@@ -16,18 +16,36 @@ bool Handle_REQ_CHARACTER_LIST(SessionPtr& session, Game::REQ_CHARACTER_LIST& pk
 	// 로그인 유효성 검증
 	string checkToken = "SELECT 1 "
 		"FROM sessions "
-		"WHERE account_id = ? AND token = ? AND expires_at > NOW()" 
+		"WHERE account_id = ? AND token = ? AND expires_at > NOW()"
 		"LIMIT 1";
 	int id = pkt.id();
 	auto check_result = SqlUtils::executeQuery(conn->sql_connection, "J1_DB", checkToken, id, pkt.token());
 
 	bool result = check_result->next();
 
+	Game::RES_CHECK_TOKENVALID tokenPkt;
+	tokenPkt.set_result(result);
+
+	if (GameSessionPtr _Session = static_pointer_cast<GameSession>(session))
+		_Session->SendPacket(tokenPkt, Game::PacketType::PKT_RES_CHECK_TOKENVALID);
+
+	GConnectionPool->unborrow(conn);
+
+	return true;
+}
+
+bool Handle_REQ_CHARACTER_LIST(SessionPtr& session, Game::REQ_CHARACTER_LIST& pkt)
+{
+	auto conn = GConnectionPool->borrow();
+	while (conn == nullptr)
+	{
+		conn = GConnectionPool->borrow();
+	}
+
 	Game::RES_CHARACTER_LIST ListPkt;
-	ListPkt.set_result(result);
 
 	// 캐릭터 리스트 찾기
-	if (result)
+	if (pkt.id() > 0)
 	{
 		string FindList = 
 			"SELECT cb.character_id, cb.slot_index, cb.nickname, cb.class_type, cb.level, cs.upper_skin, cs.lower_skin, cs.weapon_skin "
@@ -36,7 +54,8 @@ bool Handle_REQ_CHARACTER_LIST(SessionPtr& session, Game::REQ_CHARACTER_LIST& pk
 			"JOIN character_skin cs   ON cb.character_id = cs.character_id "
 			"WHERE cb.account_id = ? "
 			"ORDER BY cb.slot_index";
-		auto list_result = SqlUtils::executeQuery(conn->sql_connection, "J1_DB", FindList, id);
+		auto list_result = SqlUtils::executeQuery(conn->sql_connection, "J1_DB", FindList, pkt.id());
+		ListPkt.set_result(list_result > 0);
 
 		if (list_result)
 			while(list_result->next())

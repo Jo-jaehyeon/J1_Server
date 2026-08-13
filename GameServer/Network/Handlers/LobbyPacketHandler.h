@@ -6,6 +6,7 @@
 #include "J1.h"
 #endif
 
+bool Handle_REQ_CHECK_TOKENVALID(SessionPtr& session, Game::REQ_CHECK_TOKENVALID& pkt);
 bool Handle_REQ_CHARACTER_LIST(SessionPtr& session, Game::REQ_CHARACTER_LIST& pkt);
 bool Handle_REQ_CHECK_NICKNAME(SessionPtr& session, Game::REQ_CHECK_NICKNAME& pkt);
 bool Handle_REQ_CREATE_CHARACTER(SessionPtr& session, Game::REQ_CREATE_CHARACTER& pkt);
