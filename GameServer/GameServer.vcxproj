@@ -187,6 +187,7 @@
     <ClInclude Include="Network\Protocol\GameStruct.pb.h" />
     <ClInclude Include="Network\Protocol\LobbyProtocol.pb.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Utils\ObjectUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameMember.cpp" />
@@ -226,6 +227,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Utils\ObjectUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Common\Protobuf\bin\Game\BattleProtocol.proto" />

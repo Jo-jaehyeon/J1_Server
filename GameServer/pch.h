@@ -17,6 +17,9 @@
 
 #include "Packet.h"
 
+#include "Network/Protocol/GameStruct.pb.h"
+#include "Network/Protocol/LobbyProtocol.pb.h"
+
 #define USING_SHARED_PTR(name) using name##Ptr = std::shared_ptr<class name>;
 
 USING_SHARED_PTR(GameSession)

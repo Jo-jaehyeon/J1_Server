@@ -143,7 +143,8 @@ struct RES_DELETE_CHARACTERDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RES_DELETE_CHARACTERDefaultTypeInternal _RES_DELETE_CHARACTER_default_instance_;
 constexpr REQ_ENTER_GAME::REQ_ENTER_GAME(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string){}
+  : name_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , player_id_(0){}
 struct REQ_ENTER_GAMEDefaultTypeInternal {
   constexpr REQ_ENTER_GAMEDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -155,8 +156,7 @@ struct REQ_ENTER_GAMEDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_ENTER_GAMEDefaultTypeInternal _REQ_ENTER_GAME_default_instance_;
 constexpr RES_ENTER_GAME::RES_ENTER_GAME(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : player_id_(0)
-  , result_(false){}
+  : result_(false){}
 struct RES_ENTER_GAMEDefaultTypeInternal {
   constexpr RES_ENTER_GAMEDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -265,13 +265,13 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_LobbyProtocol_2eproto::offsets
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::Game::REQ_ENTER_GAME, player_id_),
   PROTOBUF_FIELD_OFFSET(::Game::REQ_ENTER_GAME, name_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Game::RES_ENTER_GAME, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Game::RES_ENTER_GAME, player_id_),
   PROTOBUF_FIELD_OFFSET(::Game::RES_ENTER_GAME, result_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Game::REQ_LEAVE_GAME, _internal_metadata_),
@@ -298,7 +298,7 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 51, -1, sizeof(::Game::REQ_DELETE_CHARACTER)},
   { 58, -1, sizeof(::Game::RES_DELETE_CHARACTER)},
   { 64, -1, sizeof(::Game::REQ_ENTER_GAME)},
-  { 70, -1, sizeof(::Game::RES_ENTER_GAME)},
+  { 71, -1, sizeof(::Game::RES_ENTER_GAME)},
   { 77, -1, sizeof(::Game::REQ_LEAVE_GAME)},
   { 83, -1, sizeof(::Game::RES_LEAVE_GAME)},
 };
@@ -335,9 +335,9 @@ const char descriptor_table_protodef_LobbyProtocol_2eproto[] PROTOBUF_SECTION_VA
   "S_CREATE_CHARACTER\022\016\n\006result\030\001 \001(\010\"@\n\024RE"
   "Q_DELETE_CHARACTER\022\022\n\naccount_id\030\001 \001(\004\022\024"
   "\n\014character_id\030\002 \001(\004\"&\n\024RES_DELETE_CHARA"
-  "CTER\022\016\n\006result\030\001 \001(\010\"\036\n\016REQ_ENTER_GAME\022\014"
-  "\n\004name\030\001 \001(\t\"3\n\016RES_ENTER_GAME\022\021\n\tplayer"
-  "_id\030\001 \001(\005\022\016\n\006result\030\002 \001(\010\"#\n\016REQ_LEAVE_G"
+  "CTER\022\016\n\006result\030\001 \001(\010\"1\n\016REQ_ENTER_GAME\022\021"
+  "\n\tplayer_id\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\" \n\016RES_E"
+  "NTER_GAME\022\016\n\006result\030\001 \001(\010\"#\n\016REQ_LEAVE_G"
   "AME\022\021\n\tplayer_id\030\001 \001(\005\" \n\016RES_LEAVE_GAME"
   "\022\016\n\006result\030\001 \001(\010b\006proto3"
   ;
@@ -2432,11 +2432,13 @@ REQ_ENTER_GAME::REQ_ENTER_GAME(const REQ_ENTER_GAME& from)
     name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_name(), 
       GetArenaForAllocation());
   }
+  player_id_ = from.player_id_;
   // @@protoc_insertion_point(copy_constructor:Game.REQ_ENTER_GAME)
 }
 
 void REQ_ENTER_GAME::SharedCtor() {
 name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+player_id_ = 0;
 }
 
 REQ_ENTER_GAME::~REQ_ENTER_GAME() {
@@ -2467,6 +2469,7 @@ void REQ_ENTER_GAME::Clear() {
   (void) cached_has_bits;
 
   name_.ClearToEmpty();
+  player_id_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2476,9 +2479,16 @@ const char* REQ_ENTER_GAME::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // string name = 1;
+      // int32 player_id = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string name = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           auto str = _internal_mutable_name();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Game.REQ_ENTER_GAME.name"));
@@ -2514,14 +2524,20 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string name = 1;
+  // int32 player_id = 1;
+  if (this->player_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
+  }
+
+  // string name = 2;
   if (!this->name().empty()) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
       this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
       "Game.REQ_ENTER_GAME.name");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_name(), target);
+        2, this->_internal_name(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2540,11 +2556,18 @@ size_t REQ_ENTER_GAME::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string name = 1;
+  // string name = 2;
   if (!this->name().empty()) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
         this->_internal_name());
+  }
+
+  // int32 player_id = 1;
+  if (this->player_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_player_id());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2581,6 +2604,9 @@ void REQ_ENTER_GAME::MergeFrom(const REQ_ENTER_GAME& from) {
   if (!from.name().empty()) {
     _internal_set_name(from._internal_name());
   }
+  if (from.player_id() != 0) {
+    _internal_set_player_id(from._internal_player_id());
+  }
 }
 
 void REQ_ENTER_GAME::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -2609,6 +2635,7 @@ void REQ_ENTER_GAME::InternalSwap(REQ_ENTER_GAME* other) {
       &name_, GetArenaForAllocation(),
       &other->name_, other->GetArenaForAllocation()
   );
+  swap(player_id_, other->player_id_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata REQ_ENTER_GAME::GetMetadata() const {
@@ -2632,17 +2659,12 @@ RES_ENTER_GAME::RES_ENTER_GAME(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 RES_ENTER_GAME::RES_ENTER_GAME(const RES_ENTER_GAME& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&player_id_, &from.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&result_) -
-    reinterpret_cast<char*>(&player_id_)) + sizeof(result_));
+  result_ = from.result_;
   // @@protoc_insertion_point(copy_constructor:Game.RES_ENTER_GAME)
 }
 
 void RES_ENTER_GAME::SharedCtor() {
-::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&player_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&result_) -
-    reinterpret_cast<char*>(&player_id_)) + sizeof(result_));
+result_ = false;
 }
 
 RES_ENTER_GAME::~RES_ENTER_GAME() {
@@ -2671,9 +2693,7 @@ void RES_ENTER_GAME::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&player_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&result_) -
-      reinterpret_cast<char*>(&player_id_)) + sizeof(result_));
+  result_ = false;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2683,16 +2703,9 @@ const char* RES_ENTER_GAME::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 player_id = 1;
+      // bool result = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // bool result = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           result_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -2726,16 +2739,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 player_id = 1;
-  if (this->player_id() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_id(), target);
-  }
-
-  // bool result = 2;
+  // bool result = 1;
   if (this->result() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_result(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(1, this->_internal_result(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2754,14 +2761,7 @@ size_t RES_ENTER_GAME::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // int32 player_id = 1;
-  if (this->player_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_player_id());
-  }
-
-  // bool result = 2;
+  // bool result = 1;
   if (this->result() != 0) {
     total_size += 1 + 1;
   }
@@ -2797,9 +2797,6 @@ void RES_ENTER_GAME::MergeFrom(const RES_ENTER_GAME& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.player_id() != 0) {
-    _internal_set_player_id(from._internal_player_id());
-  }
   if (from.result() != 0) {
     _internal_set_result(from._internal_result());
   }
@@ -2826,12 +2823,7 @@ bool RES_ENTER_GAME::IsInitialized() const {
 void RES_ENTER_GAME::InternalSwap(RES_ENTER_GAME* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RES_ENTER_GAME, result_)
-      + sizeof(RES_ENTER_GAME::result_)
-      - PROTOBUF_FIELD_OFFSET(RES_ENTER_GAME, player_id_)>(
-          reinterpret_cast<char*>(&player_id_),
-          reinterpret_cast<char*>(&other->player_id_));
+  swap(result_, other->result_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RES_ENTER_GAME::GetMetadata() const {

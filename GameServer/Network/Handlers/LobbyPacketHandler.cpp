@@ -4,6 +4,9 @@
 #include "DB/ConnectionPool.h"
 #include "DB/MySQLConnection.h"
 #include "SqlUtils.h"
+#include "Utils/ObjectUtils.h"
+#include "GameSession.h"
+#include "GameMember.h"
 
 bool Handle_REQ_CHECK_TOKENVALID(SessionPtr& session, Game::REQ_CHECK_TOKENVALID& pkt)
 {
@@ -230,13 +233,24 @@ bool Handle_REQ_DELETE_CHARACTER(SessionPtr& session, Game::REQ_DELETE_CHARACTER
 
 bool Handle_REQ_ENTER_GAME(SessionPtr& session, Game::REQ_ENTER_GAME& pkt)
 {
-	// TODO: Lobby 관련 로직 작성
+	GameMemberPtr player = ObjectUtils::CreatePlayer(pkt.player_id(), pkt.name());
+
+	GameSessionPtr cs = static_pointer_cast<GameSession>(session);
+	player->session = cs;
+	cs->player.store(player);
+
+	GRoom->HandleEnterPlayerLocked(player);
+
 	return true;
 }
 
 bool Handle_REQ_LEAVE_GAME(SessionPtr& session, Game::REQ_LEAVE_GAME& pkt)
 {
-	// TODO: Lobby 관련 로직 작성
+	GameSessionPtr cs = static_pointer_cast<GameSession>(session);
+	cs->player.store({});
+
+	GRoom->HandleLeavePlayerLocked(pkt.player_id());
+
 	return true;
 }
 

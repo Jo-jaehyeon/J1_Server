@@ -8,10 +8,10 @@ GameRoomPtr GRoom = std::make_shared<GameRoom>();
 bool GameRoom::EnterPlayer(GameMemberPtr player)
 {
 	// 있다면 문제가 있다
-	//if (_members.find(player->playerInfo->player_id()) != _members.end())
-	//	return false;
-	//
-	//_members.insert(make_pair(player->playerInfo->player_id(), player));
+	if (_members.find(player->playerInfo->player_id()) != _members.end())
+		return false;
+	
+	_members.insert(make_pair(player->playerInfo->player_id(), player));
 
 	player->room.store(shared_from_this());
 
@@ -31,11 +31,10 @@ bool GameRoom::LeavePlayer(int32 player_id)
 	bool success = loaded.expired();
 
 	// leave pkt 발송
-	//Game::RES_LEAVE_ROOM leavePkt;
-	//leavePkt.set_result(success);
-	//if (auto session = player->session.lock())
-	//	session->SendPacket(leavePkt, Chat::PacketType::PKT_RES_LEAVE_ROOM);
-
+	Game::RES_LEAVE_GAME leavePkt;
+	leavePkt.set_result(success);
+	if (auto session = player->session.lock())
+		session->SendPacket(leavePkt, Game::PacketType::PKT_RES_LEAVE_GAME);
 
 	if (success)
 	{
@@ -58,11 +57,10 @@ bool GameRoom::HandleEnterPlayerLocked(GameMemberPtr player)
 	if(success)
 		spdlog::info("Someone Enter chat Room");
 
-	//Game::RES_ENTER_ROOM enterPkt;
-	//enterPkt.set_player_id(player->playerInfo->player_id());
-	//enterPkt.set_result(success);
-	//if (auto session = player->session.lock())
-	//	session->SendPacket(enterPkt, Game::PacketType::PKT_RES_ENTER_ROOM);
+	Game::RES_ENTER_GAME enterPkt;
+	enterPkt.set_result(success);
+	if (auto session = player->session.lock())
+		session->SendPacket(enterPkt, Game::PacketType::PKT_RES_ENTER_GAME);
 
 	return success;
 }
@@ -84,7 +82,6 @@ void GameRoom::Broadcast(google::protobuf::Message& pkt)
 	{
 		GameMemberPtr player = m.second;
 
-		//if (auto session = player->session.lock())
-		//	session->SendPacket(pkt, Game::PacketType::PKT_RES_CHAT);
+
 	}
 }

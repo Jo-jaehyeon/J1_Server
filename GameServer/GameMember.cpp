@@ -3,10 +3,10 @@
 
 GameMember::GameMember()
 {
-	//playerInfo = new Game::GameMemberInfo();
+	playerInfo = new Game::GameMemberInfo();
 }
 
 GameMember::~GameMember()
 {
-	//delete playerInfo;
+	delete playerInfo;
 }

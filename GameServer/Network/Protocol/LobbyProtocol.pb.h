@@ -1619,9 +1619,10 @@ class REQ_ENTER_GAME final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kNameFieldNumber = 1,
+    kNameFieldNumber = 2,
+    kPlayerIdFieldNumber = 1,
   };
-  // string name = 1;
+  // string name = 2;
   void clear_name();
   const std::string& name() const;
   template <typename ArgT0 = const std::string&, typename... ArgT>
@@ -1635,6 +1636,15 @@ class REQ_ENTER_GAME final :
   std::string* _internal_mutable_name();
   public:
 
+  // int32 player_id = 1;
+  void clear_player_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 player_id() const;
+  void set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_player_id() const;
+  void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:Game.REQ_ENTER_GAME)
  private:
   class _Internal;
@@ -1643,6 +1653,7 @@ class REQ_ENTER_GAME final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::PROTOBUF_NAMESPACE_ID::int32 player_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_LobbyProtocol_2eproto;
 };
@@ -1756,19 +1767,9 @@ class RES_ENTER_GAME final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 1,
-    kResultFieldNumber = 2,
+    kResultFieldNumber = 1,
   };
-  // int32 player_id = 1;
-  void clear_player_id();
-  ::PROTOBUF_NAMESPACE_ID::int32 player_id() const;
-  void set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_player_id() const;
-  void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // bool result = 2;
+  // bool result = 1;
   void clear_result();
   bool result() const;
   void set_result(bool value);
@@ -1784,7 +1785,6 @@ class RES_ENTER_GAME final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int32 player_id_;
   bool result_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_LobbyProtocol_2eproto;
@@ -2466,7 +2466,27 @@ inline void RES_DELETE_CHARACTER::set_result(bool value) {
 
 // REQ_ENTER_GAME
 
-// string name = 1;
+// int32 player_id = 1;
+inline void REQ_ENTER_GAME::clear_player_id() {
+  player_id_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_ENTER_GAME::_internal_player_id() const {
+  return player_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_ENTER_GAME::player_id() const {
+  // @@protoc_insertion_point(field_get:Game.REQ_ENTER_GAME.player_id)
+  return _internal_player_id();
+}
+inline void REQ_ENTER_GAME::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  player_id_ = value;
+}
+inline void REQ_ENTER_GAME::set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_player_id(value);
+  // @@protoc_insertion_point(field_set:Game.REQ_ENTER_GAME.player_id)
+}
+
+// string name = 2;
 inline void REQ_ENTER_GAME::clear_name() {
   name_.ClearToEmpty();
 }
@@ -2515,27 +2535,7 @@ inline void REQ_ENTER_GAME::set_allocated_name(std::string* name) {
 
 // RES_ENTER_GAME
 
-// int32 player_id = 1;
-inline void RES_ENTER_GAME::clear_player_id() {
-  player_id_ = 0;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_ENTER_GAME::_internal_player_id() const {
-  return player_id_;
-}
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_ENTER_GAME::player_id() const {
-  // @@protoc_insertion_point(field_get:Game.RES_ENTER_GAME.player_id)
-  return _internal_player_id();
-}
-inline void RES_ENTER_GAME::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  
-  player_id_ = value;
-}
-inline void RES_ENTER_GAME::set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
-  _internal_set_player_id(value);
-  // @@protoc_insertion_point(field_set:Game.RES_ENTER_GAME.player_id)
-}
-
-// bool result = 2;
+// bool result = 1;
 inline void RES_ENTER_GAME::clear_result() {
   result_ = false;
 }
