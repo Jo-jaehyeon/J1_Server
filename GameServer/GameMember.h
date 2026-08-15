@@ -10,7 +10,7 @@ public:
 	virtual ~GameMember();
 
 public:
-	Game::GameMemberInfo* playerInfo;
+	Game::PlayerInfo* playerInfo;
 	std::weak_ptr<GameSession> session;
 
 public:

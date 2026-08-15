@@ -1,5 +1,6 @@
 #pragma once
 #include "Packet.h"
+#include "BasicPacketHandler.h"
 #include "BattlePacketHandler.h"
 #include "LobbyPacketHandler.h"
 
@@ -20,6 +21,9 @@ public:
 		for (int32 i = 0; i < UINT16_MAX; i++)
 			GGamePacketHandler[i] = Handle_Game_INVALID;
 
+		GGamePacketHandler[Game::PacketType::PKT_REQ_MOVE] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<Game::REQ_MOVE>(Handle_REQ_MOVE, session, buffer, offset);
+			};
 		GGamePacketHandler[Game::PacketType::PKT_REQ_ATTACK] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
 			return DispatchPacket<Game::REQ_ATTACK>(Handle_REQ_ATTACK, session, buffer, offset);
 			};

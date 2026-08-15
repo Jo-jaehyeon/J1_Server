@@ -3,7 +3,7 @@
 
 GameMember::GameMember()
 {
-	playerInfo = new Game::GameMemberInfo();
+	playerInfo = new Game::PlayerInfo();
 }
 
 GameMember::~GameMember()

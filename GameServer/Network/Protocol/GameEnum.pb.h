@@ -72,8 +72,14 @@ enum PacketType : int {
   PKT_RES_ENTER_GAME = 1011,
   PKT_REQ_LEAVE_GAME = 1012,
   PKT_RES_LEAVE_GAME = 1013,
-  PKT_REQ_ATTACK = 2000,
-  PKT_RES_ATTACK = 2001,
+  PKT_REQ_SPAWN = 2000,
+  PKT_RES_SPAWN = 2001,
+  PKT_REQ_DESPAWN = 2002,
+  PKT_RES_DESPAWN = 2003,
+  PKT_REQ_MOVE = 2004,
+  PKT_RES_MOVE = 2005,
+  PKT_REQ_ATTACK = 3000,
+  PKT_RES_ATTACK = 3001,
   PacketType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   PacketType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
@@ -95,6 +101,60 @@ inline bool PacketType_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, PacketType* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<PacketType>(
     PacketType_descriptor(), name, value);
+}
+enum MoveState : int {
+  MOVE_STATE_NONE = 0,
+  MOVE_STATE_IDLE = 1,
+  MOVE_STATE_RUN = 2,
+  MOVE_STATE_JUMP = 3,
+  MoveState_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  MoveState_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool MoveState_IsValid(int value);
+constexpr MoveState MoveState_MIN = MOVE_STATE_NONE;
+constexpr MoveState MoveState_MAX = MOVE_STATE_JUMP;
+constexpr int MoveState_ARRAYSIZE = MoveState_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MoveState_descriptor();
+template<typename T>
+inline const std::string& MoveState_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, MoveState>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function MoveState_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    MoveState_descriptor(), enum_t_value);
+}
+inline bool MoveState_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, MoveState* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<MoveState>(
+    MoveState_descriptor(), name, value);
+}
+enum ObjectType : int {
+  OBJECT_TYPE_NONE = 0,
+  OBJECT_TYPE_CREATURE = 1,
+  OBJECT_TYPE_PROJECTILE = 2,
+  OBJECT_TYPE_ENV = 3,
+  ObjectType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
+  ObjectType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
+};
+bool ObjectType_IsValid(int value);
+constexpr ObjectType ObjectType_MIN = OBJECT_TYPE_NONE;
+constexpr ObjectType ObjectType_MAX = OBJECT_TYPE_ENV;
+constexpr int ObjectType_ARRAYSIZE = ObjectType_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ObjectType_descriptor();
+template<typename T>
+inline const std::string& ObjectType_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, ObjectType>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function ObjectType_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    ObjectType_descriptor(), enum_t_value);
+}
+inline bool ObjectType_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, ObjectType* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<ObjectType>(
+    ObjectType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -122,6 +182,16 @@ template <> struct is_proto_enum< ::Game::PacketType> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::Game::PacketType>() {
   return ::Game::PacketType_descriptor();
+}
+template <> struct is_proto_enum< ::Game::MoveState> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::Game::MoveState>() {
+  return ::Game::MoveState_descriptor();
+}
+template <> struct is_proto_enum< ::Game::ObjectType> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::Game::ObjectType>() {
+  return ::Game::ObjectType_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

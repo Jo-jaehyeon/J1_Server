@@ -179,9 +179,11 @@
     <ClInclude Include="GameRoom.h" />
     <ClInclude Include="GameServer.h" />
     <ClInclude Include="GameSession.h" />
+    <ClInclude Include="Network\Handlers\BasicPacketHandler.h" />
     <ClInclude Include="Network\Handlers\BattlePacketHandler.h" />
     <ClInclude Include="Network\Handlers\GamePacketHandler.h" />
     <ClInclude Include="Network\Handlers\LobbyPacketHandler.h" />
+    <ClInclude Include="Network\Protocol\BasicProtocol.pb.h" />
     <ClInclude Include="Network\Protocol\BattleProtocol.pb.h" />
     <ClInclude Include="Network\Protocol\GameEnum.pb.h" />
     <ClInclude Include="Network\Protocol\GameStruct.pb.h" />
@@ -194,9 +196,16 @@
     <ClCompile Include="GameRoom.cpp" />
     <ClCompile Include="GameServer.cpp" />
     <ClCompile Include="GameSession.cpp" />
+    <ClCompile Include="Network\Handlers\BasicPacketHandler.cpp" />
     <ClCompile Include="Network\Handlers\BattlePacketHandler.cpp" />
     <ClCompile Include="Network\Handlers\GamePacketHandler.cpp" />
     <ClCompile Include="Network\Handlers\LobbyPacketHandler.cpp" />
+    <ClCompile Include="Network\Protocol\BasicProtocol.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Network\Protocol\BattleProtocol.pb.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -230,6 +239,7 @@
     <ClCompile Include="Utils\ObjectUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Common\Protobuf\bin\Game\BasicProtocol.proto" />
     <None Include="..\Common\Protobuf\bin\Game\BattleProtocol.proto" />
     <None Include="..\Common\Protobuf\bin\Game\GameEnum.proto" />
     <None Include="..\Common\Protobuf\bin\Game\GameStruct.proto" />

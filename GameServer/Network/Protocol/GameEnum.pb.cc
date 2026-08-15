@@ -18,14 +18,14 @@
 PROTOBUF_PRAGMA_INIT_SEG
 namespace Game {
 }  // namespace Game
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_GameEnum_2eproto[1];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_GameEnum_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_GameEnum_2eproto = nullptr;
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_GameEnum_2eproto::offsets[1] = {};
 static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_GameEnum_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\016GameEnum.proto\022\004Game*\331\003\n\nPacketType\022\017\n"
+  "\n\016GameEnum.proto\022\004Game*\323\004\n\nPacketType\022\017\n"
   "\013PKT_INVALID\020\000\022\035\n\030PKT_REQ_CHECK_TOKENVAL"
   "ID\020\350\007\022\035\n\030PKT_RES_CHECK_TOKENVALID\020\351\007\022\033\n\026"
   "PKT_REQ_CHARACTER_LIST\020\352\007\022\033\n\026PKT_RES_CHA"
@@ -36,12 +36,20 @@ const char descriptor_table_protodef_GameEnum_2eproto[] PROTOBUF_SECTION_VARIABL
   "ER\020\360\007\022\035\n\030PKT_RES_DELETE_CHARACTER\020\361\007\022\027\n\022"
   "PKT_REQ_ENTER_GAME\020\362\007\022\027\n\022PKT_RES_ENTER_G"
   "AME\020\363\007\022\027\n\022PKT_REQ_LEAVE_GAME\020\364\007\022\027\n\022PKT_R"
-  "ES_LEAVE_GAME\020\365\007\022\023\n\016PKT_REQ_ATTACK\020\320\017\022\023\n"
-  "\016PKT_RES_ATTACK\020\321\017b\006proto3"
+  "ES_LEAVE_GAME\020\365\007\022\022\n\rPKT_REQ_SPAWN\020\320\017\022\022\n\r"
+  "PKT_RES_SPAWN\020\321\017\022\024\n\017PKT_REQ_DESPAWN\020\322\017\022\024"
+  "\n\017PKT_RES_DESPAWN\020\323\017\022\021\n\014PKT_REQ_MOVE\020\324\017\022"
+  "\021\n\014PKT_RES_MOVE\020\325\017\022\023\n\016PKT_REQ_ATTACK\020\270\027\022"
+  "\023\n\016PKT_RES_ATTACK\020\271\027*^\n\tMoveState\022\023\n\017MOV"
+  "E_STATE_NONE\020\000\022\023\n\017MOVE_STATE_IDLE\020\001\022\022\n\016M"
+  "OVE_STATE_RUN\020\002\022\023\n\017MOVE_STATE_JUMP\020\003*m\n\n"
+  "ObjectType\022\024\n\020OBJECT_TYPE_NONE\020\000\022\030\n\024OBJE"
+  "CT_TYPE_CREATURE\020\001\022\032\n\026OBJECT_TYPE_PROJEC"
+  "TILE\020\002\022\023\n\017OBJECT_TYPE_ENV\020\003b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameEnum_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameEnum_2eproto = {
-  false, false, 506, descriptor_table_protodef_GameEnum_2eproto, "GameEnum.proto", 
+  false, false, 835, descriptor_table_protodef_GameEnum_2eproto, "GameEnum.proto", 
   &descriptor_table_GameEnum_2eproto_once, nullptr, 0, 0,
   schemas, file_default_instances, TableStruct_GameEnum_2eproto::offsets,
   nullptr, file_level_enum_descriptors_GameEnum_2eproto, file_level_service_descriptors_GameEnum_2eproto,
@@ -76,6 +84,44 @@ bool PacketType_IsValid(int value) {
     case 1013:
     case 2000:
     case 2001:
+    case 2002:
+    case 2003:
+    case 2004:
+    case 2005:
+    case 3000:
+    case 3001:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* MoveState_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_GameEnum_2eproto);
+  return file_level_enum_descriptors_GameEnum_2eproto[1];
+}
+bool MoveState_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ObjectType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_GameEnum_2eproto);
+  return file_level_enum_descriptors_GameEnum_2eproto[2];
+}
+bool ObjectType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
       return true;
     default:
       return false;
