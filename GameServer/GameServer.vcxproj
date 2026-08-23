@@ -175,10 +175,12 @@
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AuctionSession.h" />
     <ClInclude Include="GameMember.h" />
     <ClInclude Include="GameRoom.h" />
     <ClInclude Include="GameServer.h" />
     <ClInclude Include="GameSession.h" />
+    <ClInclude Include="Network\Handlers\AuctionServerPacketHandler.h" />
     <ClInclude Include="Network\Handlers\BasicPacketHandler.h" />
     <ClInclude Include="Network\Handlers\BattlePacketHandler.h" />
     <ClInclude Include="Network\Handlers\GamePacketHandler.h" />
@@ -188,14 +190,24 @@
     <ClInclude Include="Network\Protocol\GameEnum.pb.h" />
     <ClInclude Include="Network\Protocol\GameStruct.pb.h" />
     <ClInclude Include="Network\Protocol\LobbyProtocol.pb.h" />
+    <ClInclude Include="Network\Protocol\SS_AuctionEnum.pb.h" />
+    <ClInclude Include="Network\Protocol\SS_AuctionProtocol.pb.h" />
+    <ClInclude Include="Network\Protocol\SS_AuctionStruct.pb.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Utils\ObjectUtils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AuctionSession.cpp" />
     <ClCompile Include="GameMember.cpp" />
     <ClCompile Include="GameRoom.cpp" />
     <ClCompile Include="GameServer.cpp" />
     <ClCompile Include="GameSession.cpp" />
+    <ClCompile Include="Network\Handlers\AuctionServerPacketHandler.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Network\Handlers\BasicPacketHandler.cpp" />
     <ClCompile Include="Network\Handlers\BattlePacketHandler.cpp" />
     <ClCompile Include="Network\Handlers\GamePacketHandler.cpp" />
@@ -225,6 +237,24 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Network\Protocol\LobbyProtocol.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Network\Protocol\SS_AuctionEnum.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Network\Protocol\SS_AuctionProtocol.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Network\Protocol\SS_AuctionStruct.pb.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>

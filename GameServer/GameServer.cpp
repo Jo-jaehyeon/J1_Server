@@ -1,6 +1,7 @@
 ﻿#include "pch.h"
 #include "GameServer.h"
 #include "GameSession.h"
+#include "AuctionSession.h"
 #include "Network/Handlers/GamePacketHandler.h"
 #include "DB/ConnectionPool.h"
 #include "DB/MySQLConnection.h"
@@ -10,7 +11,6 @@ GameServer::GameServer(asio::io_context& io_context, int port)
 	: _acceptor(io_context, tcp::endpoint(tcp::v4(), port)),
 	_io_context(io_context)
 {
-
 }
 
 void GameServer::StartAccept()
@@ -56,6 +56,14 @@ int main()
 		s.StartAccept();
 		spdlog::info("Server Start {}", port);
 		io_context.run();
+
+
+		// 경매장 서버와 연결
+		boost::asio::io_context auction_context;
+		AuctionSession* session = new AuctionSession(auction_context);
+		AuctionSessionPtr sessionPtr(session);
+
+		sessionPtr->Connect("127.0.0.1", 9002);
 	}
 	catch (std::exception& e)
 	{

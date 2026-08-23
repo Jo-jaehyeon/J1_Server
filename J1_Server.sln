@@ -15,6 +15,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PacketGenerator", "Tools\Pa
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GameServer", "GameServer\GameServer.vcxproj", "{3F5F3336-1D32-4FCB-A5A8-EB705E700583}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AuctionServer", "AuctionServer\AuctionServer.vcxproj", "{6DBC9B97-460B-42BE-AAB0-2FA10A2EF16F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,18 @@ Global
 		{3F5F3336-1D32-4FCB-A5A8-EB705E700583}.Release|x64.Build.0 = Release|x64
 		{3F5F3336-1D32-4FCB-A5A8-EB705E700583}.Release|x86.ActiveCfg = Release|Win32
 		{3F5F3336-1D32-4FCB-A5A8-EB705E700583}.Release|x86.Build.0 = Release|Win32
+		{6DBC9B97-460B-42BE-AAB0-2FA10A2EF16F}.Debug|Any CPU.ActiveCfg = Debug|x64
+		{6DBC9B97-460B-42BE-AAB0-2FA10A2EF16F}.Debug|Any CPU.Build.0 = Debug|x64
+		{6DBC9B97-460B-42BE-AAB0-2FA10A2EF16F}.Debug|x64.ActiveCfg = Debug|x64
+		{6DBC9B97-460B-42BE-AAB0-2FA10A2EF16F}.Debug|x64.Build.0 = Debug|x64
+		{6DBC9B97-460B-42BE-AAB0-2FA10A2EF16F}.Debug|x86.ActiveCfg = Debug|Win32
+		{6DBC9B97-460B-42BE-AAB0-2FA10A2EF16F}.Debug|x86.Build.0 = Debug|Win32
+		{6DBC9B97-460B-42BE-AAB0-2FA10A2EF16F}.Release|Any CPU.ActiveCfg = Release|x64
+		{6DBC9B97-460B-42BE-AAB0-2FA10A2EF16F}.Release|Any CPU.Build.0 = Release|x64
+		{6DBC9B97-460B-42BE-AAB0-2FA10A2EF16F}.Release|x64.ActiveCfg = Release|x64
+		{6DBC9B97-460B-42BE-AAB0-2FA10A2EF16F}.Release|x64.Build.0 = Release|x64
+		{6DBC9B97-460B-42BE-AAB0-2FA10A2EF16F}.Release|x86.ActiveCfg = Release|Win32
+		{6DBC9B97-460B-42BE-AAB0-2FA10A2EF16F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
