@@ -48,7 +48,7 @@ struct TableStruct_SS_5fAuctionProtocol_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[2]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[10]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -59,13 +59,45 @@ namespace SS_Auction {
 class REQ_AUCTION_LIST;
 struct REQ_AUCTION_LISTDefaultTypeInternal;
 extern REQ_AUCTION_LISTDefaultTypeInternal _REQ_AUCTION_LIST_default_instance_;
+class REQ_PURCHASE_ITEM;
+struct REQ_PURCHASE_ITEMDefaultTypeInternal;
+extern REQ_PURCHASE_ITEMDefaultTypeInternal _REQ_PURCHASE_ITEM_default_instance_;
+class REQ_RECEIPT_ITEM;
+struct REQ_RECEIPT_ITEMDefaultTypeInternal;
+extern REQ_RECEIPT_ITEMDefaultTypeInternal _REQ_RECEIPT_ITEM_default_instance_;
+class REQ_RECEIPT_LIST;
+struct REQ_RECEIPT_LISTDefaultTypeInternal;
+extern REQ_RECEIPT_LISTDefaultTypeInternal _REQ_RECEIPT_LIST_default_instance_;
+class REQ_REGIST_ITEM;
+struct REQ_REGIST_ITEMDefaultTypeInternal;
+extern REQ_REGIST_ITEMDefaultTypeInternal _REQ_REGIST_ITEM_default_instance_;
 class RES_AUCTION_LIST;
 struct RES_AUCTION_LISTDefaultTypeInternal;
 extern RES_AUCTION_LISTDefaultTypeInternal _RES_AUCTION_LIST_default_instance_;
+class RES_PURCHASE_ITEM;
+struct RES_PURCHASE_ITEMDefaultTypeInternal;
+extern RES_PURCHASE_ITEMDefaultTypeInternal _RES_PURCHASE_ITEM_default_instance_;
+class RES_RECEIPT_ITEM;
+struct RES_RECEIPT_ITEMDefaultTypeInternal;
+extern RES_RECEIPT_ITEMDefaultTypeInternal _RES_RECEIPT_ITEM_default_instance_;
+class RES_RECEIPT_LIST;
+struct RES_RECEIPT_LISTDefaultTypeInternal;
+extern RES_RECEIPT_LISTDefaultTypeInternal _RES_RECEIPT_LIST_default_instance_;
+class RES_REGIST_ITEM;
+struct RES_REGIST_ITEMDefaultTypeInternal;
+extern RES_REGIST_ITEMDefaultTypeInternal _RES_REGIST_ITEM_default_instance_;
 }  // namespace SS_Auction
 PROTOBUF_NAMESPACE_OPEN
 template<> ::SS_Auction::REQ_AUCTION_LIST* Arena::CreateMaybeMessage<::SS_Auction::REQ_AUCTION_LIST>(Arena*);
+template<> ::SS_Auction::REQ_PURCHASE_ITEM* Arena::CreateMaybeMessage<::SS_Auction::REQ_PURCHASE_ITEM>(Arena*);
+template<> ::SS_Auction::REQ_RECEIPT_ITEM* Arena::CreateMaybeMessage<::SS_Auction::REQ_RECEIPT_ITEM>(Arena*);
+template<> ::SS_Auction::REQ_RECEIPT_LIST* Arena::CreateMaybeMessage<::SS_Auction::REQ_RECEIPT_LIST>(Arena*);
+template<> ::SS_Auction::REQ_REGIST_ITEM* Arena::CreateMaybeMessage<::SS_Auction::REQ_REGIST_ITEM>(Arena*);
 template<> ::SS_Auction::RES_AUCTION_LIST* Arena::CreateMaybeMessage<::SS_Auction::RES_AUCTION_LIST>(Arena*);
+template<> ::SS_Auction::RES_PURCHASE_ITEM* Arena::CreateMaybeMessage<::SS_Auction::RES_PURCHASE_ITEM>(Arena*);
+template<> ::SS_Auction::RES_RECEIPT_ITEM* Arena::CreateMaybeMessage<::SS_Auction::RES_RECEIPT_ITEM>(Arena*);
+template<> ::SS_Auction::RES_RECEIPT_LIST* Arena::CreateMaybeMessage<::SS_Auction::RES_RECEIPT_LIST>(Arena*);
+template<> ::SS_Auction::RES_REGIST_ITEM* Arena::CreateMaybeMessage<::SS_Auction::RES_REGIST_ITEM>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace SS_Auction {
 
@@ -179,10 +211,36 @@ class REQ_AUCTION_LIST final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRequestIdFieldNumber = 1,
-    kPlayerIdFieldNumber = 2,
+    kSearchItemFieldNumber = 4,
+    kSessionIdFieldNumber = 1,
+    kRequestIdFieldNumber = 2,
+    kPlayerIdFieldNumber = 3,
+    kMyListFieldNumber = 5,
   };
-  // int32 request_id = 1;
+  // string search_item = 4;
+  void clear_search_item();
+  const std::string& search_item() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_search_item(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_search_item();
+  PROTOBUF_FUTURE_MUST_USE_RESULT std::string* release_search_item();
+  void set_allocated_search_item(std::string* search_item);
+  private:
+  const std::string& _internal_search_item() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_search_item(const std::string& value);
+  std::string* _internal_mutable_search_item();
+  public:
+
+  // int64 session_id = 1;
+  void clear_session_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // int32 request_id = 2;
   void clear_request_id();
   ::PROTOBUF_NAMESPACE_ID::int32 request_id() const;
   void set_request_id(::PROTOBUF_NAMESPACE_ID::int32 value);
@@ -191,13 +249,22 @@ class REQ_AUCTION_LIST final :
   void _internal_set_request_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // int32 player_id = 2;
+  // int32 player_id = 3;
   void clear_player_id();
   ::PROTOBUF_NAMESPACE_ID::int32 player_id() const;
   void set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   private:
   ::PROTOBUF_NAMESPACE_ID::int32 _internal_player_id() const;
   void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // bool myList = 5;
+  void clear_mylist();
+  bool mylist() const;
+  void set_mylist(bool value);
+  private:
+  bool _internal_mylist() const;
+  void _internal_set_mylist(bool value);
   public:
 
   // @@protoc_insertion_point(class_scope:SS_Auction.REQ_AUCTION_LIST)
@@ -207,8 +274,11 @@ class REQ_AUCTION_LIST final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr search_item_;
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id_;
   ::PROTOBUF_NAMESPACE_ID::int32 request_id_;
   ::PROTOBUF_NAMESPACE_ID::int32 player_id_;
+  bool mylist_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
 };
@@ -322,11 +392,39 @@ class RES_AUCTION_LIST final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kRequestIdFieldNumber = 1,
-    kPlayerIdFieldNumber = 2,
-    kResultFieldNumber = 3,
+    kListInfoFieldNumber = 3,
+    kSessionIdFieldNumber = 1,
+    kRequestIdFieldNumber = 2,
+    kMyListFieldNumber = 4,
   };
-  // int32 request_id = 1;
+  // repeated .SS_Auction.AuctionItemInfo ListInfo = 3;
+  int listinfo_size() const;
+  private:
+  int _internal_listinfo_size() const;
+  public:
+  void clear_listinfo();
+  ::SS_Auction::AuctionItemInfo* mutable_listinfo(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+      mutable_listinfo();
+  private:
+  const ::SS_Auction::AuctionItemInfo& _internal_listinfo(int index) const;
+  ::SS_Auction::AuctionItemInfo* _internal_add_listinfo();
+  public:
+  const ::SS_Auction::AuctionItemInfo& listinfo(int index) const;
+  ::SS_Auction::AuctionItemInfo* add_listinfo();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+      listinfo() const;
+
+  // int32 session_id = 1;
+  void clear_session_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // int32 request_id = 2;
   void clear_request_id();
   ::PROTOBUF_NAMESPACE_ID::int32 request_id() const;
   void set_request_id(::PROTOBUF_NAMESPACE_ID::int32 value);
@@ -335,13 +433,1210 @@ class RES_AUCTION_LIST final :
   void _internal_set_request_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
-  // int32 player_id = 2;
-  void clear_player_id();
-  ::PROTOBUF_NAMESPACE_ID::int32 player_id() const;
-  void set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  // bool myList = 4;
+  void clear_mylist();
+  bool mylist() const;
+  void set_mylist(bool value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_player_id() const;
-  void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  bool _internal_mylist() const;
+  void _internal_set_mylist(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:SS_Auction.RES_AUCTION_LIST)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo > listinfo_;
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 request_id_;
+  bool mylist_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
+};
+// -------------------------------------------------------------------
+
+class REQ_RECEIPT_LIST final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:SS_Auction.REQ_RECEIPT_LIST) */ {
+ public:
+  inline REQ_RECEIPT_LIST() : REQ_RECEIPT_LIST(nullptr) {}
+  ~REQ_RECEIPT_LIST() override;
+  explicit constexpr REQ_RECEIPT_LIST(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  REQ_RECEIPT_LIST(const REQ_RECEIPT_LIST& from);
+  REQ_RECEIPT_LIST(REQ_RECEIPT_LIST&& from) noexcept
+    : REQ_RECEIPT_LIST() {
+    *this = ::std::move(from);
+  }
+
+  inline REQ_RECEIPT_LIST& operator=(const REQ_RECEIPT_LIST& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline REQ_RECEIPT_LIST& operator=(REQ_RECEIPT_LIST&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const REQ_RECEIPT_LIST& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const REQ_RECEIPT_LIST* internal_default_instance() {
+    return reinterpret_cast<const REQ_RECEIPT_LIST*>(
+               &_REQ_RECEIPT_LIST_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(REQ_RECEIPT_LIST& a, REQ_RECEIPT_LIST& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(REQ_RECEIPT_LIST* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(REQ_RECEIPT_LIST* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline REQ_RECEIPT_LIST* New() const final {
+    return new REQ_RECEIPT_LIST();
+  }
+
+  REQ_RECEIPT_LIST* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<REQ_RECEIPT_LIST>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const REQ_RECEIPT_LIST& from);
+  void MergeFrom(const REQ_RECEIPT_LIST& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(REQ_RECEIPT_LIST* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "SS_Auction.REQ_RECEIPT_LIST";
+  }
+  protected:
+  explicit REQ_RECEIPT_LIST(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPlayerIdFieldNumber = 2,
+    kSessionIdFieldNumber = 1,
+  };
+  // uint64 player_id = 2;
+  void clear_player_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 player_id() const;
+  void set_player_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_player_id() const;
+  void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // int32 session_id = 1;
+  void clear_session_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:SS_Auction.REQ_RECEIPT_LIST)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 player_id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RES_RECEIPT_LIST final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:SS_Auction.RES_RECEIPT_LIST) */ {
+ public:
+  inline RES_RECEIPT_LIST() : RES_RECEIPT_LIST(nullptr) {}
+  ~RES_RECEIPT_LIST() override;
+  explicit constexpr RES_RECEIPT_LIST(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RES_RECEIPT_LIST(const RES_RECEIPT_LIST& from);
+  RES_RECEIPT_LIST(RES_RECEIPT_LIST&& from) noexcept
+    : RES_RECEIPT_LIST() {
+    *this = ::std::move(from);
+  }
+
+  inline RES_RECEIPT_LIST& operator=(const RES_RECEIPT_LIST& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RES_RECEIPT_LIST& operator=(RES_RECEIPT_LIST&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RES_RECEIPT_LIST& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RES_RECEIPT_LIST* internal_default_instance() {
+    return reinterpret_cast<const RES_RECEIPT_LIST*>(
+               &_RES_RECEIPT_LIST_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(RES_RECEIPT_LIST& a, RES_RECEIPT_LIST& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RES_RECEIPT_LIST* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RES_RECEIPT_LIST* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RES_RECEIPT_LIST* New() const final {
+    return new RES_RECEIPT_LIST();
+  }
+
+  RES_RECEIPT_LIST* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<RES_RECEIPT_LIST>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const RES_RECEIPT_LIST& from);
+  void MergeFrom(const RES_RECEIPT_LIST& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RES_RECEIPT_LIST* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "SS_Auction.RES_RECEIPT_LIST";
+  }
+  protected:
+  explicit RES_RECEIPT_LIST(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kReceiptListFieldNumber = 2,
+    kSessionIdFieldNumber = 1,
+  };
+  // repeated .SS_Auction.AuctionItemInfo ReceiptList = 2;
+  int receiptlist_size() const;
+  private:
+  int _internal_receiptlist_size() const;
+  public:
+  void clear_receiptlist();
+  ::SS_Auction::AuctionItemInfo* mutable_receiptlist(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+      mutable_receiptlist();
+  private:
+  const ::SS_Auction::AuctionItemInfo& _internal_receiptlist(int index) const;
+  ::SS_Auction::AuctionItemInfo* _internal_add_receiptlist();
+  public:
+  const ::SS_Auction::AuctionItemInfo& receiptlist(int index) const;
+  ::SS_Auction::AuctionItemInfo* add_receiptlist();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+      receiptlist() const;
+
+  // int32 session_id = 1;
+  void clear_session_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:SS_Auction.RES_RECEIPT_LIST)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo > receiptlist_;
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
+};
+// -------------------------------------------------------------------
+
+class REQ_REGIST_ITEM final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:SS_Auction.REQ_REGIST_ITEM) */ {
+ public:
+  inline REQ_REGIST_ITEM() : REQ_REGIST_ITEM(nullptr) {}
+  ~REQ_REGIST_ITEM() override;
+  explicit constexpr REQ_REGIST_ITEM(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  REQ_REGIST_ITEM(const REQ_REGIST_ITEM& from);
+  REQ_REGIST_ITEM(REQ_REGIST_ITEM&& from) noexcept
+    : REQ_REGIST_ITEM() {
+    *this = ::std::move(from);
+  }
+
+  inline REQ_REGIST_ITEM& operator=(const REQ_REGIST_ITEM& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline REQ_REGIST_ITEM& operator=(REQ_REGIST_ITEM&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const REQ_REGIST_ITEM& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const REQ_REGIST_ITEM* internal_default_instance() {
+    return reinterpret_cast<const REQ_REGIST_ITEM*>(
+               &_REQ_REGIST_ITEM_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(REQ_REGIST_ITEM& a, REQ_REGIST_ITEM& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(REQ_REGIST_ITEM* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(REQ_REGIST_ITEM* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline REQ_REGIST_ITEM* New() const final {
+    return new REQ_REGIST_ITEM();
+  }
+
+  REQ_REGIST_ITEM* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<REQ_REGIST_ITEM>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const REQ_REGIST_ITEM& from);
+  void MergeFrom(const REQ_REGIST_ITEM& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(REQ_REGIST_ITEM* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "SS_Auction.REQ_REGIST_ITEM";
+  }
+  protected:
+  explicit REQ_REGIST_ITEM(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kRegistInfoFieldNumber = 2,
+    kSessionIdFieldNumber = 1,
+  };
+  // repeated .SS_Auction.AuctionItemInfo RegistInfo = 2;
+  int registinfo_size() const;
+  private:
+  int _internal_registinfo_size() const;
+  public:
+  void clear_registinfo();
+  ::SS_Auction::AuctionItemInfo* mutable_registinfo(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+      mutable_registinfo();
+  private:
+  const ::SS_Auction::AuctionItemInfo& _internal_registinfo(int index) const;
+  ::SS_Auction::AuctionItemInfo* _internal_add_registinfo();
+  public:
+  const ::SS_Auction::AuctionItemInfo& registinfo(int index) const;
+  ::SS_Auction::AuctionItemInfo* add_registinfo();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+      registinfo() const;
+
+  // int32 session_id = 1;
+  void clear_session_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:SS_Auction.REQ_REGIST_ITEM)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo > registinfo_;
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RES_REGIST_ITEM final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:SS_Auction.RES_REGIST_ITEM) */ {
+ public:
+  inline RES_REGIST_ITEM() : RES_REGIST_ITEM(nullptr) {}
+  ~RES_REGIST_ITEM() override;
+  explicit constexpr RES_REGIST_ITEM(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RES_REGIST_ITEM(const RES_REGIST_ITEM& from);
+  RES_REGIST_ITEM(RES_REGIST_ITEM&& from) noexcept
+    : RES_REGIST_ITEM() {
+    *this = ::std::move(from);
+  }
+
+  inline RES_REGIST_ITEM& operator=(const RES_REGIST_ITEM& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RES_REGIST_ITEM& operator=(RES_REGIST_ITEM&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RES_REGIST_ITEM& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RES_REGIST_ITEM* internal_default_instance() {
+    return reinterpret_cast<const RES_REGIST_ITEM*>(
+               &_RES_REGIST_ITEM_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(RES_REGIST_ITEM& a, RES_REGIST_ITEM& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RES_REGIST_ITEM* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RES_REGIST_ITEM* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RES_REGIST_ITEM* New() const final {
+    return new RES_REGIST_ITEM();
+  }
+
+  RES_REGIST_ITEM* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<RES_REGIST_ITEM>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const RES_REGIST_ITEM& from);
+  void MergeFrom(const RES_REGIST_ITEM& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RES_REGIST_ITEM* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "SS_Auction.RES_REGIST_ITEM";
+  }
+  protected:
+  explicit RES_REGIST_ITEM(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSessionIdFieldNumber = 1,
+    kResultFieldNumber = 2,
+  };
+  // int32 session_id = 1;
+  void clear_session_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // bool result = 2;
+  void clear_result();
+  bool result() const;
+  void set_result(bool value);
+  private:
+  bool _internal_result() const;
+  void _internal_set_result(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:SS_Auction.RES_REGIST_ITEM)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
+  bool result_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
+};
+// -------------------------------------------------------------------
+
+class REQ_PURCHASE_ITEM final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:SS_Auction.REQ_PURCHASE_ITEM) */ {
+ public:
+  inline REQ_PURCHASE_ITEM() : REQ_PURCHASE_ITEM(nullptr) {}
+  ~REQ_PURCHASE_ITEM() override;
+  explicit constexpr REQ_PURCHASE_ITEM(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  REQ_PURCHASE_ITEM(const REQ_PURCHASE_ITEM& from);
+  REQ_PURCHASE_ITEM(REQ_PURCHASE_ITEM&& from) noexcept
+    : REQ_PURCHASE_ITEM() {
+    *this = ::std::move(from);
+  }
+
+  inline REQ_PURCHASE_ITEM& operator=(const REQ_PURCHASE_ITEM& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline REQ_PURCHASE_ITEM& operator=(REQ_PURCHASE_ITEM&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const REQ_PURCHASE_ITEM& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const REQ_PURCHASE_ITEM* internal_default_instance() {
+    return reinterpret_cast<const REQ_PURCHASE_ITEM*>(
+               &_REQ_PURCHASE_ITEM_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  friend void swap(REQ_PURCHASE_ITEM& a, REQ_PURCHASE_ITEM& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(REQ_PURCHASE_ITEM* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(REQ_PURCHASE_ITEM* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline REQ_PURCHASE_ITEM* New() const final {
+    return new REQ_PURCHASE_ITEM();
+  }
+
+  REQ_PURCHASE_ITEM* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<REQ_PURCHASE_ITEM>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const REQ_PURCHASE_ITEM& from);
+  void MergeFrom(const REQ_PURCHASE_ITEM& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(REQ_PURCHASE_ITEM* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "SS_Auction.REQ_PURCHASE_ITEM";
+  }
+  protected:
+  explicit REQ_PURCHASE_ITEM(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPurchaseInfoFieldNumber = 2,
+    kSessionIdFieldNumber = 1,
+  };
+  // repeated .SS_Auction.AuctionItemInfo PurchaseInfo = 2;
+  int purchaseinfo_size() const;
+  private:
+  int _internal_purchaseinfo_size() const;
+  public:
+  void clear_purchaseinfo();
+  ::SS_Auction::AuctionItemInfo* mutable_purchaseinfo(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+      mutable_purchaseinfo();
+  private:
+  const ::SS_Auction::AuctionItemInfo& _internal_purchaseinfo(int index) const;
+  ::SS_Auction::AuctionItemInfo* _internal_add_purchaseinfo();
+  public:
+  const ::SS_Auction::AuctionItemInfo& purchaseinfo(int index) const;
+  ::SS_Auction::AuctionItemInfo* add_purchaseinfo();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+      purchaseinfo() const;
+
+  // int32 session_id = 1;
+  void clear_session_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:SS_Auction.REQ_PURCHASE_ITEM)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo > purchaseinfo_;
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RES_PURCHASE_ITEM final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:SS_Auction.RES_PURCHASE_ITEM) */ {
+ public:
+  inline RES_PURCHASE_ITEM() : RES_PURCHASE_ITEM(nullptr) {}
+  ~RES_PURCHASE_ITEM() override;
+  explicit constexpr RES_PURCHASE_ITEM(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RES_PURCHASE_ITEM(const RES_PURCHASE_ITEM& from);
+  RES_PURCHASE_ITEM(RES_PURCHASE_ITEM&& from) noexcept
+    : RES_PURCHASE_ITEM() {
+    *this = ::std::move(from);
+  }
+
+  inline RES_PURCHASE_ITEM& operator=(const RES_PURCHASE_ITEM& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RES_PURCHASE_ITEM& operator=(RES_PURCHASE_ITEM&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RES_PURCHASE_ITEM& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RES_PURCHASE_ITEM* internal_default_instance() {
+    return reinterpret_cast<const RES_PURCHASE_ITEM*>(
+               &_RES_PURCHASE_ITEM_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    7;
+
+  friend void swap(RES_PURCHASE_ITEM& a, RES_PURCHASE_ITEM& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RES_PURCHASE_ITEM* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RES_PURCHASE_ITEM* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RES_PURCHASE_ITEM* New() const final {
+    return new RES_PURCHASE_ITEM();
+  }
+
+  RES_PURCHASE_ITEM* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<RES_PURCHASE_ITEM>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const RES_PURCHASE_ITEM& from);
+  void MergeFrom(const RES_PURCHASE_ITEM& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RES_PURCHASE_ITEM* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "SS_Auction.RES_PURCHASE_ITEM";
+  }
+  protected:
+  explicit RES_PURCHASE_ITEM(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSessionIdFieldNumber = 1,
+    kResultFieldNumber = 2,
+    kGoldFieldNumber = 3,
+  };
+  // int32 session_id = 1;
+  void clear_session_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // bool result = 2;
+  void clear_result();
+  bool result() const;
+  void set_result(bool value);
+  private:
+  bool _internal_result() const;
+  void _internal_set_result(bool value);
+  public:
+
+  // int64 gold = 3;
+  void clear_gold();
+  ::PROTOBUF_NAMESPACE_ID::int64 gold() const;
+  void set_gold(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_gold() const;
+  void _internal_set_gold(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:SS_Auction.RES_PURCHASE_ITEM)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
+  bool result_;
+  ::PROTOBUF_NAMESPACE_ID::int64 gold_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
+};
+// -------------------------------------------------------------------
+
+class REQ_RECEIPT_ITEM final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:SS_Auction.REQ_RECEIPT_ITEM) */ {
+ public:
+  inline REQ_RECEIPT_ITEM() : REQ_RECEIPT_ITEM(nullptr) {}
+  ~REQ_RECEIPT_ITEM() override;
+  explicit constexpr REQ_RECEIPT_ITEM(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  REQ_RECEIPT_ITEM(const REQ_RECEIPT_ITEM& from);
+  REQ_RECEIPT_ITEM(REQ_RECEIPT_ITEM&& from) noexcept
+    : REQ_RECEIPT_ITEM() {
+    *this = ::std::move(from);
+  }
+
+  inline REQ_RECEIPT_ITEM& operator=(const REQ_RECEIPT_ITEM& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline REQ_RECEIPT_ITEM& operator=(REQ_RECEIPT_ITEM&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const REQ_RECEIPT_ITEM& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const REQ_RECEIPT_ITEM* internal_default_instance() {
+    return reinterpret_cast<const REQ_RECEIPT_ITEM*>(
+               &_REQ_RECEIPT_ITEM_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    8;
+
+  friend void swap(REQ_RECEIPT_ITEM& a, REQ_RECEIPT_ITEM& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(REQ_RECEIPT_ITEM* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(REQ_RECEIPT_ITEM* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline REQ_RECEIPT_ITEM* New() const final {
+    return new REQ_RECEIPT_ITEM();
+  }
+
+  REQ_RECEIPT_ITEM* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<REQ_RECEIPT_ITEM>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const REQ_RECEIPT_ITEM& from);
+  void MergeFrom(const REQ_RECEIPT_ITEM& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(REQ_RECEIPT_ITEM* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "SS_Auction.REQ_RECEIPT_ITEM";
+  }
+  protected:
+  explicit REQ_RECEIPT_ITEM(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kPlayerIdFieldNumber = 2,
+    kReceiptIdFieldNumber = 3,
+    kSessionIdFieldNumber = 1,
+  };
+  // uint64 player_id = 2;
+  void clear_player_id();
+  ::PROTOBUF_NAMESPACE_ID::uint64 player_id() const;
+  void set_player_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_player_id() const;
+  void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
+  // int64 receipt_id = 3;
+  void clear_receipt_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 receipt_id() const;
+  void set_receipt_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_receipt_id() const;
+  void _internal_set_receipt_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // int32 session_id = 1;
+  void clear_session_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:SS_Auction.REQ_RECEIPT_ITEM)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 player_id_;
+  ::PROTOBUF_NAMESPACE_ID::int64 receipt_id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
+};
+// -------------------------------------------------------------------
+
+class RES_RECEIPT_ITEM final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:SS_Auction.RES_RECEIPT_ITEM) */ {
+ public:
+  inline RES_RECEIPT_ITEM() : RES_RECEIPT_ITEM(nullptr) {}
+  ~RES_RECEIPT_ITEM() override;
+  explicit constexpr RES_RECEIPT_ITEM(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  RES_RECEIPT_ITEM(const RES_RECEIPT_ITEM& from);
+  RES_RECEIPT_ITEM(RES_RECEIPT_ITEM&& from) noexcept
+    : RES_RECEIPT_ITEM() {
+    *this = ::std::move(from);
+  }
+
+  inline RES_RECEIPT_ITEM& operator=(const RES_RECEIPT_ITEM& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline RES_RECEIPT_ITEM& operator=(RES_RECEIPT_ITEM&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const RES_RECEIPT_ITEM& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const RES_RECEIPT_ITEM* internal_default_instance() {
+    return reinterpret_cast<const RES_RECEIPT_ITEM*>(
+               &_RES_RECEIPT_ITEM_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    9;
+
+  friend void swap(RES_RECEIPT_ITEM& a, RES_RECEIPT_ITEM& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(RES_RECEIPT_ITEM* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(RES_RECEIPT_ITEM* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline RES_RECEIPT_ITEM* New() const final {
+    return new RES_RECEIPT_ITEM();
+  }
+
+  RES_RECEIPT_ITEM* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<RES_RECEIPT_ITEM>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const RES_RECEIPT_ITEM& from);
+  void MergeFrom(const RES_RECEIPT_ITEM& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(RES_RECEIPT_ITEM* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "SS_Auction.RES_RECEIPT_ITEM";
+  }
+  protected:
+  explicit RES_RECEIPT_ITEM(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kReceiptIdFieldNumber = 2,
+    kSessionIdFieldNumber = 1,
+    kResultFieldNumber = 3,
+    kGoldFieldNumber = 4,
+  };
+  // int64 receipt_id = 2;
+  void clear_receipt_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 receipt_id() const;
+  void set_receipt_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_receipt_id() const;
+  void _internal_set_receipt_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // int32 session_id = 1;
+  void clear_session_id();
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
   public:
 
   // bool result = 3;
@@ -353,16 +1648,26 @@ class RES_AUCTION_LIST final :
   void _internal_set_result(bool value);
   public:
 
-  // @@protoc_insertion_point(class_scope:SS_Auction.RES_AUCTION_LIST)
+  // int64 gold = 4;
+  void clear_gold();
+  ::PROTOBUF_NAMESPACE_ID::int64 gold() const;
+  void set_gold(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_gold() const;
+  void _internal_set_gold(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:SS_Auction.RES_RECEIPT_ITEM)
  private:
   class _Internal;
 
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int32 request_id_;
-  ::PROTOBUF_NAMESPACE_ID::int32 player_id_;
+  ::PROTOBUF_NAMESPACE_ID::int64 receipt_id_;
+  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
   bool result_;
+  ::PROTOBUF_NAMESPACE_ID::int64 gold_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
 };
@@ -377,7 +1682,27 @@ class RES_AUCTION_LIST final :
 #endif  // __GNUC__
 // REQ_AUCTION_LIST
 
-// int32 request_id = 1;
+// int64 session_id = 1;
+inline void REQ_AUCTION_LIST::clear_session_id() {
+  session_id_ = int64_t{0};
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 REQ_AUCTION_LIST::_internal_session_id() const {
+  return session_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 REQ_AUCTION_LIST::session_id() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.REQ_AUCTION_LIST.session_id)
+  return _internal_session_id();
+}
+inline void REQ_AUCTION_LIST::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  session_id_ = value;
+}
+inline void REQ_AUCTION_LIST::set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_session_id(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.REQ_AUCTION_LIST.session_id)
+}
+
+// int32 request_id = 2;
 inline void REQ_AUCTION_LIST::clear_request_id() {
   request_id_ = 0;
 }
@@ -397,7 +1722,7 @@ inline void REQ_AUCTION_LIST::set_request_id(::PROTOBUF_NAMESPACE_ID::int32 valu
   // @@protoc_insertion_point(field_set:SS_Auction.REQ_AUCTION_LIST.request_id)
 }
 
-// int32 player_id = 2;
+// int32 player_id = 3;
 inline void REQ_AUCTION_LIST::clear_player_id() {
   player_id_ = 0;
 }
@@ -417,11 +1742,96 @@ inline void REQ_AUCTION_LIST::set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value
   // @@protoc_insertion_point(field_set:SS_Auction.REQ_AUCTION_LIST.player_id)
 }
 
+// string search_item = 4;
+inline void REQ_AUCTION_LIST::clear_search_item() {
+  search_item_.ClearToEmpty();
+}
+inline const std::string& REQ_AUCTION_LIST::search_item() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.REQ_AUCTION_LIST.search_item)
+  return _internal_search_item();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void REQ_AUCTION_LIST::set_search_item(ArgT0&& arg0, ArgT... args) {
+ 
+ search_item_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:SS_Auction.REQ_AUCTION_LIST.search_item)
+}
+inline std::string* REQ_AUCTION_LIST::mutable_search_item() {
+  // @@protoc_insertion_point(field_mutable:SS_Auction.REQ_AUCTION_LIST.search_item)
+  return _internal_mutable_search_item();
+}
+inline const std::string& REQ_AUCTION_LIST::_internal_search_item() const {
+  return search_item_.Get();
+}
+inline void REQ_AUCTION_LIST::_internal_set_search_item(const std::string& value) {
+  
+  search_item_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* REQ_AUCTION_LIST::_internal_mutable_search_item() {
+  
+  return search_item_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* REQ_AUCTION_LIST::release_search_item() {
+  // @@protoc_insertion_point(field_release:SS_Auction.REQ_AUCTION_LIST.search_item)
+  return search_item_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void REQ_AUCTION_LIST::set_allocated_search_item(std::string* search_item) {
+  if (search_item != nullptr) {
+    
+  } else {
+    
+  }
+  search_item_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), search_item,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:SS_Auction.REQ_AUCTION_LIST.search_item)
+}
+
+// bool myList = 5;
+inline void REQ_AUCTION_LIST::clear_mylist() {
+  mylist_ = false;
+}
+inline bool REQ_AUCTION_LIST::_internal_mylist() const {
+  return mylist_;
+}
+inline bool REQ_AUCTION_LIST::mylist() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.REQ_AUCTION_LIST.myList)
+  return _internal_mylist();
+}
+inline void REQ_AUCTION_LIST::_internal_set_mylist(bool value) {
+  
+  mylist_ = value;
+}
+inline void REQ_AUCTION_LIST::set_mylist(bool value) {
+  _internal_set_mylist(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.REQ_AUCTION_LIST.myList)
+}
+
 // -------------------------------------------------------------------
 
 // RES_AUCTION_LIST
 
-// int32 request_id = 1;
+// int32 session_id = 1;
+inline void RES_AUCTION_LIST::clear_session_id() {
+  session_id_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RES_AUCTION_LIST::_internal_session_id() const {
+  return session_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RES_AUCTION_LIST::session_id() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.RES_AUCTION_LIST.session_id)
+  return _internal_session_id();
+}
+inline void RES_AUCTION_LIST::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  session_id_ = value;
+}
+inline void RES_AUCTION_LIST::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_session_id(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.RES_AUCTION_LIST.session_id)
+}
+
+// int32 request_id = 2;
 inline void RES_AUCTION_LIST::clear_request_id() {
   request_id_ = 0;
 }
@@ -441,49 +1851,561 @@ inline void RES_AUCTION_LIST::set_request_id(::PROTOBUF_NAMESPACE_ID::int32 valu
   // @@protoc_insertion_point(field_set:SS_Auction.RES_AUCTION_LIST.request_id)
 }
 
-// int32 player_id = 2;
-inline void RES_AUCTION_LIST::clear_player_id() {
-  player_id_ = 0;
+// repeated .SS_Auction.AuctionItemInfo ListInfo = 3;
+inline int RES_AUCTION_LIST::_internal_listinfo_size() const {
+  return listinfo_.size();
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_AUCTION_LIST::_internal_player_id() const {
+inline int RES_AUCTION_LIST::listinfo_size() const {
+  return _internal_listinfo_size();
+}
+inline ::SS_Auction::AuctionItemInfo* RES_AUCTION_LIST::mutable_listinfo(int index) {
+  // @@protoc_insertion_point(field_mutable:SS_Auction.RES_AUCTION_LIST.ListInfo)
+  return listinfo_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+RES_AUCTION_LIST::mutable_listinfo() {
+  // @@protoc_insertion_point(field_mutable_list:SS_Auction.RES_AUCTION_LIST.ListInfo)
+  return &listinfo_;
+}
+inline const ::SS_Auction::AuctionItemInfo& RES_AUCTION_LIST::_internal_listinfo(int index) const {
+  return listinfo_.Get(index);
+}
+inline const ::SS_Auction::AuctionItemInfo& RES_AUCTION_LIST::listinfo(int index) const {
+  // @@protoc_insertion_point(field_get:SS_Auction.RES_AUCTION_LIST.ListInfo)
+  return _internal_listinfo(index);
+}
+inline ::SS_Auction::AuctionItemInfo* RES_AUCTION_LIST::_internal_add_listinfo() {
+  return listinfo_.Add();
+}
+inline ::SS_Auction::AuctionItemInfo* RES_AUCTION_LIST::add_listinfo() {
+  // @@protoc_insertion_point(field_add:SS_Auction.RES_AUCTION_LIST.ListInfo)
+  return _internal_add_listinfo();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+RES_AUCTION_LIST::listinfo() const {
+  // @@protoc_insertion_point(field_list:SS_Auction.RES_AUCTION_LIST.ListInfo)
+  return listinfo_;
+}
+
+// bool myList = 4;
+inline void RES_AUCTION_LIST::clear_mylist() {
+  mylist_ = false;
+}
+inline bool RES_AUCTION_LIST::_internal_mylist() const {
+  return mylist_;
+}
+inline bool RES_AUCTION_LIST::mylist() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.RES_AUCTION_LIST.myList)
+  return _internal_mylist();
+}
+inline void RES_AUCTION_LIST::_internal_set_mylist(bool value) {
+  
+  mylist_ = value;
+}
+inline void RES_AUCTION_LIST::set_mylist(bool value) {
+  _internal_set_mylist(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.RES_AUCTION_LIST.myList)
+}
+
+// -------------------------------------------------------------------
+
+// REQ_RECEIPT_LIST
+
+// int32 session_id = 1;
+inline void REQ_RECEIPT_LIST::clear_session_id() {
+  session_id_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_RECEIPT_LIST::_internal_session_id() const {
+  return session_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_RECEIPT_LIST::session_id() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.REQ_RECEIPT_LIST.session_id)
+  return _internal_session_id();
+}
+inline void REQ_RECEIPT_LIST::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  session_id_ = value;
+}
+inline void REQ_RECEIPT_LIST::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_session_id(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.REQ_RECEIPT_LIST.session_id)
+}
+
+// uint64 player_id = 2;
+inline void REQ_RECEIPT_LIST::clear_player_id() {
+  player_id_ = uint64_t{0u};
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 REQ_RECEIPT_LIST::_internal_player_id() const {
   return player_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_AUCTION_LIST::player_id() const {
-  // @@protoc_insertion_point(field_get:SS_Auction.RES_AUCTION_LIST.player_id)
+inline ::PROTOBUF_NAMESPACE_ID::uint64 REQ_RECEIPT_LIST::player_id() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.REQ_RECEIPT_LIST.player_id)
   return _internal_player_id();
 }
-inline void RES_AUCTION_LIST::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void REQ_RECEIPT_LIST::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   
   player_id_ = value;
 }
-inline void RES_AUCTION_LIST::set_player_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void REQ_RECEIPT_LIST::set_player_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_player_id(value);
-  // @@protoc_insertion_point(field_set:SS_Auction.RES_AUCTION_LIST.player_id)
+  // @@protoc_insertion_point(field_set:SS_Auction.REQ_RECEIPT_LIST.player_id)
 }
 
-// bool result = 3;
-inline void RES_AUCTION_LIST::clear_result() {
+// -------------------------------------------------------------------
+
+// RES_RECEIPT_LIST
+
+// int32 session_id = 1;
+inline void RES_RECEIPT_LIST::clear_session_id() {
+  session_id_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RES_RECEIPT_LIST::_internal_session_id() const {
+  return session_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RES_RECEIPT_LIST::session_id() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.RES_RECEIPT_LIST.session_id)
+  return _internal_session_id();
+}
+inline void RES_RECEIPT_LIST::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  session_id_ = value;
+}
+inline void RES_RECEIPT_LIST::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_session_id(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.RES_RECEIPT_LIST.session_id)
+}
+
+// repeated .SS_Auction.AuctionItemInfo ReceiptList = 2;
+inline int RES_RECEIPT_LIST::_internal_receiptlist_size() const {
+  return receiptlist_.size();
+}
+inline int RES_RECEIPT_LIST::receiptlist_size() const {
+  return _internal_receiptlist_size();
+}
+inline ::SS_Auction::AuctionItemInfo* RES_RECEIPT_LIST::mutable_receiptlist(int index) {
+  // @@protoc_insertion_point(field_mutable:SS_Auction.RES_RECEIPT_LIST.ReceiptList)
+  return receiptlist_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+RES_RECEIPT_LIST::mutable_receiptlist() {
+  // @@protoc_insertion_point(field_mutable_list:SS_Auction.RES_RECEIPT_LIST.ReceiptList)
+  return &receiptlist_;
+}
+inline const ::SS_Auction::AuctionItemInfo& RES_RECEIPT_LIST::_internal_receiptlist(int index) const {
+  return receiptlist_.Get(index);
+}
+inline const ::SS_Auction::AuctionItemInfo& RES_RECEIPT_LIST::receiptlist(int index) const {
+  // @@protoc_insertion_point(field_get:SS_Auction.RES_RECEIPT_LIST.ReceiptList)
+  return _internal_receiptlist(index);
+}
+inline ::SS_Auction::AuctionItemInfo* RES_RECEIPT_LIST::_internal_add_receiptlist() {
+  return receiptlist_.Add();
+}
+inline ::SS_Auction::AuctionItemInfo* RES_RECEIPT_LIST::add_receiptlist() {
+  // @@protoc_insertion_point(field_add:SS_Auction.RES_RECEIPT_LIST.ReceiptList)
+  return _internal_add_receiptlist();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+RES_RECEIPT_LIST::receiptlist() const {
+  // @@protoc_insertion_point(field_list:SS_Auction.RES_RECEIPT_LIST.ReceiptList)
+  return receiptlist_;
+}
+
+// -------------------------------------------------------------------
+
+// REQ_REGIST_ITEM
+
+// int32 session_id = 1;
+inline void REQ_REGIST_ITEM::clear_session_id() {
+  session_id_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_REGIST_ITEM::_internal_session_id() const {
+  return session_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_REGIST_ITEM::session_id() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.REQ_REGIST_ITEM.session_id)
+  return _internal_session_id();
+}
+inline void REQ_REGIST_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  session_id_ = value;
+}
+inline void REQ_REGIST_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_session_id(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.REQ_REGIST_ITEM.session_id)
+}
+
+// repeated .SS_Auction.AuctionItemInfo RegistInfo = 2;
+inline int REQ_REGIST_ITEM::_internal_registinfo_size() const {
+  return registinfo_.size();
+}
+inline int REQ_REGIST_ITEM::registinfo_size() const {
+  return _internal_registinfo_size();
+}
+inline ::SS_Auction::AuctionItemInfo* REQ_REGIST_ITEM::mutable_registinfo(int index) {
+  // @@protoc_insertion_point(field_mutable:SS_Auction.REQ_REGIST_ITEM.RegistInfo)
+  return registinfo_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+REQ_REGIST_ITEM::mutable_registinfo() {
+  // @@protoc_insertion_point(field_mutable_list:SS_Auction.REQ_REGIST_ITEM.RegistInfo)
+  return &registinfo_;
+}
+inline const ::SS_Auction::AuctionItemInfo& REQ_REGIST_ITEM::_internal_registinfo(int index) const {
+  return registinfo_.Get(index);
+}
+inline const ::SS_Auction::AuctionItemInfo& REQ_REGIST_ITEM::registinfo(int index) const {
+  // @@protoc_insertion_point(field_get:SS_Auction.REQ_REGIST_ITEM.RegistInfo)
+  return _internal_registinfo(index);
+}
+inline ::SS_Auction::AuctionItemInfo* REQ_REGIST_ITEM::_internal_add_registinfo() {
+  return registinfo_.Add();
+}
+inline ::SS_Auction::AuctionItemInfo* REQ_REGIST_ITEM::add_registinfo() {
+  // @@protoc_insertion_point(field_add:SS_Auction.REQ_REGIST_ITEM.RegistInfo)
+  return _internal_add_registinfo();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+REQ_REGIST_ITEM::registinfo() const {
+  // @@protoc_insertion_point(field_list:SS_Auction.REQ_REGIST_ITEM.RegistInfo)
+  return registinfo_;
+}
+
+// -------------------------------------------------------------------
+
+// RES_REGIST_ITEM
+
+// int32 session_id = 1;
+inline void RES_REGIST_ITEM::clear_session_id() {
+  session_id_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RES_REGIST_ITEM::_internal_session_id() const {
+  return session_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RES_REGIST_ITEM::session_id() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.RES_REGIST_ITEM.session_id)
+  return _internal_session_id();
+}
+inline void RES_REGIST_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  session_id_ = value;
+}
+inline void RES_REGIST_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_session_id(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.RES_REGIST_ITEM.session_id)
+}
+
+// bool result = 2;
+inline void RES_REGIST_ITEM::clear_result() {
   result_ = false;
 }
-inline bool RES_AUCTION_LIST::_internal_result() const {
+inline bool RES_REGIST_ITEM::_internal_result() const {
   return result_;
 }
-inline bool RES_AUCTION_LIST::result() const {
-  // @@protoc_insertion_point(field_get:SS_Auction.RES_AUCTION_LIST.result)
+inline bool RES_REGIST_ITEM::result() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.RES_REGIST_ITEM.result)
   return _internal_result();
 }
-inline void RES_AUCTION_LIST::_internal_set_result(bool value) {
+inline void RES_REGIST_ITEM::_internal_set_result(bool value) {
   
   result_ = value;
 }
-inline void RES_AUCTION_LIST::set_result(bool value) {
+inline void RES_REGIST_ITEM::set_result(bool value) {
   _internal_set_result(value);
-  // @@protoc_insertion_point(field_set:SS_Auction.RES_AUCTION_LIST.result)
+  // @@protoc_insertion_point(field_set:SS_Auction.RES_REGIST_ITEM.result)
+}
+
+// -------------------------------------------------------------------
+
+// REQ_PURCHASE_ITEM
+
+// int32 session_id = 1;
+inline void REQ_PURCHASE_ITEM::clear_session_id() {
+  session_id_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_PURCHASE_ITEM::_internal_session_id() const {
+  return session_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_PURCHASE_ITEM::session_id() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.REQ_PURCHASE_ITEM.session_id)
+  return _internal_session_id();
+}
+inline void REQ_PURCHASE_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  session_id_ = value;
+}
+inline void REQ_PURCHASE_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_session_id(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.REQ_PURCHASE_ITEM.session_id)
+}
+
+// repeated .SS_Auction.AuctionItemInfo PurchaseInfo = 2;
+inline int REQ_PURCHASE_ITEM::_internal_purchaseinfo_size() const {
+  return purchaseinfo_.size();
+}
+inline int REQ_PURCHASE_ITEM::purchaseinfo_size() const {
+  return _internal_purchaseinfo_size();
+}
+inline ::SS_Auction::AuctionItemInfo* REQ_PURCHASE_ITEM::mutable_purchaseinfo(int index) {
+  // @@protoc_insertion_point(field_mutable:SS_Auction.REQ_PURCHASE_ITEM.PurchaseInfo)
+  return purchaseinfo_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+REQ_PURCHASE_ITEM::mutable_purchaseinfo() {
+  // @@protoc_insertion_point(field_mutable_list:SS_Auction.REQ_PURCHASE_ITEM.PurchaseInfo)
+  return &purchaseinfo_;
+}
+inline const ::SS_Auction::AuctionItemInfo& REQ_PURCHASE_ITEM::_internal_purchaseinfo(int index) const {
+  return purchaseinfo_.Get(index);
+}
+inline const ::SS_Auction::AuctionItemInfo& REQ_PURCHASE_ITEM::purchaseinfo(int index) const {
+  // @@protoc_insertion_point(field_get:SS_Auction.REQ_PURCHASE_ITEM.PurchaseInfo)
+  return _internal_purchaseinfo(index);
+}
+inline ::SS_Auction::AuctionItemInfo* REQ_PURCHASE_ITEM::_internal_add_purchaseinfo() {
+  return purchaseinfo_.Add();
+}
+inline ::SS_Auction::AuctionItemInfo* REQ_PURCHASE_ITEM::add_purchaseinfo() {
+  // @@protoc_insertion_point(field_add:SS_Auction.REQ_PURCHASE_ITEM.PurchaseInfo)
+  return _internal_add_purchaseinfo();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+REQ_PURCHASE_ITEM::purchaseinfo() const {
+  // @@protoc_insertion_point(field_list:SS_Auction.REQ_PURCHASE_ITEM.PurchaseInfo)
+  return purchaseinfo_;
+}
+
+// -------------------------------------------------------------------
+
+// RES_PURCHASE_ITEM
+
+// int32 session_id = 1;
+inline void RES_PURCHASE_ITEM::clear_session_id() {
+  session_id_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RES_PURCHASE_ITEM::_internal_session_id() const {
+  return session_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RES_PURCHASE_ITEM::session_id() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.RES_PURCHASE_ITEM.session_id)
+  return _internal_session_id();
+}
+inline void RES_PURCHASE_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  session_id_ = value;
+}
+inline void RES_PURCHASE_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_session_id(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.RES_PURCHASE_ITEM.session_id)
+}
+
+// bool result = 2;
+inline void RES_PURCHASE_ITEM::clear_result() {
+  result_ = false;
+}
+inline bool RES_PURCHASE_ITEM::_internal_result() const {
+  return result_;
+}
+inline bool RES_PURCHASE_ITEM::result() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.RES_PURCHASE_ITEM.result)
+  return _internal_result();
+}
+inline void RES_PURCHASE_ITEM::_internal_set_result(bool value) {
+  
+  result_ = value;
+}
+inline void RES_PURCHASE_ITEM::set_result(bool value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.RES_PURCHASE_ITEM.result)
+}
+
+// int64 gold = 3;
+inline void RES_PURCHASE_ITEM::clear_gold() {
+  gold_ = int64_t{0};
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_PURCHASE_ITEM::_internal_gold() const {
+  return gold_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_PURCHASE_ITEM::gold() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.RES_PURCHASE_ITEM.gold)
+  return _internal_gold();
+}
+inline void RES_PURCHASE_ITEM::_internal_set_gold(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  gold_ = value;
+}
+inline void RES_PURCHASE_ITEM::set_gold(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_gold(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.RES_PURCHASE_ITEM.gold)
+}
+
+// -------------------------------------------------------------------
+
+// REQ_RECEIPT_ITEM
+
+// int32 session_id = 1;
+inline void REQ_RECEIPT_ITEM::clear_session_id() {
+  session_id_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_RECEIPT_ITEM::_internal_session_id() const {
+  return session_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_RECEIPT_ITEM::session_id() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.REQ_RECEIPT_ITEM.session_id)
+  return _internal_session_id();
+}
+inline void REQ_RECEIPT_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  session_id_ = value;
+}
+inline void REQ_RECEIPT_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_session_id(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.REQ_RECEIPT_ITEM.session_id)
+}
+
+// uint64 player_id = 2;
+inline void REQ_RECEIPT_ITEM::clear_player_id() {
+  player_id_ = uint64_t{0u};
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 REQ_RECEIPT_ITEM::_internal_player_id() const {
+  return player_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 REQ_RECEIPT_ITEM::player_id() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.REQ_RECEIPT_ITEM.player_id)
+  return _internal_player_id();
+}
+inline void REQ_RECEIPT_ITEM::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  player_id_ = value;
+}
+inline void REQ_RECEIPT_ITEM::set_player_id(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_player_id(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.REQ_RECEIPT_ITEM.player_id)
+}
+
+// int64 receipt_id = 3;
+inline void REQ_RECEIPT_ITEM::clear_receipt_id() {
+  receipt_id_ = int64_t{0};
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 REQ_RECEIPT_ITEM::_internal_receipt_id() const {
+  return receipt_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 REQ_RECEIPT_ITEM::receipt_id() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.REQ_RECEIPT_ITEM.receipt_id)
+  return _internal_receipt_id();
+}
+inline void REQ_RECEIPT_ITEM::_internal_set_receipt_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  receipt_id_ = value;
+}
+inline void REQ_RECEIPT_ITEM::set_receipt_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_receipt_id(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.REQ_RECEIPT_ITEM.receipt_id)
+}
+
+// -------------------------------------------------------------------
+
+// RES_RECEIPT_ITEM
+
+// int32 session_id = 1;
+inline void RES_RECEIPT_ITEM::clear_session_id() {
+  session_id_ = 0;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RES_RECEIPT_ITEM::_internal_session_id() const {
+  return session_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int32 RES_RECEIPT_ITEM::session_id() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.RES_RECEIPT_ITEM.session_id)
+  return _internal_session_id();
+}
+inline void RES_RECEIPT_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  
+  session_id_ = value;
+}
+inline void RES_RECEIPT_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+  _internal_set_session_id(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.RES_RECEIPT_ITEM.session_id)
+}
+
+// int64 receipt_id = 2;
+inline void RES_RECEIPT_ITEM::clear_receipt_id() {
+  receipt_id_ = int64_t{0};
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_RECEIPT_ITEM::_internal_receipt_id() const {
+  return receipt_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_RECEIPT_ITEM::receipt_id() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.RES_RECEIPT_ITEM.receipt_id)
+  return _internal_receipt_id();
+}
+inline void RES_RECEIPT_ITEM::_internal_set_receipt_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  receipt_id_ = value;
+}
+inline void RES_RECEIPT_ITEM::set_receipt_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_receipt_id(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.RES_RECEIPT_ITEM.receipt_id)
+}
+
+// bool result = 3;
+inline void RES_RECEIPT_ITEM::clear_result() {
+  result_ = false;
+}
+inline bool RES_RECEIPT_ITEM::_internal_result() const {
+  return result_;
+}
+inline bool RES_RECEIPT_ITEM::result() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.RES_RECEIPT_ITEM.result)
+  return _internal_result();
+}
+inline void RES_RECEIPT_ITEM::_internal_set_result(bool value) {
+  
+  result_ = value;
+}
+inline void RES_RECEIPT_ITEM::set_result(bool value) {
+  _internal_set_result(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.RES_RECEIPT_ITEM.result)
+}
+
+// int64 gold = 4;
+inline void RES_RECEIPT_ITEM::clear_gold() {
+  gold_ = int64_t{0};
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_RECEIPT_ITEM::_internal_gold() const {
+  return gold_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_RECEIPT_ITEM::gold() const {
+  // @@protoc_insertion_point(field_get:SS_Auction.RES_RECEIPT_ITEM.gold)
+  return _internal_gold();
+}
+inline void RES_RECEIPT_ITEM::_internal_set_gold(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  gold_ = value;
+}
+inline void RES_RECEIPT_ITEM::set_gold(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_gold(value);
+  // @@protoc_insertion_point(field_set:SS_Auction.RES_RECEIPT_ITEM.gold)
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 

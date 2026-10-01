@@ -12,6 +12,10 @@ extern SS_AuctionHandlerFunc GSS_AuctionPacketHandler[UINT16_MAX];
 // Custom Handler
 bool Handle_SS_Auction_INVALID(SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset);
 bool Handle_RES_AUCTION_LIST(SessionPtr& session, SS_Auction::RES_AUCTION_LIST&pkt);
+bool Handle_RES_RECEIPT_LIST(SessionPtr& session, SS_Auction::RES_RECEIPT_LIST&pkt);
+bool Handle_RES_REGIST_ITEM(SessionPtr& session, SS_Auction::RES_REGIST_ITEM&pkt);
+bool Handle_RES_PURCHASE_ITEM(SessionPtr& session, SS_Auction::RES_PURCHASE_ITEM&pkt);
+bool Handle_RES_RECEIPT_ITEM(SessionPtr& session, SS_Auction::RES_RECEIPT_ITEM&pkt);
 
 class AuctionServerPacketHandler
 {
@@ -22,6 +26,18 @@ public:
 			GSS_AuctionPacketHandler[i] = Handle_SS_Auction_INVALID;
 		GSS_AuctionPacketHandler[SS_Auction::PacketType::PKT_RES_AUCTION_LIST] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
 			return DispatchPacket<SS_Auction::RES_AUCTION_LIST>(Handle_RES_AUCTION_LIST, session, buffer, offset);
+			};
+		GSS_AuctionPacketHandler[SS_Auction::PacketType::PKT_RES_RECEIPT_LIST] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<SS_Auction::RES_RECEIPT_LIST>(Handle_RES_RECEIPT_LIST, session, buffer, offset);
+			};
+		GSS_AuctionPacketHandler[SS_Auction::PacketType::PKT_RES_REGIST_ITEM] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<SS_Auction::RES_REGIST_ITEM>(Handle_RES_REGIST_ITEM, session, buffer, offset);
+			};
+		GSS_AuctionPacketHandler[SS_Auction::PacketType::PKT_RES_PURCHASE_ITEM] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<SS_Auction::RES_PURCHASE_ITEM>(Handle_RES_PURCHASE_ITEM, session, buffer, offset);
+			};
+		GSS_AuctionPacketHandler[SS_Auction::PacketType::PKT_RES_RECEIPT_ITEM] = [](SessionPtr& session, boost::asio::mutable_buffer& buffer, int32& offset) {
+			return DispatchPacket<SS_Auction::RES_RECEIPT_ITEM>(Handle_RES_RECEIPT_ITEM, session, buffer, offset);
 			};
 	}
 

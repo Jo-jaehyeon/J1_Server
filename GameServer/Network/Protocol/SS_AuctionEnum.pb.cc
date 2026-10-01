@@ -25,13 +25,18 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = n
 static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_SS_5fAuctionEnum_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\024SS_AuctionEnum.proto\022\nSS_Auction*@\n\nPa"
-  "cketType\022\030\n\024PKT_REQ_AUCTION_LIST\020\000\022\030\n\024PK"
-  "T_RES_AUCTION_LIST\020\001b\006proto3"
+  "\n\024SS_AuctionEnum.proto\022\nSS_Auction*\220\002\n\nP"
+  "acketType\022\030\n\024PKT_REQ_AUCTION_LIST\020\000\022\030\n\024P"
+  "KT_RES_AUCTION_LIST\020\001\022\030\n\024PKT_REQ_RECEIPT"
+  "_LIST\020\002\022\030\n\024PKT_RES_RECEIPT_LIST\020\003\022\027\n\023PKT"
+  "_REQ_REGIST_ITEM\020\004\022\027\n\023PKT_RES_REGIST_ITE"
+  "M\020\005\022\031\n\025PKT_REQ_PURCHASE_ITEM\020\006\022\031\n\025PKT_RE"
+  "S_PURCHASE_ITEM\020\007\022\030\n\024PKT_REQ_RECEIPT_ITE"
+  "M\020\010\022\030\n\024PKT_RES_RECEIPT_ITEM\020\tb\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_SS_5fAuctionEnum_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_SS_5fAuctionEnum_2eproto = {
-  false, false, 108, descriptor_table_protodef_SS_5fAuctionEnum_2eproto, "SS_AuctionEnum.proto", 
+  false, false, 317, descriptor_table_protodef_SS_5fAuctionEnum_2eproto, "SS_AuctionEnum.proto", 
   &descriptor_table_SS_5fAuctionEnum_2eproto_once, nullptr, 0, 0,
   schemas, file_default_instances, TableStruct_SS_5fAuctionEnum_2eproto::offsets,
   nullptr, file_level_enum_descriptors_SS_5fAuctionEnum_2eproto, file_level_service_descriptors_SS_5fAuctionEnum_2eproto,
@@ -51,6 +56,14 @@ bool PacketType_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
       return true;
     default:
       return false;

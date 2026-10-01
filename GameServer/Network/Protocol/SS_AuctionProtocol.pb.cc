@@ -19,8 +19,11 @@ PROTOBUF_PRAGMA_INIT_SEG
 namespace SS_Auction {
 constexpr REQ_AUCTION_LIST::REQ_AUCTION_LIST(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : request_id_(0)
-  , player_id_(0){}
+  : search_item_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , session_id_(int64_t{0})
+  , request_id_(0)
+  , player_id_(0)
+  , mylist_(false){}
 struct REQ_AUCTION_LISTDefaultTypeInternal {
   constexpr REQ_AUCTION_LISTDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -32,9 +35,10 @@ struct REQ_AUCTION_LISTDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_AUCTION_LISTDefaultTypeInternal _REQ_AUCTION_LIST_default_instance_;
 constexpr RES_AUCTION_LIST::RES_AUCTION_LIST(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : request_id_(0)
-  , player_id_(0)
-  , result_(false){}
+  : listinfo_()
+  , session_id_(0)
+  , request_id_(0)
+  , mylist_(false){}
 struct RES_AUCTION_LISTDefaultTypeInternal {
   constexpr RES_AUCTION_LISTDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -44,8 +48,116 @@ struct RES_AUCTION_LISTDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RES_AUCTION_LISTDefaultTypeInternal _RES_AUCTION_LIST_default_instance_;
+constexpr REQ_RECEIPT_LIST::REQ_RECEIPT_LIST(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : player_id_(uint64_t{0u})
+  , session_id_(0){}
+struct REQ_RECEIPT_LISTDefaultTypeInternal {
+  constexpr REQ_RECEIPT_LISTDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~REQ_RECEIPT_LISTDefaultTypeInternal() {}
+  union {
+    REQ_RECEIPT_LIST _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_RECEIPT_LISTDefaultTypeInternal _REQ_RECEIPT_LIST_default_instance_;
+constexpr RES_RECEIPT_LIST::RES_RECEIPT_LIST(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : receiptlist_()
+  , session_id_(0){}
+struct RES_RECEIPT_LISTDefaultTypeInternal {
+  constexpr RES_RECEIPT_LISTDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~RES_RECEIPT_LISTDefaultTypeInternal() {}
+  union {
+    RES_RECEIPT_LIST _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RES_RECEIPT_LISTDefaultTypeInternal _RES_RECEIPT_LIST_default_instance_;
+constexpr REQ_REGIST_ITEM::REQ_REGIST_ITEM(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : registinfo_()
+  , session_id_(0){}
+struct REQ_REGIST_ITEMDefaultTypeInternal {
+  constexpr REQ_REGIST_ITEMDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~REQ_REGIST_ITEMDefaultTypeInternal() {}
+  union {
+    REQ_REGIST_ITEM _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_REGIST_ITEMDefaultTypeInternal _REQ_REGIST_ITEM_default_instance_;
+constexpr RES_REGIST_ITEM::RES_REGIST_ITEM(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : session_id_(0)
+  , result_(false){}
+struct RES_REGIST_ITEMDefaultTypeInternal {
+  constexpr RES_REGIST_ITEMDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~RES_REGIST_ITEMDefaultTypeInternal() {}
+  union {
+    RES_REGIST_ITEM _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RES_REGIST_ITEMDefaultTypeInternal _RES_REGIST_ITEM_default_instance_;
+constexpr REQ_PURCHASE_ITEM::REQ_PURCHASE_ITEM(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : purchaseinfo_()
+  , session_id_(0){}
+struct REQ_PURCHASE_ITEMDefaultTypeInternal {
+  constexpr REQ_PURCHASE_ITEMDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~REQ_PURCHASE_ITEMDefaultTypeInternal() {}
+  union {
+    REQ_PURCHASE_ITEM _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_PURCHASE_ITEMDefaultTypeInternal _REQ_PURCHASE_ITEM_default_instance_;
+constexpr RES_PURCHASE_ITEM::RES_PURCHASE_ITEM(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : session_id_(0)
+  , result_(false)
+  , gold_(int64_t{0}){}
+struct RES_PURCHASE_ITEMDefaultTypeInternal {
+  constexpr RES_PURCHASE_ITEMDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~RES_PURCHASE_ITEMDefaultTypeInternal() {}
+  union {
+    RES_PURCHASE_ITEM _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RES_PURCHASE_ITEMDefaultTypeInternal _RES_PURCHASE_ITEM_default_instance_;
+constexpr REQ_RECEIPT_ITEM::REQ_RECEIPT_ITEM(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : player_id_(uint64_t{0u})
+  , receipt_id_(int64_t{0})
+  , session_id_(0){}
+struct REQ_RECEIPT_ITEMDefaultTypeInternal {
+  constexpr REQ_RECEIPT_ITEMDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~REQ_RECEIPT_ITEMDefaultTypeInternal() {}
+  union {
+    REQ_RECEIPT_ITEM _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_RECEIPT_ITEMDefaultTypeInternal _REQ_RECEIPT_ITEM_default_instance_;
+constexpr RES_RECEIPT_ITEM::RES_RECEIPT_ITEM(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : receipt_id_(int64_t{0})
+  , session_id_(0)
+  , result_(false)
+  , gold_(int64_t{0}){}
+struct RES_RECEIPT_ITEMDefaultTypeInternal {
+  constexpr RES_RECEIPT_ITEMDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~RES_RECEIPT_ITEMDefaultTypeInternal() {}
+  union {
+    RES_RECEIPT_ITEM _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RES_RECEIPT_ITEMDefaultTypeInternal _RES_RECEIPT_ITEM_default_instance_;
 }  // namespace SS_Auction
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_SS_5fAuctionProtocol_2eproto[2];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_SS_5fAuctionProtocol_2eproto[10];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_SS_5fAuctionProtocol_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_SS_5fAuctionProtocol_2eproto = nullptr;
 
@@ -55,34 +167,132 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_SS_5fAuctionProtocol_2eproto::
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_AUCTION_LIST, session_id_),
   PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_AUCTION_LIST, request_id_),
   PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_AUCTION_LIST, player_id_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_AUCTION_LIST, search_item_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_AUCTION_LIST, mylist_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_AUCTION_LIST, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_AUCTION_LIST, session_id_),
   PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_AUCTION_LIST, request_id_),
-  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_AUCTION_LIST, player_id_),
-  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_AUCTION_LIST, result_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_AUCTION_LIST, listinfo_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_AUCTION_LIST, mylist_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_RECEIPT_LIST, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_RECEIPT_LIST, session_id_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_RECEIPT_LIST, player_id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_RECEIPT_LIST, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_RECEIPT_LIST, session_id_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_RECEIPT_LIST, receiptlist_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_REGIST_ITEM, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_REGIST_ITEM, session_id_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_REGIST_ITEM, registinfo_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_REGIST_ITEM, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_REGIST_ITEM, session_id_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_REGIST_ITEM, result_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_PURCHASE_ITEM, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_PURCHASE_ITEM, session_id_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_PURCHASE_ITEM, purchaseinfo_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_PURCHASE_ITEM, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_PURCHASE_ITEM, session_id_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_PURCHASE_ITEM, result_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_PURCHASE_ITEM, gold_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_RECEIPT_ITEM, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_RECEIPT_ITEM, session_id_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_RECEIPT_ITEM, player_id_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::REQ_RECEIPT_ITEM, receipt_id_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_RECEIPT_ITEM, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_RECEIPT_ITEM, session_id_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_RECEIPT_ITEM, receipt_id_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_RECEIPT_ITEM, result_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::RES_RECEIPT_ITEM, gold_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::SS_Auction::REQ_AUCTION_LIST)},
-  { 7, -1, sizeof(::SS_Auction::RES_AUCTION_LIST)},
+  { 10, -1, sizeof(::SS_Auction::RES_AUCTION_LIST)},
+  { 19, -1, sizeof(::SS_Auction::REQ_RECEIPT_LIST)},
+  { 26, -1, sizeof(::SS_Auction::RES_RECEIPT_LIST)},
+  { 33, -1, sizeof(::SS_Auction::REQ_REGIST_ITEM)},
+  { 40, -1, sizeof(::SS_Auction::RES_REGIST_ITEM)},
+  { 47, -1, sizeof(::SS_Auction::REQ_PURCHASE_ITEM)},
+  { 54, -1, sizeof(::SS_Auction::RES_PURCHASE_ITEM)},
+  { 62, -1, sizeof(::SS_Auction::REQ_RECEIPT_ITEM)},
+  { 70, -1, sizeof(::SS_Auction::RES_RECEIPT_ITEM)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::SS_Auction::_REQ_AUCTION_LIST_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::SS_Auction::_RES_AUCTION_LIST_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::SS_Auction::_REQ_RECEIPT_LIST_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::SS_Auction::_RES_RECEIPT_LIST_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::SS_Auction::_REQ_REGIST_ITEM_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::SS_Auction::_RES_REGIST_ITEM_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::SS_Auction::_REQ_PURCHASE_ITEM_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::SS_Auction::_RES_PURCHASE_ITEM_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::SS_Auction::_REQ_RECEIPT_ITEM_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::SS_Auction::_RES_RECEIPT_ITEM_default_instance_),
 };
 
 const char descriptor_table_protodef_SS_5fAuctionProtocol_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\030SS_AuctionProtocol.proto\022\nSS_Auction\032\024"
   "SS_AuctionEnum.proto\032\026SS_AuctionStruct.p"
-  "roto\"9\n\020REQ_AUCTION_LIST\022\022\n\nrequest_id\030\001"
-  " \001(\005\022\021\n\tplayer_id\030\002 \001(\005\"I\n\020RES_AUCTION_L"
-  "IST\022\022\n\nrequest_id\030\001 \001(\005\022\021\n\tplayer_id\030\002 \001"
-  "(\005\022\016\n\006result\030\003 \001(\010b\006proto3"
+  "roto\"r\n\020REQ_AUCTION_LIST\022\022\n\nsession_id\030\001"
+  " \001(\003\022\022\n\nrequest_id\030\002 \001(\005\022\021\n\tplayer_id\030\003 "
+  "\001(\005\022\023\n\013search_item\030\004 \001(\t\022\016\n\006myList\030\005 \001(\010"
+  "\"y\n\020RES_AUCTION_LIST\022\022\n\nsession_id\030\001 \001(\005"
+  "\022\022\n\nrequest_id\030\002 \001(\005\022-\n\010ListInfo\030\003 \003(\0132\033"
+  ".SS_Auction.AuctionItemInfo\022\016\n\006myList\030\004 "
+  "\001(\010\"9\n\020REQ_RECEIPT_LIST\022\022\n\nsession_id\030\001 "
+  "\001(\005\022\021\n\tplayer_id\030\002 \001(\004\"X\n\020RES_RECEIPT_LI"
+  "ST\022\022\n\nsession_id\030\001 \001(\005\0220\n\013ReceiptList\030\002 "
+  "\003(\0132\033.SS_Auction.AuctionItemInfo\"V\n\017REQ_"
+  "REGIST_ITEM\022\022\n\nsession_id\030\001 \001(\005\022/\n\nRegis"
+  "tInfo\030\002 \003(\0132\033.SS_Auction.AuctionItemInfo"
+  "\"5\n\017RES_REGIST_ITEM\022\022\n\nsession_id\030\001 \001(\005\022"
+  "\016\n\006result\030\002 \001(\010\"Z\n\021REQ_PURCHASE_ITEM\022\022\n\n"
+  "session_id\030\001 \001(\005\0221\n\014PurchaseInfo\030\002 \003(\0132\033"
+  ".SS_Auction.AuctionItemInfo\"E\n\021RES_PURCH"
+  "ASE_ITEM\022\022\n\nsession_id\030\001 \001(\005\022\016\n\006result\030\002"
+  " \001(\010\022\014\n\004gold\030\003 \001(\003\"M\n\020REQ_RECEIPT_ITEM\022\022"
+  "\n\nsession_id\030\001 \001(\005\022\021\n\tplayer_id\030\002 \001(\004\022\022\n"
+  "\nreceipt_id\030\003 \001(\003\"X\n\020RES_RECEIPT_ITEM\022\022\n"
+  "\nsession_id\030\001 \001(\005\022\022\n\nreceipt_id\030\002 \001(\003\022\016\n"
+  "\006result\030\003 \001(\010\022\014\n\004gold\030\004 \001(\003b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_SS_5fAuctionProtocol_2eproto_deps[2] = {
   &::descriptor_table_SS_5fAuctionEnum_2eproto,
@@ -90,8 +300,8 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_SS_5fAuctionProtocol_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_SS_5fAuctionProtocol_2eproto = {
-  false, false, 226, descriptor_table_protodef_SS_5fAuctionProtocol_2eproto, "SS_AuctionProtocol.proto", 
-  &descriptor_table_SS_5fAuctionProtocol_2eproto_once, descriptor_table_SS_5fAuctionProtocol_2eproto_deps, 2, 2,
+  false, false, 955, descriptor_table_protodef_SS_5fAuctionProtocol_2eproto, "SS_AuctionProtocol.proto", 
+  &descriptor_table_SS_5fAuctionProtocol_2eproto_once, descriptor_table_SS_5fAuctionProtocol_2eproto_deps, 2, 10,
   schemas, file_default_instances, TableStruct_SS_5fAuctionProtocol_2eproto::offsets,
   file_level_metadata_SS_5fAuctionProtocol_2eproto, file_level_enum_descriptors_SS_5fAuctionProtocol_2eproto, file_level_service_descriptors_SS_5fAuctionProtocol_2eproto,
 };
@@ -118,17 +328,23 @@ REQ_AUCTION_LIST::REQ_AUCTION_LIST(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 REQ_AUCTION_LIST::REQ_AUCTION_LIST(const REQ_AUCTION_LIST& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&request_id_, &from.request_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&player_id_) -
-    reinterpret_cast<char*>(&request_id_)) + sizeof(player_id_));
+  search_item_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_search_item().empty()) {
+    search_item_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_search_item(), 
+      GetArenaForAllocation());
+  }
+  ::memcpy(&session_id_, &from.session_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&mylist_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(mylist_));
   // @@protoc_insertion_point(copy_constructor:SS_Auction.REQ_AUCTION_LIST)
 }
 
 void REQ_AUCTION_LIST::SharedCtor() {
+search_item_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&request_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&player_id_) -
-    reinterpret_cast<char*>(&request_id_)) + sizeof(player_id_));
+    reinterpret_cast<char*>(&session_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&mylist_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(mylist_));
 }
 
 REQ_AUCTION_LIST::~REQ_AUCTION_LIST() {
@@ -139,6 +355,7 @@ REQ_AUCTION_LIST::~REQ_AUCTION_LIST() {
 
 void REQ_AUCTION_LIST::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  search_item_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void REQ_AUCTION_LIST::ArenaDtor(void* object) {
@@ -157,9 +374,10 @@ void REQ_AUCTION_LIST::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&request_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&player_id_) -
-      reinterpret_cast<char*>(&request_id_)) + sizeof(player_id_));
+  search_item_.ClearToEmpty();
+  ::memset(&session_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&mylist_) -
+      reinterpret_cast<char*>(&session_id_)) + sizeof(mylist_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -169,17 +387,40 @@ const char* REQ_AUCTION_LIST::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 request_id = 1;
+      // int64 session_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 request_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           request_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // int32 player_id = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+      // int32 player_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
           player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string search_item = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 34)) {
+          auto str = _internal_mutable_search_item();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "SS_Auction.REQ_AUCTION_LIST.search_item"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool myList = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          mylist_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -212,16 +453,38 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 request_id = 1;
-  if (this->request_id() != 0) {
+  // int64 session_id = 1;
+  if (this->session_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_request_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_session_id(), target);
   }
 
-  // int32 player_id = 2;
+  // int32 request_id = 2;
+  if (this->request_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_request_id(), target);
+  }
+
+  // int32 player_id = 3;
   if (this->player_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_player_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(3, this->_internal_player_id(), target);
+  }
+
+  // string search_item = 4;
+  if (!this->search_item().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_search_item().data(), static_cast<int>(this->_internal_search_item().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "SS_Auction.REQ_AUCTION_LIST.search_item");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_search_item(), target);
+  }
+
+  // bool myList = 5;
+  if (this->mylist() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(5, this->_internal_mylist(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -240,18 +503,37 @@ size_t REQ_AUCTION_LIST::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // int32 request_id = 1;
+  // string search_item = 4;
+  if (!this->search_item().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_search_item());
+  }
+
+  // int64 session_id = 1;
+  if (this->session_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_session_id());
+  }
+
+  // int32 request_id = 2;
   if (this->request_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
         this->_internal_request_id());
   }
 
-  // int32 player_id = 2;
+  // int32 player_id = 3;
   if (this->player_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
         this->_internal_player_id());
+  }
+
+  // bool myList = 5;
+  if (this->mylist() != 0) {
+    total_size += 1 + 1;
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -285,11 +567,20 @@ void REQ_AUCTION_LIST::MergeFrom(const REQ_AUCTION_LIST& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (!from.search_item().empty()) {
+    _internal_set_search_item(from._internal_search_item());
+  }
+  if (from.session_id() != 0) {
+    _internal_set_session_id(from._internal_session_id());
+  }
   if (from.request_id() != 0) {
     _internal_set_request_id(from._internal_request_id());
   }
   if (from.player_id() != 0) {
     _internal_set_player_id(from._internal_player_id());
+  }
+  if (from.mylist() != 0) {
+    _internal_set_mylist(from._internal_mylist());
   }
 }
 
@@ -314,12 +605,17 @@ bool REQ_AUCTION_LIST::IsInitialized() const {
 void REQ_AUCTION_LIST::InternalSwap(REQ_AUCTION_LIST* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &search_item_, GetArenaForAllocation(),
+      &other->search_item_, other->GetArenaForAllocation()
+  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(REQ_AUCTION_LIST, player_id_)
-      + sizeof(REQ_AUCTION_LIST::player_id_)
-      - PROTOBUF_FIELD_OFFSET(REQ_AUCTION_LIST, request_id_)>(
-          reinterpret_cast<char*>(&request_id_),
-          reinterpret_cast<char*>(&other->request_id_));
+      PROTOBUF_FIELD_OFFSET(REQ_AUCTION_LIST, mylist_)
+      + sizeof(REQ_AUCTION_LIST::mylist_)
+      - PROTOBUF_FIELD_OFFSET(REQ_AUCTION_LIST, session_id_)>(
+          reinterpret_cast<char*>(&session_id_),
+          reinterpret_cast<char*>(&other->session_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata REQ_AUCTION_LIST::GetMetadata() const {
@@ -334,26 +630,31 @@ class RES_AUCTION_LIST::_Internal {
  public:
 };
 
+void RES_AUCTION_LIST::clear_listinfo() {
+  listinfo_.Clear();
+}
 RES_AUCTION_LIST::RES_AUCTION_LIST(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  listinfo_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:SS_Auction.RES_AUCTION_LIST)
 }
 RES_AUCTION_LIST::RES_AUCTION_LIST(const RES_AUCTION_LIST& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      listinfo_(from.listinfo_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&request_id_, &from.request_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&result_) -
-    reinterpret_cast<char*>(&request_id_)) + sizeof(result_));
+  ::memcpy(&session_id_, &from.session_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&mylist_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(mylist_));
   // @@protoc_insertion_point(copy_constructor:SS_Auction.RES_AUCTION_LIST)
 }
 
 void RES_AUCTION_LIST::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&request_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&result_) -
-    reinterpret_cast<char*>(&request_id_)) + sizeof(result_));
+    reinterpret_cast<char*>(&session_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&mylist_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(mylist_));
 }
 
 RES_AUCTION_LIST::~RES_AUCTION_LIST() {
@@ -382,9 +683,10 @@ void RES_AUCTION_LIST::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&request_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&result_) -
-      reinterpret_cast<char*>(&request_id_)) + sizeof(result_));
+  listinfo_.Clear();
+  ::memset(&session_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&mylist_) -
+      reinterpret_cast<char*>(&session_id_)) + sizeof(mylist_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -394,24 +696,36 @@ const char* RES_AUCTION_LIST::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 request_id = 1;
+      // int32 session_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int32 request_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
           request_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // int32 player_id = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
+      // repeated .SS_Auction.AuctionItemInfo ListInfo = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_listinfo(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
         } else goto handle_unusual;
         continue;
-      // bool result = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
-          result_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+      // bool myList = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          mylist_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -444,22 +758,30 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 request_id = 1;
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+  }
+
+  // int32 request_id = 2;
   if (this->request_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_request_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_request_id(), target);
   }
 
-  // int32 player_id = 2;
-  if (this->player_id() != 0) {
+  // repeated .SS_Auction.AuctionItemInfo ListInfo = 3;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_listinfo_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_player_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(3, this->_internal_listinfo(i), target, stream);
   }
 
-  // bool result = 3;
-  if (this->result() != 0) {
+  // bool myList = 4;
+  if (this->mylist() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_result(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(4, this->_internal_mylist(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -478,22 +800,29 @@ size_t RES_AUCTION_LIST::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // int32 request_id = 1;
+  // repeated .SS_Auction.AuctionItemInfo ListInfo = 3;
+  total_size += 1UL * this->_internal_listinfo_size();
+  for (const auto& msg : this->listinfo_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_session_id());
+  }
+
+  // int32 request_id = 2;
   if (this->request_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
         this->_internal_request_id());
   }
 
-  // int32 player_id = 2;
-  if (this->player_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_player_id());
-  }
-
-  // bool result = 3;
-  if (this->result() != 0) {
+  // bool myList = 4;
+  if (this->mylist() != 0) {
     total_size += 1 + 1;
   }
 
@@ -528,14 +857,15 @@ void RES_AUCTION_LIST::MergeFrom(const RES_AUCTION_LIST& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  listinfo_.MergeFrom(from.listinfo_);
+  if (from.session_id() != 0) {
+    _internal_set_session_id(from._internal_session_id());
+  }
   if (from.request_id() != 0) {
     _internal_set_request_id(from._internal_request_id());
   }
-  if (from.player_id() != 0) {
-    _internal_set_player_id(from._internal_player_id());
-  }
-  if (from.result() != 0) {
-    _internal_set_result(from._internal_result());
+  if (from.mylist() != 0) {
+    _internal_set_mylist(from._internal_mylist());
   }
 }
 
@@ -560,18 +890,1905 @@ bool RES_AUCTION_LIST::IsInitialized() const {
 void RES_AUCTION_LIST::InternalSwap(RES_AUCTION_LIST* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  listinfo_.InternalSwap(&other->listinfo_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RES_AUCTION_LIST, result_)
-      + sizeof(RES_AUCTION_LIST::result_)
-      - PROTOBUF_FIELD_OFFSET(RES_AUCTION_LIST, request_id_)>(
-          reinterpret_cast<char*>(&request_id_),
-          reinterpret_cast<char*>(&other->request_id_));
+      PROTOBUF_FIELD_OFFSET(RES_AUCTION_LIST, mylist_)
+      + sizeof(RES_AUCTION_LIST::mylist_)
+      - PROTOBUF_FIELD_OFFSET(RES_AUCTION_LIST, session_id_)>(
+          reinterpret_cast<char*>(&session_id_),
+          reinterpret_cast<char*>(&other->session_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RES_AUCTION_LIST::GetMetadata() const {
   return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
       &descriptor_table_SS_5fAuctionProtocol_2eproto_getter, &descriptor_table_SS_5fAuctionProtocol_2eproto_once,
       file_level_metadata_SS_5fAuctionProtocol_2eproto[1]);
+}
+
+// ===================================================================
+
+class REQ_RECEIPT_LIST::_Internal {
+ public:
+};
+
+REQ_RECEIPT_LIST::REQ_RECEIPT_LIST(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:SS_Auction.REQ_RECEIPT_LIST)
+}
+REQ_RECEIPT_LIST::REQ_RECEIPT_LIST(const REQ_RECEIPT_LIST& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&player_id_, &from.player_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&session_id_) -
+    reinterpret_cast<char*>(&player_id_)) + sizeof(session_id_));
+  // @@protoc_insertion_point(copy_constructor:SS_Auction.REQ_RECEIPT_LIST)
+}
+
+void REQ_RECEIPT_LIST::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&player_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&session_id_) -
+    reinterpret_cast<char*>(&player_id_)) + sizeof(session_id_));
+}
+
+REQ_RECEIPT_LIST::~REQ_RECEIPT_LIST() {
+  // @@protoc_insertion_point(destructor:SS_Auction.REQ_RECEIPT_LIST)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void REQ_RECEIPT_LIST::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void REQ_RECEIPT_LIST::ArenaDtor(void* object) {
+  REQ_RECEIPT_LIST* _this = reinterpret_cast< REQ_RECEIPT_LIST* >(object);
+  (void)_this;
+}
+void REQ_RECEIPT_LIST::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void REQ_RECEIPT_LIST::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void REQ_RECEIPT_LIST::Clear() {
+// @@protoc_insertion_point(message_clear_start:SS_Auction.REQ_RECEIPT_LIST)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&player_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&session_id_) -
+      reinterpret_cast<char*>(&player_id_)) + sizeof(session_id_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* REQ_RECEIPT_LIST::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 session_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint64 player_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* REQ_RECEIPT_LIST::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:SS_Auction.REQ_RECEIPT_LIST)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+  }
+
+  // uint64 player_id = 2;
+  if (this->player_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_player_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:SS_Auction.REQ_RECEIPT_LIST)
+  return target;
+}
+
+size_t REQ_RECEIPT_LIST::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:SS_Auction.REQ_RECEIPT_LIST)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint64 player_id = 2;
+  if (this->player_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_player_id());
+  }
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_session_id());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void REQ_RECEIPT_LIST::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:SS_Auction.REQ_RECEIPT_LIST)
+  GOOGLE_DCHECK_NE(&from, this);
+  const REQ_RECEIPT_LIST* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<REQ_RECEIPT_LIST>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:SS_Auction.REQ_RECEIPT_LIST)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:SS_Auction.REQ_RECEIPT_LIST)
+    MergeFrom(*source);
+  }
+}
+
+void REQ_RECEIPT_LIST::MergeFrom(const REQ_RECEIPT_LIST& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:SS_Auction.REQ_RECEIPT_LIST)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.player_id() != 0) {
+    _internal_set_player_id(from._internal_player_id());
+  }
+  if (from.session_id() != 0) {
+    _internal_set_session_id(from._internal_session_id());
+  }
+}
+
+void REQ_RECEIPT_LIST::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:SS_Auction.REQ_RECEIPT_LIST)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void REQ_RECEIPT_LIST::CopyFrom(const REQ_RECEIPT_LIST& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:SS_Auction.REQ_RECEIPT_LIST)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool REQ_RECEIPT_LIST::IsInitialized() const {
+  return true;
+}
+
+void REQ_RECEIPT_LIST::InternalSwap(REQ_RECEIPT_LIST* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(REQ_RECEIPT_LIST, session_id_)
+      + sizeof(REQ_RECEIPT_LIST::session_id_)
+      - PROTOBUF_FIELD_OFFSET(REQ_RECEIPT_LIST, player_id_)>(
+          reinterpret_cast<char*>(&player_id_),
+          reinterpret_cast<char*>(&other->player_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata REQ_RECEIPT_LIST::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_SS_5fAuctionProtocol_2eproto_getter, &descriptor_table_SS_5fAuctionProtocol_2eproto_once,
+      file_level_metadata_SS_5fAuctionProtocol_2eproto[2]);
+}
+
+// ===================================================================
+
+class RES_RECEIPT_LIST::_Internal {
+ public:
+};
+
+void RES_RECEIPT_LIST::clear_receiptlist() {
+  receiptlist_.Clear();
+}
+RES_RECEIPT_LIST::RES_RECEIPT_LIST(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  receiptlist_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:SS_Auction.RES_RECEIPT_LIST)
+}
+RES_RECEIPT_LIST::RES_RECEIPT_LIST(const RES_RECEIPT_LIST& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      receiptlist_(from.receiptlist_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  session_id_ = from.session_id_;
+  // @@protoc_insertion_point(copy_constructor:SS_Auction.RES_RECEIPT_LIST)
+}
+
+void RES_RECEIPT_LIST::SharedCtor() {
+session_id_ = 0;
+}
+
+RES_RECEIPT_LIST::~RES_RECEIPT_LIST() {
+  // @@protoc_insertion_point(destructor:SS_Auction.RES_RECEIPT_LIST)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void RES_RECEIPT_LIST::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void RES_RECEIPT_LIST::ArenaDtor(void* object) {
+  RES_RECEIPT_LIST* _this = reinterpret_cast< RES_RECEIPT_LIST* >(object);
+  (void)_this;
+}
+void RES_RECEIPT_LIST::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void RES_RECEIPT_LIST::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void RES_RECEIPT_LIST::Clear() {
+// @@protoc_insertion_point(message_clear_start:SS_Auction.RES_RECEIPT_LIST)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  receiptlist_.Clear();
+  session_id_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* RES_RECEIPT_LIST::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 session_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .SS_Auction.AuctionItemInfo ReceiptList = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_receiptlist(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* RES_RECEIPT_LIST::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:SS_Auction.RES_RECEIPT_LIST)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+  }
+
+  // repeated .SS_Auction.AuctionItemInfo ReceiptList = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_receiptlist_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, this->_internal_receiptlist(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:SS_Auction.RES_RECEIPT_LIST)
+  return target;
+}
+
+size_t RES_RECEIPT_LIST::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:SS_Auction.RES_RECEIPT_LIST)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .SS_Auction.AuctionItemInfo ReceiptList = 2;
+  total_size += 1UL * this->_internal_receiptlist_size();
+  for (const auto& msg : this->receiptlist_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_session_id());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void RES_RECEIPT_LIST::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:SS_Auction.RES_RECEIPT_LIST)
+  GOOGLE_DCHECK_NE(&from, this);
+  const RES_RECEIPT_LIST* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RES_RECEIPT_LIST>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:SS_Auction.RES_RECEIPT_LIST)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:SS_Auction.RES_RECEIPT_LIST)
+    MergeFrom(*source);
+  }
+}
+
+void RES_RECEIPT_LIST::MergeFrom(const RES_RECEIPT_LIST& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:SS_Auction.RES_RECEIPT_LIST)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  receiptlist_.MergeFrom(from.receiptlist_);
+  if (from.session_id() != 0) {
+    _internal_set_session_id(from._internal_session_id());
+  }
+}
+
+void RES_RECEIPT_LIST::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:SS_Auction.RES_RECEIPT_LIST)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RES_RECEIPT_LIST::CopyFrom(const RES_RECEIPT_LIST& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:SS_Auction.RES_RECEIPT_LIST)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RES_RECEIPT_LIST::IsInitialized() const {
+  return true;
+}
+
+void RES_RECEIPT_LIST::InternalSwap(RES_RECEIPT_LIST* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  receiptlist_.InternalSwap(&other->receiptlist_);
+  swap(session_id_, other->session_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RES_RECEIPT_LIST::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_SS_5fAuctionProtocol_2eproto_getter, &descriptor_table_SS_5fAuctionProtocol_2eproto_once,
+      file_level_metadata_SS_5fAuctionProtocol_2eproto[3]);
+}
+
+// ===================================================================
+
+class REQ_REGIST_ITEM::_Internal {
+ public:
+};
+
+void REQ_REGIST_ITEM::clear_registinfo() {
+  registinfo_.Clear();
+}
+REQ_REGIST_ITEM::REQ_REGIST_ITEM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  registinfo_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:SS_Auction.REQ_REGIST_ITEM)
+}
+REQ_REGIST_ITEM::REQ_REGIST_ITEM(const REQ_REGIST_ITEM& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      registinfo_(from.registinfo_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  session_id_ = from.session_id_;
+  // @@protoc_insertion_point(copy_constructor:SS_Auction.REQ_REGIST_ITEM)
+}
+
+void REQ_REGIST_ITEM::SharedCtor() {
+session_id_ = 0;
+}
+
+REQ_REGIST_ITEM::~REQ_REGIST_ITEM() {
+  // @@protoc_insertion_point(destructor:SS_Auction.REQ_REGIST_ITEM)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void REQ_REGIST_ITEM::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void REQ_REGIST_ITEM::ArenaDtor(void* object) {
+  REQ_REGIST_ITEM* _this = reinterpret_cast< REQ_REGIST_ITEM* >(object);
+  (void)_this;
+}
+void REQ_REGIST_ITEM::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void REQ_REGIST_ITEM::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void REQ_REGIST_ITEM::Clear() {
+// @@protoc_insertion_point(message_clear_start:SS_Auction.REQ_REGIST_ITEM)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  registinfo_.Clear();
+  session_id_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* REQ_REGIST_ITEM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 session_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .SS_Auction.AuctionItemInfo RegistInfo = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_registinfo(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* REQ_REGIST_ITEM::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:SS_Auction.REQ_REGIST_ITEM)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+  }
+
+  // repeated .SS_Auction.AuctionItemInfo RegistInfo = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_registinfo_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, this->_internal_registinfo(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:SS_Auction.REQ_REGIST_ITEM)
+  return target;
+}
+
+size_t REQ_REGIST_ITEM::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:SS_Auction.REQ_REGIST_ITEM)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .SS_Auction.AuctionItemInfo RegistInfo = 2;
+  total_size += 1UL * this->_internal_registinfo_size();
+  for (const auto& msg : this->registinfo_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_session_id());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void REQ_REGIST_ITEM::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:SS_Auction.REQ_REGIST_ITEM)
+  GOOGLE_DCHECK_NE(&from, this);
+  const REQ_REGIST_ITEM* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<REQ_REGIST_ITEM>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:SS_Auction.REQ_REGIST_ITEM)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:SS_Auction.REQ_REGIST_ITEM)
+    MergeFrom(*source);
+  }
+}
+
+void REQ_REGIST_ITEM::MergeFrom(const REQ_REGIST_ITEM& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:SS_Auction.REQ_REGIST_ITEM)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  registinfo_.MergeFrom(from.registinfo_);
+  if (from.session_id() != 0) {
+    _internal_set_session_id(from._internal_session_id());
+  }
+}
+
+void REQ_REGIST_ITEM::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:SS_Auction.REQ_REGIST_ITEM)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void REQ_REGIST_ITEM::CopyFrom(const REQ_REGIST_ITEM& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:SS_Auction.REQ_REGIST_ITEM)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool REQ_REGIST_ITEM::IsInitialized() const {
+  return true;
+}
+
+void REQ_REGIST_ITEM::InternalSwap(REQ_REGIST_ITEM* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  registinfo_.InternalSwap(&other->registinfo_);
+  swap(session_id_, other->session_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata REQ_REGIST_ITEM::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_SS_5fAuctionProtocol_2eproto_getter, &descriptor_table_SS_5fAuctionProtocol_2eproto_once,
+      file_level_metadata_SS_5fAuctionProtocol_2eproto[4]);
+}
+
+// ===================================================================
+
+class RES_REGIST_ITEM::_Internal {
+ public:
+};
+
+RES_REGIST_ITEM::RES_REGIST_ITEM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:SS_Auction.RES_REGIST_ITEM)
+}
+RES_REGIST_ITEM::RES_REGIST_ITEM(const RES_REGIST_ITEM& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&session_id_, &from.session_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&result_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(result_));
+  // @@protoc_insertion_point(copy_constructor:SS_Auction.RES_REGIST_ITEM)
+}
+
+void RES_REGIST_ITEM::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&session_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&result_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(result_));
+}
+
+RES_REGIST_ITEM::~RES_REGIST_ITEM() {
+  // @@protoc_insertion_point(destructor:SS_Auction.RES_REGIST_ITEM)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void RES_REGIST_ITEM::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void RES_REGIST_ITEM::ArenaDtor(void* object) {
+  RES_REGIST_ITEM* _this = reinterpret_cast< RES_REGIST_ITEM* >(object);
+  (void)_this;
+}
+void RES_REGIST_ITEM::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void RES_REGIST_ITEM::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void RES_REGIST_ITEM::Clear() {
+// @@protoc_insertion_point(message_clear_start:SS_Auction.RES_REGIST_ITEM)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&session_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&result_) -
+      reinterpret_cast<char*>(&session_id_)) + sizeof(result_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* RES_REGIST_ITEM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 session_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool result = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          result_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* RES_REGIST_ITEM::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:SS_Auction.RES_REGIST_ITEM)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+  }
+
+  // bool result = 2;
+  if (this->result() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_result(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:SS_Auction.RES_REGIST_ITEM)
+  return target;
+}
+
+size_t RES_REGIST_ITEM::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:SS_Auction.RES_REGIST_ITEM)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_session_id());
+  }
+
+  // bool result = 2;
+  if (this->result() != 0) {
+    total_size += 1 + 1;
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void RES_REGIST_ITEM::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:SS_Auction.RES_REGIST_ITEM)
+  GOOGLE_DCHECK_NE(&from, this);
+  const RES_REGIST_ITEM* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RES_REGIST_ITEM>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:SS_Auction.RES_REGIST_ITEM)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:SS_Auction.RES_REGIST_ITEM)
+    MergeFrom(*source);
+  }
+}
+
+void RES_REGIST_ITEM::MergeFrom(const RES_REGIST_ITEM& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:SS_Auction.RES_REGIST_ITEM)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.session_id() != 0) {
+    _internal_set_session_id(from._internal_session_id());
+  }
+  if (from.result() != 0) {
+    _internal_set_result(from._internal_result());
+  }
+}
+
+void RES_REGIST_ITEM::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:SS_Auction.RES_REGIST_ITEM)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RES_REGIST_ITEM::CopyFrom(const RES_REGIST_ITEM& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:SS_Auction.RES_REGIST_ITEM)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RES_REGIST_ITEM::IsInitialized() const {
+  return true;
+}
+
+void RES_REGIST_ITEM::InternalSwap(RES_REGIST_ITEM* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(RES_REGIST_ITEM, result_)
+      + sizeof(RES_REGIST_ITEM::result_)
+      - PROTOBUF_FIELD_OFFSET(RES_REGIST_ITEM, session_id_)>(
+          reinterpret_cast<char*>(&session_id_),
+          reinterpret_cast<char*>(&other->session_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RES_REGIST_ITEM::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_SS_5fAuctionProtocol_2eproto_getter, &descriptor_table_SS_5fAuctionProtocol_2eproto_once,
+      file_level_metadata_SS_5fAuctionProtocol_2eproto[5]);
+}
+
+// ===================================================================
+
+class REQ_PURCHASE_ITEM::_Internal {
+ public:
+};
+
+void REQ_PURCHASE_ITEM::clear_purchaseinfo() {
+  purchaseinfo_.Clear();
+}
+REQ_PURCHASE_ITEM::REQ_PURCHASE_ITEM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  purchaseinfo_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:SS_Auction.REQ_PURCHASE_ITEM)
+}
+REQ_PURCHASE_ITEM::REQ_PURCHASE_ITEM(const REQ_PURCHASE_ITEM& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      purchaseinfo_(from.purchaseinfo_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  session_id_ = from.session_id_;
+  // @@protoc_insertion_point(copy_constructor:SS_Auction.REQ_PURCHASE_ITEM)
+}
+
+void REQ_PURCHASE_ITEM::SharedCtor() {
+session_id_ = 0;
+}
+
+REQ_PURCHASE_ITEM::~REQ_PURCHASE_ITEM() {
+  // @@protoc_insertion_point(destructor:SS_Auction.REQ_PURCHASE_ITEM)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void REQ_PURCHASE_ITEM::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void REQ_PURCHASE_ITEM::ArenaDtor(void* object) {
+  REQ_PURCHASE_ITEM* _this = reinterpret_cast< REQ_PURCHASE_ITEM* >(object);
+  (void)_this;
+}
+void REQ_PURCHASE_ITEM::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void REQ_PURCHASE_ITEM::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void REQ_PURCHASE_ITEM::Clear() {
+// @@protoc_insertion_point(message_clear_start:SS_Auction.REQ_PURCHASE_ITEM)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  purchaseinfo_.Clear();
+  session_id_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* REQ_PURCHASE_ITEM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 session_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // repeated .SS_Auction.AuctionItemInfo PurchaseInfo = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_purchaseinfo(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* REQ_PURCHASE_ITEM::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:SS_Auction.REQ_PURCHASE_ITEM)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+  }
+
+  // repeated .SS_Auction.AuctionItemInfo PurchaseInfo = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_purchaseinfo_size()); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, this->_internal_purchaseinfo(i), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:SS_Auction.REQ_PURCHASE_ITEM)
+  return target;
+}
+
+size_t REQ_PURCHASE_ITEM::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:SS_Auction.REQ_PURCHASE_ITEM)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .SS_Auction.AuctionItemInfo PurchaseInfo = 2;
+  total_size += 1UL * this->_internal_purchaseinfo_size();
+  for (const auto& msg : this->purchaseinfo_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_session_id());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void REQ_PURCHASE_ITEM::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:SS_Auction.REQ_PURCHASE_ITEM)
+  GOOGLE_DCHECK_NE(&from, this);
+  const REQ_PURCHASE_ITEM* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<REQ_PURCHASE_ITEM>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:SS_Auction.REQ_PURCHASE_ITEM)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:SS_Auction.REQ_PURCHASE_ITEM)
+    MergeFrom(*source);
+  }
+}
+
+void REQ_PURCHASE_ITEM::MergeFrom(const REQ_PURCHASE_ITEM& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:SS_Auction.REQ_PURCHASE_ITEM)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  purchaseinfo_.MergeFrom(from.purchaseinfo_);
+  if (from.session_id() != 0) {
+    _internal_set_session_id(from._internal_session_id());
+  }
+}
+
+void REQ_PURCHASE_ITEM::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:SS_Auction.REQ_PURCHASE_ITEM)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void REQ_PURCHASE_ITEM::CopyFrom(const REQ_PURCHASE_ITEM& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:SS_Auction.REQ_PURCHASE_ITEM)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool REQ_PURCHASE_ITEM::IsInitialized() const {
+  return true;
+}
+
+void REQ_PURCHASE_ITEM::InternalSwap(REQ_PURCHASE_ITEM* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  purchaseinfo_.InternalSwap(&other->purchaseinfo_);
+  swap(session_id_, other->session_id_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata REQ_PURCHASE_ITEM::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_SS_5fAuctionProtocol_2eproto_getter, &descriptor_table_SS_5fAuctionProtocol_2eproto_once,
+      file_level_metadata_SS_5fAuctionProtocol_2eproto[6]);
+}
+
+// ===================================================================
+
+class RES_PURCHASE_ITEM::_Internal {
+ public:
+};
+
+RES_PURCHASE_ITEM::RES_PURCHASE_ITEM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:SS_Auction.RES_PURCHASE_ITEM)
+}
+RES_PURCHASE_ITEM::RES_PURCHASE_ITEM(const RES_PURCHASE_ITEM& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&session_id_, &from.session_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&gold_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(gold_));
+  // @@protoc_insertion_point(copy_constructor:SS_Auction.RES_PURCHASE_ITEM)
+}
+
+void RES_PURCHASE_ITEM::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&session_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&gold_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(gold_));
+}
+
+RES_PURCHASE_ITEM::~RES_PURCHASE_ITEM() {
+  // @@protoc_insertion_point(destructor:SS_Auction.RES_PURCHASE_ITEM)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void RES_PURCHASE_ITEM::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void RES_PURCHASE_ITEM::ArenaDtor(void* object) {
+  RES_PURCHASE_ITEM* _this = reinterpret_cast< RES_PURCHASE_ITEM* >(object);
+  (void)_this;
+}
+void RES_PURCHASE_ITEM::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void RES_PURCHASE_ITEM::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void RES_PURCHASE_ITEM::Clear() {
+// @@protoc_insertion_point(message_clear_start:SS_Auction.RES_PURCHASE_ITEM)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&session_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&gold_) -
+      reinterpret_cast<char*>(&session_id_)) + sizeof(gold_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* RES_PURCHASE_ITEM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 session_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool result = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          result_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 gold = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          gold_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* RES_PURCHASE_ITEM::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:SS_Auction.RES_PURCHASE_ITEM)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+  }
+
+  // bool result = 2;
+  if (this->result() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(2, this->_internal_result(), target);
+  }
+
+  // int64 gold = 3;
+  if (this->gold() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(3, this->_internal_gold(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:SS_Auction.RES_PURCHASE_ITEM)
+  return target;
+}
+
+size_t RES_PURCHASE_ITEM::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:SS_Auction.RES_PURCHASE_ITEM)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_session_id());
+  }
+
+  // bool result = 2;
+  if (this->result() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // int64 gold = 3;
+  if (this->gold() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_gold());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void RES_PURCHASE_ITEM::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:SS_Auction.RES_PURCHASE_ITEM)
+  GOOGLE_DCHECK_NE(&from, this);
+  const RES_PURCHASE_ITEM* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RES_PURCHASE_ITEM>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:SS_Auction.RES_PURCHASE_ITEM)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:SS_Auction.RES_PURCHASE_ITEM)
+    MergeFrom(*source);
+  }
+}
+
+void RES_PURCHASE_ITEM::MergeFrom(const RES_PURCHASE_ITEM& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:SS_Auction.RES_PURCHASE_ITEM)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.session_id() != 0) {
+    _internal_set_session_id(from._internal_session_id());
+  }
+  if (from.result() != 0) {
+    _internal_set_result(from._internal_result());
+  }
+  if (from.gold() != 0) {
+    _internal_set_gold(from._internal_gold());
+  }
+}
+
+void RES_PURCHASE_ITEM::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:SS_Auction.RES_PURCHASE_ITEM)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RES_PURCHASE_ITEM::CopyFrom(const RES_PURCHASE_ITEM& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:SS_Auction.RES_PURCHASE_ITEM)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RES_PURCHASE_ITEM::IsInitialized() const {
+  return true;
+}
+
+void RES_PURCHASE_ITEM::InternalSwap(RES_PURCHASE_ITEM* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(RES_PURCHASE_ITEM, gold_)
+      + sizeof(RES_PURCHASE_ITEM::gold_)
+      - PROTOBUF_FIELD_OFFSET(RES_PURCHASE_ITEM, session_id_)>(
+          reinterpret_cast<char*>(&session_id_),
+          reinterpret_cast<char*>(&other->session_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RES_PURCHASE_ITEM::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_SS_5fAuctionProtocol_2eproto_getter, &descriptor_table_SS_5fAuctionProtocol_2eproto_once,
+      file_level_metadata_SS_5fAuctionProtocol_2eproto[7]);
+}
+
+// ===================================================================
+
+class REQ_RECEIPT_ITEM::_Internal {
+ public:
+};
+
+REQ_RECEIPT_ITEM::REQ_RECEIPT_ITEM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:SS_Auction.REQ_RECEIPT_ITEM)
+}
+REQ_RECEIPT_ITEM::REQ_RECEIPT_ITEM(const REQ_RECEIPT_ITEM& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&player_id_, &from.player_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&session_id_) -
+    reinterpret_cast<char*>(&player_id_)) + sizeof(session_id_));
+  // @@protoc_insertion_point(copy_constructor:SS_Auction.REQ_RECEIPT_ITEM)
+}
+
+void REQ_RECEIPT_ITEM::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&player_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&session_id_) -
+    reinterpret_cast<char*>(&player_id_)) + sizeof(session_id_));
+}
+
+REQ_RECEIPT_ITEM::~REQ_RECEIPT_ITEM() {
+  // @@protoc_insertion_point(destructor:SS_Auction.REQ_RECEIPT_ITEM)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void REQ_RECEIPT_ITEM::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void REQ_RECEIPT_ITEM::ArenaDtor(void* object) {
+  REQ_RECEIPT_ITEM* _this = reinterpret_cast< REQ_RECEIPT_ITEM* >(object);
+  (void)_this;
+}
+void REQ_RECEIPT_ITEM::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void REQ_RECEIPT_ITEM::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void REQ_RECEIPT_ITEM::Clear() {
+// @@protoc_insertion_point(message_clear_start:SS_Auction.REQ_RECEIPT_ITEM)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&player_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&session_id_) -
+      reinterpret_cast<char*>(&player_id_)) + sizeof(session_id_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* REQ_RECEIPT_ITEM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 session_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint64 player_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 receipt_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          receipt_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* REQ_RECEIPT_ITEM::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:SS_Auction.REQ_RECEIPT_ITEM)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+  }
+
+  // uint64 player_id = 2;
+  if (this->player_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt64ToArray(2, this->_internal_player_id(), target);
+  }
+
+  // int64 receipt_id = 3;
+  if (this->receipt_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(3, this->_internal_receipt_id(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:SS_Auction.REQ_RECEIPT_ITEM)
+  return target;
+}
+
+size_t REQ_RECEIPT_ITEM::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:SS_Auction.REQ_RECEIPT_ITEM)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // uint64 player_id = 2;
+  if (this->player_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
+        this->_internal_player_id());
+  }
+
+  // int64 receipt_id = 3;
+  if (this->receipt_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_receipt_id());
+  }
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_session_id());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void REQ_RECEIPT_ITEM::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:SS_Auction.REQ_RECEIPT_ITEM)
+  GOOGLE_DCHECK_NE(&from, this);
+  const REQ_RECEIPT_ITEM* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<REQ_RECEIPT_ITEM>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:SS_Auction.REQ_RECEIPT_ITEM)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:SS_Auction.REQ_RECEIPT_ITEM)
+    MergeFrom(*source);
+  }
+}
+
+void REQ_RECEIPT_ITEM::MergeFrom(const REQ_RECEIPT_ITEM& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:SS_Auction.REQ_RECEIPT_ITEM)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.player_id() != 0) {
+    _internal_set_player_id(from._internal_player_id());
+  }
+  if (from.receipt_id() != 0) {
+    _internal_set_receipt_id(from._internal_receipt_id());
+  }
+  if (from.session_id() != 0) {
+    _internal_set_session_id(from._internal_session_id());
+  }
+}
+
+void REQ_RECEIPT_ITEM::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:SS_Auction.REQ_RECEIPT_ITEM)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void REQ_RECEIPT_ITEM::CopyFrom(const REQ_RECEIPT_ITEM& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:SS_Auction.REQ_RECEIPT_ITEM)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool REQ_RECEIPT_ITEM::IsInitialized() const {
+  return true;
+}
+
+void REQ_RECEIPT_ITEM::InternalSwap(REQ_RECEIPT_ITEM* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(REQ_RECEIPT_ITEM, session_id_)
+      + sizeof(REQ_RECEIPT_ITEM::session_id_)
+      - PROTOBUF_FIELD_OFFSET(REQ_RECEIPT_ITEM, player_id_)>(
+          reinterpret_cast<char*>(&player_id_),
+          reinterpret_cast<char*>(&other->player_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata REQ_RECEIPT_ITEM::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_SS_5fAuctionProtocol_2eproto_getter, &descriptor_table_SS_5fAuctionProtocol_2eproto_once,
+      file_level_metadata_SS_5fAuctionProtocol_2eproto[8]);
+}
+
+// ===================================================================
+
+class RES_RECEIPT_ITEM::_Internal {
+ public:
+};
+
+RES_RECEIPT_ITEM::RES_RECEIPT_ITEM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:SS_Auction.RES_RECEIPT_ITEM)
+}
+RES_RECEIPT_ITEM::RES_RECEIPT_ITEM(const RES_RECEIPT_ITEM& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&receipt_id_, &from.receipt_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&gold_) -
+    reinterpret_cast<char*>(&receipt_id_)) + sizeof(gold_));
+  // @@protoc_insertion_point(copy_constructor:SS_Auction.RES_RECEIPT_ITEM)
+}
+
+void RES_RECEIPT_ITEM::SharedCtor() {
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&receipt_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&gold_) -
+    reinterpret_cast<char*>(&receipt_id_)) + sizeof(gold_));
+}
+
+RES_RECEIPT_ITEM::~RES_RECEIPT_ITEM() {
+  // @@protoc_insertion_point(destructor:SS_Auction.RES_RECEIPT_ITEM)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void RES_RECEIPT_ITEM::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void RES_RECEIPT_ITEM::ArenaDtor(void* object) {
+  RES_RECEIPT_ITEM* _this = reinterpret_cast< RES_RECEIPT_ITEM* >(object);
+  (void)_this;
+}
+void RES_RECEIPT_ITEM::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void RES_RECEIPT_ITEM::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void RES_RECEIPT_ITEM::Clear() {
+// @@protoc_insertion_point(message_clear_start:SS_Auction.RES_RECEIPT_ITEM)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  ::memset(&receipt_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&gold_) -
+      reinterpret_cast<char*>(&receipt_id_)) + sizeof(gold_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* RES_RECEIPT_ITEM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 session_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 receipt_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          receipt_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // bool result = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          result_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 gold = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          gold_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* RES_RECEIPT_ITEM::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:SS_Auction.RES_RECEIPT_ITEM)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+  }
+
+  // int64 receipt_id = 2;
+  if (this->receipt_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_receipt_id(), target);
+  }
+
+  // bool result = 3;
+  if (this->result() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteBoolToArray(3, this->_internal_result(), target);
+  }
+
+  // int64 gold = 4;
+  if (this->gold() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(4, this->_internal_gold(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:SS_Auction.RES_RECEIPT_ITEM)
+  return target;
+}
+
+size_t RES_RECEIPT_ITEM::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:SS_Auction.RES_RECEIPT_ITEM)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // int64 receipt_id = 2;
+  if (this->receipt_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_receipt_id());
+  }
+
+  // int32 session_id = 1;
+  if (this->session_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+        this->_internal_session_id());
+  }
+
+  // bool result = 3;
+  if (this->result() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // int64 gold = 4;
+  if (this->gold() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_gold());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void RES_RECEIPT_ITEM::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:SS_Auction.RES_RECEIPT_ITEM)
+  GOOGLE_DCHECK_NE(&from, this);
+  const RES_RECEIPT_ITEM* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<RES_RECEIPT_ITEM>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:SS_Auction.RES_RECEIPT_ITEM)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:SS_Auction.RES_RECEIPT_ITEM)
+    MergeFrom(*source);
+  }
+}
+
+void RES_RECEIPT_ITEM::MergeFrom(const RES_RECEIPT_ITEM& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:SS_Auction.RES_RECEIPT_ITEM)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.receipt_id() != 0) {
+    _internal_set_receipt_id(from._internal_receipt_id());
+  }
+  if (from.session_id() != 0) {
+    _internal_set_session_id(from._internal_session_id());
+  }
+  if (from.result() != 0) {
+    _internal_set_result(from._internal_result());
+  }
+  if (from.gold() != 0) {
+    _internal_set_gold(from._internal_gold());
+  }
+}
+
+void RES_RECEIPT_ITEM::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:SS_Auction.RES_RECEIPT_ITEM)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RES_RECEIPT_ITEM::CopyFrom(const RES_RECEIPT_ITEM& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:SS_Auction.RES_RECEIPT_ITEM)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RES_RECEIPT_ITEM::IsInitialized() const {
+  return true;
+}
+
+void RES_RECEIPT_ITEM::InternalSwap(RES_RECEIPT_ITEM* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(RES_RECEIPT_ITEM, gold_)
+      + sizeof(RES_RECEIPT_ITEM::gold_)
+      - PROTOBUF_FIELD_OFFSET(RES_RECEIPT_ITEM, receipt_id_)>(
+          reinterpret_cast<char*>(&receipt_id_),
+          reinterpret_cast<char*>(&other->receipt_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata RES_RECEIPT_ITEM::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_SS_5fAuctionProtocol_2eproto_getter, &descriptor_table_SS_5fAuctionProtocol_2eproto_once,
+      file_level_metadata_SS_5fAuctionProtocol_2eproto[9]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -582,6 +2799,30 @@ template<> PROTOBUF_NOINLINE ::SS_Auction::REQ_AUCTION_LIST* Arena::CreateMaybeM
 }
 template<> PROTOBUF_NOINLINE ::SS_Auction::RES_AUCTION_LIST* Arena::CreateMaybeMessage< ::SS_Auction::RES_AUCTION_LIST >(Arena* arena) {
   return Arena::CreateMessageInternal< ::SS_Auction::RES_AUCTION_LIST >(arena);
+}
+template<> PROTOBUF_NOINLINE ::SS_Auction::REQ_RECEIPT_LIST* Arena::CreateMaybeMessage< ::SS_Auction::REQ_RECEIPT_LIST >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::SS_Auction::REQ_RECEIPT_LIST >(arena);
+}
+template<> PROTOBUF_NOINLINE ::SS_Auction::RES_RECEIPT_LIST* Arena::CreateMaybeMessage< ::SS_Auction::RES_RECEIPT_LIST >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::SS_Auction::RES_RECEIPT_LIST >(arena);
+}
+template<> PROTOBUF_NOINLINE ::SS_Auction::REQ_REGIST_ITEM* Arena::CreateMaybeMessage< ::SS_Auction::REQ_REGIST_ITEM >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::SS_Auction::REQ_REGIST_ITEM >(arena);
+}
+template<> PROTOBUF_NOINLINE ::SS_Auction::RES_REGIST_ITEM* Arena::CreateMaybeMessage< ::SS_Auction::RES_REGIST_ITEM >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::SS_Auction::RES_REGIST_ITEM >(arena);
+}
+template<> PROTOBUF_NOINLINE ::SS_Auction::REQ_PURCHASE_ITEM* Arena::CreateMaybeMessage< ::SS_Auction::REQ_PURCHASE_ITEM >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::SS_Auction::REQ_PURCHASE_ITEM >(arena);
+}
+template<> PROTOBUF_NOINLINE ::SS_Auction::RES_PURCHASE_ITEM* Arena::CreateMaybeMessage< ::SS_Auction::RES_PURCHASE_ITEM >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::SS_Auction::RES_PURCHASE_ITEM >(arena);
+}
+template<> PROTOBUF_NOINLINE ::SS_Auction::REQ_RECEIPT_ITEM* Arena::CreateMaybeMessage< ::SS_Auction::REQ_RECEIPT_ITEM >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::SS_Auction::REQ_RECEIPT_ITEM >(arena);
+}
+template<> PROTOBUF_NOINLINE ::SS_Auction::RES_RECEIPT_ITEM* Arena::CreateMaybeMessage< ::SS_Auction::RES_RECEIPT_ITEM >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::SS_Auction::RES_RECEIPT_ITEM >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

@@ -80,12 +80,22 @@ enum PacketType : int {
   PKT_RES_MOVE = 2005,
   PKT_REQ_ATTACK = 3000,
   PKT_RES_ATTACK = 3001,
+  PKT_REQ_AUCTION_LIST = 4000,
+  PKT_RES_AUCTION_LIST = 4001,
+  PKT_REQ_RECEIPT_LIST = 4002,
+  PKT_RES_RECEIPT_LIST = 4003,
+  PKT_REQ_REGIST_ITEM = 4004,
+  PKT_RES_REGIST_ITEM = 4005,
+  PKT_REQ_PURCHASE_ITEM = 4006,
+  PKT_RES_PURCHASE_ITEM = 4007,
+  PKT_REQ_RECEIPT_ITEM = 4008,
+  PKT_RES_RECEIPT_ITEM = 4009,
   PacketType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   PacketType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool PacketType_IsValid(int value);
 constexpr PacketType PacketType_MIN = PKT_INVALID;
-constexpr PacketType PacketType_MAX = PKT_RES_ATTACK;
+constexpr PacketType PacketType_MAX = PKT_RES_RECEIPT_ITEM;
 constexpr int PacketType_ARRAYSIZE = PacketType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PacketType_descriptor();

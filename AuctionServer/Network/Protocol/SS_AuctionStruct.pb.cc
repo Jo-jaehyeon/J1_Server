@@ -30,8 +30,26 @@ struct AuctionMemberInfoDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT AuctionMemberInfoDefaultTypeInternal _AuctionMemberInfo_default_instance_;
+constexpr AuctionItemInfo::AuctionItemInfo(
+  ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
+  : expired_at_(&::PROTOBUF_NAMESPACE_ID::internal::fixed_address_empty_string)
+  , list_id_(int64_t{0})
+  , player_id_(int64_t{0})
+  , receipt_type_(int64_t{0})
+  , item_id_(int64_t{0})
+  , count_(int64_t{0})
+  , price_(int64_t{0}){}
+struct AuctionItemInfoDefaultTypeInternal {
+  constexpr AuctionItemInfoDefaultTypeInternal()
+    : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
+  ~AuctionItemInfoDefaultTypeInternal() {}
+  union {
+    AuctionItemInfo _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT AuctionItemInfoDefaultTypeInternal _AuctionItemInfo_default_instance_;
 }  // namespace SS_Auction
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_SS_5fAuctionStruct_2eproto[1];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_SS_5fAuctionStruct_2eproto[2];
 static constexpr ::PROTOBUF_NAMESPACE_ID::EnumDescriptor const** file_level_enum_descriptors_SS_5fAuctionStruct_2eproto = nullptr;
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_SS_5fAuctionStruct_2eproto = nullptr;
 
@@ -43,24 +61,42 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_SS_5fAuctionStruct_2eproto::of
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::SS_Auction::AuctionMemberInfo, player_id_),
   PROTOBUF_FIELD_OFFSET(::SS_Auction::AuctionMemberInfo, name_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::AuctionItemInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::AuctionItemInfo, list_id_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::AuctionItemInfo, player_id_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::AuctionItemInfo, receipt_type_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::AuctionItemInfo, item_id_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::AuctionItemInfo, count_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::AuctionItemInfo, price_),
+  PROTOBUF_FIELD_OFFSET(::SS_Auction::AuctionItemInfo, expired_at_),
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::SS_Auction::AuctionMemberInfo)},
+  { 7, -1, sizeof(::SS_Auction::AuctionItemInfo)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::SS_Auction::_AuctionMemberInfo_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::SS_Auction::_AuctionItemInfo_default_instance_),
 };
 
 const char descriptor_table_protodef_SS_5fAuctionStruct_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\026SS_AuctionStruct.proto\022\nSS_Auction\"4\n\021"
   "AuctionMemberInfo\022\021\n\tplayer_id\030\001 \001(\004\022\014\n\004"
-  "name\030\002 \001(\tb\006proto3"
+  "name\030\002 \001(\t\"\216\001\n\017AuctionItemInfo\022\017\n\007list_i"
+  "d\030\001 \001(\003\022\021\n\tplayer_id\030\002 \001(\003\022\024\n\014receipt_ty"
+  "pe\030\003 \001(\003\022\017\n\007item_id\030\004 \001(\003\022\r\n\005count\030\005 \001(\003"
+  "\022\r\n\005price\030\006 \001(\003\022\022\n\nexpired_at\030\007 \001(\tb\006pro"
+  "to3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_SS_5fAuctionStruct_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_SS_5fAuctionStruct_2eproto = {
-  false, false, 98, descriptor_table_protodef_SS_5fAuctionStruct_2eproto, "SS_AuctionStruct.proto", 
-  &descriptor_table_SS_5fAuctionStruct_2eproto_once, nullptr, 0, 1,
+  false, false, 243, descriptor_table_protodef_SS_5fAuctionStruct_2eproto, "SS_AuctionStruct.proto", 
+  &descriptor_table_SS_5fAuctionStruct_2eproto_once, nullptr, 0, 2,
   schemas, file_default_instances, TableStruct_SS_5fAuctionStruct_2eproto::offsets,
   file_level_metadata_SS_5fAuctionStruct_2eproto, file_level_enum_descriptors_SS_5fAuctionStruct_2eproto, file_level_service_descriptors_SS_5fAuctionStruct_2eproto,
 };
@@ -304,11 +340,373 @@ void AuctionMemberInfo::InternalSwap(AuctionMemberInfo* other) {
       file_level_metadata_SS_5fAuctionStruct_2eproto[0]);
 }
 
+// ===================================================================
+
+class AuctionItemInfo::_Internal {
+ public:
+};
+
+AuctionItemInfo::AuctionItemInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:SS_Auction.AuctionItemInfo)
+}
+AuctionItemInfo::AuctionItemInfo(const AuctionItemInfo& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  expired_at_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_expired_at().empty()) {
+    expired_at_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_expired_at(), 
+      GetArenaForAllocation());
+  }
+  ::memcpy(&list_id_, &from.list_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&price_) -
+    reinterpret_cast<char*>(&list_id_)) + sizeof(price_));
+  // @@protoc_insertion_point(copy_constructor:SS_Auction.AuctionItemInfo)
+}
+
+void AuctionItemInfo::SharedCtor() {
+expired_at_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+    reinterpret_cast<char*>(&list_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&price_) -
+    reinterpret_cast<char*>(&list_id_)) + sizeof(price_));
+}
+
+AuctionItemInfo::~AuctionItemInfo() {
+  // @@protoc_insertion_point(destructor:SS_Auction.AuctionItemInfo)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void AuctionItemInfo::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  expired_at_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void AuctionItemInfo::ArenaDtor(void* object) {
+  AuctionItemInfo* _this = reinterpret_cast< AuctionItemInfo* >(object);
+  (void)_this;
+}
+void AuctionItemInfo::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void AuctionItemInfo::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+
+void AuctionItemInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:SS_Auction.AuctionItemInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  expired_at_.ClearToEmpty();
+  ::memset(&list_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&price_) -
+      reinterpret_cast<char*>(&list_id_)) + sizeof(price_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* AuctionItemInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int64 list_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          list_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 player_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          player_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 receipt_type = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          receipt_type_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 item_id = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          item_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 count = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 40)) {
+          count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // int64 price = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+          price_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string expired_at = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 58)) {
+          auto str = _internal_mutable_expired_at();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "SS_Auction.AuctionItemInfo.expired_at"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag == 0) || ((tag & 7) == 4)) {
+          CHK_(ptr);
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* AuctionItemInfo::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:SS_Auction.AuctionItemInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int64 list_id = 1;
+  if (this->list_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_list_id(), target);
+  }
+
+  // int64 player_id = 2;
+  if (this->player_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(2, this->_internal_player_id(), target);
+  }
+
+  // int64 receipt_type = 3;
+  if (this->receipt_type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(3, this->_internal_receipt_type(), target);
+  }
+
+  // int64 item_id = 4;
+  if (this->item_id() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(4, this->_internal_item_id(), target);
+  }
+
+  // int64 count = 5;
+  if (this->count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(5, this->_internal_count(), target);
+  }
+
+  // int64 price = 6;
+  if (this->price() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(6, this->_internal_price(), target);
+  }
+
+  // string expired_at = 7;
+  if (!this->expired_at().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_expired_at().data(), static_cast<int>(this->_internal_expired_at().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "SS_Auction.AuctionItemInfo.expired_at");
+    target = stream->WriteStringMaybeAliased(
+        7, this->_internal_expired_at(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:SS_Auction.AuctionItemInfo)
+  return target;
+}
+
+size_t AuctionItemInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:SS_Auction.AuctionItemInfo)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string expired_at = 7;
+  if (!this->expired_at().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_expired_at());
+  }
+
+  // int64 list_id = 1;
+  if (this->list_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_list_id());
+  }
+
+  // int64 player_id = 2;
+  if (this->player_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_player_id());
+  }
+
+  // int64 receipt_type = 3;
+  if (this->receipt_type() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_receipt_type());
+  }
+
+  // int64 item_id = 4;
+  if (this->item_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_item_id());
+  }
+
+  // int64 count = 5;
+  if (this->count() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_count());
+  }
+
+  // int64 price = 6;
+  if (this->price() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_price());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void AuctionItemInfo::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:SS_Auction.AuctionItemInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  const AuctionItemInfo* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<AuctionItemInfo>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:SS_Auction.AuctionItemInfo)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:SS_Auction.AuctionItemInfo)
+    MergeFrom(*source);
+  }
+}
+
+void AuctionItemInfo::MergeFrom(const AuctionItemInfo& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:SS_Auction.AuctionItemInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from.expired_at().empty()) {
+    _internal_set_expired_at(from._internal_expired_at());
+  }
+  if (from.list_id() != 0) {
+    _internal_set_list_id(from._internal_list_id());
+  }
+  if (from.player_id() != 0) {
+    _internal_set_player_id(from._internal_player_id());
+  }
+  if (from.receipt_type() != 0) {
+    _internal_set_receipt_type(from._internal_receipt_type());
+  }
+  if (from.item_id() != 0) {
+    _internal_set_item_id(from._internal_item_id());
+  }
+  if (from.count() != 0) {
+    _internal_set_count(from._internal_count());
+  }
+  if (from.price() != 0) {
+    _internal_set_price(from._internal_price());
+  }
+}
+
+void AuctionItemInfo::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:SS_Auction.AuctionItemInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void AuctionItemInfo::CopyFrom(const AuctionItemInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:SS_Auction.AuctionItemInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool AuctionItemInfo::IsInitialized() const {
+  return true;
+}
+
+void AuctionItemInfo::InternalSwap(AuctionItemInfo* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      &expired_at_, GetArenaForAllocation(),
+      &other->expired_at_, other->GetArenaForAllocation()
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(AuctionItemInfo, price_)
+      + sizeof(AuctionItemInfo::price_)
+      - PROTOBUF_FIELD_OFFSET(AuctionItemInfo, list_id_)>(
+          reinterpret_cast<char*>(&list_id_),
+          reinterpret_cast<char*>(&other->list_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata AuctionItemInfo::GetMetadata() const {
+  return ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(
+      &descriptor_table_SS_5fAuctionStruct_2eproto_getter, &descriptor_table_SS_5fAuctionStruct_2eproto_once,
+      file_level_metadata_SS_5fAuctionStruct_2eproto[1]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace SS_Auction
 PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::SS_Auction::AuctionMemberInfo* Arena::CreateMaybeMessage< ::SS_Auction::AuctionMemberInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::SS_Auction::AuctionMemberInfo >(arena);
+}
+template<> PROTOBUF_NOINLINE ::SS_Auction::AuctionItemInfo* Arena::CreateMaybeMessage< ::SS_Auction::AuctionItemInfo >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::SS_Auction::AuctionItemInfo >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

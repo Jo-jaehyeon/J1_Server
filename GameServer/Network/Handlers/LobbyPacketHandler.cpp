@@ -51,7 +51,7 @@ bool Handle_REQ_CHARACTER_LIST(SessionPtr& session, Game::REQ_CHARACTER_LIST& pk
 	if (pkt.id() > 0)
 	{
 		string FindList = 
-			"SELECT cb.character_id, cb.slot_index, cb.nickname, cb.class_type, cb.level, cs.upper_skin, cs.lower_skin, cs.weapon_skin "
+			"SELECT cb.character_id, cb.slot_index, cb.nickname, cb.class_type, cb.level, cb.gold, cs.upper_skin, cs.lower_skin, cs.weapon_skin "
 			"FROM character_base cb "
 			"JOIN character_combat cc ON cb.character_id = cc.character_id "
 			"JOIN character_skin cs   ON cb.character_id = cs.character_id "
@@ -69,6 +69,7 @@ bool Handle_REQ_CHARACTER_LIST(SessionPtr& session, Game::REQ_CHARACTER_LIST& pk
 				temp->set_name(list_result->getString("nickname"));
 				temp->set_classtype(list_result->getInt("class_type"));
 				temp->set_level(list_result->getInt("level"));
+				temp->set_gold(list_result->getInt("gold"));
 				temp->set_upperskinid(list_result->getInt("upper_skin"));
 				temp->set_lowerskinid(list_result->getInt("lower_skin"));
 				temp->set_weaponskinid(list_result->getInt("weapon_skin"));

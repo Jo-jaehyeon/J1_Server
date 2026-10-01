@@ -59,12 +59,20 @@ namespace SS_Auction {
 enum PacketType : int {
   PKT_REQ_AUCTION_LIST = 0,
   PKT_RES_AUCTION_LIST = 1,
+  PKT_REQ_RECEIPT_LIST = 2,
+  PKT_RES_RECEIPT_LIST = 3,
+  PKT_REQ_REGIST_ITEM = 4,
+  PKT_RES_REGIST_ITEM = 5,
+  PKT_REQ_PURCHASE_ITEM = 6,
+  PKT_RES_PURCHASE_ITEM = 7,
+  PKT_REQ_RECEIPT_ITEM = 8,
+  PKT_RES_RECEIPT_ITEM = 9,
   PacketType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::min(),
   PacketType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<::PROTOBUF_NAMESPACE_ID::int32>::max()
 };
 bool PacketType_IsValid(int value);
 constexpr PacketType PacketType_MIN = PKT_REQ_AUCTION_LIST;
-constexpr PacketType PacketType_MAX = PKT_RES_AUCTION_LIST;
+constexpr PacketType PacketType_MAX = PKT_RES_RECEIPT_ITEM;
 constexpr int PacketType_ARRAYSIZE = PacketType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PacketType_descriptor();

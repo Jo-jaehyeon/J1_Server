@@ -47,7 +47,7 @@ struct TableStruct_GameStruct_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxiliaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[4]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[5]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -55,6 +55,9 @@ struct TableStruct_GameStruct_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameStruct_2eproto;
 namespace Game {
+class AuctionItemInfo;
+struct AuctionItemInfoDefaultTypeInternal;
+extern AuctionItemInfoDefaultTypeInternal _AuctionItemInfo_default_instance_;
 class LobbyCharacterInfo;
 struct LobbyCharacterInfoDefaultTypeInternal;
 extern LobbyCharacterInfoDefaultTypeInternal _LobbyCharacterInfo_default_instance_;
@@ -69,6 +72,7 @@ struct PosInfoDefaultTypeInternal;
 extern PosInfoDefaultTypeInternal _PosInfo_default_instance_;
 }  // namespace Game
 PROTOBUF_NAMESPACE_OPEN
+template<> ::Game::AuctionItemInfo* Arena::CreateMaybeMessage<::Game::AuctionItemInfo>(Arena*);
 template<> ::Game::LobbyCharacterInfo* Arena::CreateMaybeMessage<::Game::LobbyCharacterInfo>(Arena*);
 template<> ::Game::ObjectInfo* Arena::CreateMaybeMessage<::Game::ObjectInfo>(Arena*);
 template<> ::Game::PlayerInfo* Arena::CreateMaybeMessage<::Game::PlayerInfo>(Arena*);
@@ -194,6 +198,7 @@ class LobbyCharacterInfo final :
     kUpperskinIdFieldNumber = 6,
     kLowerskinIdFieldNumber = 7,
     kWeaponskinIdFieldNumber = 8,
+    kGoldFieldNumber = 9,
   };
   // string name = 3;
   void clear_name();
@@ -272,6 +277,15 @@ class LobbyCharacterInfo final :
   void _internal_set_weaponskinid(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
+  // uint64 Gold = 9;
+  void clear_gold();
+  ::PROTOBUF_NAMESPACE_ID::uint64 gold() const;
+  void set_gold(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::uint64 _internal_gold() const;
+  void _internal_set_gold(::PROTOBUF_NAMESPACE_ID::uint64 value);
+  public:
+
   // @@protoc_insertion_point(class_scope:Game.LobbyCharacterInfo)
  private:
   class _Internal;
@@ -287,6 +301,7 @@ class LobbyCharacterInfo final :
   ::PROTOBUF_NAMESPACE_ID::uint64 upperskinid_;
   ::PROTOBUF_NAMESPACE_ID::uint64 lowerskinid_;
   ::PROTOBUF_NAMESPACE_ID::uint64 weaponskinid_;
+  ::PROTOBUF_NAMESPACE_ID::uint64 gold_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameStruct_2eproto;
 };
@@ -852,6 +867,209 @@ class ObjectInfo final :
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_GameStruct_2eproto;
 };
+// -------------------------------------------------------------------
+
+class AuctionItemInfo final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Game.AuctionItemInfo) */ {
+ public:
+  inline AuctionItemInfo() : AuctionItemInfo(nullptr) {}
+  ~AuctionItemInfo() override;
+  explicit constexpr AuctionItemInfo(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  AuctionItemInfo(const AuctionItemInfo& from);
+  AuctionItemInfo(AuctionItemInfo&& from) noexcept
+    : AuctionItemInfo() {
+    *this = ::std::move(from);
+  }
+
+  inline AuctionItemInfo& operator=(const AuctionItemInfo& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline AuctionItemInfo& operator=(AuctionItemInfo&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const AuctionItemInfo& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const AuctionItemInfo* internal_default_instance() {
+    return reinterpret_cast<const AuctionItemInfo*>(
+               &_AuctionItemInfo_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(AuctionItemInfo& a, AuctionItemInfo& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(AuctionItemInfo* other) {
+    if (other == this) return;
+    if (GetOwningArena() == other->GetOwningArena()) {
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(AuctionItemInfo* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline AuctionItemInfo* New() const final {
+    return new AuctionItemInfo();
+  }
+
+  AuctionItemInfo* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<AuctionItemInfo>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const AuctionItemInfo& from);
+  void MergeFrom(const AuctionItemInfo& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* _InternalSerialize(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(AuctionItemInfo* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "Game.AuctionItemInfo";
+  }
+  protected:
+  explicit AuctionItemInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  private:
+  static void ArenaDtor(void* object);
+  inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kExpiredAtFieldNumber = 7,
+    kListIdFieldNumber = 1,
+    kPlayerIdFieldNumber = 2,
+    kReceiptTypeFieldNumber = 3,
+    kItemIdFieldNumber = 4,
+    kCountFieldNumber = 5,
+    kPriceFieldNumber = 6,
+  };
+  // string expired_at = 7;
+  void clear_expired_at();
+  const std::string& expired_at() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_expired_at(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_expired_at();
+  PROTOBUF_FUTURE_MUST_USE_RESULT std::string* release_expired_at();
+  void set_allocated_expired_at(std::string* expired_at);
+  private:
+  const std::string& _internal_expired_at() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_expired_at(const std::string& value);
+  std::string* _internal_mutable_expired_at();
+  public:
+
+  // int64 list_id = 1;
+  void clear_list_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 list_id() const;
+  void set_list_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_list_id() const;
+  void _internal_set_list_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // int64 player_id = 2;
+  void clear_player_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 player_id() const;
+  void set_player_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_player_id() const;
+  void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // int64 receipt_type = 3;
+  void clear_receipt_type();
+  ::PROTOBUF_NAMESPACE_ID::int64 receipt_type() const;
+  void set_receipt_type(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_receipt_type() const;
+  void _internal_set_receipt_type(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // int64 item_id = 4;
+  void clear_item_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 item_id() const;
+  void set_item_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_item_id() const;
+  void _internal_set_item_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // int64 count = 5;
+  void clear_count();
+  ::PROTOBUF_NAMESPACE_ID::int64 count() const;
+  void set_count(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_count() const;
+  void _internal_set_count(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // int64 price = 6;
+  void clear_price();
+  ::PROTOBUF_NAMESPACE_ID::int64 price() const;
+  void set_price(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_price() const;
+  void _internal_set_price(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Game.AuctionItemInfo)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr expired_at_;
+  ::PROTOBUF_NAMESPACE_ID::int64 list_id_;
+  ::PROTOBUF_NAMESPACE_ID::int64 player_id_;
+  ::PROTOBUF_NAMESPACE_ID::int64 receipt_type_;
+  ::PROTOBUF_NAMESPACE_ID::int64 item_id_;
+  ::PROTOBUF_NAMESPACE_ID::int64 count_;
+  ::PROTOBUF_NAMESPACE_ID::int64 price_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_GameStruct_2eproto;
+};
 // ===================================================================
 
 
@@ -1046,6 +1264,26 @@ inline void LobbyCharacterInfo::_internal_set_weaponskinid(::PROTOBUF_NAMESPACE_
 inline void LobbyCharacterInfo::set_weaponskinid(::PROTOBUF_NAMESPACE_ID::uint64 value) {
   _internal_set_weaponskinid(value);
   // @@protoc_insertion_point(field_set:Game.LobbyCharacterInfo.WeaponskinId)
+}
+
+// uint64 Gold = 9;
+inline void LobbyCharacterInfo::clear_gold() {
+  gold_ = uint64_t{0u};
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 LobbyCharacterInfo::_internal_gold() const {
+  return gold_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::uint64 LobbyCharacterInfo::gold() const {
+  // @@protoc_insertion_point(field_get:Game.LobbyCharacterInfo.Gold)
+  return _internal_gold();
+}
+inline void LobbyCharacterInfo::_internal_set_gold(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  
+  gold_ = value;
+}
+inline void LobbyCharacterInfo::set_gold(::PROTOBUF_NAMESPACE_ID::uint64 value) {
+  _internal_set_gold(value);
+  // @@protoc_insertion_point(field_set:Game.LobbyCharacterInfo.Gold)
 }
 
 // -------------------------------------------------------------------
@@ -1531,9 +1769,180 @@ inline void ObjectInfo::set_allocated_pos_info(::Game::PosInfo* pos_info) {
   // @@protoc_insertion_point(field_set_allocated:Game.ObjectInfo.pos_info)
 }
 
+// -------------------------------------------------------------------
+
+// AuctionItemInfo
+
+// int64 list_id = 1;
+inline void AuctionItemInfo::clear_list_id() {
+  list_id_ = int64_t{0};
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuctionItemInfo::_internal_list_id() const {
+  return list_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuctionItemInfo::list_id() const {
+  // @@protoc_insertion_point(field_get:Game.AuctionItemInfo.list_id)
+  return _internal_list_id();
+}
+inline void AuctionItemInfo::_internal_set_list_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  list_id_ = value;
+}
+inline void AuctionItemInfo::set_list_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_list_id(value);
+  // @@protoc_insertion_point(field_set:Game.AuctionItemInfo.list_id)
+}
+
+// int64 player_id = 2;
+inline void AuctionItemInfo::clear_player_id() {
+  player_id_ = int64_t{0};
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuctionItemInfo::_internal_player_id() const {
+  return player_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuctionItemInfo::player_id() const {
+  // @@protoc_insertion_point(field_get:Game.AuctionItemInfo.player_id)
+  return _internal_player_id();
+}
+inline void AuctionItemInfo::_internal_set_player_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  player_id_ = value;
+}
+inline void AuctionItemInfo::set_player_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_player_id(value);
+  // @@protoc_insertion_point(field_set:Game.AuctionItemInfo.player_id)
+}
+
+// int64 receipt_type = 3;
+inline void AuctionItemInfo::clear_receipt_type() {
+  receipt_type_ = int64_t{0};
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuctionItemInfo::_internal_receipt_type() const {
+  return receipt_type_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuctionItemInfo::receipt_type() const {
+  // @@protoc_insertion_point(field_get:Game.AuctionItemInfo.receipt_type)
+  return _internal_receipt_type();
+}
+inline void AuctionItemInfo::_internal_set_receipt_type(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  receipt_type_ = value;
+}
+inline void AuctionItemInfo::set_receipt_type(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_receipt_type(value);
+  // @@protoc_insertion_point(field_set:Game.AuctionItemInfo.receipt_type)
+}
+
+// int64 item_id = 4;
+inline void AuctionItemInfo::clear_item_id() {
+  item_id_ = int64_t{0};
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuctionItemInfo::_internal_item_id() const {
+  return item_id_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuctionItemInfo::item_id() const {
+  // @@protoc_insertion_point(field_get:Game.AuctionItemInfo.item_id)
+  return _internal_item_id();
+}
+inline void AuctionItemInfo::_internal_set_item_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  item_id_ = value;
+}
+inline void AuctionItemInfo::set_item_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_item_id(value);
+  // @@protoc_insertion_point(field_set:Game.AuctionItemInfo.item_id)
+}
+
+// int64 count = 5;
+inline void AuctionItemInfo::clear_count() {
+  count_ = int64_t{0};
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuctionItemInfo::_internal_count() const {
+  return count_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuctionItemInfo::count() const {
+  // @@protoc_insertion_point(field_get:Game.AuctionItemInfo.count)
+  return _internal_count();
+}
+inline void AuctionItemInfo::_internal_set_count(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  count_ = value;
+}
+inline void AuctionItemInfo::set_count(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_count(value);
+  // @@protoc_insertion_point(field_set:Game.AuctionItemInfo.count)
+}
+
+// int64 price = 6;
+inline void AuctionItemInfo::clear_price() {
+  price_ = int64_t{0};
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuctionItemInfo::_internal_price() const {
+  return price_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::int64 AuctionItemInfo::price() const {
+  // @@protoc_insertion_point(field_get:Game.AuctionItemInfo.price)
+  return _internal_price();
+}
+inline void AuctionItemInfo::_internal_set_price(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  
+  price_ = value;
+}
+inline void AuctionItemInfo::set_price(::PROTOBUF_NAMESPACE_ID::int64 value) {
+  _internal_set_price(value);
+  // @@protoc_insertion_point(field_set:Game.AuctionItemInfo.price)
+}
+
+// string expired_at = 7;
+inline void AuctionItemInfo::clear_expired_at() {
+  expired_at_.ClearToEmpty();
+}
+inline const std::string& AuctionItemInfo::expired_at() const {
+  // @@protoc_insertion_point(field_get:Game.AuctionItemInfo.expired_at)
+  return _internal_expired_at();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void AuctionItemInfo::set_expired_at(ArgT0&& arg0, ArgT... args) {
+ 
+ expired_at_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:Game.AuctionItemInfo.expired_at)
+}
+inline std::string* AuctionItemInfo::mutable_expired_at() {
+  // @@protoc_insertion_point(field_mutable:Game.AuctionItemInfo.expired_at)
+  return _internal_mutable_expired_at();
+}
+inline const std::string& AuctionItemInfo::_internal_expired_at() const {
+  return expired_at_.Get();
+}
+inline void AuctionItemInfo::_internal_set_expired_at(const std::string& value) {
+  
+  expired_at_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArenaForAllocation());
+}
+inline std::string* AuctionItemInfo::_internal_mutable_expired_at() {
+  
+  return expired_at_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArenaForAllocation());
+}
+inline std::string* AuctionItemInfo::release_expired_at() {
+  // @@protoc_insertion_point(field_release:Game.AuctionItemInfo.expired_at)
+  return expired_at_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArenaForAllocation());
+}
+inline void AuctionItemInfo::set_allocated_expired_at(std::string* expired_at) {
+  if (expired_at != nullptr) {
+    
+  } else {
+    
+  }
+  expired_at_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), expired_at,
+      GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set_allocated:Game.AuctionItemInfo.expired_at)
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

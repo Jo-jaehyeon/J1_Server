@@ -25,7 +25,7 @@ static constexpr ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema* schemas = n
 static constexpr ::PROTOBUF_NAMESPACE_ID::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_GameEnum_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\016GameEnum.proto\022\004Game*\323\004\n\nPacketType\022\017\n"
+  "\n\016GameEnum.proto\022\004Game*\341\006\n\nPacketType\022\017\n"
   "\013PKT_INVALID\020\000\022\035\n\030PKT_REQ_CHECK_TOKENVAL"
   "ID\020\350\007\022\035\n\030PKT_RES_CHECK_TOKENVALID\020\351\007\022\033\n\026"
   "PKT_REQ_CHARACTER_LIST\020\352\007\022\033\n\026PKT_RES_CHA"
@@ -40,16 +40,23 @@ const char descriptor_table_protodef_GameEnum_2eproto[] PROTOBUF_SECTION_VARIABL
   "PKT_RES_SPAWN\020\321\017\022\024\n\017PKT_REQ_DESPAWN\020\322\017\022\024"
   "\n\017PKT_RES_DESPAWN\020\323\017\022\021\n\014PKT_REQ_MOVE\020\324\017\022"
   "\021\n\014PKT_RES_MOVE\020\325\017\022\023\n\016PKT_REQ_ATTACK\020\270\027\022"
-  "\023\n\016PKT_RES_ATTACK\020\271\027*^\n\tMoveState\022\023\n\017MOV"
-  "E_STATE_NONE\020\000\022\023\n\017MOVE_STATE_IDLE\020\001\022\022\n\016M"
-  "OVE_STATE_RUN\020\002\022\023\n\017MOVE_STATE_JUMP\020\003*m\n\n"
-  "ObjectType\022\024\n\020OBJECT_TYPE_NONE\020\000\022\030\n\024OBJE"
-  "CT_TYPE_CREATURE\020\001\022\032\n\026OBJECT_TYPE_PROJEC"
-  "TILE\020\002\022\023\n\017OBJECT_TYPE_ENV\020\003b\006proto3"
+  "\023\n\016PKT_RES_ATTACK\020\271\027\022\031\n\024PKT_REQ_AUCTION_"
+  "LIST\020\240\037\022\031\n\024PKT_RES_AUCTION_LIST\020\241\037\022\031\n\024PK"
+  "T_REQ_RECEIPT_LIST\020\242\037\022\031\n\024PKT_RES_RECEIPT"
+  "_LIST\020\243\037\022\030\n\023PKT_REQ_REGIST_ITEM\020\244\037\022\030\n\023PK"
+  "T_RES_REGIST_ITEM\020\245\037\022\032\n\025PKT_REQ_PURCHASE"
+  "_ITEM\020\246\037\022\032\n\025PKT_RES_PURCHASE_ITEM\020\247\037\022\031\n\024"
+  "PKT_REQ_RECEIPT_ITEM\020\250\037\022\031\n\024PKT_RES_RECEI"
+  "PT_ITEM\020\251\037*^\n\tMoveState\022\023\n\017MOVE_STATE_NO"
+  "NE\020\000\022\023\n\017MOVE_STATE_IDLE\020\001\022\022\n\016MOVE_STATE_"
+  "RUN\020\002\022\023\n\017MOVE_STATE_JUMP\020\003*m\n\nObjectType"
+  "\022\024\n\020OBJECT_TYPE_NONE\020\000\022\030\n\024OBJECT_TYPE_CR"
+  "EATURE\020\001\022\032\n\026OBJECT_TYPE_PROJECTILE\020\002\022\023\n\017"
+  "OBJECT_TYPE_ENV\020\003b\006proto3"
   ;
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_GameEnum_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_GameEnum_2eproto = {
-  false, false, 835, descriptor_table_protodef_GameEnum_2eproto, "GameEnum.proto", 
+  false, false, 1105, descriptor_table_protodef_GameEnum_2eproto, "GameEnum.proto", 
   &descriptor_table_GameEnum_2eproto_once, nullptr, 0, 0,
   schemas, file_default_instances, TableStruct_GameEnum_2eproto::offsets,
   nullptr, file_level_enum_descriptors_GameEnum_2eproto, file_level_service_descriptors_GameEnum_2eproto,
@@ -90,6 +97,16 @@ bool PacketType_IsValid(int value) {
     case 2005:
     case 3000:
     case 3001:
+    case 4000:
+    case 4001:
+    case 4002:
+    case 4003:
+    case 4004:
+    case 4005:
+    case 4006:
+    case 4007:
+    case 4008:
+    case 4009:
       return true;
     default:
       return false;
