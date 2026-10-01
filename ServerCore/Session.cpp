@@ -1,4 +1,4 @@
-#include "pch.h"
+﻿#include "pch.h"
 #include "Session.h"
 
 #pragma message("Session.cpp is being compiled")
@@ -13,6 +13,18 @@ Session::Session(boost::asio::io_context& io_context)
 void Session::Start()
 {
     AsyncRead();
+}
+
+bool Session::Close()
+{
+    bool expected = false;
+    if (!_closed.compare_exchange_strong(expected, true))
+        return false; // 이미 처리됐으면 재실행 안 함
+
+    boost::system::error_code ec;
+    _socket.close(ec);
+
+    return true;
 }
 
 void Session::Send(BufferPooledVector& buffer, size_t size)
@@ -80,14 +92,16 @@ void Session::OnHeaderRead(const boost::system::error_code& err, size_t bytes_tr
         }
         else
         {
+            // 버그가 발생한 클라 or 악의적인 접근
             spdlog::error("Failed to parse Header..");
+            Close();
         }
     }
     else
     {
-        spdlog::error("Header Read Error : {}", err.message());
+        spdlog::error("{} session Header Read Error : {}", session_id, err.message());
+        Close();
     }
-
 }
 
 void Session::OnBodyRead(const boost::system::error_code& err, size_t bytes_transferred)
@@ -96,15 +110,19 @@ void Session::OnBodyRead(const boost::system::error_code& err, size_t bytes_tran
     {
         spdlog::trace("Received Body bytes {}", bytes_transferred);
         HandlePacket();
+        AsyncHeaderRead();
     }
     else
     {
         spdlog::error("Packet Read Error : {}", err.message());
+        Close();
     }
-    AsyncHeaderRead();
 }
 
 void Session::OnWrite(const boost::system::error_code& err, size_t bytes_transferred)
 {
-
+    if (err)
+    {
+        Close();
+    }
 }

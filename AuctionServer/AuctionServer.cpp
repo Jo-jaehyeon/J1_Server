@@ -50,7 +50,7 @@ int main()
 
 	try
 	{
-		int port = 9002;
+		int port = 9003;
 		boost::asio::io_context io_context;
 		AuctionServer s(io_context, port);
 		s.StartAccept();

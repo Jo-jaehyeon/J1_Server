@@ -6,7 +6,6 @@
 AuctionSession::AuctionSession(asio::io_context& io_context)
 	: Session(io_context)
 	, _io_context(&io_context)
-	, _socket(io_context)
 {
 	AuctionServerPacketHandler::Init();
 }
@@ -57,6 +56,7 @@ void AuctionSession::OnConnect(const boost::system::error_code& err)
 	if (!err)
 	{
 		AsyncRead();
+		spdlog::info("Connect Auction Start");
 
 	}
 	else

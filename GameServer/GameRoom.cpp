@@ -55,7 +55,7 @@ bool GameRoom::HandleEnterPlayerLocked(GameMemberPtr player)
 
 	bool success = EnterPlayer(player);
 	if(success)
-		spdlog::info("Someone Enter chat Room");
+		spdlog::info("Someone Enter Game Room");
 
 	Game::RES_ENTER_GAME enterPkt;
 	enterPkt.set_result(success);
@@ -71,7 +71,7 @@ bool GameRoom::HandleLeavePlayerLocked(int32 player_id)
 
 	bool success = LeavePlayer(player_id);
 	if (success)
-		spdlog::info("Someone Leave chat Room");
+		spdlog::info("Someone Leave Game Room");
 
 	return success;
 }

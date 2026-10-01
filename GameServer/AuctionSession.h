@@ -3,6 +3,8 @@
 #include "Session.h"
 #include "pch.h"
 
+extern AuctionSessionPtr GAuctionSession;
+
 class AuctionSession : public Session
 {
 public:
@@ -23,7 +25,6 @@ public:
 
 protected:
 	asio::io_context* _io_context;
-	boost::asio::ip::tcp::socket _socket;
 
 	std::atomic<bool> _connected = false;
 };

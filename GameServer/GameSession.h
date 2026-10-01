@@ -10,12 +10,12 @@ public:
 	virtual SessionPtr GetSessionPtr() { return static_pointer_cast<Session>(shared_from_this()); }
 
 public:
+	virtual bool Close() override;
 	virtual void AsyncWrite(const BufferPooledVector& data, size_t size) override;
 
 	virtual void HandlePacket() override;
 
 	void SendPacket(google::protobuf::Message& msg, const short packetCode);
-
 
 public:
 	std::atomic<std::shared_ptr<GameMember>> player;

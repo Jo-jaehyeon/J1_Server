@@ -6,6 +6,9 @@
 #include "DB/ConnectionPool.h"
 #include "DB/MySQLConnection.h"
 #include "DB/ConnectionFactory.h"
+#include "Utils/GameSessionManager.h"
+
+AuctionSessionPtr GAuctionSession;
 
 GameServer::GameServer(asio::io_context& io_context, int port)
 	: _acceptor(io_context, tcp::endpoint(tcp::v4(), port)),
@@ -17,7 +20,7 @@ void GameServer::StartAccept()
 {
 	GameSession* session = new GameSession(_io_context);
 	GameSessionPtr sessionPtr(session);
-
+	
 	//sessionPtr = sessionPtr의 이유
 	//ChatSessionPtr& abc = SessionPtr은 주소값을 복사해오기 때문에 레퍼 카운팅이 증가하지 않음
 	//람다에 &sessionPtr을 하게 될 경우 마찬가지로 레퍼카운팅이 증가하지 않아 OnAccept 중간에 크래시가 날 수 있음
@@ -30,11 +33,12 @@ void GameServer::StartAccept()
 		));
 }
 
-void GameServer::OnAccept(SessionPtr session, boost::system::error_code ec)
+void GameServer::OnAccept(GameSessionPtr session, boost::system::error_code ec)
 {
 	if (!ec)
 	{
 		spdlog::info("Session Connected");
+		GameSessionManager::Instance().Register(session);
 		session->Start();
 	}
 	StartAccept();
@@ -55,15 +59,12 @@ int main()
 		GameServer s(io_context, port);
 		s.StartAccept();
 		spdlog::info("Server Start {}", port);
-		io_context.run();
-
 
 		// 경매장 서버와 연결
-		boost::asio::io_context auction_context;
-		AuctionSession* session = new AuctionSession(auction_context);
-		AuctionSessionPtr sessionPtr(session);
+		GAuctionSession = std::make_shared<AuctionSession>(io_context);
+		GAuctionSession->Connect("127.0.0.1", 9003);
 
-		sessionPtr->Connect("127.0.0.1", 9002);
+		io_context.run();
 	}
 	catch (std::exception& e)
 	{

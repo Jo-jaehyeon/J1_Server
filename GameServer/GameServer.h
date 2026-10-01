@@ -10,7 +10,7 @@ public:
 	void StartAccept();
 
 protected:
-	void OnAccept(SessionPtr session, boost::system::error_code ec);
+	void OnAccept(GameSessionPtr session, boost::system::error_code ec);
 
 
 private:

@@ -2,6 +2,7 @@
 #include "GameSession.h"
 #include "GameMember.h"
 #include "Network/Handlers/GamePacketHandler.h"
+#include "Utils/GameSessionManager.h"
 
 GameSession::GameSession(asio::io_context& io_context)
 	: Session(io_context)
@@ -10,6 +11,17 @@ GameSession::GameSession(asio::io_context& io_context)
 
 GameSession::~GameSession()
 {
+}
+
+bool GameSession::Close()
+{
+	if (!Session::Close())
+		return false; // 이미 종료 처리된 세션이면 여기서 끝 — 중복 Unregister 방지
+
+	GameSessionManager::Instance().Unregister(GetSessionId());
+	spdlog::info("Session {} Disconnected", GetSessionId());
+
+	return true;
 }
 
 void GameSession::AsyncWrite(const BufferPooledVector& data, size_t size)

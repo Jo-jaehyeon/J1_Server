@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <boost/bind/bind.hpp>
 #include <boost/asio.hpp>
 
@@ -14,7 +14,12 @@ public:
 
 	boost::asio::ip::tcp::socket& GetSocket() { return _socket; }
 	void Start();
+	virtual bool Close();
 	void Send(BufferPooledVector& buffer, size_t size);
+
+
+	void SetSessionId(uint64 id) { session_id = id; }
+	uint64 GetSessionId() const { return session_id; }
 
 protected:
 	virtual void AsyncRead();
@@ -42,4 +47,8 @@ private:
 	const static size_t HeaderBufferSize = 4;
 	char _recvBuffer[RecvBufferSize];
 	char _sendBuffer[SendBufferSize];
+
+	std::atomic<bool> _closed{ false }; // Close() 중복 실행 방지용
+
+	uint64 session_id = 0;
 };
