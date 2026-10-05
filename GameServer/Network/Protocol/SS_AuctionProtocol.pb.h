@@ -32,7 +32,7 @@
 #include <google/protobuf/extension_set.h>  // IWYU pragma: export
 #include <google/protobuf/unknown_field_set.h>
 #include "SS_AuctionEnum.pb.h"
-#include "SS_AuctionStruct.pb.h"
+#include "GameStruct.pb.h"
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 #define PROTOBUF_INTERNAL_EXPORT_SS_5fAuctionProtocol_2eproto
@@ -397,31 +397,31 @@ class RES_AUCTION_LIST final :
     kRequestIdFieldNumber = 2,
     kMyListFieldNumber = 4,
   };
-  // repeated .SS_Auction.AuctionItemInfo ListInfo = 3;
+  // repeated .Game.AuctionItemInfo ListInfo = 3;
   int listinfo_size() const;
   private:
   int _internal_listinfo_size() const;
   public:
   void clear_listinfo();
-  ::SS_Auction::AuctionItemInfo* mutable_listinfo(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+  ::Game::AuctionItemInfo* mutable_listinfo(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >*
       mutable_listinfo();
   private:
-  const ::SS_Auction::AuctionItemInfo& _internal_listinfo(int index) const;
-  ::SS_Auction::AuctionItemInfo* _internal_add_listinfo();
+  const ::Game::AuctionItemInfo& _internal_listinfo(int index) const;
+  ::Game::AuctionItemInfo* _internal_add_listinfo();
   public:
-  const ::SS_Auction::AuctionItemInfo& listinfo(int index) const;
-  ::SS_Auction::AuctionItemInfo* add_listinfo();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+  const ::Game::AuctionItemInfo& listinfo(int index) const;
+  ::Game::AuctionItemInfo* add_listinfo();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >&
       listinfo() const;
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   void clear_session_id();
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
-  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
-  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
   // int32 request_id = 2;
@@ -449,8 +449,8 @@ class RES_AUCTION_LIST final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo > listinfo_;
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo > listinfo_;
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id_;
   ::PROTOBUF_NAMESPACE_ID::int32 request_id_;
   bool mylist_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -566,9 +566,18 @@ class REQ_RECEIPT_LIST final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kPlayerIdFieldNumber = 2,
     kSessionIdFieldNumber = 1,
+    kPlayerIdFieldNumber = 2,
   };
+  // int64 session_id = 1;
+  void clear_session_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
   // uint64 player_id = 2;
   void clear_player_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 player_id() const;
@@ -578,15 +587,6 @@ class REQ_RECEIPT_LIST final :
   void _internal_set_player_id(::PROTOBUF_NAMESPACE_ID::uint64 value);
   public:
 
-  // int32 session_id = 1;
-  void clear_session_id();
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
-  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
-  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
   // @@protoc_insertion_point(class_scope:SS_Auction.REQ_RECEIPT_LIST)
  private:
   class _Internal;
@@ -594,8 +594,8 @@ class REQ_RECEIPT_LIST final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 player_id_;
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
 };
@@ -712,31 +712,31 @@ class RES_RECEIPT_LIST final :
     kReceiptListFieldNumber = 2,
     kSessionIdFieldNumber = 1,
   };
-  // repeated .SS_Auction.AuctionItemInfo ReceiptList = 2;
+  // repeated .Game.AuctionItemInfo ReceiptList = 2;
   int receiptlist_size() const;
   private:
   int _internal_receiptlist_size() const;
   public:
   void clear_receiptlist();
-  ::SS_Auction::AuctionItemInfo* mutable_receiptlist(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+  ::Game::AuctionItemInfo* mutable_receiptlist(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >*
       mutable_receiptlist();
   private:
-  const ::SS_Auction::AuctionItemInfo& _internal_receiptlist(int index) const;
-  ::SS_Auction::AuctionItemInfo* _internal_add_receiptlist();
+  const ::Game::AuctionItemInfo& _internal_receiptlist(int index) const;
+  ::Game::AuctionItemInfo* _internal_add_receiptlist();
   public:
-  const ::SS_Auction::AuctionItemInfo& receiptlist(int index) const;
-  ::SS_Auction::AuctionItemInfo* add_receiptlist();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+  const ::Game::AuctionItemInfo& receiptlist(int index) const;
+  ::Game::AuctionItemInfo* add_receiptlist();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >&
       receiptlist() const;
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   void clear_session_id();
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
-  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
-  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
   // @@protoc_insertion_point(class_scope:SS_Auction.RES_RECEIPT_LIST)
@@ -746,8 +746,8 @@ class RES_RECEIPT_LIST final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo > receiptlist_;
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo > receiptlist_;
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
 };
@@ -864,31 +864,31 @@ class REQ_REGIST_ITEM final :
     kRegistInfoFieldNumber = 2,
     kSessionIdFieldNumber = 1,
   };
-  // repeated .SS_Auction.AuctionItemInfo RegistInfo = 2;
+  // repeated .Game.AuctionItemInfo RegistInfo = 2;
   int registinfo_size() const;
   private:
   int _internal_registinfo_size() const;
   public:
   void clear_registinfo();
-  ::SS_Auction::AuctionItemInfo* mutable_registinfo(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+  ::Game::AuctionItemInfo* mutable_registinfo(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >*
       mutable_registinfo();
   private:
-  const ::SS_Auction::AuctionItemInfo& _internal_registinfo(int index) const;
-  ::SS_Auction::AuctionItemInfo* _internal_add_registinfo();
+  const ::Game::AuctionItemInfo& _internal_registinfo(int index) const;
+  ::Game::AuctionItemInfo* _internal_add_registinfo();
   public:
-  const ::SS_Auction::AuctionItemInfo& registinfo(int index) const;
-  ::SS_Auction::AuctionItemInfo* add_registinfo();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+  const ::Game::AuctionItemInfo& registinfo(int index) const;
+  ::Game::AuctionItemInfo* add_registinfo();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >&
       registinfo() const;
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   void clear_session_id();
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
-  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
-  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
   // @@protoc_insertion_point(class_scope:SS_Auction.REQ_REGIST_ITEM)
@@ -898,8 +898,8 @@ class REQ_REGIST_ITEM final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo > registinfo_;
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo > registinfo_;
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
 };
@@ -1016,13 +1016,13 @@ class RES_REGIST_ITEM final :
     kSessionIdFieldNumber = 1,
     kResultFieldNumber = 2,
   };
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   void clear_session_id();
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
-  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
-  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
   // bool result = 2;
@@ -1041,7 +1041,7 @@ class RES_REGIST_ITEM final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id_;
   bool result_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
@@ -1159,31 +1159,31 @@ class REQ_PURCHASE_ITEM final :
     kPurchaseInfoFieldNumber = 2,
     kSessionIdFieldNumber = 1,
   };
-  // repeated .SS_Auction.AuctionItemInfo PurchaseInfo = 2;
+  // repeated .Game.AuctionItemInfo PurchaseInfo = 2;
   int purchaseinfo_size() const;
   private:
   int _internal_purchaseinfo_size() const;
   public:
   void clear_purchaseinfo();
-  ::SS_Auction::AuctionItemInfo* mutable_purchaseinfo(int index);
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+  ::Game::AuctionItemInfo* mutable_purchaseinfo(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >*
       mutable_purchaseinfo();
   private:
-  const ::SS_Auction::AuctionItemInfo& _internal_purchaseinfo(int index) const;
-  ::SS_Auction::AuctionItemInfo* _internal_add_purchaseinfo();
+  const ::Game::AuctionItemInfo& _internal_purchaseinfo(int index) const;
+  ::Game::AuctionItemInfo* _internal_add_purchaseinfo();
   public:
-  const ::SS_Auction::AuctionItemInfo& purchaseinfo(int index) const;
-  ::SS_Auction::AuctionItemInfo* add_purchaseinfo();
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+  const ::Game::AuctionItemInfo& purchaseinfo(int index) const;
+  ::Game::AuctionItemInfo* add_purchaseinfo();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >&
       purchaseinfo() const;
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   void clear_session_id();
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
-  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
-  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
   // @@protoc_insertion_point(class_scope:SS_Auction.REQ_PURCHASE_ITEM)
@@ -1193,8 +1193,8 @@ class REQ_PURCHASE_ITEM final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo > purchaseinfo_;
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo > purchaseinfo_;
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
 };
@@ -1309,25 +1309,16 @@ class RES_PURCHASE_ITEM final :
 
   enum : int {
     kSessionIdFieldNumber = 1,
-    kResultFieldNumber = 2,
     kGoldFieldNumber = 3,
+    kResultFieldNumber = 2,
   };
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   void clear_session_id();
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
-  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
   private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
-  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // bool result = 2;
-  void clear_result();
-  bool result() const;
-  void set_result(bool value);
-  private:
-  bool _internal_result() const;
-  void _internal_set_result(bool value);
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
   // int64 gold = 3;
@@ -1339,6 +1330,15 @@ class RES_PURCHASE_ITEM final :
   void _internal_set_gold(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
+  // bool result = 2;
+  void clear_result();
+  bool result() const;
+  void set_result(bool value);
+  private:
+  bool _internal_result() const;
+  void _internal_set_result(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:SS_Auction.RES_PURCHASE_ITEM)
  private:
   class _Internal;
@@ -1346,9 +1346,9 @@ class RES_PURCHASE_ITEM final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
-  bool result_;
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id_;
   ::PROTOBUF_NAMESPACE_ID::int64 gold_;
+  bool result_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
 };
@@ -1462,10 +1462,19 @@ class REQ_RECEIPT_ITEM final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kSessionIdFieldNumber = 1,
     kPlayerIdFieldNumber = 2,
     kReceiptIdFieldNumber = 3,
-    kSessionIdFieldNumber = 1,
   };
+  // int64 session_id = 1;
+  void clear_session_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
   // uint64 player_id = 2;
   void clear_player_id();
   ::PROTOBUF_NAMESPACE_ID::uint64 player_id() const;
@@ -1484,15 +1493,6 @@ class REQ_RECEIPT_ITEM final :
   void _internal_set_receipt_id(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
-  // int32 session_id = 1;
-  void clear_session_id();
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
-  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
-  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
   // @@protoc_insertion_point(class_scope:SS_Auction.REQ_RECEIPT_ITEM)
  private:
   class _Internal;
@@ -1500,9 +1500,9 @@ class REQ_RECEIPT_ITEM final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id_;
   ::PROTOBUF_NAMESPACE_ID::uint64 player_id_;
   ::PROTOBUF_NAMESPACE_ID::int64 receipt_id_;
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
 };
@@ -1616,11 +1616,20 @@ class RES_RECEIPT_ITEM final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kReceiptIdFieldNumber = 2,
     kSessionIdFieldNumber = 1,
-    kResultFieldNumber = 3,
+    kReceiptIdFieldNumber = 2,
     kGoldFieldNumber = 4,
+    kResultFieldNumber = 3,
   };
+  // int64 session_id = 1;
+  void clear_session_id();
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id() const;
+  void set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  private:
+  ::PROTOBUF_NAMESPACE_ID::int64 _internal_session_id() const;
+  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value);
+  public:
+
   // int64 receipt_id = 2;
   void clear_receipt_id();
   ::PROTOBUF_NAMESPACE_ID::int64 receipt_id() const;
@@ -1628,24 +1637,6 @@ class RES_RECEIPT_ITEM final :
   private:
   ::PROTOBUF_NAMESPACE_ID::int64 _internal_receipt_id() const;
   void _internal_set_receipt_id(::PROTOBUF_NAMESPACE_ID::int64 value);
-  public:
-
-  // int32 session_id = 1;
-  void clear_session_id();
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id() const;
-  void set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
-  private:
-  ::PROTOBUF_NAMESPACE_ID::int32 _internal_session_id() const;
-  void _internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value);
-  public:
-
-  // bool result = 3;
-  void clear_result();
-  bool result() const;
-  void set_result(bool value);
-  private:
-  bool _internal_result() const;
-  void _internal_set_result(bool value);
   public:
 
   // int64 gold = 4;
@@ -1657,6 +1648,15 @@ class RES_RECEIPT_ITEM final :
   void _internal_set_gold(::PROTOBUF_NAMESPACE_ID::int64 value);
   public:
 
+  // bool result = 3;
+  void clear_result();
+  bool result() const;
+  void set_result(bool value);
+  private:
+  bool _internal_result() const;
+  void _internal_set_result(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:SS_Auction.RES_RECEIPT_ITEM)
  private:
   class _Internal;
@@ -1664,10 +1664,10 @@ class RES_RECEIPT_ITEM final :
   template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
+  ::PROTOBUF_NAMESPACE_ID::int64 session_id_;
   ::PROTOBUF_NAMESPACE_ID::int64 receipt_id_;
-  ::PROTOBUF_NAMESPACE_ID::int32 session_id_;
-  bool result_;
   ::PROTOBUF_NAMESPACE_ID::int64 gold_;
+  bool result_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_SS_5fAuctionProtocol_2eproto;
 };
@@ -1811,22 +1811,22 @@ inline void REQ_AUCTION_LIST::set_mylist(bool value) {
 
 // RES_AUCTION_LIST
 
-// int32 session_id = 1;
+// int64 session_id = 1;
 inline void RES_AUCTION_LIST::clear_session_id() {
-  session_id_ = 0;
+  session_id_ = int64_t{0};
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_AUCTION_LIST::_internal_session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_AUCTION_LIST::_internal_session_id() const {
   return session_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_AUCTION_LIST::session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_AUCTION_LIST::session_id() const {
   // @@protoc_insertion_point(field_get:SS_Auction.RES_AUCTION_LIST.session_id)
   return _internal_session_id();
 }
-inline void RES_AUCTION_LIST::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void RES_AUCTION_LIST::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   
   session_id_ = value;
 }
-inline void RES_AUCTION_LIST::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void RES_AUCTION_LIST::set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_session_id(value);
   // @@protoc_insertion_point(field_set:SS_Auction.RES_AUCTION_LIST.session_id)
 }
@@ -1851,37 +1851,37 @@ inline void RES_AUCTION_LIST::set_request_id(::PROTOBUF_NAMESPACE_ID::int32 valu
   // @@protoc_insertion_point(field_set:SS_Auction.RES_AUCTION_LIST.request_id)
 }
 
-// repeated .SS_Auction.AuctionItemInfo ListInfo = 3;
+// repeated .Game.AuctionItemInfo ListInfo = 3;
 inline int RES_AUCTION_LIST::_internal_listinfo_size() const {
   return listinfo_.size();
 }
 inline int RES_AUCTION_LIST::listinfo_size() const {
   return _internal_listinfo_size();
 }
-inline ::SS_Auction::AuctionItemInfo* RES_AUCTION_LIST::mutable_listinfo(int index) {
+inline ::Game::AuctionItemInfo* RES_AUCTION_LIST::mutable_listinfo(int index) {
   // @@protoc_insertion_point(field_mutable:SS_Auction.RES_AUCTION_LIST.ListInfo)
   return listinfo_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >*
 RES_AUCTION_LIST::mutable_listinfo() {
   // @@protoc_insertion_point(field_mutable_list:SS_Auction.RES_AUCTION_LIST.ListInfo)
   return &listinfo_;
 }
-inline const ::SS_Auction::AuctionItemInfo& RES_AUCTION_LIST::_internal_listinfo(int index) const {
+inline const ::Game::AuctionItemInfo& RES_AUCTION_LIST::_internal_listinfo(int index) const {
   return listinfo_.Get(index);
 }
-inline const ::SS_Auction::AuctionItemInfo& RES_AUCTION_LIST::listinfo(int index) const {
+inline const ::Game::AuctionItemInfo& RES_AUCTION_LIST::listinfo(int index) const {
   // @@protoc_insertion_point(field_get:SS_Auction.RES_AUCTION_LIST.ListInfo)
   return _internal_listinfo(index);
 }
-inline ::SS_Auction::AuctionItemInfo* RES_AUCTION_LIST::_internal_add_listinfo() {
+inline ::Game::AuctionItemInfo* RES_AUCTION_LIST::_internal_add_listinfo() {
   return listinfo_.Add();
 }
-inline ::SS_Auction::AuctionItemInfo* RES_AUCTION_LIST::add_listinfo() {
+inline ::Game::AuctionItemInfo* RES_AUCTION_LIST::add_listinfo() {
   // @@protoc_insertion_point(field_add:SS_Auction.RES_AUCTION_LIST.ListInfo)
   return _internal_add_listinfo();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >&
 RES_AUCTION_LIST::listinfo() const {
   // @@protoc_insertion_point(field_list:SS_Auction.RES_AUCTION_LIST.ListInfo)
   return listinfo_;
@@ -1911,22 +1911,22 @@ inline void RES_AUCTION_LIST::set_mylist(bool value) {
 
 // REQ_RECEIPT_LIST
 
-// int32 session_id = 1;
+// int64 session_id = 1;
 inline void REQ_RECEIPT_LIST::clear_session_id() {
-  session_id_ = 0;
+  session_id_ = int64_t{0};
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_RECEIPT_LIST::_internal_session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 REQ_RECEIPT_LIST::_internal_session_id() const {
   return session_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_RECEIPT_LIST::session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 REQ_RECEIPT_LIST::session_id() const {
   // @@protoc_insertion_point(field_get:SS_Auction.REQ_RECEIPT_LIST.session_id)
   return _internal_session_id();
 }
-inline void REQ_RECEIPT_LIST::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void REQ_RECEIPT_LIST::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   
   session_id_ = value;
 }
-inline void REQ_RECEIPT_LIST::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void REQ_RECEIPT_LIST::set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_session_id(value);
   // @@protoc_insertion_point(field_set:SS_Auction.REQ_RECEIPT_LIST.session_id)
 }
@@ -1955,57 +1955,57 @@ inline void REQ_RECEIPT_LIST::set_player_id(::PROTOBUF_NAMESPACE_ID::uint64 valu
 
 // RES_RECEIPT_LIST
 
-// int32 session_id = 1;
+// int64 session_id = 1;
 inline void RES_RECEIPT_LIST::clear_session_id() {
-  session_id_ = 0;
+  session_id_ = int64_t{0};
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_RECEIPT_LIST::_internal_session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_RECEIPT_LIST::_internal_session_id() const {
   return session_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_RECEIPT_LIST::session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_RECEIPT_LIST::session_id() const {
   // @@protoc_insertion_point(field_get:SS_Auction.RES_RECEIPT_LIST.session_id)
   return _internal_session_id();
 }
-inline void RES_RECEIPT_LIST::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void RES_RECEIPT_LIST::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   
   session_id_ = value;
 }
-inline void RES_RECEIPT_LIST::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void RES_RECEIPT_LIST::set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_session_id(value);
   // @@protoc_insertion_point(field_set:SS_Auction.RES_RECEIPT_LIST.session_id)
 }
 
-// repeated .SS_Auction.AuctionItemInfo ReceiptList = 2;
+// repeated .Game.AuctionItemInfo ReceiptList = 2;
 inline int RES_RECEIPT_LIST::_internal_receiptlist_size() const {
   return receiptlist_.size();
 }
 inline int RES_RECEIPT_LIST::receiptlist_size() const {
   return _internal_receiptlist_size();
 }
-inline ::SS_Auction::AuctionItemInfo* RES_RECEIPT_LIST::mutable_receiptlist(int index) {
+inline ::Game::AuctionItemInfo* RES_RECEIPT_LIST::mutable_receiptlist(int index) {
   // @@protoc_insertion_point(field_mutable:SS_Auction.RES_RECEIPT_LIST.ReceiptList)
   return receiptlist_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >*
 RES_RECEIPT_LIST::mutable_receiptlist() {
   // @@protoc_insertion_point(field_mutable_list:SS_Auction.RES_RECEIPT_LIST.ReceiptList)
   return &receiptlist_;
 }
-inline const ::SS_Auction::AuctionItemInfo& RES_RECEIPT_LIST::_internal_receiptlist(int index) const {
+inline const ::Game::AuctionItemInfo& RES_RECEIPT_LIST::_internal_receiptlist(int index) const {
   return receiptlist_.Get(index);
 }
-inline const ::SS_Auction::AuctionItemInfo& RES_RECEIPT_LIST::receiptlist(int index) const {
+inline const ::Game::AuctionItemInfo& RES_RECEIPT_LIST::receiptlist(int index) const {
   // @@protoc_insertion_point(field_get:SS_Auction.RES_RECEIPT_LIST.ReceiptList)
   return _internal_receiptlist(index);
 }
-inline ::SS_Auction::AuctionItemInfo* RES_RECEIPT_LIST::_internal_add_receiptlist() {
+inline ::Game::AuctionItemInfo* RES_RECEIPT_LIST::_internal_add_receiptlist() {
   return receiptlist_.Add();
 }
-inline ::SS_Auction::AuctionItemInfo* RES_RECEIPT_LIST::add_receiptlist() {
+inline ::Game::AuctionItemInfo* RES_RECEIPT_LIST::add_receiptlist() {
   // @@protoc_insertion_point(field_add:SS_Auction.RES_RECEIPT_LIST.ReceiptList)
   return _internal_add_receiptlist();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >&
 RES_RECEIPT_LIST::receiptlist() const {
   // @@protoc_insertion_point(field_list:SS_Auction.RES_RECEIPT_LIST.ReceiptList)
   return receiptlist_;
@@ -2015,57 +2015,57 @@ RES_RECEIPT_LIST::receiptlist() const {
 
 // REQ_REGIST_ITEM
 
-// int32 session_id = 1;
+// int64 session_id = 1;
 inline void REQ_REGIST_ITEM::clear_session_id() {
-  session_id_ = 0;
+  session_id_ = int64_t{0};
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_REGIST_ITEM::_internal_session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 REQ_REGIST_ITEM::_internal_session_id() const {
   return session_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_REGIST_ITEM::session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 REQ_REGIST_ITEM::session_id() const {
   // @@protoc_insertion_point(field_get:SS_Auction.REQ_REGIST_ITEM.session_id)
   return _internal_session_id();
 }
-inline void REQ_REGIST_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void REQ_REGIST_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   
   session_id_ = value;
 }
-inline void REQ_REGIST_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void REQ_REGIST_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_session_id(value);
   // @@protoc_insertion_point(field_set:SS_Auction.REQ_REGIST_ITEM.session_id)
 }
 
-// repeated .SS_Auction.AuctionItemInfo RegistInfo = 2;
+// repeated .Game.AuctionItemInfo RegistInfo = 2;
 inline int REQ_REGIST_ITEM::_internal_registinfo_size() const {
   return registinfo_.size();
 }
 inline int REQ_REGIST_ITEM::registinfo_size() const {
   return _internal_registinfo_size();
 }
-inline ::SS_Auction::AuctionItemInfo* REQ_REGIST_ITEM::mutable_registinfo(int index) {
+inline ::Game::AuctionItemInfo* REQ_REGIST_ITEM::mutable_registinfo(int index) {
   // @@protoc_insertion_point(field_mutable:SS_Auction.REQ_REGIST_ITEM.RegistInfo)
   return registinfo_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >*
 REQ_REGIST_ITEM::mutable_registinfo() {
   // @@protoc_insertion_point(field_mutable_list:SS_Auction.REQ_REGIST_ITEM.RegistInfo)
   return &registinfo_;
 }
-inline const ::SS_Auction::AuctionItemInfo& REQ_REGIST_ITEM::_internal_registinfo(int index) const {
+inline const ::Game::AuctionItemInfo& REQ_REGIST_ITEM::_internal_registinfo(int index) const {
   return registinfo_.Get(index);
 }
-inline const ::SS_Auction::AuctionItemInfo& REQ_REGIST_ITEM::registinfo(int index) const {
+inline const ::Game::AuctionItemInfo& REQ_REGIST_ITEM::registinfo(int index) const {
   // @@protoc_insertion_point(field_get:SS_Auction.REQ_REGIST_ITEM.RegistInfo)
   return _internal_registinfo(index);
 }
-inline ::SS_Auction::AuctionItemInfo* REQ_REGIST_ITEM::_internal_add_registinfo() {
+inline ::Game::AuctionItemInfo* REQ_REGIST_ITEM::_internal_add_registinfo() {
   return registinfo_.Add();
 }
-inline ::SS_Auction::AuctionItemInfo* REQ_REGIST_ITEM::add_registinfo() {
+inline ::Game::AuctionItemInfo* REQ_REGIST_ITEM::add_registinfo() {
   // @@protoc_insertion_point(field_add:SS_Auction.REQ_REGIST_ITEM.RegistInfo)
   return _internal_add_registinfo();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >&
 REQ_REGIST_ITEM::registinfo() const {
   // @@protoc_insertion_point(field_list:SS_Auction.REQ_REGIST_ITEM.RegistInfo)
   return registinfo_;
@@ -2075,22 +2075,22 @@ REQ_REGIST_ITEM::registinfo() const {
 
 // RES_REGIST_ITEM
 
-// int32 session_id = 1;
+// int64 session_id = 1;
 inline void RES_REGIST_ITEM::clear_session_id() {
-  session_id_ = 0;
+  session_id_ = int64_t{0};
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_REGIST_ITEM::_internal_session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_REGIST_ITEM::_internal_session_id() const {
   return session_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_REGIST_ITEM::session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_REGIST_ITEM::session_id() const {
   // @@protoc_insertion_point(field_get:SS_Auction.RES_REGIST_ITEM.session_id)
   return _internal_session_id();
 }
-inline void RES_REGIST_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void RES_REGIST_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   
   session_id_ = value;
 }
-inline void RES_REGIST_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void RES_REGIST_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_session_id(value);
   // @@protoc_insertion_point(field_set:SS_Auction.RES_REGIST_ITEM.session_id)
 }
@@ -2119,57 +2119,57 @@ inline void RES_REGIST_ITEM::set_result(bool value) {
 
 // REQ_PURCHASE_ITEM
 
-// int32 session_id = 1;
+// int64 session_id = 1;
 inline void REQ_PURCHASE_ITEM::clear_session_id() {
-  session_id_ = 0;
+  session_id_ = int64_t{0};
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_PURCHASE_ITEM::_internal_session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 REQ_PURCHASE_ITEM::_internal_session_id() const {
   return session_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_PURCHASE_ITEM::session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 REQ_PURCHASE_ITEM::session_id() const {
   // @@protoc_insertion_point(field_get:SS_Auction.REQ_PURCHASE_ITEM.session_id)
   return _internal_session_id();
 }
-inline void REQ_PURCHASE_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void REQ_PURCHASE_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   
   session_id_ = value;
 }
-inline void REQ_PURCHASE_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void REQ_PURCHASE_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_session_id(value);
   // @@protoc_insertion_point(field_set:SS_Auction.REQ_PURCHASE_ITEM.session_id)
 }
 
-// repeated .SS_Auction.AuctionItemInfo PurchaseInfo = 2;
+// repeated .Game.AuctionItemInfo PurchaseInfo = 2;
 inline int REQ_PURCHASE_ITEM::_internal_purchaseinfo_size() const {
   return purchaseinfo_.size();
 }
 inline int REQ_PURCHASE_ITEM::purchaseinfo_size() const {
   return _internal_purchaseinfo_size();
 }
-inline ::SS_Auction::AuctionItemInfo* REQ_PURCHASE_ITEM::mutable_purchaseinfo(int index) {
+inline ::Game::AuctionItemInfo* REQ_PURCHASE_ITEM::mutable_purchaseinfo(int index) {
   // @@protoc_insertion_point(field_mutable:SS_Auction.REQ_PURCHASE_ITEM.PurchaseInfo)
   return purchaseinfo_.Mutable(index);
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >*
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >*
 REQ_PURCHASE_ITEM::mutable_purchaseinfo() {
   // @@protoc_insertion_point(field_mutable_list:SS_Auction.REQ_PURCHASE_ITEM.PurchaseInfo)
   return &purchaseinfo_;
 }
-inline const ::SS_Auction::AuctionItemInfo& REQ_PURCHASE_ITEM::_internal_purchaseinfo(int index) const {
+inline const ::Game::AuctionItemInfo& REQ_PURCHASE_ITEM::_internal_purchaseinfo(int index) const {
   return purchaseinfo_.Get(index);
 }
-inline const ::SS_Auction::AuctionItemInfo& REQ_PURCHASE_ITEM::purchaseinfo(int index) const {
+inline const ::Game::AuctionItemInfo& REQ_PURCHASE_ITEM::purchaseinfo(int index) const {
   // @@protoc_insertion_point(field_get:SS_Auction.REQ_PURCHASE_ITEM.PurchaseInfo)
   return _internal_purchaseinfo(index);
 }
-inline ::SS_Auction::AuctionItemInfo* REQ_PURCHASE_ITEM::_internal_add_purchaseinfo() {
+inline ::Game::AuctionItemInfo* REQ_PURCHASE_ITEM::_internal_add_purchaseinfo() {
   return purchaseinfo_.Add();
 }
-inline ::SS_Auction::AuctionItemInfo* REQ_PURCHASE_ITEM::add_purchaseinfo() {
+inline ::Game::AuctionItemInfo* REQ_PURCHASE_ITEM::add_purchaseinfo() {
   // @@protoc_insertion_point(field_add:SS_Auction.REQ_PURCHASE_ITEM.PurchaseInfo)
   return _internal_add_purchaseinfo();
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::SS_Auction::AuctionItemInfo >&
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::Game::AuctionItemInfo >&
 REQ_PURCHASE_ITEM::purchaseinfo() const {
   // @@protoc_insertion_point(field_list:SS_Auction.REQ_PURCHASE_ITEM.PurchaseInfo)
   return purchaseinfo_;
@@ -2179,22 +2179,22 @@ REQ_PURCHASE_ITEM::purchaseinfo() const {
 
 // RES_PURCHASE_ITEM
 
-// int32 session_id = 1;
+// int64 session_id = 1;
 inline void RES_PURCHASE_ITEM::clear_session_id() {
-  session_id_ = 0;
+  session_id_ = int64_t{0};
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_PURCHASE_ITEM::_internal_session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_PURCHASE_ITEM::_internal_session_id() const {
   return session_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_PURCHASE_ITEM::session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_PURCHASE_ITEM::session_id() const {
   // @@protoc_insertion_point(field_get:SS_Auction.RES_PURCHASE_ITEM.session_id)
   return _internal_session_id();
 }
-inline void RES_PURCHASE_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void RES_PURCHASE_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   
   session_id_ = value;
 }
-inline void RES_PURCHASE_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void RES_PURCHASE_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_session_id(value);
   // @@protoc_insertion_point(field_set:SS_Auction.RES_PURCHASE_ITEM.session_id)
 }
@@ -2243,22 +2243,22 @@ inline void RES_PURCHASE_ITEM::set_gold(::PROTOBUF_NAMESPACE_ID::int64 value) {
 
 // REQ_RECEIPT_ITEM
 
-// int32 session_id = 1;
+// int64 session_id = 1;
 inline void REQ_RECEIPT_ITEM::clear_session_id() {
-  session_id_ = 0;
+  session_id_ = int64_t{0};
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_RECEIPT_ITEM::_internal_session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 REQ_RECEIPT_ITEM::_internal_session_id() const {
   return session_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 REQ_RECEIPT_ITEM::session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 REQ_RECEIPT_ITEM::session_id() const {
   // @@protoc_insertion_point(field_get:SS_Auction.REQ_RECEIPT_ITEM.session_id)
   return _internal_session_id();
 }
-inline void REQ_RECEIPT_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void REQ_RECEIPT_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   
   session_id_ = value;
 }
-inline void REQ_RECEIPT_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void REQ_RECEIPT_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_session_id(value);
   // @@protoc_insertion_point(field_set:SS_Auction.REQ_RECEIPT_ITEM.session_id)
 }
@@ -2307,22 +2307,22 @@ inline void REQ_RECEIPT_ITEM::set_receipt_id(::PROTOBUF_NAMESPACE_ID::int64 valu
 
 // RES_RECEIPT_ITEM
 
-// int32 session_id = 1;
+// int64 session_id = 1;
 inline void RES_RECEIPT_ITEM::clear_session_id() {
-  session_id_ = 0;
+  session_id_ = int64_t{0};
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_RECEIPT_ITEM::_internal_session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_RECEIPT_ITEM::_internal_session_id() const {
   return session_id_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 RES_RECEIPT_ITEM::session_id() const {
+inline ::PROTOBUF_NAMESPACE_ID::int64 RES_RECEIPT_ITEM::session_id() const {
   // @@protoc_insertion_point(field_get:SS_Auction.RES_RECEIPT_ITEM.session_id)
   return _internal_session_id();
 }
-inline void RES_RECEIPT_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void RES_RECEIPT_ITEM::_internal_set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   
   session_id_ = value;
 }
-inline void RES_RECEIPT_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void RES_RECEIPT_ITEM::set_session_id(::PROTOBUF_NAMESPACE_ID::int64 value) {
   _internal_set_session_id(value);
   // @@protoc_insertion_point(field_set:SS_Auction.RES_RECEIPT_ITEM.session_id)
 }

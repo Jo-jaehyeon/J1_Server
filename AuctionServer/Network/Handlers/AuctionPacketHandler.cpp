@@ -24,10 +24,10 @@ bool Handle_REQ_AUCTION_LIST(SessionPtr& session, SS_Auction::REQ_AUCTION_LIST& 
 	}
 
 	string listQuery = pkt.mylist() ? 
-		"SELECT * FROM auction_listings WHERE expired_at > NOW() AND seller_id = ?  ORDER BY list_id ASC" :
-		"SELECT * FROM auction_listings WHERE expired_at > NOW() ORDER BY list_id ASC LIMIT 100";
+		"SELECT * FROM auction_listings WHERE expired_at > NOW() AND seller_id = ?  ORDER BY listing_id ASC" :
+		"SELECT * FROM auction_listings WHERE expired_at > NOW() ORDER BY listing_id ASC LIMIT 100";
 
-	auto list_result = pkt.mylist() ? SqlUtils::executeQuery(conn->sql_connection, "J1_DB", listQuery, pkt.player_id()) :
+	auto list_result = pkt.mylist() ? SqlUtils::executeQuery(conn->sql_connection, "J1_DB", listQuery, pkt.player_id()) : 
 		SqlUtils::executeQuery(conn->sql_connection, "J1_DB", listQuery);
 
 	SS_Auction::RES_AUCTION_LIST listPkt;
@@ -36,11 +36,11 @@ bool Handle_REQ_AUCTION_LIST(SessionPtr& session, SS_Auction::REQ_AUCTION_LIST& 
 
 	while (list_result->next())
 	{
-		SS_Auction::AuctionItemInfo* temp = listPkt.add_listinfo();
-		temp->set_list_id(list_result->getInt("list_id"));
+		Game::AuctionItemInfo* temp = listPkt.add_listinfo();
+		temp->set_list_id(list_result->getInt("listing_id"));
 		temp->set_player_id(list_result->getInt("seller_id"));
 		temp->set_item_id(list_result->getInt("item_id"));
-		temp->set_count(list_result->getInt("count"));
+		temp->set_count(list_result->getInt("remaining_quantity"));
 		temp->set_price(list_result->getInt("price"));
 		temp->set_expired_at(list_result->getString("expired_at"));
 	}
@@ -70,7 +70,7 @@ bool Handle_REQ_RECEIPT_LIST(SessionPtr& session, SS_Auction::REQ_RECEIPT_LIST& 
 
 	while (list_result->next())
 	{
-		SS_Auction::AuctionItemInfo* temp = listPkt.add_receiptlist();
+		Game::AuctionItemInfo* temp = listPkt.add_receiptlist();
 		temp->set_list_id(list_result->getInt("receipt_id"));
 		temp->set_receipt_type(list_result->getInt("receipt_type"));
 		temp->set_item_id(list_result->getInt("item_id"));
@@ -98,7 +98,7 @@ bool Handle_REQ_REGIST_ITEM(SessionPtr& session, SS_Auction::REQ_REGIST_ITEM& pk
 	string registQuery = "INSERT INTO auction_listings (seller_id, item_id, remaining_quantity, price, expired_at) "
 		"VALUES(?, ?, ?, ?, NOW() + INTERVAL ? HOUR)";
 
-	SS_Auction::AuctionItemInfo Info = pkt.registinfo(0);
+	Game::AuctionItemInfo Info = pkt.registinfo(0);
 	int expiredTime = (Info.expired_at() == "24") ? 24 : 48;
 	int list_result = SqlUtils::executeUpdate(conn->sql_connection, "J1_DB", registQuery, Info.player_id(), Info.item_id(), Info.count(), Info.price(), expiredTime);
 
@@ -134,7 +134,7 @@ bool Handle_REQ_PURCHASE_ITEM(SessionPtr& session, SS_Auction::REQ_PURCHASE_ITEM
 
 		string checkQuery = "SELECT remaining_quantity, price, seller_id, item_id "
 			"FROM auction_listings "
-			"WHERE listing_id = ? AND expire_at > NOW() "
+			"WHERE listing_id = ? AND expired_at > NOW() "
 			"FOR UPDATE";
 		auto check_result = SqlUtils::executeQuery(conn->sql_connection, "J1_DB", checkQuery, info.list_id());
 

@@ -178,6 +178,8 @@
     <ClInclude Include="AuctionServer.h" />
     <ClInclude Include="AuctionSession.h" />
     <ClInclude Include="Network\Handlers\AuctionPacketHandler.h" />
+    <ClInclude Include="Network\Protocol\GameEnum.pb.h" />
+    <ClInclude Include="Network\Protocol\GameStruct.pb.h" />
     <ClInclude Include="Network\Protocol\SS_AuctionEnum.pb.h" />
     <ClInclude Include="Network\Protocol\SS_AuctionProtocol.pb.h" />
     <ClInclude Include="Network\Protocol\SS_AuctionStruct.pb.h" />
@@ -187,6 +189,18 @@
     <ClCompile Include="AuctionServer.cpp" />
     <ClCompile Include="AuctionSession.cpp" />
     <ClCompile Include="Network\Handlers\AuctionPacketHandler.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Network\Protocol\GameEnum.pb.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Network\Protocol\GameStruct.pb.cc">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>

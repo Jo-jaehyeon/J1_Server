@@ -435,4 +435,4 @@ Libraries
 **/*.vcxproj.*
 
 # Don't Commit
-Asio4
+Tools/LoadTest

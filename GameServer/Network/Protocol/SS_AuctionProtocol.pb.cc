@@ -36,7 +36,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_AUCTION_LISTDefaultTypeInte
 constexpr RES_AUCTION_LIST::RES_AUCTION_LIST(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : listinfo_()
-  , session_id_(0)
+  , session_id_(int64_t{0})
   , request_id_(0)
   , mylist_(false){}
 struct RES_AUCTION_LISTDefaultTypeInternal {
@@ -50,8 +50,8 @@ struct RES_AUCTION_LISTDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RES_AUCTION_LISTDefaultTypeInternal _RES_AUCTION_LIST_default_instance_;
 constexpr REQ_RECEIPT_LIST::REQ_RECEIPT_LIST(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : player_id_(uint64_t{0u})
-  , session_id_(0){}
+  : session_id_(int64_t{0})
+  , player_id_(uint64_t{0u}){}
 struct REQ_RECEIPT_LISTDefaultTypeInternal {
   constexpr REQ_RECEIPT_LISTDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -64,7 +64,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_RECEIPT_LISTDefaultTypeInte
 constexpr RES_RECEIPT_LIST::RES_RECEIPT_LIST(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : receiptlist_()
-  , session_id_(0){}
+  , session_id_(int64_t{0}){}
 struct RES_RECEIPT_LISTDefaultTypeInternal {
   constexpr RES_RECEIPT_LISTDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -77,7 +77,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RES_RECEIPT_LISTDefaultTypeInte
 constexpr REQ_REGIST_ITEM::REQ_REGIST_ITEM(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : registinfo_()
-  , session_id_(0){}
+  , session_id_(int64_t{0}){}
 struct REQ_REGIST_ITEMDefaultTypeInternal {
   constexpr REQ_REGIST_ITEMDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -89,7 +89,7 @@ struct REQ_REGIST_ITEMDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_REGIST_ITEMDefaultTypeInternal _REQ_REGIST_ITEM_default_instance_;
 constexpr RES_REGIST_ITEM::RES_REGIST_ITEM(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : session_id_(0)
+  : session_id_(int64_t{0})
   , result_(false){}
 struct RES_REGIST_ITEMDefaultTypeInternal {
   constexpr RES_REGIST_ITEMDefaultTypeInternal()
@@ -103,7 +103,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RES_REGIST_ITEMDefaultTypeInter
 constexpr REQ_PURCHASE_ITEM::REQ_PURCHASE_ITEM(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
   : purchaseinfo_()
-  , session_id_(0){}
+  , session_id_(int64_t{0}){}
 struct REQ_PURCHASE_ITEMDefaultTypeInternal {
   constexpr REQ_PURCHASE_ITEMDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -115,9 +115,9 @@ struct REQ_PURCHASE_ITEMDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_PURCHASE_ITEMDefaultTypeInternal _REQ_PURCHASE_ITEM_default_instance_;
 constexpr RES_PURCHASE_ITEM::RES_PURCHASE_ITEM(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : session_id_(0)
-  , result_(false)
-  , gold_(int64_t{0}){}
+  : session_id_(int64_t{0})
+  , gold_(int64_t{0})
+  , result_(false){}
 struct RES_PURCHASE_ITEMDefaultTypeInternal {
   constexpr RES_PURCHASE_ITEMDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -129,9 +129,9 @@ struct RES_PURCHASE_ITEMDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT RES_PURCHASE_ITEMDefaultTypeInternal _RES_PURCHASE_ITEM_default_instance_;
 constexpr REQ_RECEIPT_ITEM::REQ_RECEIPT_ITEM(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : player_id_(uint64_t{0u})
-  , receipt_id_(int64_t{0})
-  , session_id_(0){}
+  : session_id_(int64_t{0})
+  , player_id_(uint64_t{0u})
+  , receipt_id_(int64_t{0}){}
 struct REQ_RECEIPT_ITEMDefaultTypeInternal {
   constexpr REQ_RECEIPT_ITEMDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -143,10 +143,10 @@ struct REQ_RECEIPT_ITEMDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT REQ_RECEIPT_ITEMDefaultTypeInternal _REQ_RECEIPT_ITEM_default_instance_;
 constexpr RES_RECEIPT_ITEM::RES_RECEIPT_ITEM(
   ::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized)
-  : receipt_id_(int64_t{0})
-  , session_id_(0)
-  , result_(false)
-  , gold_(int64_t{0}){}
+  : session_id_(int64_t{0})
+  , receipt_id_(int64_t{0})
+  , gold_(int64_t{0})
+  , result_(false){}
 struct RES_RECEIPT_ITEMDefaultTypeInternal {
   constexpr RES_RECEIPT_ITEMDefaultTypeInternal()
     : _instance(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized{}) {}
@@ -270,37 +270,37 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_SS_5fAuctionProtocol_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\030SS_AuctionProtocol.proto\022\nSS_Auction\032\024"
-  "SS_AuctionEnum.proto\032\026SS_AuctionStruct.p"
-  "roto\"r\n\020REQ_AUCTION_LIST\022\022\n\nsession_id\030\001"
-  " \001(\003\022\022\n\nrequest_id\030\002 \001(\005\022\021\n\tplayer_id\030\003 "
-  "\001(\005\022\023\n\013search_item\030\004 \001(\t\022\016\n\006myList\030\005 \001(\010"
-  "\"y\n\020RES_AUCTION_LIST\022\022\n\nsession_id\030\001 \001(\005"
-  "\022\022\n\nrequest_id\030\002 \001(\005\022-\n\010ListInfo\030\003 \003(\0132\033"
-  ".SS_Auction.AuctionItemInfo\022\016\n\006myList\030\004 "
-  "\001(\010\"9\n\020REQ_RECEIPT_LIST\022\022\n\nsession_id\030\001 "
-  "\001(\005\022\021\n\tplayer_id\030\002 \001(\004\"X\n\020RES_RECEIPT_LI"
-  "ST\022\022\n\nsession_id\030\001 \001(\005\0220\n\013ReceiptList\030\002 "
-  "\003(\0132\033.SS_Auction.AuctionItemInfo\"V\n\017REQ_"
-  "REGIST_ITEM\022\022\n\nsession_id\030\001 \001(\005\022/\n\nRegis"
-  "tInfo\030\002 \003(\0132\033.SS_Auction.AuctionItemInfo"
-  "\"5\n\017RES_REGIST_ITEM\022\022\n\nsession_id\030\001 \001(\005\022"
-  "\016\n\006result\030\002 \001(\010\"Z\n\021REQ_PURCHASE_ITEM\022\022\n\n"
-  "session_id\030\001 \001(\005\0221\n\014PurchaseInfo\030\002 \003(\0132\033"
-  ".SS_Auction.AuctionItemInfo\"E\n\021RES_PURCH"
-  "ASE_ITEM\022\022\n\nsession_id\030\001 \001(\005\022\016\n\006result\030\002"
-  " \001(\010\022\014\n\004gold\030\003 \001(\003\"M\n\020REQ_RECEIPT_ITEM\022\022"
-  "\n\nsession_id\030\001 \001(\005\022\021\n\tplayer_id\030\002 \001(\004\022\022\n"
-  "\nreceipt_id\030\003 \001(\003\"X\n\020RES_RECEIPT_ITEM\022\022\n"
-  "\nsession_id\030\001 \001(\005\022\022\n\nreceipt_id\030\002 \001(\003\022\016\n"
-  "\006result\030\003 \001(\010\022\014\n\004gold\030\004 \001(\003b\006proto3"
+  "SS_AuctionEnum.proto\032\020GameStruct.proto\"r"
+  "\n\020REQ_AUCTION_LIST\022\022\n\nsession_id\030\001 \001(\003\022\022"
+  "\n\nrequest_id\030\002 \001(\005\022\021\n\tplayer_id\030\003 \001(\005\022\023\n"
+  "\013search_item\030\004 \001(\t\022\016\n\006myList\030\005 \001(\010\"s\n\020RE"
+  "S_AUCTION_LIST\022\022\n\nsession_id\030\001 \001(\003\022\022\n\nre"
+  "quest_id\030\002 \001(\005\022\'\n\010ListInfo\030\003 \003(\0132\025.Game."
+  "AuctionItemInfo\022\016\n\006myList\030\004 \001(\010\"9\n\020REQ_R"
+  "ECEIPT_LIST\022\022\n\nsession_id\030\001 \001(\003\022\021\n\tplaye"
+  "r_id\030\002 \001(\004\"R\n\020RES_RECEIPT_LIST\022\022\n\nsessio"
+  "n_id\030\001 \001(\003\022*\n\013ReceiptList\030\002 \003(\0132\025.Game.A"
+  "uctionItemInfo\"P\n\017REQ_REGIST_ITEM\022\022\n\nses"
+  "sion_id\030\001 \001(\003\022)\n\nRegistInfo\030\002 \003(\0132\025.Game"
+  ".AuctionItemInfo\"5\n\017RES_REGIST_ITEM\022\022\n\ns"
+  "ession_id\030\001 \001(\003\022\016\n\006result\030\002 \001(\010\"T\n\021REQ_P"
+  "URCHASE_ITEM\022\022\n\nsession_id\030\001 \001(\003\022+\n\014Purc"
+  "haseInfo\030\002 \003(\0132\025.Game.AuctionItemInfo\"E\n"
+  "\021RES_PURCHASE_ITEM\022\022\n\nsession_id\030\001 \001(\003\022\016"
+  "\n\006result\030\002 \001(\010\022\014\n\004gold\030\003 \001(\003\"M\n\020REQ_RECE"
+  "IPT_ITEM\022\022\n\nsession_id\030\001 \001(\003\022\021\n\tplayer_i"
+  "d\030\002 \001(\004\022\022\n\nreceipt_id\030\003 \001(\003\"X\n\020RES_RECEI"
+  "PT_ITEM\022\022\n\nsession_id\030\001 \001(\003\022\022\n\nreceipt_i"
+  "d\030\002 \001(\003\022\016\n\006result\030\003 \001(\010\022\014\n\004gold\030\004 \001(\003b\006p"
+  "roto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_SS_5fAuctionProtocol_2eproto_deps[2] = {
+  &::descriptor_table_GameStruct_2eproto,
   &::descriptor_table_SS_5fAuctionEnum_2eproto,
-  &::descriptor_table_SS_5fAuctionStruct_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_SS_5fAuctionProtocol_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_SS_5fAuctionProtocol_2eproto = {
-  false, false, 955, descriptor_table_protodef_SS_5fAuctionProtocol_2eproto, "SS_AuctionProtocol.proto", 
+  false, false, 925, descriptor_table_protodef_SS_5fAuctionProtocol_2eproto, "SS_AuctionProtocol.proto", 
   &descriptor_table_SS_5fAuctionProtocol_2eproto_once, descriptor_table_SS_5fAuctionProtocol_2eproto_deps, 2, 10,
   schemas, file_default_instances, TableStruct_SS_5fAuctionProtocol_2eproto::offsets,
   file_level_metadata_SS_5fAuctionProtocol_2eproto, file_level_enum_descriptors_SS_5fAuctionProtocol_2eproto, file_level_service_descriptors_SS_5fAuctionProtocol_2eproto,
@@ -696,7 +696,7 @@ const char* RES_AUCTION_LIST::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 session_id = 1;
+      // int64 session_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -710,7 +710,7 @@ const char* RES_AUCTION_LIST::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .SS_Auction.AuctionItemInfo ListInfo = 3;
+      // repeated .Game.AuctionItemInfo ListInfo = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
           ptr -= 1;
@@ -758,10 +758,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   if (this->session_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_session_id(), target);
   }
 
   // int32 request_id = 2;
@@ -770,7 +770,7 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(2, this->_internal_request_id(), target);
   }
 
-  // repeated .SS_Auction.AuctionItemInfo ListInfo = 3;
+  // repeated .Game.AuctionItemInfo ListInfo = 3;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_listinfo_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -800,17 +800,17 @@ size_t RES_AUCTION_LIST::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .SS_Auction.AuctionItemInfo ListInfo = 3;
+  // repeated .Game.AuctionItemInfo ListInfo = 3;
   total_size += 1UL * this->_internal_listinfo_size();
   for (const auto& msg : this->listinfo_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   if (this->session_id() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
         this->_internal_session_id());
   }
 
@@ -920,17 +920,17 @@ REQ_RECEIPT_LIST::REQ_RECEIPT_LIST(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 REQ_RECEIPT_LIST::REQ_RECEIPT_LIST(const REQ_RECEIPT_LIST& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&player_id_, &from.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&session_id_) -
-    reinterpret_cast<char*>(&player_id_)) + sizeof(session_id_));
+  ::memcpy(&session_id_, &from.session_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&player_id_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(player_id_));
   // @@protoc_insertion_point(copy_constructor:SS_Auction.REQ_RECEIPT_LIST)
 }
 
 void REQ_RECEIPT_LIST::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&player_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&session_id_) -
-    reinterpret_cast<char*>(&player_id_)) + sizeof(session_id_));
+    reinterpret_cast<char*>(&session_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&player_id_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(player_id_));
 }
 
 REQ_RECEIPT_LIST::~REQ_RECEIPT_LIST() {
@@ -959,9 +959,9 @@ void REQ_RECEIPT_LIST::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&player_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&session_id_) -
-      reinterpret_cast<char*>(&player_id_)) + sizeof(session_id_));
+  ::memset(&session_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&player_id_) -
+      reinterpret_cast<char*>(&session_id_)) + sizeof(player_id_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -971,7 +971,7 @@ const char* REQ_RECEIPT_LIST::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 session_id = 1;
+      // int64 session_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -1014,10 +1014,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   if (this->session_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_session_id(), target);
   }
 
   // uint64 player_id = 2;
@@ -1042,18 +1042,18 @@ size_t REQ_RECEIPT_LIST::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // int64 session_id = 1;
+  if (this->session_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_session_id());
+  }
+
   // uint64 player_id = 2;
   if (this->player_id() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt64Size(
         this->_internal_player_id());
-  }
-
-  // int32 session_id = 1;
-  if (this->session_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_session_id());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -1087,11 +1087,11 @@ void REQ_RECEIPT_LIST::MergeFrom(const REQ_RECEIPT_LIST& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.player_id() != 0) {
-    _internal_set_player_id(from._internal_player_id());
-  }
   if (from.session_id() != 0) {
     _internal_set_session_id(from._internal_session_id());
+  }
+  if (from.player_id() != 0) {
+    _internal_set_player_id(from._internal_player_id());
   }
 }
 
@@ -1117,11 +1117,11 @@ void REQ_RECEIPT_LIST::InternalSwap(REQ_RECEIPT_LIST* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(REQ_RECEIPT_LIST, session_id_)
-      + sizeof(REQ_RECEIPT_LIST::session_id_)
-      - PROTOBUF_FIELD_OFFSET(REQ_RECEIPT_LIST, player_id_)>(
-          reinterpret_cast<char*>(&player_id_),
-          reinterpret_cast<char*>(&other->player_id_));
+      PROTOBUF_FIELD_OFFSET(REQ_RECEIPT_LIST, player_id_)
+      + sizeof(REQ_RECEIPT_LIST::player_id_)
+      - PROTOBUF_FIELD_OFFSET(REQ_RECEIPT_LIST, session_id_)>(
+          reinterpret_cast<char*>(&session_id_),
+          reinterpret_cast<char*>(&other->session_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata REQ_RECEIPT_LIST::GetMetadata() const {
@@ -1155,7 +1155,7 @@ RES_RECEIPT_LIST::RES_RECEIPT_LIST(const RES_RECEIPT_LIST& from)
 }
 
 void RES_RECEIPT_LIST::SharedCtor() {
-session_id_ = 0;
+session_id_ = int64_t{0};
 }
 
 RES_RECEIPT_LIST::~RES_RECEIPT_LIST() {
@@ -1185,7 +1185,7 @@ void RES_RECEIPT_LIST::Clear() {
   (void) cached_has_bits;
 
   receiptlist_.Clear();
-  session_id_ = 0;
+  session_id_ = int64_t{0};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1195,14 +1195,14 @@ const char* RES_RECEIPT_LIST::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 session_id = 1;
+      // int64 session_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .SS_Auction.AuctionItemInfo ReceiptList = 2;
+      // repeated .Game.AuctionItemInfo ReceiptList = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -1243,13 +1243,13 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   if (this->session_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_session_id(), target);
   }
 
-  // repeated .SS_Auction.AuctionItemInfo ReceiptList = 2;
+  // repeated .Game.AuctionItemInfo ReceiptList = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_receiptlist_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -1273,17 +1273,17 @@ size_t RES_RECEIPT_LIST::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .SS_Auction.AuctionItemInfo ReceiptList = 2;
+  // repeated .Game.AuctionItemInfo ReceiptList = 2;
   total_size += 1UL * this->_internal_receiptlist_size();
   for (const auto& msg : this->receiptlist_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   if (this->session_id() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
         this->_internal_session_id());
   }
 
@@ -1380,7 +1380,7 @@ REQ_REGIST_ITEM::REQ_REGIST_ITEM(const REQ_REGIST_ITEM& from)
 }
 
 void REQ_REGIST_ITEM::SharedCtor() {
-session_id_ = 0;
+session_id_ = int64_t{0};
 }
 
 REQ_REGIST_ITEM::~REQ_REGIST_ITEM() {
@@ -1410,7 +1410,7 @@ void REQ_REGIST_ITEM::Clear() {
   (void) cached_has_bits;
 
   registinfo_.Clear();
-  session_id_ = 0;
+  session_id_ = int64_t{0};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1420,14 +1420,14 @@ const char* REQ_REGIST_ITEM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 session_id = 1;
+      // int64 session_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .SS_Auction.AuctionItemInfo RegistInfo = 2;
+      // repeated .Game.AuctionItemInfo RegistInfo = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -1468,13 +1468,13 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   if (this->session_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_session_id(), target);
   }
 
-  // repeated .SS_Auction.AuctionItemInfo RegistInfo = 2;
+  // repeated .Game.AuctionItemInfo RegistInfo = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_registinfo_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -1498,17 +1498,17 @@ size_t REQ_REGIST_ITEM::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .SS_Auction.AuctionItemInfo RegistInfo = 2;
+  // repeated .Game.AuctionItemInfo RegistInfo = 2;
   total_size += 1UL * this->_internal_registinfo_size();
   for (const auto& msg : this->registinfo_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   if (this->session_id() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
         this->_internal_session_id());
   }
 
@@ -1646,7 +1646,7 @@ const char* RES_REGIST_ITEM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPAC
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 session_id = 1;
+      // int64 session_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -1689,10 +1689,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   if (this->session_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_session_id(), target);
   }
 
   // bool result = 2;
@@ -1717,10 +1717,10 @@ size_t RES_REGIST_ITEM::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   if (this->session_id() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
         this->_internal_session_id());
   }
 
@@ -1828,7 +1828,7 @@ REQ_PURCHASE_ITEM::REQ_PURCHASE_ITEM(const REQ_PURCHASE_ITEM& from)
 }
 
 void REQ_PURCHASE_ITEM::SharedCtor() {
-session_id_ = 0;
+session_id_ = int64_t{0};
 }
 
 REQ_PURCHASE_ITEM::~REQ_PURCHASE_ITEM() {
@@ -1858,7 +1858,7 @@ void REQ_PURCHASE_ITEM::Clear() {
   (void) cached_has_bits;
 
   purchaseinfo_.Clear();
-  session_id_ = 0;
+  session_id_ = int64_t{0};
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1868,14 +1868,14 @@ const char* REQ_PURCHASE_ITEM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 session_id = 1;
+      // int64 session_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // repeated .SS_Auction.AuctionItemInfo PurchaseInfo = 2;
+      // repeated .Game.AuctionItemInfo PurchaseInfo = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
           ptr -= 1;
@@ -1916,13 +1916,13 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   if (this->session_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_session_id(), target);
   }
 
-  // repeated .SS_Auction.AuctionItemInfo PurchaseInfo = 2;
+  // repeated .Game.AuctionItemInfo PurchaseInfo = 2;
   for (unsigned int i = 0,
       n = static_cast<unsigned int>(this->_internal_purchaseinfo_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
@@ -1946,17 +1946,17 @@ size_t REQ_PURCHASE_ITEM::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // repeated .SS_Auction.AuctionItemInfo PurchaseInfo = 2;
+  // repeated .Game.AuctionItemInfo PurchaseInfo = 2;
   total_size += 1UL * this->_internal_purchaseinfo_size();
   for (const auto& msg : this->purchaseinfo_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   if (this->session_id() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
         this->_internal_session_id());
   }
 
@@ -2044,16 +2044,16 @@ RES_PURCHASE_ITEM::RES_PURCHASE_ITEM(const RES_PURCHASE_ITEM& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&session_id_, &from.session_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&gold_) -
-    reinterpret_cast<char*>(&session_id_)) + sizeof(gold_));
+    static_cast<size_t>(reinterpret_cast<char*>(&result_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(result_));
   // @@protoc_insertion_point(copy_constructor:SS_Auction.RES_PURCHASE_ITEM)
 }
 
 void RES_PURCHASE_ITEM::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
     reinterpret_cast<char*>(&session_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&gold_) -
-    reinterpret_cast<char*>(&session_id_)) + sizeof(gold_));
+    0, static_cast<size_t>(reinterpret_cast<char*>(&result_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(result_));
 }
 
 RES_PURCHASE_ITEM::~RES_PURCHASE_ITEM() {
@@ -2083,8 +2083,8 @@ void RES_PURCHASE_ITEM::Clear() {
   (void) cached_has_bits;
 
   ::memset(&session_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&gold_) -
-      reinterpret_cast<char*>(&session_id_)) + sizeof(gold_));
+      reinterpret_cast<char*>(&result_) -
+      reinterpret_cast<char*>(&session_id_)) + sizeof(result_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2094,7 +2094,7 @@ const char* RES_PURCHASE_ITEM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 session_id = 1;
+      // int64 session_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2144,10 +2144,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   if (this->session_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_session_id(), target);
   }
 
   // bool result = 2;
@@ -2178,16 +2178,11 @@ size_t RES_PURCHASE_ITEM::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   if (this->session_id() != 0) {
     total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
         this->_internal_session_id());
-  }
-
-  // bool result = 2;
-  if (this->result() != 0) {
-    total_size += 1 + 1;
   }
 
   // int64 gold = 3;
@@ -2195,6 +2190,11 @@ size_t RES_PURCHASE_ITEM::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
         this->_internal_gold());
+  }
+
+  // bool result = 2;
+  if (this->result() != 0) {
+    total_size += 1 + 1;
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2231,11 +2231,11 @@ void RES_PURCHASE_ITEM::MergeFrom(const RES_PURCHASE_ITEM& from) {
   if (from.session_id() != 0) {
     _internal_set_session_id(from._internal_session_id());
   }
-  if (from.result() != 0) {
-    _internal_set_result(from._internal_result());
-  }
   if (from.gold() != 0) {
     _internal_set_gold(from._internal_gold());
+  }
+  if (from.result() != 0) {
+    _internal_set_result(from._internal_result());
   }
 }
 
@@ -2261,8 +2261,8 @@ void RES_PURCHASE_ITEM::InternalSwap(RES_PURCHASE_ITEM* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RES_PURCHASE_ITEM, gold_)
-      + sizeof(RES_PURCHASE_ITEM::gold_)
+      PROTOBUF_FIELD_OFFSET(RES_PURCHASE_ITEM, result_)
+      + sizeof(RES_PURCHASE_ITEM::result_)
       - PROTOBUF_FIELD_OFFSET(RES_PURCHASE_ITEM, session_id_)>(
           reinterpret_cast<char*>(&session_id_),
           reinterpret_cast<char*>(&other->session_id_));
@@ -2289,17 +2289,17 @@ REQ_RECEIPT_ITEM::REQ_RECEIPT_ITEM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 REQ_RECEIPT_ITEM::REQ_RECEIPT_ITEM(const REQ_RECEIPT_ITEM& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&player_id_, &from.player_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&session_id_) -
-    reinterpret_cast<char*>(&player_id_)) + sizeof(session_id_));
+  ::memcpy(&session_id_, &from.session_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&receipt_id_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(receipt_id_));
   // @@protoc_insertion_point(copy_constructor:SS_Auction.REQ_RECEIPT_ITEM)
 }
 
 void REQ_RECEIPT_ITEM::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&player_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&session_id_) -
-    reinterpret_cast<char*>(&player_id_)) + sizeof(session_id_));
+    reinterpret_cast<char*>(&session_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&receipt_id_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(receipt_id_));
 }
 
 REQ_RECEIPT_ITEM::~REQ_RECEIPT_ITEM() {
@@ -2328,9 +2328,9 @@ void REQ_RECEIPT_ITEM::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&player_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&session_id_) -
-      reinterpret_cast<char*>(&player_id_)) + sizeof(session_id_));
+  ::memset(&session_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&receipt_id_) -
+      reinterpret_cast<char*>(&session_id_)) + sizeof(receipt_id_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2340,7 +2340,7 @@ const char* REQ_RECEIPT_ITEM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 session_id = 1;
+      // int64 session_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2390,10 +2390,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   if (this->session_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_session_id(), target);
   }
 
   // uint64 player_id = 2;
@@ -2424,6 +2424,13 @@ size_t REQ_RECEIPT_ITEM::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // int64 session_id = 1;
+  if (this->session_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_session_id());
+  }
+
   // uint64 player_id = 2;
   if (this->player_id() != 0) {
     total_size += 1 +
@@ -2436,13 +2443,6 @@ size_t REQ_RECEIPT_ITEM::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
         this->_internal_receipt_id());
-  }
-
-  // int32 session_id = 1;
-  if (this->session_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_session_id());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2476,14 +2476,14 @@ void REQ_RECEIPT_ITEM::MergeFrom(const REQ_RECEIPT_ITEM& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  if (from.session_id() != 0) {
+    _internal_set_session_id(from._internal_session_id());
+  }
   if (from.player_id() != 0) {
     _internal_set_player_id(from._internal_player_id());
   }
   if (from.receipt_id() != 0) {
     _internal_set_receipt_id(from._internal_receipt_id());
-  }
-  if (from.session_id() != 0) {
-    _internal_set_session_id(from._internal_session_id());
   }
 }
 
@@ -2509,11 +2509,11 @@ void REQ_RECEIPT_ITEM::InternalSwap(REQ_RECEIPT_ITEM* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(REQ_RECEIPT_ITEM, session_id_)
-      + sizeof(REQ_RECEIPT_ITEM::session_id_)
-      - PROTOBUF_FIELD_OFFSET(REQ_RECEIPT_ITEM, player_id_)>(
-          reinterpret_cast<char*>(&player_id_),
-          reinterpret_cast<char*>(&other->player_id_));
+      PROTOBUF_FIELD_OFFSET(REQ_RECEIPT_ITEM, receipt_id_)
+      + sizeof(REQ_RECEIPT_ITEM::receipt_id_)
+      - PROTOBUF_FIELD_OFFSET(REQ_RECEIPT_ITEM, session_id_)>(
+          reinterpret_cast<char*>(&session_id_),
+          reinterpret_cast<char*>(&other->session_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata REQ_RECEIPT_ITEM::GetMetadata() const {
@@ -2537,17 +2537,17 @@ RES_RECEIPT_ITEM::RES_RECEIPT_ITEM(::PROTOBUF_NAMESPACE_ID::Arena* arena)
 RES_RECEIPT_ITEM::RES_RECEIPT_ITEM(const RES_RECEIPT_ITEM& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&receipt_id_, &from.receipt_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&gold_) -
-    reinterpret_cast<char*>(&receipt_id_)) + sizeof(gold_));
+  ::memcpy(&session_id_, &from.session_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&result_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(result_));
   // @@protoc_insertion_point(copy_constructor:SS_Auction.RES_RECEIPT_ITEM)
 }
 
 void RES_RECEIPT_ITEM::SharedCtor() {
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-    reinterpret_cast<char*>(&receipt_id_) - reinterpret_cast<char*>(this)),
-    0, static_cast<size_t>(reinterpret_cast<char*>(&gold_) -
-    reinterpret_cast<char*>(&receipt_id_)) + sizeof(gold_));
+    reinterpret_cast<char*>(&session_id_) - reinterpret_cast<char*>(this)),
+    0, static_cast<size_t>(reinterpret_cast<char*>(&result_) -
+    reinterpret_cast<char*>(&session_id_)) + sizeof(result_));
 }
 
 RES_RECEIPT_ITEM::~RES_RECEIPT_ITEM() {
@@ -2576,9 +2576,9 @@ void RES_RECEIPT_ITEM::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  ::memset(&receipt_id_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&gold_) -
-      reinterpret_cast<char*>(&receipt_id_)) + sizeof(gold_));
+  ::memset(&session_id_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&result_) -
+      reinterpret_cast<char*>(&session_id_)) + sizeof(result_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -2588,7 +2588,7 @@ const char* RES_RECEIPT_ITEM::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPA
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // int32 session_id = 1;
+      // int64 session_id = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
           session_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -2645,10 +2645,10 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // int32 session_id = 1;
+  // int64 session_id = 1;
   if (this->session_id() != 0) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_session_id(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(1, this->_internal_session_id(), target);
   }
 
   // int64 receipt_id = 2;
@@ -2685,6 +2685,13 @@ size_t RES_RECEIPT_ITEM::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // int64 session_id = 1;
+  if (this->session_id() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
+        this->_internal_session_id());
+  }
+
   // int64 receipt_id = 2;
   if (this->receipt_id() != 0) {
     total_size += 1 +
@@ -2692,23 +2699,16 @@ size_t RES_RECEIPT_ITEM::ByteSizeLong() const {
         this->_internal_receipt_id());
   }
 
-  // int32 session_id = 1;
-  if (this->session_id() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
-        this->_internal_session_id());
-  }
-
-  // bool result = 3;
-  if (this->result() != 0) {
-    total_size += 1 + 1;
-  }
-
   // int64 gold = 4;
   if (this->gold() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
         this->_internal_gold());
+  }
+
+  // bool result = 3;
+  if (this->result() != 0) {
+    total_size += 1 + 1;
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2742,17 +2742,17 @@ void RES_RECEIPT_ITEM::MergeFrom(const RES_RECEIPT_ITEM& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.receipt_id() != 0) {
-    _internal_set_receipt_id(from._internal_receipt_id());
-  }
   if (from.session_id() != 0) {
     _internal_set_session_id(from._internal_session_id());
   }
-  if (from.result() != 0) {
-    _internal_set_result(from._internal_result());
+  if (from.receipt_id() != 0) {
+    _internal_set_receipt_id(from._internal_receipt_id());
   }
   if (from.gold() != 0) {
     _internal_set_gold(from._internal_gold());
+  }
+  if (from.result() != 0) {
+    _internal_set_result(from._internal_result());
   }
 }
 
@@ -2778,11 +2778,11 @@ void RES_RECEIPT_ITEM::InternalSwap(RES_RECEIPT_ITEM* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(RES_RECEIPT_ITEM, gold_)
-      + sizeof(RES_RECEIPT_ITEM::gold_)
-      - PROTOBUF_FIELD_OFFSET(RES_RECEIPT_ITEM, receipt_id_)>(
-          reinterpret_cast<char*>(&receipt_id_),
-          reinterpret_cast<char*>(&other->receipt_id_));
+      PROTOBUF_FIELD_OFFSET(RES_RECEIPT_ITEM, result_)
+      + sizeof(RES_RECEIPT_ITEM::result_)
+      - PROTOBUF_FIELD_OFFSET(RES_RECEIPT_ITEM, session_id_)>(
+          reinterpret_cast<char*>(&session_id_),
+          reinterpret_cast<char*>(&other->session_id_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata RES_RECEIPT_ITEM::GetMetadata() const {

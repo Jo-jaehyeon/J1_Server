@@ -14,22 +14,12 @@ bool Handle_SS_Auction_INVALID(SessionPtr& session, boost::asio::mutable_buffer&
 
 bool Handle_RES_AUCTION_LIST(SessionPtr& session, SS_Auction::RES_AUCTION_LIST& pkt)
 {
+	// 두 패킷이 같은 Game::AuctionItemInfo를 쓰므로 복사 없이 Swap
 	Game::RES_AUCTION_LIST listPkt;
 	listPkt.set_mylist(pkt.mylist());
+	listPkt.mutable_itemlist()->Swap(pkt.mutable_listinfo());
 
-	for (auto row : pkt.listinfo())
-	{
-		Game::AuctionItemInfo* temp = listPkt.add_itemlist();
-		temp->set_list_id(row.list_id());
-		temp->set_item_id(row.item_id());
-		temp->set_count(row.count());
-		temp->set_price(row.price());
-		temp->set_expired_at(row.expired_at());
-	}
-
-	int session_id = pkt.session_id();
-	
-	if (GameSessionPtr _Session = GameSessionManager::Instance().Find(session_id))
+	if (GameSessionPtr _Session = GameSessionManager::Instance().Find(pkt.session_id()))
 		_Session->SendPacket(listPkt, Game::PacketType::PKT_RES_AUCTION_LIST);
 
 	return true;
@@ -38,20 +28,9 @@ bool Handle_RES_AUCTION_LIST(SessionPtr& session, SS_Auction::RES_AUCTION_LIST& 
 bool Handle_RES_RECEIPT_LIST(SessionPtr& session, SS_Auction::RES_RECEIPT_LIST& pkt)
 {
 	Game::RES_RECEIPT_LIST listPkt;
-	
-	for (auto row : pkt.receiptlist())
-	{
-		Game::AuctionItemInfo* temp = listPkt.add_receiptlist();
-		temp->set_list_id(row.list_id());
-		temp->set_receipt_type(row.receipt_type());
-		temp->set_item_id(row.item_id());
-		temp->set_count(row.count());
-		temp->set_price(row.price());
-	}
+	listPkt.mutable_receiptlist()->Swap(pkt.mutable_receiptlist());
 
-	int session_id = pkt.session_id();
-
-	if (GameSessionPtr _Session = GameSessionManager::Instance().Find(session_id))
+	if (GameSessionPtr _Session = GameSessionManager::Instance().Find(pkt.session_id()))
 		_Session->SendPacket(listPkt, Game::PacketType::PKT_RES_RECEIPT_LIST);
 
 	return true;
@@ -79,7 +58,7 @@ bool Handle_RES_PURCHASE_ITEM(SessionPtr& session, SS_Auction::RES_PURCHASE_ITEM
 	int session_id = pkt.session_id();
 
 	if (GameSessionPtr _Session = GameSessionManager::Instance().Find(session_id))
-		_Session->SendPacket(purchasePkt, Game::PacketType::PKT_RES_REGIST_ITEM);
+		_Session->SendPacket(purchasePkt, Game::PacketType::PKT_RES_PURCHASE_ITEM);
 
 	return true;
 }
