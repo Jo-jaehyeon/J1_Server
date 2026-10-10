@@ -176,7 +176,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AuctionServer.h" />
+    <ClInclude Include="AuctionService.h" />
     <ClInclude Include="AuctionSession.h" />
+    <ClInclude Include="AuctionWorkerPool.h" />
     <ClInclude Include="Network\Handlers\AuctionPacketHandler.h" />
     <ClInclude Include="Network\Protocol\GameEnum.pb.h" />
     <ClInclude Include="Network\Protocol\GameStruct.pb.h" />
@@ -187,7 +189,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AuctionServer.cpp" />
+    <ClCompile Include="AuctionService.cpp" />
     <ClCompile Include="AuctionSession.cpp" />
+    <ClCompile Include="AuctionWorkerPool.cpp" />
     <ClCompile Include="Network\Handlers\AuctionPacketHandler.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>

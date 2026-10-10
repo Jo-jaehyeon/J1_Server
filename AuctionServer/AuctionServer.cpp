@@ -5,6 +5,16 @@
 #include "DB/ConnectionPool.h"
 #include "DB/MySQLConnection.h"
 #include "DB/ConnectionFactory.h"
+#include "AuctionWorkerPool.h"
+
+namespace
+{
+	// 워커 구성: 커넥션 풀 크기 = 읽기 + 쓰기 + 여유분
+	// 쓰기 워커 수는 부하 테스트로 정한다. (4 -> 8 -> 12 -> 16 으로 바꿔 가며 TPS가 꺾이는 지점 확인)
+	constexpr size_t kReadWorkers = 1;
+	constexpr size_t kWriteWorkers = 20;
+	constexpr size_t kSpareConnections = 2;     // 만료 배치 등 나중에 생길 백그라운드 작업용
+}
 
 AuctionServer::AuctionServer(asio::io_context& io_context, int port)
 	: _acceptor(io_context, tcp::endpoint(tcp::v4(), port)),
@@ -46,10 +56,13 @@ int main()
 
 	// DB ConnectionPool 생성
 	std::shared_ptr<active911::MySQLConnectionFactory>connection_factory(new active911::MySQLConnectionFactory("localhost:3306", "root", "OmegaAlpha"));
-	active911::ConnectionPool<active911::MySQLConnection>::Init(10, connection_factory);
+	active911::ConnectionPool<active911::MySQLConnection>::Init(kReadWorkers + kWriteWorkers + kSpareConnections, connection_factory);
 
 	try
 	{
+		// DB 워커 시작 (커넥션을 워커마다 1개씩 고정). 네트워크 io 스레드는 아래 run() 하나뿐이다.
+		AuctionWorkerPool::Instance().Start(kReadWorkers, kWriteWorkers);
+
 		int port = 9003;
 		boost::asio::io_context io_context;
 		AuctionServer s(io_context, port);
@@ -61,6 +74,9 @@ int main()
 	{
 		spdlog::info("Server Exception {}", e.what());
 	}
+
+	// 정상 종료든 예외든 워커는 여기서 정리한다 (큐에 남은 작업을 끝낸 뒤 join)
+	AuctionWorkerPool::Instance().Stop();
 
 	return 0;
 }
