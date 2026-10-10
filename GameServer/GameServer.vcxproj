@@ -196,6 +196,7 @@
     <ClInclude Include="Network\Protocol\SS_AuctionProtocol.pb.h" />
     <ClInclude Include="Network\Protocol\SS_AuctionStruct.pb.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Utils\AuctionCache.h" />
     <ClInclude Include="Utils\GameSessionManager.h" />
     <ClInclude Include="Utils\ObjectUtils.h" />
   </ItemGroup>
@@ -276,6 +277,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Utils\AuctionCache.cpp" />
     <ClCompile Include="Utils\GameSessionManager.cpp" />
     <ClCompile Include="Utils\ObjectUtils.cpp" />
   </ItemGroup>
