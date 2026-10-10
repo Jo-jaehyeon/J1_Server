@@ -66,11 +66,47 @@ void Session::AsyncBodyRead()
 
 void Session::AsyncWrite(const BufferPooledVector& data, size_t size)
 {
-    auto data_ptr = std::make_shared<BufferPooledVector>(data);
+    // 호출 스레드에서 복사해 두고, 쓰기는 strand에 맡긴다
+    EnqueueSend(std::make_shared<const BufferPooledVector>(data));
+}
 
-    async_write(_socket,
-        asio::buffer(data_ptr->data(), data_ptr->size()),
-        bind_executor(_strand, [data_ptr, this, self = shared_from_this()](const boost::system::error_code& error, const size_t bytes_transferred)
+void Session::SendShared(std::shared_ptr<const BufferPooledVector> buffer)
+{
+    if (!buffer || buffer->empty())
+        return;
+
+    EnqueueSend(std::move(buffer));
+}
+
+void Session::EnqueueSend(std::shared_ptr<const BufferPooledVector> data)
+{
+    // strand 안에서 호출되면 바로 실행되고, 다른 스레드에서 호출되면 strand에 예약된다.
+    // -> 같은 소켓에 async_write가 동시에 걸리지 않는다.
+    asio::dispatch(_strand, [this, self = shared_from_this(), data = std::move(data)]() mutable
+        {
+            if (_sendQueue.size() >= MaxSendQueue)
+            {
+                spdlog::warn("{} session send queue overflow -> close", GetSessionId());
+                _sendQueue.clear();
+                _writing = false;
+                Close();
+                return;
+            }
+
+            _sendQueue.push_back(std::move(data));
+            if (!_writing)
+                DoWrite();
+        });
+}
+
+void Session::DoWrite()
+{
+    _writing = true;
+    auto data = _sendQueue.front();
+
+    asio::async_write(_socket,
+        asio::buffer(data->data(), data->size()),
+        asio::bind_executor(_strand, [this, self = shared_from_this(), data](const boost::system::error_code& error, const size_t bytes_transferred)
             {
                 OnWrite(error, bytes_transferred);
             }));
@@ -123,6 +159,15 @@ void Session::OnWrite(const boost::system::error_code& err, size_t bytes_transfe
 {
     if (err)
     {
+        _sendQueue.clear();
+        _writing = false;
         Close();
+        return;
     }
+
+    _sendQueue.pop_front();
+    if (_sendQueue.empty())
+        _writing = false;
+    else
+        DoWrite();
 }

@@ -1,6 +1,6 @@
 ﻿#include "pch.h"
 #include "AuctionSession.h"
-
+#include "Utils/AuctionCache.h"
 #include "Network/Handlers/AuctionServerPacketHandler.h"
 
 AuctionSession::AuctionSession(asio::io_context& io_context)
@@ -55,9 +55,9 @@ void AuctionSession::OnConnect(const boost::system::error_code& err)
 {
 	if (!err)
 	{
+		AuctionCache::Instance().RequestRefresh();
 		AsyncRead();
 		spdlog::info("Connect Auction Start");
-
 	}
 	else
 	{

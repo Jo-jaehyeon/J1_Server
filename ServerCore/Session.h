@@ -17,6 +17,8 @@ public:
 	virtual bool Close();
 	void Send(BufferPooledVector& buffer, size_t size);
 
+	// 이미 만들어진(공유) 패킷 버퍼를 복사 없이 전송 큐에 넣는다. 어느 스레드에서 호출해도 안전하다.
+	void SendShared(std::shared_ptr<const BufferPooledVector> buffer);
 
 	void SetSessionId(uint64 id) { session_id = id; }
 	uint64 GetSessionId() const { return session_id; }
@@ -26,6 +28,10 @@ protected:
 	virtual void AsyncHeaderRead();
 	virtual void AsyncBodyRead();
 	virtual void AsyncWrite(const BufferPooledVector& data, size_t size);
+
+	// 전송 큐 진입점. 호출 스레드와 무관하게 strand 위에서 큐에 쌓고 순서대로 쓴다.
+	void EnqueueSend(std::shared_ptr<const BufferPooledVector> data);
+	void DoWrite();                       // strand 안에서만 호출
 
 	void OnHeaderRead(const boost::system::error_code& err, size_t bytes_transferred);
 	void OnBodyRead(const boost::system::error_code& err, size_t bytes_transferred);
@@ -49,6 +55,11 @@ private:
 	char _sendBuffer[SendBufferSize];
 
 	std::atomic<bool> _closed{ false }; // Close() 중복 실행 방지용
+
+	// 전송 큐: strand 안에서만 접근한다 (락 없음)
+	static constexpr size_t MaxSendQueue = 4096;   // 이 이상 쌓이면 느린 클라이언트로 보고 끊는다
+	std::deque<std::shared_ptr<const BufferPooledVector>> _sendQueue;
+	bool _writing = false;
 
 	uint64 session_id = 0;
 };

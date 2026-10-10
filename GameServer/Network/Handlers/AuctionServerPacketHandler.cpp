@@ -3,6 +3,7 @@
 #include "GamePacketHandler.h"
 #include "GameSession.h"
 #include "Utils/GameSessionManager.h"
+#include "Utils/AuctionCache.h"
 
 SS_AuctionHandlerFunc GSS_AuctionPacketHandler[UINT16_MAX];
 
@@ -14,7 +15,11 @@ bool Handle_SS_Auction_INVALID(SessionPtr& session, boost::asio::mutable_buffer&
 
 bool Handle_RES_AUCTION_LIST(SessionPtr& session, SS_Auction::RES_AUCTION_LIST& pkt)
 {
-	// 두 패킷이 같은 Game::AuctionItemInfo를 쓰므로 복사 없이 Swap
+	if (pkt.session_id() == 0)
+	{
+		AuctionCache::Instance().OnRefreshResponse(pkt);
+		return true;
+	}
 	Game::RES_AUCTION_LIST listPkt;
 	listPkt.set_mylist(pkt.mylist());
 	listPkt.mutable_itemlist()->Swap(pkt.mutable_listinfo());
